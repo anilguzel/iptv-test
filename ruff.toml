@@ -1,0 +1,18 @@
+target-version = "py311"
+line-length = 140
+
+[lint]
+select = ["E", "F", "I", "UP", "B", "RUF"]
+ignore = [
+    "B008",    # function-call-in-default-argument: idiomatic for FastAPI Depends()
+    "B027",    # empty optional lifecycle hook (aclose) on an ABC is intentional
+    "B905",    # zip(x, x[1:]) pairing is intentional; strict= would be wrong
+    "RUF001",  # ambiguous unicode in strings: Turkish text (ı, ş, ç) is intentional
+    "RUF002",  # ambiguous unicode in docstrings: Turkish text is intentional
+    "RUF003",  # ambiguous unicode in comments: Turkish text is intentional
+    "RUF012",  # mutable class defaults are managed via dataclass/pydantic here
+    "UP042",   # (str, Enum) base is intentional and stable for JSON serialisation
+]
+
+[lint.per-file-ignores]
+"tests/*" = ["E402"]  # tests set env vars before importing bist_core

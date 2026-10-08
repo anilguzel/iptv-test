@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "bist-core"
+version = "0.1.0"
+description = "Core library for the BIST Intelligence MVP: providers, deterministic engines, pipeline and persistence."
+requires-python = ">=3.11"
+dependencies = [
+    "pydantic>=2.6",
+    "pydantic-settings>=2.2",
+    "sqlalchemy>=2.0",
+    "httpx>=0.27",
+]
+
+[project.optional-dependencies]
+postgres = ["psycopg[binary]>=3.1"]
+ai = ["anthropic>=0.39"]
+dev = ["pytest>=8.0", "pytest-asyncio>=0.23", "ruff>=0.5"]
+
+[tool.setuptools.packages.find]
+include = ["bist_core*"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["../../tests"]
