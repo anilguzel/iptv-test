@@ -25,9 +25,12 @@ class MockNewsProvider(NewsProvider):
 
     async def get_news(self, symbol: str, *, since: datetime | None = None) -> list[NewsEvent]:
         now = datetime.now(UTC)
+        # Anchor to a stable per-day reference so repeated polls yield identical
+        # timestamps and de-duplicate cleanly, instead of drifting with now().
+        ref = now.replace(hour=12, minute=0, second=0, microsecond=0)
         events: list[NewsEvent] = []
         for minutes_ago, headline, category, importance in _SEED_NEWS.get(symbol.upper(), []):
-            ts = now - timedelta(minutes=minutes_ago)
+            ts = ref - timedelta(minutes=minutes_ago)
             if since and ts < since:
                 continue
             events.append(

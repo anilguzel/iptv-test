@@ -8,10 +8,9 @@ ENV PYTHONUNBUFFERED=1 \
 
 WORKDIR /app
 
-# System deps (psycopg build is covered by the binary wheel).
-RUN apt-get update && apt-get install -y --no-install-recommends curl \
-    && rm -rf /var/lib/apt/lists/*
-
+# No system packages are needed: every Python dependency ships a manylinux
+# wheel (psycopg[binary], uvicorn[standard], etc.), so we avoid apt entirely —
+# which also keeps the image buildable in restricted-egress environments.
 COPY infrastructure/docker/requirements.txt /tmp/requirements.txt
 RUN pip install --upgrade pip && pip install -r /tmp/requirements.txt
 
