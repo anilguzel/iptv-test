@@ -20,6 +20,10 @@ Examples::
     python -m bist_core.research --source stooq --mode timeseries --symbol SMTK --benchmark IWM \\
         --cost-bps 75 --name smtk_timeseries
 
+    # Offline: a folder of CSVs (e.g. Yahoo "Historical Data -> Download"), SMTK.csv + IWM.csv
+    python -m bist_core.research --source csv --csv-dir data --mode timeseries --symbol SMTK \\
+        --benchmark IWM --cost-bps 75 --name smtk_timeseries
+
     # Only after you have finished tuning: open the locked holdout ONCE
     python -m bist_core.research --source bist --segment holdout --unlock-holdout
 
@@ -48,10 +52,14 @@ DEFAULT_REPORT_NAME = "research_latest"
 def _parse(argv: list[str] | None) -> argparse.Namespace:
     p = argparse.ArgumentParser(prog="python -m bist_core.research", description=__doc__,
                                 formatter_class=argparse.RawDescriptionHelpFormatter)
-    p.add_argument("--source", choices=["synthetic", "bist", "stooq"], required=True,
-                   help="synthetic: known-answer data; bist: bist-data-service; stooq: Stooq CSV (e.g. US stocks)")
+    p.add_argument("--source", choices=["synthetic", "bist", "stooq", "csv"], required=True,
+                   help="synthetic: known-answer data; bist: bist-data-service; stooq: Stooq (e.g. US stocks); "
+                        "csv: a folder of <SYMBOL>.csv files (--csv-dir)")
     p.add_argument("--mode", choices=["cross_section", "timeseries"], default="cross_section")
-    p.add_argument("--universe", default="BIST30", help='"BIST30", "SMTK_PEERS" or a comma-separated list')
+    p.add_argument("--universe", default=None,
+                   help='"BIST30", "SMTK_PEERS" or a comma-separated list (default: BIST30 for bist, SMTK_PEERS for '
+                        'stooq, every file for csv)')
+    p.add_argument("--csv-dir", default="data", help="csv source: folder of <SYMBOL>.csv files")
     p.add_argument("--symbol", default=None, help="timeseries mode: the stock (default: first in --universe)")
     p.add_argument("--benchmark", default=None,
                    help="benchmark symbol (default: XU100 for bist, IWM for stooq); falls back if unavailable")
@@ -94,26 +102,42 @@ async def _load(args: argparse.Namespace) -> tuple[dict, list | None, str, dict]
             "data_warning": "SYNTHETIC DATA — validates the method only, not a market result.",
         }
 
-    symbols = resolve_universe(args.universe)
-    if args.mode == "timeseries":
-        symbols = [(args.symbol or symbols[0]).upper()]
     if args.source == "stooq":
         from ..providers.stooq import StooqProvider
 
         provider, benchmark = StooqProvider(get_settings()), args.benchmark or "IWM"
+        default_universe = "SMTK_PEERS"
         warning = "Public end-of-day data (Stooq). Peer list is hand-picked and uses today's listings (survivorship bias)."
+    elif args.source == "csv":
+        from ..providers.csv_ohlcv import CsvDirProvider
+
+        provider, benchmark = CsvDirProvider(args.csv_dir), args.benchmark or "IWM"
+        default_universe = None  # every CSV in the folder except the benchmark
+        warning = f"Local CSV files from {args.csv_dir}; check that prices are split-adjusted."
     else:
         from ..providers.bist_data_service import BistDataServiceProvider
 
         provider, benchmark = BistDataServiceProvider(get_settings()), args.benchmark or "XU100"
+        default_universe = "BIST30"
         warning = "Delayed public data; universe uses today's members (survivorship bias)."
+
+    universe = args.universe or default_universe
+    if universe:
+        symbols = resolve_universe(universe)
+    else:
+        symbols = [s for s in provider.symbols() if s != benchmark.upper()]
+        universe = "csv:" + ",".join(symbols)
+    if args.mode == "timeseries":
+        if not (args.symbol or symbols):
+            raise SystemExit("error: no symbol to analyse (pass --symbol or add CSV files)")
+        symbols = [(args.symbol or symbols[0]).upper()]
     try:
         loaded = await load_daily(provider, symbols, years=args.years, benchmark=benchmark)
     finally:
         await provider.aclose()
     return loaded.daily_by_symbol, loaded.benchmark_daily, benchmark.upper(), {
         "source": provider.name,
-        "universe": args.universe if args.mode == "cross_section" else symbols[0],
+        "universe": universe if args.mode == "cross_section" else symbols[0],
         "requested_symbols": symbols,
         "missing": loaded.missing,
         "jump_warnings": detect_jumps(loaded.daily_by_symbol),

@@ -15,8 +15,9 @@ apps/web/out/
 .next/
 *.tsbuildinfo
 
-# Research reports (generated)
+# Research reports (generated) and downloaded market data
 reports/
+data/*.csv
 
 # Env
 .env

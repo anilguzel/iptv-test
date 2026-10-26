@@ -166,6 +166,15 @@ python -m bist_core.research --source stooq --universe SMTK_PEERS --benchmark IW
 python -m bist_core.research --source stooq --mode timeseries --symbol SMTK --benchmark IWM --cost-bps 75 --name smtk_timeseries
 ```
 
+No network access to Stooq? Use local CSV files instead (e.g. Yahoo Finance
+→ *Historical Data* → *Download*), one `<SYMBOL>.csv` per stock plus the
+benchmark (e.g. `IWM.csv`). An `Adj Close` column is applied automatically:
+
+```bash
+python -m bist_core.research --source csv --csv-dir data --mode timeseries --symbol SMTK --benchmark IWM --cost-bps 75 --name smtk_timeseries
+python -m bist_core.research --source csv --csv-dir data --benchmark IWM --cost-bps 75 --name smtk_peers  # every file = the peer group
+```
+
 Each run writes `reports/<name>.json`. `GET /research/reports` lists them, and
 the `/research` page has a selector. Use a higher `--cost-bps` for thinly traded
 small caps, where wide spreads dominate. The report flags very large one-day
