@@ -1,0 +1,439 @@
+"""FastAPI application: dashboard, stock detail, critical moves, backtest, AI.
+
+Delayed data is preserved end-to-end: every quote/signal carries its
+``data_status`` so the UI can label DELAYED / STALE / DEMO and never fake LIVE.
+"""
+from __future__ import annotations
+
+import json
+import re
+from datetime import UTC, datetime
+from pathlib import Path
+
+from bist_core.ai import get_ai_analyzer
+from bist_core.config import get_settings
+from bist_core.db import get_session, init_db, models, session_scope
+from bist_core.engines import performance as perf
+from bist_core.engines.backtest import BacktestEngine, BacktestSignal, PricePoint
+from bist_core.providers.factory import (
+    get_macro_provider,
+    get_market_data_provider,
+    get_news_provider,
+)
+from bist_core.repository import recent_history
+from bist_core.runner import run_cycle
+from bist_core.schemas import ScoreResult
+from bist_core.scoring_config import scoring_config_from_settings
+from bist_core.seed import seed_watchlist
+from fastapi import Depends, FastAPI, HTTPException
+from fastapi.middleware.cors import CORSMiddleware
+from pydantic import BaseModel
+from sqlalchemy import select
+from sqlalchemy.orm import Session
+
+settings = get_settings()
+app = FastAPI(title=settings.app_name, version="0.1.0")
+app.add_middleware(
+    CORSMiddleware, allow_origins=["*"], allow_methods=["*"], allow_headers=["*"]
+)
+
+
+@app.on_event("startup")
+def _startup() -> None:
+    init_db()
+    with session_scope() as session:
+        seed_watchlist(session)
+
+
+# --------------------------------------------------------------------------- #
+# Response models                                                             #
+# --------------------------------------------------------------------------- #
+class WatchlistRow(BaseModel):
+    symbol: str
+    price: float | None = None
+    change_percent: float | None = None
+    volume_ratio_5m: float | None = None
+    flow_5m: float | None = None
+    flow_15m: float | None = None
+    score: float | None = None
+    direction: str | None = None
+    data_status: str | None = None
+    last_alert: datetime | None = None
+
+
+class AddSymbol(BaseModel):
+    symbol: str
+
+
+# --------------------------------------------------------------------------- #
+# Helpers                                                                     #
+# --------------------------------------------------------------------------- #
+def _latest_signal(session: Session, symbol: str) -> models.Signal | None:
+    return session.scalar(
+        select(models.Signal)
+        .where(models.Signal.symbol == symbol.upper())
+        .order_by(models.Signal.timestamp.desc())
+        .limit(1)
+    )
+
+
+def _latest_tick(session: Session, symbol: str) -> models.MarketTick | None:
+    return session.scalar(
+        select(models.MarketTick)
+        .where(models.MarketTick.symbol == symbol.upper())
+        .order_by(models.MarketTick.market_timestamp.desc())
+        .limit(1)
+    )
+
+
+def _watchlist_symbols(session: Session) -> list[str]:
+    rows = session.scalars(select(models.Watchlist.symbol).where(models.Watchlist.user_id.is_(None))).all()
+    return list(rows) or settings.default_symbols
+
+
+# --------------------------------------------------------------------------- #
+# Routes                                                                      #
+# --------------------------------------------------------------------------- #
+@app.get("/health")
+def health() -> dict:
+    return {
+        "status": "ok",
+        "provider": "demo" if settings.demo_mode else settings.market_data_provider,
+        "demo_mode": settings.demo_mode,
+        "time": datetime.now(UTC).isoformat(),
+    }
+
+
+@app.get("/macro")
+async def macro() -> dict:
+    """Latest TCMB EVDS macro context (FX / rates / CPI).
+
+    EVDS is end-of-day / periodic macro data — never equity prices — so each
+    series carries its own ``as_of`` date and a DELAYED/STALE/DEMO status.
+    """
+    provider = get_macro_provider(settings)
+    if provider is None:
+        return {"enabled": False, "series": []}
+    try:
+        snapshots = await provider.get_latest(settings.macro_series_codes)
+    finally:
+        await provider.aclose()
+    return {
+        "enabled": True,
+        "provider": provider.name,
+        "note": "Macro context only — EVDS does not provide equity prices or AKD.",
+        "series": [
+            {
+                "series_code": s.series_code,
+                "name": s.name,
+                "latest_value": s.latest_value,
+                "previous_value": s.previous_value,
+                "change_percent": s.change_percent,
+                "as_of": s.as_of.isoformat() if s.as_of else None,
+                "data_status": s.data_status.value,
+            }
+            for s in snapshots
+        ],
+    }
+
+
+@app.get("/watchlist", response_model=list[WatchlistRow])
+def get_watchlist(session: Session = Depends(get_session)) -> list[WatchlistRow]:
+    rows: list[WatchlistRow] = []
+    for symbol in _watchlist_symbols(session):
+        tick = _latest_tick(session, symbol)
+        sig = _latest_signal(session, symbol)
+        snap = (sig.data_snapshot or {}) if sig else {}
+        flow = snap.get("flow", {})
+        vol = snap.get("volume", {})
+        rows.append(
+            WatchlistRow(
+                symbol=symbol,
+                price=tick.price if tick else None,
+                change_percent=tick.change_percent if tick else None,
+                volume_ratio_5m=vol.get("volume_ratio_5m"),
+                flow_5m=flow.get("flow_5m"),
+                flow_15m=flow.get("flow_15m"),
+                score=sig.score if sig else None,
+                direction=sig.direction if sig else None,
+                data_status=(tick.data_status if tick else None),
+            )
+        )
+    return rows
+
+
+@app.post("/watchlist")
+def add_symbol(body: AddSymbol, session: Session = Depends(get_session)) -> dict:
+    symbol = body.symbol.strip().upper()
+    if not symbol.isalnum():
+        raise HTTPException(400, "invalid symbol")
+    exists = session.scalar(
+        select(models.Watchlist).where(models.Watchlist.user_id.is_(None), models.Watchlist.symbol == symbol)
+    )
+    if not exists:
+        session.add(models.Watchlist(user_id=None, symbol=symbol))
+        session.commit()
+    return {"symbol": symbol, "added": not exists}
+
+
+@app.delete("/watchlist/{symbol}")
+def remove_symbol(symbol: str, session: Session = Depends(get_session)) -> dict:
+    symbol = symbol.upper()
+    row = session.scalar(
+        select(models.Watchlist).where(models.Watchlist.user_id.is_(None), models.Watchlist.symbol == symbol)
+    )
+    if row:
+        session.delete(row)
+        session.commit()
+    return {"symbol": symbol, "removed": bool(row)}
+
+
+@app.get("/stocks/{symbol}")
+def stock_detail(symbol: str, session: Session = Depends(get_session)) -> dict:
+    symbol = symbol.upper()
+    tick = _latest_tick(session, symbol)
+    sig = _latest_signal(session, symbol)
+    history = recent_history(session, symbol)
+    news = session.scalars(
+        select(models.NewsEventRow).where(models.NewsEventRow.symbol == symbol).order_by(models.NewsEventRow.timestamp.desc()).limit(10)
+    ).all()
+    timeline = session.scalars(
+        select(models.Signal).where(models.Signal.symbol == symbol).order_by(models.Signal.timestamp.desc()).limit(50)
+    ).all()
+    snap = (sig.data_snapshot or {}) if sig else {}
+    return {
+        "symbol": symbol,
+        "quote": {
+            "price": tick.price if tick else None,
+            "change_percent": tick.change_percent if tick else None,
+            "volume": tick.volume if tick else None,
+            "data_status": tick.data_status if tick else None,
+            "provider": tick.provider if tick else None,
+            "market_timestamp": tick.market_timestamp.isoformat() if tick else None,
+            "received_at": tick.received_at.isoformat() if tick else None,
+            "latency": tick.latency if tick else None,
+        },
+        "signal": None
+        if not sig
+        else {
+            "score": sig.score,
+            "direction": sig.direction,
+            "confidence": sig.confidence,
+            "change": sig.change,
+            "evidence": sig.evidence,
+            "risks": sig.risks,
+            "invalidation_conditions": sig.invalidation_conditions,
+            "data_status": sig.data_status,
+            "timestamp": sig.timestamp.isoformat(),
+        },
+        "flow": snap.get("flow", {}),
+        "volume": snap.get("volume", {}),
+        "technical": snap.get("technical", {}),
+        "anomalies": snap.get("anomalies", []),
+        "history": [
+            {"timestamp": b.timestamp.isoformat(), "open": b.open, "high": b.high, "low": b.low, "close": b.close, "volume": b.volume}
+            for b in history
+        ],
+        "signal_timeline": [
+            {"timestamp": s.timestamp.isoformat(), "score": s.score, "direction": s.direction, "change": s.change}
+            for s in reversed(timeline)
+        ],
+        "news": [
+            {"timestamp": n.timestamp.isoformat(), "headline": n.headline, "category": n.category, "importance": n.importance}
+            for n in news
+        ],
+    }
+
+
+@app.get("/stocks/{symbol}/ai")
+def stock_ai(symbol: str, session: Session = Depends(get_session)) -> dict:
+    symbol = symbol.upper()
+    sig = _latest_signal(session, symbol)
+    tick = _latest_tick(session, symbol)
+    if not sig or not tick:
+        return {"summary": "data_unavailable"}
+
+    # Reconstruct a ScoreResult from the stored snapshot so the explainer runs
+    # on exactly the data that produced the signal.
+    snap = sig.data_snapshot or {}
+    score = ScoreResult(
+        score=sig.score,
+        direction=sig.direction,
+        confidence=sig.confidence,
+        components=[],
+        scoring_version=sig.scoring_version,
+        data_snapshot=snap,
+    )
+    news = session.scalars(select(models.NewsEventRow).where(models.NewsEventRow.symbol == symbol)).all()
+    analyzer = get_ai_analyzer()
+    analysis = analyzer.analyze(symbol=symbol, price=tick.price, score=score, news=[n.headline for n in news])
+    return analysis.model_dump()
+
+
+@app.get("/critical-moves")
+def critical_moves(session: Session = Depends(get_session), limit: int = 50) -> list[dict]:
+    rows = session.scalars(
+        select(models.Signal)
+        .where(models.Signal.change.in_(["SIGNAL_STRENGTHENING", "SIGNAL_WEAKENING", "SIGNAL_REVERSAL"]))
+        .order_by(models.Signal.timestamp.desc())
+        .limit(limit)
+    ).all()
+    return [
+        {
+            "id": s.id,
+            "timestamp": s.timestamp.isoformat(),
+            "symbol": s.symbol,
+            "score": s.score,
+            "direction": s.direction,
+            "change": s.change,
+            "evidence": s.evidence,
+            "data_snapshot": s.data_snapshot,  # clicking an event shows the exact snapshot
+        }
+        for s in rows
+    ]
+
+
+@app.get("/backtest/{symbol}")
+def backtest(symbol: str, session: Session = Depends(get_session), horizon: int = 30) -> dict:
+    symbol = symbol.upper()
+    sig_rows = session.scalars(
+        select(models.Signal).where(models.Signal.symbol == symbol).order_by(models.Signal.timestamp.asc())
+    ).all()
+    tick_rows = session.scalars(
+        select(models.MarketTick).where(models.MarketTick.symbol == symbol).order_by(models.MarketTick.market_timestamp.asc())
+    ).all()
+    if not sig_rows or not tick_rows:
+        return {"signal_count": 0, "note": "insufficient stored signals/prices for backtest"}
+
+    signals = [BacktestSignal(timestamp=s.timestamp, symbol=symbol, direction=s.direction, score=s.score) for s in sig_rows]
+    prices = {symbol: [PricePoint(timestamp=t.market_timestamp, price=t.price) for t in tick_rows]}
+    report = BacktestEngine(primary_horizon=horizon).run(signals, prices)
+    return {
+        "symbol": symbol,
+        "horizon_minutes": horizon,
+        "signal_count": report.signal_count,
+        "win_rate": report.win_rate,
+        "average_return": report.average_return,
+        "median_return": report.median_return,
+        "max_drawdown": report.max_drawdown,
+        "profit_factor": None if report.profit_factor == float("inf") else report.profit_factor,
+    }
+
+
+@app.get("/performance")
+def performance(session: Session = Depends(get_session), horizon: int = 30) -> dict:
+    """How well did the app's signals work, and a calibrated weight proposal.
+
+    NOTE: on demo/synthetic data these numbers are illustrative only. The
+    proposal is never auto-applied — set it via SCORING_WEIGHTS to adopt it.
+    """
+    sig_rows = session.scalars(select(models.Signal).order_by(models.Signal.timestamp.asc())).all()
+    records = [
+        perf.SignalRecord(
+            symbol=s.symbol,
+            timestamp=s.timestamp,
+            score=s.score,
+            direction=s.direction,
+            component_norms=(s.data_snapshot or {}).get("component_norms", {}),
+        )
+        for s in sig_rows
+    ]
+    symbols = {s.symbol for s in sig_rows}
+    prices_by_symbol: dict[str, list[perf.PricePoint]] = {}
+    for sym in symbols:
+        ticks = session.scalars(
+            select(models.MarketTick)
+            .where(models.MarketTick.symbol == sym)
+            .order_by(models.MarketTick.market_timestamp.asc())
+        ).all()
+        prices_by_symbol[sym] = [perf.PricePoint(timestamp=t.market_timestamp, price=t.price) for t in ticks]
+
+    report = perf.analyze(records, prices_by_symbol, horizon_min=horizon)
+    current = scoring_config_from_settings(settings).weights
+    proposed = perf.propose_weights(current, report.component_correlations)
+    return {
+        "horizon_minutes": report.horizon_min,
+        "total_signals": report.total_signals,
+        "evaluated": report.evaluated,
+        "overall_win_rate": report.overall_win_rate,
+        "overall_avg_return": report.overall_avg_return,
+        "by_direction": report.by_direction,
+        "by_band": report.by_band,
+        "component_correlations": report.component_correlations,
+        "current_weights": current,
+        "proposed_weights": proposed,
+        "note": "Illustrative on demo data; apply proposed_weights via SCORING_WEIGHTS to adopt.",
+    }
+
+
+_REPORT_NAME = re.compile(r"[A-Za-z0-9_-]{1,64}")
+_HOW_TO_RUN = "python -m bist_core.research --source bist --universe BIST30 --years 3"
+
+
+def _reports_dir() -> Path:
+    return Path(settings.research_reports_dir)
+
+
+def _read_report(path: Path) -> dict:
+    try:
+        return json.loads(path.read_text())
+    except (OSError, json.JSONDecodeError) as exc:
+        raise HTTPException(500, f"could not read research report {path.name}: {exc}") from exc
+
+
+@app.get("/research/reports")
+def research_reports() -> list[dict]:
+    """All reports written by `python -m bist_core.research`, newest first."""
+    out = []
+    for path in _reports_dir().glob("*.json"):
+        if not _REPORT_NAME.fullmatch(path.stem):
+            continue
+        report = _read_report(path)
+        meta = report.get("meta", {})
+        models = report.get("verdict", {}).get("models", {})
+        out.append({
+            "name": path.stem,
+            "mode": report.get("mode", "cross_section"),
+            "source": meta.get("source"),
+            "universe": meta.get("universe"),
+            "generated_at": report.get("generated_at"),
+            "passed": any(m.get("passed") for m in models.values()),
+        })
+    return sorted(out, key=lambda r: r["generated_at"] or "", reverse=True)
+
+
+@app.get("/research")
+def research(name: str | None = None, full: bool = False) -> dict:
+    """One weekly walk-forward report (default: the newest).
+
+    Read-only: research runs offline (it fetches years of history), and its
+    findings are never applied to live scoring automatically.
+    """
+    if name is not None and not _REPORT_NAME.fullmatch(name):
+        raise HTTPException(400, "invalid report name")
+    if name is None:
+        listed = research_reports()
+        if not listed:
+            return {"available": False, "how_to_run": _HOW_TO_RUN}
+        name = listed[0]["name"]
+    path = _reports_dir() / f"{name}.json"
+    if not path.exists():
+        raise HTTPException(404, f"no research report named {name!r}")
+    report = _read_report(path)
+    if not full:
+        for strategy in report.get("strategies", {}).values():
+            strategy.pop("steps", None)  # per-week detail is large; ?full=true to include
+    return {"available": True, "name": name, **report}
+
+
+@app.post("/refresh")
+async def refresh(session: Session = Depends(get_session)) -> dict:
+    """Run one collection+scoring cycle immediately (handy for demo/dev)."""
+    provider = get_market_data_provider(settings)
+    news = get_news_provider(settings)
+    symbols = _watchlist_symbols(session)
+    try:
+        payloads = await run_cycle(session, provider, news, symbols)
+    finally:
+        await provider.aclose()
+    return {"updated": [p.symbol for p in payloads], "count": len(payloads)}
