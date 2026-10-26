@@ -7,9 +7,9 @@ without touching the engines, API or UI.
 from __future__ import annotations
 
 import abc
-from datetime import datetime
+from datetime import date, datetime
 
-from ..schemas import IntradayPoint, NewsEvent, OhlcvBar, Quote
+from ..schemas import IntradayPoint, MacroSnapshot, NewsEvent, OhlcvBar, Quote
 
 
 class MarketDataProvider(abc.ABC):
@@ -55,6 +55,28 @@ class NewsProvider(abc.ABC):
     async def get_news(
         self, symbol: str, *, since: datetime | None = None
     ) -> list[NewsEvent]: ...
+
+
+class MacroDataProvider(abc.ABC):
+    """Macroeconomic / monetary context (TCMB EVDS: FX, rates, CPI, ...).
+
+    EVDS data is end-of-day / periodic and never includes equity prices, so a
+    MacroDataProvider is a *context* layer for the morning report and the
+    dashboard's macro panel — never the market feed.
+    """
+
+    name: str = "abstract"
+
+    @abc.abstractmethod
+    async def get_latest(self, series_codes: list[str]) -> list[MacroSnapshot]: ...
+
+    @abc.abstractmethod
+    async def get_series(
+        self, series_codes: list[str], *, start: date, end: date | None = None
+    ) -> list[MacroSnapshot]: ...
+
+    async def aclose(self) -> None:  # pragma: no cover - optional lifecycle hook
+        """Release any held resources."""
 
 
 # --------------------------------------------------------------------------- #

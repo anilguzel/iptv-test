@@ -46,6 +46,24 @@ class Settings(BaseSettings):
     )
     redis_url: str = Field(default="redis://localhost:6379/0", alias="REDIS_URL")
 
+    # --- Macro data (TCMB EVDS) -------------------------------------------
+    # "evds" (TCMB EVDS REST API, needs a free API key), "demo" (deterministic,
+    # offline) or "none" (disabled). EVDS is MACRO/EOD data (FX, rates, CPI) —
+    # it never supplies equity prices, so it is a context layer, not the market
+    # feed. In DEMO_MODE this is forced to "demo".
+    macro_provider: str = Field(default="demo", alias="MACRO_PROVIDER")
+    evds_api_key: str | None = Field(default=None, alias="EVDS_API_KEY")
+    evds_base_url: str = Field(
+        default="https://evds2.tcmb.gov.tr/service/evds", alias="EVDS_BASE_URL"
+    )
+    # EVDS series codes to track for macro context (dot-separated codes, comma
+    # list). Defaults: USD/TRY and EUR/TRY buying reference rates.
+    macro_series: str = Field(default="TP.DK.USD.A,TP.DK.EUR.A", alias="MACRO_SERIES")
+
+    @property
+    def macro_series_codes(self) -> list[str]:
+        return [s.strip() for s in self.macro_series.split(",") if s.strip()]
+
     # --- AI analyzer -------------------------------------------------------
     # "mock" (deterministic, offline) or "anthropic".
     ai_provider: str = Field(default="mock", alias="AI_PROVIDER")

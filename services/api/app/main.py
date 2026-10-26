@@ -11,7 +11,11 @@ from bist_core.ai import get_ai_analyzer
 from bist_core.config import get_settings
 from bist_core.db import get_session, init_db, models, session_scope
 from bist_core.engines.backtest import BacktestEngine, BacktestSignal, PricePoint
-from bist_core.providers.factory import get_market_data_provider, get_news_provider
+from bist_core.providers.factory import (
+    get_macro_provider,
+    get_market_data_provider,
+    get_news_provider,
+)
 from bist_core.repository import recent_history
 from bist_core.runner import run_cycle
 from bist_core.schemas import ScoreResult
@@ -92,6 +96,39 @@ def health() -> dict:
         "provider": "demo" if settings.demo_mode else settings.market_data_provider,
         "demo_mode": settings.demo_mode,
         "time": datetime.now(UTC).isoformat(),
+    }
+
+
+@app.get("/macro")
+async def macro() -> dict:
+    """Latest TCMB EVDS macro context (FX / rates / CPI).
+
+    EVDS is end-of-day / periodic macro data — never equity prices — so each
+    series carries its own ``as_of`` date and a DELAYED/STALE/DEMO status.
+    """
+    provider = get_macro_provider(settings)
+    if provider is None:
+        return {"enabled": False, "series": []}
+    try:
+        snapshots = await provider.get_latest(settings.macro_series_codes)
+    finally:
+        await provider.aclose()
+    return {
+        "enabled": True,
+        "provider": provider.name,
+        "note": "Macro context only — EVDS does not provide equity prices or AKD.",
+        "series": [
+            {
+                "series_code": s.series_code,
+                "name": s.name,
+                "latest_value": s.latest_value,
+                "previous_value": s.previous_value,
+                "change_percent": s.change_percent,
+                "as_of": s.as_of.isoformat() if s.as_of else None,
+                "data_status": s.data_status.value,
+            }
+            for s in snapshots
+        ],
     }
 
 

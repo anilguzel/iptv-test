@@ -101,6 +101,26 @@ On a fresh demo DB the first cycle runs within ~60s; you can also click
    ```
 3. `docker compose up`. All quotes will be labelled **DELAYED** (or **STALE**).
 
+## Macro context (TCMB EVDS)
+
+The dashboard shows a **macro context** panel (USD/TRY, EUR/TRY, …) from the
+Central Bank of Türkiye's EVDS system via a `MacroDataProvider`.
+
+- EVDS is **macro / end-of-day data (FX, rates, CPI)** — it **never** provides
+  equity prices or AKD, so it is a context layer, never the market feed. Each
+  series shows its own `as_of` date and a `DELAYED`/`STALE`/`DEMO` status.
+- `MACRO_PROVIDER=demo` (default) works offline with deterministic values.
+- For live data: register at <https://evds3.tcmb.gov.tr> → *Benim Sayfam →
+  Profilim → API KEY KOPYALA*, then set `MACRO_PROVIDER=evds` and `EVDS_API_KEY`.
+  The provider calls the EVDS REST API (`GET /service/evds/series=...&type=json`
+  with the key in a `key` header).
+- Endpoint: `GET /macro`. Track more series by editing `MACRO_SERIES`.
+
+TCMB also publishes an official **EVDS MCP server**
+(`https://mcp.tcmb.gov.tr/tcmb-mcp/evds/mcp`, OAuth) for conversational/ad-hoc
+macro queries from an AI assistant — a complement to this programmatic provider,
+not a backend data feed.
+
 ## Environment variables
 
 See [`.env.example`](.env.example). Key ones:
@@ -117,6 +137,9 @@ See [`.env.example`](.env.example). Key ones:
 | `TELEGRAM_ENABLED` / `TELEGRAM_BOT_TOKEN` / `TELEGRAM_CHAT_ID` | off | Alerts |
 | `ALERT_COOLDOWN_SECONDS` | `600` | Per-symbol alert throttle (reversals bypass it) |
 | `DEFAULT_WATCHLIST` | `KTLEV,THYAO,ASELS,TUPRS,EREGL` | Seed symbols |
+| `MACRO_PROVIDER` | `demo` | `demo` / `evds` / `none` |
+| `EVDS_API_KEY` | — | TCMB EVDS API key (only for `evds`) |
+| `MACRO_SERIES` | `TP.DK.USD.A,TP.DK.EUR.A` | EVDS series codes for the macro panel |
 
 ## Local development (without Docker)
 

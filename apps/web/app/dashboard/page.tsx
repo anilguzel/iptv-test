@@ -9,8 +9,49 @@ function StatusBadge({ status }: { status: string | null }) {
   return <span className={`badge ${s}`}>{status || "DELAYED"}</span>;
 }
 
+type MacroSeries = {
+  series_code: string;
+  name: string;
+  latest_value: number | null;
+  change_percent: number | null;
+  as_of: string | null;
+  data_status: string;
+};
+type MacroResp = { enabled: boolean; provider?: string; note?: string; series: MacroSeries[] };
+
+function MacroPanel({ macro }: { macro: MacroResp | null }) {
+  if (!macro || !macro.enabled || macro.series.length === 0) return null;
+  return (
+    <div className="card">
+      <div style={{ display: "flex", alignItems: "baseline", gap: 10 }}>
+        <strong>Macro context</strong>
+        <span className="muted" style={{ fontSize: 12 }}>TCMB EVDS · {macro.provider} · {macro.note}</span>
+      </div>
+      <div style={{ display: "flex", gap: 24, flexWrap: "wrap", marginTop: 10 }}>
+        {macro.series.map((m) => (
+          <div key={m.series_code}>
+            <div className="muted" style={{ fontSize: 12 }}>{m.name}</div>
+            <div style={{ fontSize: 20, fontWeight: 700 }}>
+              {m.latest_value != null ? m.latest_value.toFixed(4) : "—"}{" "}
+              {m.change_percent != null && (
+                <span style={{ fontSize: 13, color: m.change_percent >= 0 ? "var(--green)" : "var(--red)" }}>
+                  {m.change_percent >= 0 ? "+" : ""}{m.change_percent.toFixed(2)}%
+                </span>
+              )}
+            </div>
+            <div className="muted" style={{ fontSize: 11 }}>
+              {m.as_of ?? "—"} · <StatusBadge status={m.data_status} />
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 export default function DashboardPage() {
   const [rows, setRows] = useState<WatchlistRow[]>([]);
+  const [macro, setMacro] = useState<MacroResp | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [refreshing, setRefreshing] = useState(false);
 
@@ -20,6 +61,11 @@ export default function DashboardPage() {
       setError(null);
     } catch (e) {
       setError(String(e));
+    }
+    try {
+      setMacro(await apiGet<MacroResp>("/macro"));
+    } catch {
+      /* macro is optional context; ignore errors */
     }
   }, []);
 
@@ -51,6 +97,7 @@ export default function DashboardPage() {
       </div>
       <p className="muted">Flow Score is the strength of current evidence, not a probability of rising.</p>
       {error && <div className="warn">API error: {error}. Is the API running? Try “Refresh now”.</div>}
+      <MacroPanel macro={macro} />
       <div className="card">
         <table>
           <thead>

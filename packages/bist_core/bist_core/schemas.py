@@ -6,6 +6,7 @@ fixtures and never need a database.
 """
 from __future__ import annotations
 
+from datetime import date as date_type
 from datetime import datetime
 
 from pydantic import BaseModel, ConfigDict, Field
@@ -181,3 +182,31 @@ class AIAnalysis(BaseModel):
     confidence: float = 0.0
     invalidation_conditions: list[str] = Field(default_factory=list)
     next_trigger: str = ""
+
+
+class MacroSeriesPoint(BaseModel):
+    """A single observation of a TCMB EVDS macro series."""
+
+    model_config = ConfigDict(frozen=True)
+
+    series_code: str
+    date: date_type
+    value: float
+
+
+class MacroSnapshot(BaseModel):
+    """Latest state of one macro series, for the dashboard "macro context".
+
+    EVDS data is end-of-day / periodic, so ``data_status`` is DELAYED (or DEMO),
+    never LIVE, and ``as_of`` carries the series' own publication date.
+    """
+
+    series_code: str
+    name: str
+    latest_value: float | None = None
+    previous_value: float | None = None
+    change_percent: float | None = None
+    as_of: date_type | None = None
+    provider: str = "unknown"
+    data_status: DataStatus = DataStatus.DELAYED
+    points: list[MacroSeriesPoint] = Field(default_factory=list)
