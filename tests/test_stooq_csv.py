@@ -75,3 +75,14 @@ def test_detect_jumps_flags_split_like_moves():
 
     jumps = detect_jumps({"X": [bar(2, 1.0), bar(3, 1.05), bar(6, 10.5)]})  # 1:10 reverse split look
     assert len(jumps) == 1 and jumps[0]["date"] == "2025-01-06"
+
+
+def test_nasdaq_com_export_format():
+    text = (
+        "Date,Close/Last,Volume,Open,High,Low\n"
+        "01/03/2025,$1.25,98000,$1.15,$1.30,$1.10\n"
+        "01/02/2025,$1.15,120000,$1.10,$1.20,$1.00\n"
+    )
+    bars = parse_ohlcv_csv(text, "SMTK")
+    assert [b.timestamp.date().isoformat() for b in bars] == ["2025-01-02", "2025-01-03"]  # sorted ascending
+    assert bars[1].close == 1.25 and bars[1].high == 1.30 and bars[0].volume == 120000

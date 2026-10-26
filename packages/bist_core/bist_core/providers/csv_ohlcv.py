@@ -1,7 +1,8 @@
 """Parse daily OHLCV CSV files (Stooq downloads, Yahoo Finance exports, ...).
 
 Accepted headers (case-insensitive): Date, Open, High, Low, Close, Volume and
-optionally "Adj Close". When "Adj Close" is present (Yahoo export), all prices
+optionally "Adj Close". Nasdaq.com exports ("Close/Last", "$" prices,
+MM/DD/YYYY dates) are accepted too. When "Adj Close" is present (Yahoo export), all prices
 are scaled by Adj Close / Close so splits and dividends don't show up as fake
 jumps.
 """
@@ -19,6 +20,9 @@ class CsvDataError(ValueError):
     pass
 
 
+HEADER_ALIASES = {"close/last": "close", "adj. close": "adj close", "adjusted close": "adj close"}
+
+
 def _num(value: str | None) -> float | None:
     if value is None:
         return None
@@ -26,7 +30,7 @@ def _num(value: str | None) -> float | None:
     if not value or value.lower() in {"null", "nan", "n/a", "-"}:
         return None
     try:
-        return float(value.replace(",", ""))
+        return float(value.replace(",", "").replace("$", ""))
     except ValueError:
         return None
 
@@ -48,6 +52,10 @@ def parse_ohlcv_csv(text: str, symbol: str) -> list[OhlcvBar]:
         raise CsvDataError(f"{symbol}: empty response")
     reader = csv.DictReader(io.StringIO(text))
     fields = {f.strip().lower(): f for f in (reader.fieldnames or [])}
+    # Header aliases used by other exporters, e.g. Nasdaq.com's "Close/Last".
+    for alias, canonical in HEADER_ALIASES.items():
+        if alias in fields and canonical not in fields:
+            fields[canonical] = fields[alias]
     if not {"date", "close"} <= fields.keys():
         # Stooq answers unknown symbols / throttling with a plain-text line.
         raise CsvDataError(f"{symbol}: not an OHLCV CSV (starts with {text[:80]!r})")
