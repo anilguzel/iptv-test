@@ -56,8 +56,10 @@ class FakeProvider:
 
     def __init__(self, data: dict[str, list[OhlcvBar]], fail: set[str] = frozenset()):
         self.data, self.fail = data, fail
+        self.periods: dict[str, str] = {}
 
     async def get_history(self, symbol, *, interval="1d", limit=120, period=None):
+        self.periods[symbol] = period
         if symbol in self.fail:
             raise RuntimeError("boom")
         return self.data[symbol]
@@ -74,9 +76,11 @@ def test_collect_writes_store_and_reports_failures(tmp_path):
     assert [f["symbol"] for f in summary["failed"]] == ["BBB"]
     assert (tmp_path / "daily/stooq/AAA.csv").exists()
 
-    # Second run with nothing new: no rewrite.
-    again = asyncio.run(run_collect(job, tmp_path, provider=FakeProvider(data, fail={"BBB"})))
+    # Second run with nothing new: no rewrite, and only the short update window is requested.
+    second = FakeProvider(data, fail={"BBB"})
+    again = asyncio.run(run_collect(job, tmp_path, provider=second))
     assert again["changed"] == [] and sorted(again["unchanged"]) == ["AAA", "IWM"]
+    assert second.periods == {"AAA": "1y", "BBB": "10y", "IWM": "1y"}  # BBB was never stored -> backfill
 
 
 def test_collect_warning_text():
@@ -133,5 +137,5 @@ def test_cli_research_runs_enabled_jobs_only(tmp_path, capsys):
 
 def test_repository_job_config_parses():
     cfg = load_config("automation/jobs.json")
-    assert any(j.enabled and j.source == "stooq" for j in cfg.collect)
-    assert {j.name for j in cfg.research} >= {"smtk_peers", "smtk_timeseries"}
+    assert any(j.enabled and j.source == "yahoo" and j.suffix == ".IS" for j in cfg.collect)  # BIST on
+    assert {j.name for j in cfg.research if j.enabled} >= {"smtk_peers", "smtk_timeseries", "bist30"}

@@ -18,6 +18,8 @@ class CollectJob:
     benchmark: str | None = None
     dir: str | None = None       # store sub-folder (default: daily/<source>)
     suffix: str = ""             # yahoo: exchange suffix, e.g. ".IS" for Borsa Istanbul
+    backfill_period: str = "10y"  # first download of a symbol
+    update_period: str = "1y"     # later runs; the overlap also reveals re-adjustments
     enabled: bool = True
 
     @property
@@ -82,12 +84,13 @@ async def run_collect(job: CollectJob, store: Path, provider=None) -> dict:
                      "rescaled": [], "latest": {}}
     try:
         for sym in symbols:
+            path = csv_path(target, sym)
+            period = job.update_period if path.exists() else job.backfill_period
             try:
-                fresh = await provider.get_history(sym, interval="1d", period="max")
+                fresh = await provider.get_history(sym, interval="1d", period=period)
             except Exception as exc:  # report per symbol, keep going
                 summary["failed"].append({"symbol": sym, "reason": f"{type(exc).__name__}: {exc}"[:200]})
                 continue
-            path = csv_path(target, sym)
             result = merge_bars(read_store(path, sym), fresh)
             if result.rescale_factor is not None:
                 summary["rescaled"].append({"symbol": sym, "factor": round(result.rescale_factor, 6)})

@@ -10,7 +10,10 @@ daily batch). We identify ourselves honestly instead of imitating a browser.
 """
 from __future__ import annotations
 
+import statistics
+import time
 from datetime import UTC, datetime
+from itertools import pairwise
 
 import httpx
 
@@ -18,6 +21,13 @@ from ..config import Settings, get_settings
 from ..schemas import OhlcvBar
 
 USER_AGENT = "bist-intelligence/0.1 (personal research; daily batch)"
+
+# Seconds of history per period; "max" goes back to the epoch. Explicit
+# period1/period2 matter: with `range=max` Yahoo silently returns MONTHLY bars
+# even when interval=1d is requested.
+_PERIOD_SECONDS = {"1mo": 31, "3mo": 92, "6mo": 183, "1y": 366, "2y": 731, "5y": 1827, "10y": 3653}
+# Median spacing above this many days means the bars are not daily.
+MAX_DAILY_MEDIAN_GAP_DAYS = 4
 
 
 class YahooDataError(ValueError):
@@ -65,7 +75,23 @@ def parse_chart(payload: dict, symbol: str) -> list[OhlcvBar]:
     if not bars:
         raise YahooDataError(f"{symbol}: chart had no usable rows")
     bars.sort(key=lambda b: b.timestamp)
+    if len(bars) >= 3:
+        gaps = [(b.timestamp - a.timestamp).days for a, b in pairwise(bars)]
+        median_gap = statistics.median(gaps)
+        if median_gap > MAX_DAILY_MEDIAN_GAP_DAYS:
+            raise YahooDataError(f"{symbol}: bars are not daily (median gap {median_gap} days)")
     return bars
+
+
+def period_bounds(period: str | None, now: float | None = None) -> tuple[int, int]:
+    """(period1, period2) epoch seconds for a period like "5y" or "max"."""
+    end = int(now if now is not None else time.time())
+    if period in (None, "max"):
+        return 0, end
+    days = _PERIOD_SECONDS.get(period)
+    if days is None:
+        raise ValueError(f"unsupported period {period!r}")
+    return end - days * 86400, end
 
 
 class YahooChartProvider:
@@ -92,7 +118,8 @@ class YahooChartProvider:
     ) -> list[OhlcvBar]:
         if interval != "1d":
             raise ValueError("YahooChartProvider only serves daily bars")
-        params = {"range": period or "5y", "interval": "1d", "events": "split,div"}
+        start, end = period_bounds(period or "5y")
+        params = {"period1": start, "period2": end, "interval": "1d", "events": "split,div"}
         resp = await self._client.get(f"/v8/finance/chart/{self.yahoo_symbol(symbol)}", params=params)
         if resp.status_code != 200:
             body = resp.text[:120].replace("\n", " ")

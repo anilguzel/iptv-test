@@ -24,8 +24,8 @@ jobs:
       BIST_DATA_SERVICE_URL: ${{ secrets.BIST_DATA_SERVICE_URL }}
       BIST_DATA_SERVICE_API_KEY: ${{ secrets.BIST_DATA_SERVICE_API_KEY }}
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
         with:
           python-version: "3.12"
           cache: pip

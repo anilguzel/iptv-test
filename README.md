@@ -186,9 +186,10 @@ Three workflows in `.github/workflows/` keep the research running without a serv
 
 | Workflow | When | What |
 |---|---|---|
-| **Collect daily market data** | weekdays after the US close | Downloads daily bars for every enabled job in `automation/jobs.json` and merges them into CSVs on the `market-data` branch |
+| **Collect daily market data** | weekdays after the US close | Downloads daily bars for every enabled job in `automation/jobs.json` (10 years on first sight of a symbol, the last year afterwards) and merges them into CSVs on the `market-data` branch |
 | **Weekly research** | Saturday morning | Runs the walk-forward research on the stored history, saves `reports/*.json` on the same branch and sends one Telegram summary per job |
 | **Tests** | every push to `main` and every pull request | Lint, unit tests, TypeScript check and web build |
+| **Data source probe** | pull requests touching providers/automation, or manually | Tries each source from a runner and tabulates which symbols work; commits nothing |
 
 Collected data lives on its own branch, so the daily commits never touch the
 code. When the source re-adjusts its history (e.g. after a reverse split), the
@@ -209,10 +210,19 @@ that next week's ranking is **not a signal**.
    (*Settings → Secrets and variables → Actions*).
 3. *Actions → Collect daily market data → Run workflow* once to start the
    history, then *Weekly research → Run workflow* to get the first report.
-4. Edit `automation/jobs.json` to change universes, costs or jobs. BIST needs a
-   reachable bist-data-service: set the `BIST_DATA_SERVICE_URL` secret (and
-   `BIST_DATA_SERVICE_API_KEY` if it uses keys), then set `"enabled": true` on
-   the BIST jobs.
+4. Edit `automation/jobs.json` to change universes, costs or jobs.
+
+**Data sources.** The defaults come from the *Data source probe* workflow,
+which tries each source from a GitHub runner (*Actions → Data source probe →
+Run workflow* to re-check at any time). On 2026-10-26 Yahoo Finance's chart
+endpoint answered for US stocks, BIST (`.IS` listings) and the XU100 index,
+while Stooq returned 404. So both the US (SMTK peers vs IWM) and the BIST30
+(vs XU100) jobs collect from Yahoo. That endpoint is unofficial: its terms may
+limit automated use and it can change, so the jobs make one light daily batch
+and identify themselves honestly. Requests use explicit start/end dates
+because `range=max` silently returns monthly bars, and non-daily data is
+rejected. A bist-data-service job is included but disabled (needs the
+`BIST_DATA_SERVICE_URL` secret).
 
 The same commands run anywhere:
 `python -m bist_core.automation collect|research --config automation/jobs.json --store store`.

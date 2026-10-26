@@ -8,7 +8,7 @@ import pytest
 from bist_core.automation import jobs as jobs_mod
 from bist_core.automation.__main__ import main as automation_main
 from bist_core.config import Settings
-from bist_core.providers.yahoo import USER_AGENT, YahooChartProvider, YahooDataError, parse_chart
+from bist_core.providers.yahoo import USER_AGENT, YahooChartProvider, YahooDataError, parse_chart, period_bounds
 
 # 2025-01-02 and 2025-01-03 14:30 UTC (Istanbul is UTC+3 -> same trading date)
 CHART = {"chart": {"error": None, "result": [{
@@ -56,7 +56,8 @@ def test_provider_request_and_http_error():
                                transport=httpx.MockTransport(handler))
     p = YahooChartProvider(s, suffix=".IS", client=client)
     bars = asyncio.run(p.get_history("THYAO", period="5y"))
-    assert seen["path"] == "/v8/finance/chart/THYAO.IS" and seen["params"]["range"] == "5y"
+    assert seen["path"] == "/v8/finance/chart/THYAO.IS" and "range" not in seen["params"]
+    assert int(seen["params"]["period2"]) - int(seen["params"]["period1"]) == 1827 * 86400  # 5y, explicit bounds
     assert seen["ua"] == USER_AGENT and len(bars) == 2
     with pytest.raises(YahooDataError, match="HTTP 429"):
         asyncio.run(p.get_history("ZZZ", period="5y"))
@@ -98,3 +99,20 @@ def test_probe_fails_when_nothing_works(tmp_path, monkeypatch):
     cfg = tmp_path / "probe.json"
     cfg.write_text(json.dumps({"collect": [{"source": "stooq", "universe": "SMTK"}]}))
     assert automation_main(["probe", "--config", str(cfg)]) == 1
+
+
+def test_monthly_bars_are_rejected():
+    # What Yahoo returns for range=max: one bar per month despite interval=1d.
+    stamps = [1704067200 + i * 31 * 86400 for i in range(6)]
+    monthly = {"chart": {"error": None, "result": [{"meta": {"gmtoffset": 0}, "timestamp": stamps,
+               "indicators": {"quote": [{"open": [1] * 6, "high": [1] * 6, "low": [1] * 6,
+                                         "close": [1] * 6, "volume": [1] * 6}]}}]}}
+    with pytest.raises(YahooDataError, match="not daily"):
+        parse_chart(monthly, "X")
+
+
+def test_period_bounds():
+    assert period_bounds("max", now=1000) == (0, 1000)
+    assert period_bounds("1y", now=10_000_000) == (10_000_000 - 366 * 86400, 10_000_000)
+    with pytest.raises(ValueError):
+        period_bounds("7w", now=0)
