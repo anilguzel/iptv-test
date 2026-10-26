@@ -64,6 +64,12 @@ class Settings(BaseSettings):
     def macro_series_codes(self) -> list[str]:
         return [s.strip() for s in self.macro_series.split(",") if s.strip()]
 
+    # --- Scoring strategy --------------------------------------------------
+    # Optional JSON override of component weights, e.g.
+    # {"price_momentum": 18, "volume": 22, ...}. Renormalised to sum to 100.
+    # Apply a calibration proposal here deliberately; it is never auto-applied.
+    scoring_weights: str | None = Field(default=None, alias="SCORING_WEIGHTS")
+
     # --- AI analyzer -------------------------------------------------------
     # "mock" (deterministic, offline) or "anthropic".
     ai_provider: str = Field(default="mock", alias="AI_PROVIDER")

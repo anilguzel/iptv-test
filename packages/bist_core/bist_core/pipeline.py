@@ -58,10 +58,13 @@ def _technicals(ticks: list[Tick], history: list[OhlcvBar]) -> TechnicalMetrics:
 
 
 class SignalPipeline:
-    def __init__(self):
+    def __init__(self, scoring_config=None):
+        from .scoring_config import scoring_config_from_settings
+
         self.flow_engine = FlowEngine()
         self.volume_engine = VolumeEngine()
-        self.scoring = ScoringEngine()
+        # Use configured (optionally calibrated) weights from SCORING_WEIGHTS.
+        self.scoring = ScoringEngine(scoring_config or scoring_config_from_settings())
         self.anomaly_engine = AnomalyEngine()
 
     def assemble(

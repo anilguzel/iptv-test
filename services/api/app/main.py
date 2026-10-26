@@ -10,6 +10,7 @@ from datetime import UTC, datetime
 from bist_core.ai import get_ai_analyzer
 from bist_core.config import get_settings
 from bist_core.db import get_session, init_db, models, session_scope
+from bist_core.engines import performance as perf
 from bist_core.engines.backtest import BacktestEngine, BacktestSignal, PricePoint
 from bist_core.providers.factory import (
     get_macro_provider,
@@ -19,6 +20,7 @@ from bist_core.providers.factory import (
 from bist_core.repository import recent_history
 from bist_core.runner import run_cycle
 from bist_core.schemas import ScoreResult
+from bist_core.scoring_config import scoring_config_from_settings
 from bist_core.seed import seed_watchlist
 from fastapi import Depends, FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
@@ -312,6 +314,52 @@ def backtest(symbol: str, session: Session = Depends(get_session), horizon: int 
         "median_return": report.median_return,
         "max_drawdown": report.max_drawdown,
         "profit_factor": None if report.profit_factor == float("inf") else report.profit_factor,
+    }
+
+
+@app.get("/performance")
+def performance(session: Session = Depends(get_session), horizon: int = 30) -> dict:
+    """How well did the app's signals work, and a calibrated weight proposal.
+
+    NOTE: on demo/synthetic data these numbers are illustrative only. The
+    proposal is never auto-applied — set it via SCORING_WEIGHTS to adopt it.
+    """
+    sig_rows = session.scalars(select(models.Signal).order_by(models.Signal.timestamp.asc())).all()
+    records = [
+        perf.SignalRecord(
+            symbol=s.symbol,
+            timestamp=s.timestamp,
+            score=s.score,
+            direction=s.direction,
+            component_norms=(s.data_snapshot or {}).get("component_norms", {}),
+        )
+        for s in sig_rows
+    ]
+    symbols = {s.symbol for s in sig_rows}
+    prices_by_symbol: dict[str, list[perf.PricePoint]] = {}
+    for sym in symbols:
+        ticks = session.scalars(
+            select(models.MarketTick)
+            .where(models.MarketTick.symbol == sym)
+            .order_by(models.MarketTick.market_timestamp.asc())
+        ).all()
+        prices_by_symbol[sym] = [perf.PricePoint(timestamp=t.market_timestamp, price=t.price) for t in ticks]
+
+    report = perf.analyze(records, prices_by_symbol, horizon_min=horizon)
+    current = scoring_config_from_settings(settings).weights
+    proposed = perf.propose_weights(current, report.component_correlations)
+    return {
+        "horizon_minutes": report.horizon_min,
+        "total_signals": report.total_signals,
+        "evaluated": report.evaluated,
+        "overall_win_rate": report.overall_win_rate,
+        "overall_avg_return": report.overall_avg_return,
+        "by_direction": report.by_direction,
+        "by_band": report.by_band,
+        "component_correlations": report.component_correlations,
+        "current_weights": current,
+        "proposed_weights": proposed,
+        "note": "Illustrative on demo data; apply proposed_weights via SCORING_WEIGHTS to adopt.",
     }
 
 
