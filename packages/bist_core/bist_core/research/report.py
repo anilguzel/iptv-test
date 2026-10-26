@@ -27,8 +27,14 @@ TACTIC_CROSS_TR = (
 TACTIC_TS_TR = (
     "Her hafta kapanışında model {sym} hissesinin yalnızca kendi geçmişiyle yeniden eğitilir; "
     "tahmin pozitifse hisse 1 hafta tutulur (LONG), değilse nakitte beklenir (FLAT). Başarı "
-    "ölçüsü: kıyasa ({bench}) göre maliyet sonrası fazla getiri. Bu bir analizdir, otomatik emir değildir."
+    "ölçüsü: {measure}. Bu bir analizdir, otomatik emir değildir."
 )
+
+
+def _measure_tr(benchmark: str) -> str:
+    if benchmark == "none":
+        return "maliyet sonrası ham getiri (kıyas verisi yok)"
+    return f"kıyasa ({benchmark}) göre maliyet sonrası fazla getiri"
 
 
 def _strategies_json(results: dict[str, StrategyResult], step_fields: list[str]) -> dict:
@@ -144,7 +150,7 @@ def run_timeseries_research(
         "mode": "timeseries",
         "generated_at": datetime.now(UTC).isoformat(),
         "meta": _meta(panel, weekly, skipped, weeks, cfg, ridge_lambda, {**(meta or {}), "symbol": symbol}),
-        "tactic_tr": TACTIC_TS_TR.format(sym=symbol, bench=panel.benchmark),
+        "tactic_tr": TACTIC_TS_TR.format(sym=symbol, measure=_measure_tr(panel.benchmark)),
         "verdict": verdict(results),
         "strategies": _strategies_json(
             results,

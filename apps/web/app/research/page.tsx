@@ -146,7 +146,7 @@ export default function ResearchPage() {
           <p className="muted" style={{ fontSize: 13 }}>{r.tactic_tr}</p>
 
           <div className="card">
-            <h3>Cumulative net excess return (out of sample)</h3>
+            <h3>Cumulative net {m.benchmark_used === "none" ? "" : "excess "}return (out of sample)</h3>
             <EquityChart strategies={r.strategies!} />
             <div style={{ fontSize: 12 }}>
               {Object.keys(r.strategies!).map((k) => <span key={k} style={{ color: COLORS[k], marginRight: 14 }}>■ {k}</span>)}

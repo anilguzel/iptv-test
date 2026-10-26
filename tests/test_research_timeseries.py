@@ -88,3 +88,11 @@ def test_binomial_pvalue():
 def test_synthetic_single_rejects_unstable_process():
     with pytest.raises(ValueError):
         synthetic_single(autocorr=1.0)
+
+
+def test_tactic_text_without_benchmark_says_raw_returns():
+    daily, _ = synthetic_single(n_weeks=160, autocorr=0.0, seed=1)
+    (sym, bars), = daily.items()
+    report = run_timeseries_research(bars, sym, None, CFG)
+    assert report["meta"]["benchmark_used"] == "none"
+    assert "ham getiri" in report["tactic_tr"] and "(none)" not in report["tactic_tr"]
