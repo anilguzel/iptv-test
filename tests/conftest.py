@@ -1,6 +1,10 @@
 from __future__ import annotations
 
+import os
 from datetime import UTC, datetime, timedelta
+
+# Tests never touch the real database: env vars override any local .env file.
+os.environ["DATABASE_URL"] = "sqlite://"
 
 from bist_core.schemas import Tick
 

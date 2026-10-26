@@ -143,6 +143,34 @@ uses today's members (survivorship bias), public data is delayed, and a
 realistic weekly edge is small: an IC of 0.03–0.05 held consistently is already
 good. A much higher number on real data most likely means a bug.
 
+### Single-stock mode and other markets (e.g. SMTK on Nasdaq)
+
+`--mode timeseries` predicts **one** stock's next week from its own history:
+LONG when the model's predicted excess return is positive, otherwise FLAT. Its
+baselines are buy-and-hold, 4-week momentum and a coin flip. The rank-IC t-stat
+uses Bartlett's effective sample size, so overlapping (autocorrelated)
+features can't inflate significance.
+
+Be realistic about power: on synthetic data, ~3 years of weekly history detects
+even a strong planted effect (correlation 0.4) only about a third of the time.
+Real effects are far weaker. Prefer ranking a peer group, which pools many
+stocks' history into one model.
+
+US data comes from **Stooq** (free daily CSV, no key). The host must be allowed
+by your network policy:
+
+```bash
+# Peer group: SMTK + Nasdaq small/mid-cap semiconductor & display names vs IWM
+python -m bist_core.research --source stooq --universe SMTK_PEERS --benchmark IWM --cost-bps 75 --name smtk_peers
+# SMTK on its own
+python -m bist_core.research --source stooq --mode timeseries --symbol SMTK --benchmark IWM --cost-bps 75 --name smtk_timeseries
+```
+
+Each run writes `reports/<name>.json`. `GET /research/reports` lists them, and
+the `/research` page has a selector. Use a higher `--cost-bps` for thinly traded
+small caps, where wide spreads dominate. The report flags very large one-day
+moves, which may be genuine or unadjusted (reverse) splits.
+
 ## Macro context (TCMB EVDS)
 
 The dashboard shows a **macro context** panel (USD/TRY, EUR/TRY, …) from the

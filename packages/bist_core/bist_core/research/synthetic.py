@@ -69,3 +69,26 @@ def synthetic_universe(
     }
     bench = _daily_bars("XU100", market, 10_000.0, start, rng)
     return daily, bench
+
+
+def synthetic_single(
+    *,
+    n_weeks: int = 160,
+    autocorr: float = 0.0,
+    seed: int = 0,
+    start: date = date(2023, 1, 2),
+) -> tuple[dict[str, list[OhlcvBar]], list[OhlcvBar]]:
+    """One stock + a benchmark. ``autocorr`` plants a stationary AR(1) effect:
+    next week's excess return = autocorr x this week's + noise (0 = pure noise,
+    |autocorr| < 1). Stationary on purpose: a near-random-walk process trends
+    instead of offering a learnable, tradable pattern."""
+    if not -1 < autocorr < 1:
+        raise ValueError("autocorr must be in (-1, 1) for a stationary process")
+    rng = np.random.default_rng(seed)
+    market = rng.normal(0.002, 0.025, n_weeks)
+    excess = np.zeros(n_weeks)
+    for w in range(n_weeks):
+        excess[w] = autocorr * (excess[w - 1] if w else 0.0) + rng.normal(0, 0.05)
+    stock = _daily_bars("SYNTS", market + excess, 50.0, start, rng)
+    bench = _daily_bars("BENCH", market, 1_000.0, start, rng)
+    return {"SYNTS": stock}, bench

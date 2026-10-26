@@ -72,11 +72,16 @@ def spearman(a: np.ndarray, b: np.ndarray) -> float | None:
     return float(np.corrcoef(ra, rb)[0, 1])
 
 
-def eval_weeks(panel: Panel, cfg: WalkForwardConfig) -> list[int]:
-    """Weeks to evaluate, honouring min training history and the locked holdout."""
+def eval_weeks(panel: Panel, cfg: WalkForwardConfig, *, min_rows: int | None = None) -> list[int]:
+    """Weeks to evaluate, honouring min training history and the locked holdout.
+
+    ``min_rows`` is the number of stocks a week needs to be usable: 2 x top_n
+    for cross-sectional ranking (default), 1 for a single-stock time series.
+    """
+    min_rows = 2 * cfg.top_n if min_rows is None else min_rows
     known = np.isfinite(panel.y_raw)
     counts = {int(w): int(c) for w, c in zip(*np.unique(panel.week[known], return_counts=True), strict=True)}
-    usable = sorted(w for w, c in counts.items() if c >= 2 * cfg.top_n)
+    usable = sorted(w for w, c in counts.items() if c >= min_rows)
     needed = cfg.min_train_weeks + cfg.holdout_weeks + 1
     if len(usable) < needed:
         raise ValueError(
@@ -139,43 +144,48 @@ def run_strategy(panel: Panel, strategy, weeks: list[int], cfg: WalkForwardConfi
     return result
 
 
-def compute_metrics(steps: list[Step]) -> dict:
-    if not steps:
-        return {"weeks": 0}
-    net = np.array([s.net for s in steps])
-    ics = np.array([s.ic for s in steps if s.ic is not None])
+def return_stats(net: np.ndarray, hold_week_ends: list[str]) -> dict:
+    """Return/risk statistics of a weekly net-return series (shared by both modes)."""
     equity = np.cumprod(1 + net)
     drawdown = equity / np.maximum.accumulate(equity) - 1
-
     sd = net.std(ddof=1) if len(net) > 1 else 0.0
-    ic_sd = ics.std(ddof=1) if len(ics) > 1 else 0.0
     consistency = None
     if len(net) >= ROLLING_WINDOW:
         windows = np.convolve(net, np.ones(ROLLING_WINDOW), mode="valid")
         consistency = round(float((windows > 0).mean()), 4)
 
-    per_year: dict[str, dict] = {}
-    for s in steps:
-        per_year.setdefault(s.hold_week_end[:4], []).append(s.net)
+    per_year: dict[str, list[float]] = {}
+    for d, r in zip(hold_week_ends, net, strict=True):
+        per_year.setdefault(d[:4], []).append(float(r))
     per_year_stats = {
         y: {"weeks": len(v), "mean_net": round(float(np.mean(v)), 6), "cum_net": round(float(np.prod(1 + np.array(v)) - 1), 6)}
         for y, v in sorted(per_year.items())
     }
-
     return {
-        "weeks": len(steps),
+        "weeks": len(net),
         "mean_weekly_net": round(float(net.mean()), 6),
-        "hit_rate": round(float((net > 0).mean()), 4),
         "sharpe_annualised": round(float(net.mean() / sd * np.sqrt(52)), 3) if sd > 0 else None,
         "cumulative_net": round(float(equity[-1] - 1), 6),
         "max_drawdown": round(float(drawdown.min()), 6),
+        "consistency_13w": consistency,
+        "per_year": per_year_stats,
+    }
+
+
+def compute_metrics(steps: list[Step]) -> dict:
+    if not steps:
+        return {"weeks": 0}
+    net = np.array([s.net for s in steps])
+    ics = np.array([s.ic for s in steps if s.ic is not None])
+    ic_sd = ics.std(ddof=1) if len(ics) > 1 else 0.0
+    return {
+        **return_stats(net, [s.hold_week_end for s in steps]),
+        "hit_rate": round(float((net > 0).mean()), 4),
         "mean_ic": round(float(ics.mean()), 4) if len(ics) else None,
         "ic_tstat": round(float(ics.mean() / (ic_sd / np.sqrt(len(ics)))), 3) if ic_sd > 0 else None,
         "ic_hit_rate": round(float((ics > 0).mean()), 4) if len(ics) else None,
         "mean_long_short": round(float(np.mean([s.long_short for s in steps])), 6),
         "mean_turnover": round(float(np.mean([s.turnover for s in steps])), 4),
-        "consistency_13w": consistency,
-        "per_year": per_year_stats,
     }
 
 

@@ -6,6 +6,7 @@ Delayed data is preserved end-to-end: every quote/signal carries its
 from __future__ import annotations
 
 import json
+import re
 from datetime import UTC, datetime
 from pathlib import Path
 
@@ -365,27 +366,64 @@ def performance(session: Session = Depends(get_session), horizon: int = 30) -> d
     }
 
 
+_REPORT_NAME = re.compile(r"[A-Za-z0-9_-]{1,64}")
+_HOW_TO_RUN = "python -m bist_core.research --source bist --universe BIST30 --years 3"
+
+
+def _reports_dir() -> Path:
+    return Path(settings.research_reports_dir)
+
+
+def _read_report(path: Path) -> dict:
+    try:
+        return json.loads(path.read_text())
+    except (OSError, json.JSONDecodeError) as exc:
+        raise HTTPException(500, f"could not read research report {path.name}: {exc}") from exc
+
+
+@app.get("/research/reports")
+def research_reports() -> list[dict]:
+    """All reports written by `python -m bist_core.research`, newest first."""
+    out = []
+    for path in _reports_dir().glob("*.json"):
+        if not _REPORT_NAME.fullmatch(path.stem):
+            continue
+        report = _read_report(path)
+        meta = report.get("meta", {})
+        models = report.get("verdict", {}).get("models", {})
+        out.append({
+            "name": path.stem,
+            "mode": report.get("mode", "cross_section"),
+            "source": meta.get("source"),
+            "universe": meta.get("universe"),
+            "generated_at": report.get("generated_at"),
+            "passed": any(m.get("passed") for m in models.values()),
+        })
+    return sorted(out, key=lambda r: r["generated_at"] or "", reverse=True)
+
+
 @app.get("/research")
-def research(full: bool = False) -> dict:
-    """Latest weekly walk-forward report written by `python -m bist_core.research`.
+def research(name: str | None = None, full: bool = False) -> dict:
+    """One weekly walk-forward report (default: the newest).
 
     Read-only: research runs offline (it fetches years of history), and its
     findings are never applied to live scoring automatically.
     """
-    path = Path(settings.research_report_path)
+    if name is not None and not _REPORT_NAME.fullmatch(name):
+        raise HTTPException(400, "invalid report name")
+    if name is None:
+        listed = research_reports()
+        if not listed:
+            return {"available": False, "how_to_run": _HOW_TO_RUN}
+        name = listed[0]["name"]
+    path = _reports_dir() / f"{name}.json"
     if not path.exists():
-        return {
-            "available": False,
-            "how_to_run": "python -m bist_core.research --source bist --universe BIST30 --years 3",
-        }
-    try:
-        report = json.loads(path.read_text())
-    except (OSError, json.JSONDecodeError) as exc:
-        raise HTTPException(500, f"could not read research report: {exc}") from exc
+        raise HTTPException(404, f"no research report named {name!r}")
+    report = _read_report(path)
     if not full:
         for strategy in report.get("strategies", {}).values():
             strategy.pop("steps", None)  # per-week detail is large; ?full=true to include
-    return {"available": True, **report}
+    return {"available": True, "name": name, **report}
 
 
 @app.post("/refresh")

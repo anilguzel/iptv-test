@@ -81,7 +81,13 @@ def build_panel(
     benchmark_weekly: list[WeeklyBar] | None = None,
     *,
     benchmark_name: str = "XU100",
+    fallback: str = "universe_ew",
 ) -> Panel:
+    """Build the panel. ``fallback`` applies when the benchmark is missing or
+    too sparse: "universe_ew" (equal-weighted average of the universe) or
+    "none" (raw returns; the only sensible choice for a single stock)."""
+    if fallback not in ("universe_ew", "none"):
+        raise ValueError(f"unknown benchmark fallback {fallback!r}")
     calendar = sorted({b.week for bars in weekly_by_symbol.values() for b in bars})
     index = {wk: i for i, wk in enumerate(calendar)}
     T = len(calendar)
@@ -100,13 +106,15 @@ def build_panel(
 
     # Benchmark weekly returns on the same calendar.
     bench = np.full(T, np.nan)
-    used = "universe_ew"
+    used = fallback
     if benchmark_weekly:
         bclose = _series(benchmark_weekly, index, T)["close"]
         bret = _returns(bclose)
         if T > 1 and np.isfinite(bret[1:]).mean() >= MIN_BENCHMARK_COVERAGE:
             bench, used = bret, benchmark_name
-    if used == "universe_ew":
+    if used == "none":
+        bench = np.zeros(T)  # raw returns (e.g. a single stock with no benchmark)
+    elif used == "universe_ew":
         stacked = np.vstack([rets[s] for s in symbols]) if symbols else np.empty((0, T))
         counts = np.isfinite(stacked).sum(axis=0)
         sums = np.nansum(stacked, axis=0)

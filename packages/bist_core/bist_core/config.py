@@ -73,8 +73,11 @@ class Settings(BaseSettings):
     scoring_weights: str | None = Field(default=None, alias="SCORING_WEIGHTS")
 
     # --- Research (weekly walk-forward) ------------------------------------
-    # Where `python -m bist_core.research` writes, and GET /research reads.
-    research_report_path: str = Field(default="reports/research_latest.json", alias="RESEARCH_REPORT_PATH")
+    # `python -m bist_core.research --name X` writes <dir>/X.json; GET /research reads them.
+    research_reports_dir: str = Field(default="reports", alias="RESEARCH_REPORTS_DIR")
+    # Stooq: free daily CSV history for non-BIST markets (US: suffix ".us").
+    stooq_base_url: str = Field(default="https://stooq.com", alias="STOOQ_BASE_URL")
+    stooq_suffix: str = Field(default=".us", alias="STOOQ_SUFFIX")
 
     # --- AI analyzer -------------------------------------------------------
     # "mock" (deterministic, offline) or "anthropic".

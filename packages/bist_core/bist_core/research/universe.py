@@ -14,7 +14,16 @@ BIST30_APPROX: list[str] = [
     "TCELL", "THYAO", "TOASO", "TTKOM", "TUPRS", "YKBNK",
 ]
 
-UNIVERSES: dict[str, list[str]] = {"BIST30": BIST30_APPROX}
+# SMTK (SmartKem) and Nasdaq-listed small/mid-cap semiconductor, display and
+# photonics names as a peer group. Hand-picked and approximate: edit freely.
+# Delisted/unknown symbols are reported as missing, not fatal.
+SMTK_PEERS: list[str] = [
+    "SMTK", "KOPN", "VUZI", "MVIS", "PXLW", "POET", "LPTH", "AEHR", "ATOM", "NVTS",
+    "INDI", "CEVA", "QUIK", "GSIT", "AOSL", "ACMR", "ICHR", "UCTT", "PDFS", "SKYT",
+    "AXTI", "LASR", "DAIO", "AMBA", "SITM", "KLIC", "COHU", "FORM", "PLAB", "VECO",
+]
+
+UNIVERSES: dict[str, list[str]] = {"BIST30": BIST30_APPROX, "SMTK_PEERS": SMTK_PEERS}
 
 
 def resolve_universe(spec: str) -> list[str]:
