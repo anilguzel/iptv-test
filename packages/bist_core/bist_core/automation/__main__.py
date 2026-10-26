@@ -23,6 +23,7 @@ from pathlib import Path
 
 from .jobs import load_config, run_collect, run_research
 from .notify import send, summarize_collect, summarize_report
+from .status import write_status
 from .store import csv_path, read_store
 
 
@@ -35,6 +36,7 @@ async def _collect(cfg, store: Path) -> int:
     warning = summarize_collect(summaries)
     if warning:
         await send(warning)
+    write_status(store, event="Günlük veri toplama", extra=warning)
     return 1 if total and failed == total else 0
 
 
@@ -56,6 +58,7 @@ def _research(cfg, store: Path) -> int:
             await send(text)
 
     asyncio.run(_send_all())
+    write_status(store, event="Haftalık araştırma", extra="\n\n".join(texts) or None)
     return 1 if errors else 0
 
 

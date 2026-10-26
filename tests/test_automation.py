@@ -139,3 +139,51 @@ def test_repository_job_config_parses():
     cfg = load_config("automation/jobs.json")
     assert any(j.enabled and j.source == "yahoo" and j.suffix == ".IS" for j in cfg.collect)  # BIST on
     assert {j.name for j in cfg.research if j.enabled} >= {"smtk_peers", "smtk_timeseries", "bist30"}
+
+
+# -- status page ------------------------------------------------------------------ #
+def test_status_page_shows_data_and_research(tmp_path, monkeypatch):
+    from bist_core.automation.status import write_status
+
+    _store_synthetic(tmp_path, single=True)
+    run_research(ResearchJob(name="smtk_ts", dir="daily/stooq", mode="timeseries", symbol="SMTK",
+                             benchmark="IWM", cost_bps=75, years=10), tmp_path, tmp_path / "reports")
+    summary = tmp_path / "step_summary.md"
+    monkeypatch.setenv("GITHUB_STEP_SUMMARY", str(summary))
+    text = write_status(tmp_path, event="Haftalık araştırma", extra="özet")
+
+    readme = (tmp_path / "README.md").read_text()
+    assert readme == text and "Haftalık araştırma" in readme
+    assert "| stooq | 2 |" in readme  # SMTK + IWM stored
+    assert "| smtk_ts | tek hisse |" in readme and "sinyal değil" in readme
+    assert "özet" in summary.read_text()
+
+
+def test_status_page_when_empty(tmp_path):
+    from bist_core.automation.status import render_status
+
+    text = render_status(tmp_path, event="Günlük veri toplama")
+    assert "Henüz veri yok" in text and "Henüz rapor yok" in text
+
+
+def test_collect_cli_writes_status(tmp_path, monkeypatch):
+    from bist_core.automation import jobs as jobs_mod
+
+    data = {"AAA": [_bar(D[0], 1, sym="AAA"), _bar(D[1], 2, sym="AAA")], "IWM": [_bar(D[0], 100, sym="IWM")]}
+    monkeypatch.setattr(jobs_mod, "make_provider", lambda source, suffix="": FakeProvider(data))
+    cfg = tmp_path / "jobs.json"
+    cfg.write_text(json.dumps({"collect": [{"source": "yahoo", "universe": "AAA", "benchmark": "IWM"}]}))
+    store = tmp_path / "store"
+    assert automation_main(["collect", "--config", str(cfg), "--store", str(store)]) == 0
+    readme = (store / "README.md").read_text()
+    assert "Günlük veri toplama" in readme and "| yahoo | 2 |" in readme
+
+
+def test_status_names_the_laggard_only_when_behind(tmp_path):
+    from bist_core.automation.status import data_table
+
+    write_store(csv_path(tmp_path / "daily/y", "AAA"), [_bar(D[0], 1), _bar(D[2], 1)])
+    write_store(csv_path(tmp_path / "daily/y", "BBB"), [_bar(D[0], 1), _bar(D[2], 1)])
+    assert "hepsi güncel" in "\n".join(data_table(tmp_path))
+    write_store(csv_path(tmp_path / "daily/y", "CCC"), [_bar(D[0], 1)])
+    assert f"CCC ({D[0].isoformat()})" in "\n".join(data_table(tmp_path))
