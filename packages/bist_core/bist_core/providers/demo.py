@@ -84,7 +84,11 @@ class DemoMarketDataProvider(MarketDataProvider):
         now = datetime.now(UTC)
         return [self._quote_at(s, now) for s in symbols]
 
-    async def get_history(self, symbol: str, *, interval: str = "1d", limit: int = 120) -> list[OhlcvBar]:
+    async def get_history(
+        self, symbol: str, *, interval: str = "1d", limit: int = 120, period: str | None = None
+    ) -> list[OhlcvBar]:
+        if period:
+            limit = {"1y": 365, "2y": 730, "5y": 1825, "10y": 3650, "max": 3650}.get(period, limit)
         now = datetime.now(UTC)
         bars: list[OhlcvBar] = []
         for i in range(limit, 0, -1):

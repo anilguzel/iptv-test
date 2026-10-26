@@ -31,6 +31,8 @@ class Settings(BaseSettings):
     bist_data_service_url: str = Field(
         default="http://localhost:8000", alias="BIST_DATA_SERVICE_URL"
     )
+    # Sent as X-API-Key when the service is configured with API_KEYS.
+    bist_data_service_api_key: str | None = Field(default=None, alias="BIST_DATA_SERVICE_API_KEY")
     provider_timeout_seconds: float = Field(default=10.0, alias="PROVIDER_TIMEOUT")
     # Quotes older than this (relative to the market timestamp) are STALE.
     stale_after_seconds: int = Field(default=180, alias="STALE_AFTER_SECONDS")
@@ -69,6 +71,10 @@ class Settings(BaseSettings):
     # {"price_momentum": 18, "volume": 22, ...}. Renormalised to sum to 100.
     # Apply a calibration proposal here deliberately; it is never auto-applied.
     scoring_weights: str | None = Field(default=None, alias="SCORING_WEIGHTS")
+
+    # --- Research (weekly walk-forward) ------------------------------------
+    # Where `python -m bist_core.research` writes, and GET /research reads.
+    research_report_path: str = Field(default="reports/research_latest.json", alias="RESEARCH_REPORT_PATH")
 
     # --- AI analyzer -------------------------------------------------------
     # "mock" (deterministic, offline) or "anthropic".

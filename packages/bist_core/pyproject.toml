@@ -17,7 +17,8 @@ dependencies = [
 [project.optional-dependencies]
 postgres = ["psycopg[binary]>=3.1"]
 ai = ["anthropic>=0.39"]
-dev = ["pytest>=8.0", "pytest-asyncio>=0.23", "ruff>=0.5"]
+research = ["numpy>=1.26"]
+dev = ["pytest>=8.0", "pytest-asyncio>=0.23", "ruff>=0.5", "numpy>=1.26"]
 
 [tool.setuptools.packages.find]
 include = ["bist_core*"]

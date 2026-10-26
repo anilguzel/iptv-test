@@ -15,6 +15,9 @@ apps/web/out/
 .next/
 *.tsbuildinfo
 
+# Research reports (generated)
+reports/
+
 # Env
 .env
 .env.local

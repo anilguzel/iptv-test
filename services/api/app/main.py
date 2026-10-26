@@ -5,7 +5,9 @@ Delayed data is preserved end-to-end: every quote/signal carries its
 """
 from __future__ import annotations
 
+import json
 from datetime import UTC, datetime
+from pathlib import Path
 
 from bist_core.ai import get_ai_analyzer
 from bist_core.config import get_settings
@@ -361,6 +363,29 @@ def performance(session: Session = Depends(get_session), horizon: int = 30) -> d
         "proposed_weights": proposed,
         "note": "Illustrative on demo data; apply proposed_weights via SCORING_WEIGHTS to adopt.",
     }
+
+
+@app.get("/research")
+def research(full: bool = False) -> dict:
+    """Latest weekly walk-forward report written by `python -m bist_core.research`.
+
+    Read-only: research runs offline (it fetches years of history), and its
+    findings are never applied to live scoring automatically.
+    """
+    path = Path(settings.research_report_path)
+    if not path.exists():
+        return {
+            "available": False,
+            "how_to_run": "python -m bist_core.research --source bist --universe BIST30 --years 3",
+        }
+    try:
+        report = json.loads(path.read_text())
+    except (OSError, json.JSONDecodeError) as exc:
+        raise HTTPException(500, f"could not read research report: {exc}") from exc
+    if not full:
+        for strategy in report.get("strategies", {}).values():
+            strategy.pop("steps", None)  # per-week detail is large; ?full=true to include
+    return {"available": True, **report}
 
 
 @app.post("/refresh")

@@ -15,6 +15,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <span className="brand">BIST Intelligence</span>
           <Link href="/dashboard">Dashboard</Link>
           <Link href="/critical-moves">Critical Moves</Link>
+          <Link href="/research">Research</Link>
           <span className="muted" style={{ marginLeft: "auto", fontSize: 12 }}>
             Analysis & alerting only — no automatic trade execution
           </span>

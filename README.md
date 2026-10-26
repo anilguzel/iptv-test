@@ -101,6 +101,48 @@ On a fresh demo DB the first cycle runs within ~60s; you can also click
    ```
 3. `docker compose up`. All quotes will be labelled **DELAYED** (or **STALE**).
 
+## Weekly walk-forward research
+
+An offline research module asks one question: **can a model rank next week's
+winners better than simple baselines, consistently?**
+
+1. Daily bars (3 years by default) are resampled into weekly bars.
+2. For every stock and week, features use **only data up to that week's close**:
+   1/4/12-week excess return, 4/12-week volatility, volume vs the prior 12
+   weeks, distance from the 12-week high, weekly range. They are z-scored across
+   stocks each week, which also strips the market-wide TL inflation drift.
+3. The target is **next week's return in excess of XU100** (falls back to the
+   equal-weighted universe average if XU100 is unavailable).
+4. **Walk-forward:** for each week, train on everything already known, rank the
+   stocks, "hold" the top N for one week, record the realised net excess return
+   and the rank IC, move forward one week, repeat. All stocks are pooled: every
+   chart is training data for one shared model.
+5. A ridge model is compared with momentum, short-term reversal and random
+   baselines, after trading costs.
+6. The **last 26 weeks are a locked holdout**, opened only with
+   `--segment holdout --unlock-holdout` once tuning is finished.
+
+The verdict passes only if the model is positive after costs, beats the best
+baseline, has a significant rank IC (t ≥ 2) and is positive in ≥ 60% of rolling
+13-week windows. The report also lists **next week's ranking** and the model's
+coefficients. Nothing is applied to live scoring or turned into orders.
+
+```bash
+pip install -e "packages/bist_core[research]"
+
+# 1) Validate the method on data with a known answer
+python -m bist_core.research --source synthetic --synthetic-momentum 0.5  # planted signal -> should PASS
+python -m bist_core.research --source synthetic --synthetic-momentum 0    # pure noise    -> must FAIL
+
+# 2) Real run (needs a running bist-data-service; run after the Friday close)
+python -m bist_core.research --source bist --universe BIST30 --years 3
+```
+
+Then open `/research` in the UI (or `GET /research`). Caveats: the universe
+uses today's members (survivorship bias), public data is delayed, and a
+realistic weekly edge is small: an IC of 0.03–0.05 held consistently is already
+good. A much higher number on real data most likely means a bug.
+
 ## Macro context (TCMB EVDS)
 
 The dashboard shows a **macro context** panel (USD/TRY, EUR/TRY, …) from the

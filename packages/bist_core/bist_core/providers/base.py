@@ -32,8 +32,10 @@ class MarketDataProvider(abc.ABC):
 
     @abc.abstractmethod
     async def get_history(
-        self, symbol: str, *, interval: str = "1d", limit: int = 120
-    ) -> list[OhlcvBar]: ...
+        self, symbol: str, *, interval: str = "1d", limit: int = 120, period: str | None = None
+    ) -> list[OhlcvBar]:
+        """Daily (or `interval`) bars. With ``period`` (e.g. "5y") return the
+        whole range; otherwise the last ``limit`` bars."""
 
     @abc.abstractmethod
     async def get_intraday(self, symbol: str) -> list[IntradayPoint]: ...
