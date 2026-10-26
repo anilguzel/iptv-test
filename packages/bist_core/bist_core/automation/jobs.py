@@ -13,10 +13,11 @@ from .store import csv_path, merge_bars, read_store, write_store
 
 @dataclass
 class CollectJob:
-    source: str                  # "stooq" or "bist"
+    source: str                  # "stooq", "yahoo" or "bist"
     universe: str                # named universe or comma list
     benchmark: str | None = None
     dir: str | None = None       # store sub-folder (default: daily/<source>)
+    suffix: str = ""             # yahoo: exchange suffix, e.g. ".IS" for Borsa Istanbul
     enabled: bool = True
 
     @property
@@ -52,7 +53,11 @@ def load_config(path: str | Path) -> Config:
     )
 
 
-def make_provider(source: str):
+def make_provider(source: str, suffix: str = ""):
+    if source == "yahoo":
+        from ..providers.yahoo import YahooChartProvider
+
+        return YahooChartProvider(get_settings(), suffix=suffix)
     if source == "stooq":
         from ..providers.stooq import StooqProvider
 
@@ -71,7 +76,7 @@ async def run_collect(job: CollectJob, store: Path, provider=None) -> dict:
         symbols.append(job.benchmark.upper())
     target = store / job.store_dir
     own_provider = provider is None
-    provider = provider or make_provider(job.source)
+    provider = provider or make_provider(job.source, job.suffix)
     summary: dict = {"source": job.source, "universe": job.universe, "dir": job.store_dir,
                      "symbols": len(symbols), "changed": [], "unchanged": [], "failed": [],
                      "rescaled": [], "latest": {}}

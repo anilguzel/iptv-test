@@ -78,6 +78,8 @@ class Settings(BaseSettings):
     # Stooq: free daily CSV history for non-BIST markets (US: suffix ".us").
     stooq_base_url: str = Field(default="https://stooq.com", alias="STOOQ_BASE_URL")
     stooq_suffix: str = Field(default=".us", alias="STOOQ_SUFFIX")
+    # Yahoo Finance chart endpoint (unofficial; see providers/yahoo.py).
+    yahoo_base_url: str = Field(default="https://query1.finance.yahoo.com", alias="YAHOO_BASE_URL")
 
     # --- AI analyzer -------------------------------------------------------
     # "mock" (deterministic, offline) or "anthropic".

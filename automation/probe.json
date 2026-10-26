@@ -1,0 +1,8 @@
+{
+  "_comment": "Which data sources work from the runner? Used by the 'Data source probe' workflow; never written to the data branch.",
+  "collect": [
+    {"source": "stooq", "universe": "SMTK", "benchmark": "IWM", "dir": "stooq"},
+    {"source": "yahoo", "universe": "SMTK", "benchmark": "IWM", "dir": "yahoo_us"},
+    {"source": "yahoo", "universe": "THYAO,GARAN", "benchmark": "XU100", "suffix": ".IS", "dir": "yahoo_bist"}
+  ]
+}
