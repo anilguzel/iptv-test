@@ -1,0 +1,16 @@
+{
+  "_comment": "Scheduled jobs for GitHub Actions. collect: daily download into the market-data branch. research: weekly walk-forward on the stored history. Set enabled=false to pause a job.",
+  "collect": [
+    {"source": "stooq", "universe": "SMTK_PEERS", "benchmark": "IWM"},
+    {"_comment": "BIST needs a reachable bist-data-service: set the BIST_DATA_SERVICE_URL secret, then enable.",
+     "source": "bist", "universe": "BIST30", "benchmark": "XU100", "enabled": false}
+  ],
+  "research": [
+    {"name": "smtk_peers", "dir": "daily/stooq", "mode": "cross_section", "universe": "SMTK_PEERS",
+     "benchmark": "IWM", "cost_bps": 75},
+    {"name": "smtk_timeseries", "dir": "daily/stooq", "mode": "timeseries", "symbol": "SMTK",
+     "benchmark": "IWM", "cost_bps": 75},
+    {"name": "bist30", "dir": "daily/bist", "mode": "cross_section", "universe": "BIST30",
+     "benchmark": "XU100", "cost_bps": 10, "enabled": false}
+  ]
+}

@@ -180,6 +180,43 @@ the `/research` page has a selector. Use a higher `--cost-bps` for thinly traded
 small caps, where wide spreads dominate. The report flags very large one-day
 moves, which may be genuine or unadjusted (reverse) splits.
 
+## Automation (GitHub Actions)
+
+Three workflows in `.github/workflows/` keep the research running without a server:
+
+| Workflow | When | What |
+|---|---|---|
+| **Collect daily market data** | weekdays after the US close | Downloads daily bars for every enabled job in `automation/jobs.json` and merges them into CSVs on the `market-data` branch |
+| **Weekly research** | Saturday morning | Runs the walk-forward research on the stored history, saves `reports/*.json` on the same branch and sends one Telegram summary per job |
+| **Tests** | every push to `main` and every pull request | Lint, unit tests, TypeScript check and web build |
+
+Collected data lives on its own branch, so the daily commits never touch the
+code. When the source re-adjusts its history (e.g. after a reverse split), the
+merge detects the factor from the overlapping days and rescales the older stored
+rows. A Telegram warning goes out when symbols fail, data goes stale (> 5
+days) or history was re-adjusted. Summaries of a FAIL verdict say explicitly
+that next week's ranking is **not a signal**.
+
+**Setup:**
+
+1. Merge this code into the default branch. GitHub only runs scheduled
+   workflows, and only shows the "Run workflow" button, for files on the
+   default branch.
+2. Telegram (optional, the logs always contain the text): create a bot with
+   [@BotFather](https://t.me/BotFather), send it a message, then read your chat
+   id from `https://api.telegram.org/bot<TOKEN>/getUpdates`. Add the repository
+   secrets `TELEGRAM_BOT_TOKEN` and `TELEGRAM_CHAT_ID`
+   (*Settings → Secrets and variables → Actions*).
+3. *Actions → Collect daily market data → Run workflow* once to start the
+   history, then *Weekly research → Run workflow* to get the first report.
+4. Edit `automation/jobs.json` to change universes, costs or jobs. BIST needs a
+   reachable bist-data-service: set the `BIST_DATA_SERVICE_URL` secret (and
+   `BIST_DATA_SERVICE_API_KEY` if it uses keys), then set `"enabled": true` on
+   the BIST jobs.
+
+The same commands run anywhere:
+`python -m bist_core.automation collect|research --config automation/jobs.json --store store`.
+
 ## Macro context (TCMB EVDS)
 
 The dashboard shows a **macro context** panel (USD/TRY, EUR/TRY, …) from the
