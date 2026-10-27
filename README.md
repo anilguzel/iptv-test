@@ -216,13 +216,24 @@ that next week's ranking is **not a signal**.
 which tries each source from a GitHub runner (*Actions → Data source probe →
 Run workflow* to re-check at any time). On 2026-10-26 Yahoo Finance's chart
 endpoint answered for US stocks, BIST (`.IS` listings) and the XU100 index,
-while Stooq returned 404. So both the US (SMTK peers vs IWM) and the BIST30
-(vs XU100) jobs collect from Yahoo. That endpoint is unofficial: its terms may
+while Stooq returned 404. So both the US (SMTK peers vs IWM) and the BIST
+(BIST30 plus other long-listed large caps, vs XU100) jobs collect from Yahoo. That endpoint is unofficial: its terms may
 limit automated use and it can change, so the jobs make one light daily batch
 and identify themselves honestly. Requests use explicit start/end dates
 because `range=max` silently returns monthly bars, and non-daily data is
 rejected. A bist-data-service job is included but disabled (needs the
 `BIST_DATA_SERVICE_URL` secret).
+
+**Which stocks are researched.** The ranking jobs only use stocks with a long
+history and real trading: before each run they drop any candidate listed for
+less than 8 years, with a median daily traded value (close × volume, last
+~250 days) under 20M USD (US) or 500M TL (BIST, nominal: raise it with
+inflation), more than 5% zero-volume days (broken data), or data lagging the
+others by more than 5 days. The thresholds are `min_years`,
+`min_median_value`, `max_zero_volume_share` and `max_stale_days` in
+`automation/jobs.json`; every report, the status page and the Telegram summary
+list how many passed and why the others dropped. The walk-forward then uses
+the last 8 years of those stocks.
 
 The same commands run anywhere:
 `python -m bist_core.automation collect|research --config automation/jobs.json --store store`.

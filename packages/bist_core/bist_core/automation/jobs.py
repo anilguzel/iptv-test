@@ -8,6 +8,7 @@ from pathlib import Path
 
 from ..config import get_settings
 from ..research.universe import resolve_universe
+from .screen import ScreenRules, screen_symbols
 from .store import csv_path, merge_bars, read_store, write_store
 
 
@@ -38,7 +39,19 @@ class ResearchJob:
     cost_bps: float = 10.0
     years: float = 3.0
     top_n: int = 5
+    # Screening (cross_section only): drop stocks with short history, thin
+    # trading or broken volume data before the walk-forward. 0 / 1.0 = off.
+    min_years: float = 0.0
+    min_median_value: float = 0.0
+    max_zero_volume_share: float = 1.0
+    max_stale_days: int | None = None
     enabled: bool = True
+
+    @property
+    def screen_rules(self) -> ScreenRules:
+        return ScreenRules(min_years=self.min_years, min_median_value=self.min_median_value,
+                           max_zero_volume_share=self.max_zero_volume_share,
+                           max_stale_days=self.max_stale_days)
 
 
 @dataclass
@@ -112,10 +125,18 @@ def run_research(job: ResearchJob, store: Path, reports_dir: Path) -> dict:
     from ..research.__main__ import main as research_main
 
     get_settings().research_reports_dir = str(reports_dir)
+    universe, screen = job.universe, None
+    if job.mode == "cross_section" and job.universe and job.screen_rules.active:
+        candidates = [s for s in resolve_universe(job.universe) if s != (job.benchmark or "").upper()]
+        screen = screen_symbols(store / job.dir, candidates, job.screen_rules)
+        if not screen["kept"]:
+            return {"name": job.name, "error": "eleme filtresini geçen hisse yok", "screen": screen,
+                    "generated_at": datetime.now(UTC).isoformat()}
+        universe = ",".join(screen["kept"])
     args = ["--source", "csv", "--csv-dir", str(store / job.dir), "--mode", job.mode, "--name", job.name,
             "--cost-bps", str(job.cost_bps), "--years", str(job.years), "--top-n", str(job.top_n)]
-    if job.universe:
-        args += ["--universe", job.universe]
+    if universe:
+        args += ["--universe", universe]
     if job.symbol:
         args += ["--symbol", job.symbol]
     if job.benchmark:
@@ -128,4 +149,8 @@ def run_research(job: ResearchJob, store: Path, reports_dir: Path) -> dict:
     if code != 0 or not path.exists():
         return {"name": job.name, "error": f"research exited with code {code}",
                 "generated_at": datetime.now(UTC).isoformat()}
-    return json.loads(path.read_text(encoding="utf-8"))
+    report = json.loads(path.read_text(encoding="utf-8"))
+    if screen is not None:
+        report["screen"] = screen
+        path.write_text(json.dumps(report, ensure_ascii=False, indent=2), encoding="utf-8")
+    return report

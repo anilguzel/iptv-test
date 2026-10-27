@@ -57,8 +57,11 @@ def research_table(store: Path) -> list[str]:
         if not verdict["passed"]:
             nxt += " _(model FAIL: sinyal değil)_"
         ic_t = m.get("ic_tstat")
+        kind = "tek hisse" if ts else "sıralama"
+        if r.get("screen"):
+            kind += f" ({len(r['screen']['kept'])}/{len(r['screen']['rows'])} elemeden geçti)"
         rows.append(
-            f"| {f.stem} | {'tek hisse' if ts else 'sıralama'} | {(r.get('generated_at') or '')[:10]} "
+            f"| {f.stem} | {kind} | {(r.get('generated_at') or '')[:10]} "
             f"| {'PASS ✅' if verdict['passed'] else 'FAIL ❌'} | {'-' if ic_t is None else f'{ic_t:.2f}'} "
             f"| {_pct(m.get('cumulative_net'))} | {nxt} |"
         )

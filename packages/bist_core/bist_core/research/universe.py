@@ -23,7 +23,16 @@ SMTK_PEERS: list[str] = [
     "AXTI", "LASR", "DAIO", "AMBA", "SITM", "KLIC", "COHU", "FORM", "PLAB", "VECO",
 ]
 
-UNIVERSES: dict[str, list[str]] = {"BIST30": BIST30_APPROX, "SMTK_PEERS": SMTK_PEERS}
+# Candidate pool for the screened BIST research: the BIST30 names plus other
+# large, long-listed stocks. The automation keeps only those that pass the
+# history/volume screen (automation/jobs.json), so a wide pool is safe.
+# KOZAL is left out: Yahoo answers 404 for it (ticker changed or delisted).
+BIST_WIDE: list[str] = [s for s in BIST30_APPROX if s != "KOZAL"] + [
+    "VAKBN", "HALKB", "TSKB", "SKBNK", "ISMEN", "TAVHL", "ULKER", "AEFES", "VESTL",
+    "DOHOL", "OTKAR", "TTRAK", "KOZAA", "AKSEN", "ZOREN",
+]
+
+UNIVERSES: dict[str, list[str]] = {"BIST30": BIST30_APPROX, "BIST_WIDE": BIST_WIDE, "SMTK_PEERS": SMTK_PEERS}
 
 
 def resolve_universe(spec: str) -> list[str]:

@@ -138,7 +138,7 @@ def test_cli_research_runs_enabled_jobs_only(tmp_path, capsys):
 def test_repository_job_config_parses():
     cfg = load_config("automation/jobs.json")
     assert any(j.enabled and j.source == "yahoo" and j.suffix == ".IS" for j in cfg.collect)  # BIST on
-    assert {j.name for j in cfg.research if j.enabled} >= {"smtk_peers", "smtk_timeseries", "bist30"}
+    assert {j.name for j in cfg.research if j.enabled} >= {"smtk_peers", "smtk_timeseries", "bist_likit"}
 
 
 # -- status page ------------------------------------------------------------------ #
@@ -187,3 +187,48 @@ def test_status_names_the_laggard_only_when_behind(tmp_path):
     assert "hepsi güncel" in "\n".join(data_table(tmp_path))
     write_store(csv_path(tmp_path / "daily/y", "CCC"), [_bar(D[0], 1)])
     assert f"CCC ({D[0].isoformat()})" in "\n".join(data_table(tmp_path))
+
+
+# -- screening: long history + real volume ------------------------------------------ #
+def _series(start: date, days: int, close: float, volume: float, sym: str) -> list[OhlcvBar]:
+    return [_bar(start + timedelta(days=i), close, volume, sym) for i in range(days)]
+
+
+def test_screen_keeps_long_liquid_stocks_and_says_why_others_drop(tmp_path):
+    from bist_core.automation.screen import ScreenRules, screen_symbols
+
+    old = date(2016, 1, 1)
+    end_days = (date(2026, 1, 1) - old).days
+    write_store(csv_path(tmp_path, "BIG"), _series(old, end_days, 10, 1_000_000, "BIG"))
+    write_store(csv_path(tmp_path, "THIN"), _series(old, end_days, 10, 100, "THIN"))
+    write_store(csv_path(tmp_path, "NEW"), _series(date(2024, 1, 1), 730, 10, 1_000_000, "NEW"))
+    zero = _series(old, end_days, 10, 1_000_000, "ZERO")
+    zero[-100:] = [b.model_copy(update={"volume": 0.0}) for b in zero[-100:]]
+    write_store(csv_path(tmp_path, "ZERO"), zero)
+    write_store(csv_path(tmp_path, "DEAD"), _series(old, end_days - 60, 10, 1_000_000, "DEAD"))
+
+    rules = ScreenRules(min_years=8, min_median_value=1_000_000, max_zero_volume_share=0.05, max_stale_days=5)
+    out = screen_symbols(tmp_path, ["BIG", "THIN", "NEW", "ZERO", "DEAD", "GONE"], rules)
+    assert out["kept"] == ["BIG"]
+    why = {r["symbol"]: " ".join(r["reasons"]) for r in out["rows"]}
+    assert "işlem hacmi" in why["THIN"] and "geçmiş" in why["NEW"] and "hacimsiz" in why["ZERO"]
+    assert "geride" in why["DEAD"] and why["GONE"] == "veri yok"
+    assert not ScreenRules().active and rules.active
+
+
+def test_research_job_runs_on_the_screened_universe(tmp_path):
+    _store_synthetic(tmp_path)  # 12 synthetic stocks, ~2.7 years
+    job = ResearchJob(name="screened", dir="daily/stooq", universe="",
+                      benchmark="IWM", years=10, top_n=3, min_years=1)
+    folder = tmp_path / "daily/stooq"
+    names = sorted(p.stem for p in folder.glob("*.csv") if p.stem != "IWM")
+    job.universe = ",".join([*names, "MISSING"])
+    report = run_research(job, tmp_path, tmp_path / "reports")
+    assert "MISSING" not in report["screen"]["kept"] and set(report["meta"]["symbols_used"]) <= set(names)
+    assert "Eleme:" in summarize_report(report) and "MISSING (veri yok)" in summarize_report(report)
+    saved = json.loads((tmp_path / "reports/screened.json").read_text())
+    assert saved["screen"]["kept"] == report["screen"]["kept"]
+
+    job.min_years = 50
+    failed = run_research(job, tmp_path, tmp_path / "reports")
+    assert "error" in failed and "Eleme: 0/" in summarize_report(failed)
