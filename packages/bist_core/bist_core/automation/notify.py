@@ -28,6 +28,16 @@ def screen_line(screen: dict, limit: int = 8) -> str:
     return text
 
 
+def strategy_lines(st: dict) -> list[str]:
+    lines = [f"🎯 Strateji (geçmişten otomatik seçildi), güven: {st['confidence']}", st["summary_tr"]]
+    nw = st.get("next_week")
+    if nw:
+        lo, hi = nw["typical_range"]
+        lines.append(f"Gelecek hafta: {', '.join(nw['picks'])} — beklenen kıyasa göre {_pct(nw['expected_weekly_excess'])}"
+                     f"/hafta (tipik aralık {_pct(lo)} … {_pct(hi)})")
+    return lines
+
+
 def summarize_report(report: dict) -> str:
     if "error" in report:
         text = f"⚠️ {report['name']}: araştırma çalışmadı ({report['error']})."
@@ -48,8 +58,12 @@ def summarize_report(report: dict) -> str:
     if best:
         b = report["strategies"][best]["metrics"]
         lines.append(f"En iyi basit strateji: {best} {_pct(b.get('mean_weekly_net'))}/hafta, toplam {_pct(b.get('cumulative_net'))}")
+    if report.get("strategy"):
+        lines += strategy_lines(report["strategy"])
     nw = report["next_week"]
-    label = "Gelecek hafta" if passed else "Gelecek hafta (model FAIL — sinyal sayılmaz)"
+    label = "Model sıralaması" if passed else "Model sıralaması (model FAIL — sinyal sayılmaz)"
+    if ts:
+        label = "Gelecek hafta" if passed else "Gelecek hafta (model FAIL — sinyal sayılmaz)"
     if ts:
         lines.append(f"{label}: {nw['symbol']} {nw['position']} (tahmin {_pct(nw['predicted_excess'])})")
     else:

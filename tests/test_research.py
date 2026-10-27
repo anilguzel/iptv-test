@@ -94,7 +94,11 @@ def test_planted_signal_is_found():
     ridge = report["strategies"]["ridge"]["metrics"]
     assert ridge["mean_ic"] > 0.15
     assert ridge["ic_tstat"] > 2
-    assert report["verdict"]["models"]["ridge"]["passed"] is True
+    # The planted signal *is* 4-week momentum, so that baseline is the oracle
+    # here; the strategy selection must find it (or the model) with confidence.
+    st = report["strategy"]
+    assert st["chosen"] in {"momentum_4w", "ridge"} and st["confidence"] == "GÜÇLÜ"
+    assert st["holdout"]["mean_weekly_net"] > 0 and len(st["next_week"]["picks"]) == CFG.top_n
     # The model should have learned that recent excess return predicts next week.
     assert report["next_week"]["coefficients"]["ex_ret_4w"] > 0
     assert len(report["next_week"]["picks"]) == CFG.top_n
@@ -130,3 +134,24 @@ def test_too_little_history_is_rejected():
 def test_missing_benchmark_falls_back_to_universe_average():
     daily, _ = synthetic_universe(n_stocks=12, n_weeks=40, seed=2)
     assert build_panel(_weekly(daily), None).benchmark == "universe_ew"
+
+
+def test_strategy_selection_rarely_claims_strength_on_noise():
+    strong = 0
+    for seed in range(20):
+        daily, bench = synthetic_universe(n_stocks=20, n_weeks=200, momentum=0.0, seed=seed)
+        st = run_research(daily, bench, CFG)["strategy"]
+        assert st["confidence"] in {"GÜÇLÜ", "ORTA", "ZAYIF", "YOK"}
+        assert "random" not in [c["strategy"] for c in st["candidates"]]  # random is the control
+        strong += st["confidence"] == "GÜÇLÜ"
+    assert strong <= 2
+
+
+def test_strategy_selection_without_eligible_candidate_says_hold_the_index():
+    from bist_core.research.selection import select_strategy
+    from bist_core.research.walkforward import StrategyResult
+
+    losing = StrategyResult(name="momentum_12w", steps=[], metrics={})
+    losing.steps = [type("S", (), {"net": -0.01, "hold_week_end": "2026-01-02"})() for _ in range(10)]
+    st = select_strategy(type("P", (), {"benchmark": "XU100"})(), {"momentum_12w": losing}, {}, CFG)
+    assert st["chosen"] is None and st["confidence"] == "YOK" and "endeksini tut" in st["summary_tr"]

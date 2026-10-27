@@ -6,6 +6,7 @@ from datetime import UTC, datetime
 from ..schemas import OhlcvBar
 from .features import FEATURE_NAMES, Panel, build_panel
 from .models import RidgeRanker, default_strategies
+from .selection import select_strategy
 from .timeseries import TSRidge, default_ts_strategies, predict_next_week_ts, run_ts_strategy
 from .walkforward import (
     StrategyResult,
@@ -107,6 +108,8 @@ def run_research(
     next_week = predict_next_week(panel, final_model, cfg.top_n)
     next_week["coefficients"] = final_model.coefficients()
     next_week["note"] = "Analitik sıralama — otomatik emir değildir, gelecek garantisi yoktur."
+    fresh = {st.name: st for st in default_strategies(ridge_lambda, seed)}
+    strategy = select_strategy(panel, results, fresh, cfg)
 
     return {
         "mode": "cross_section",
@@ -118,6 +121,7 @@ def run_research(
             results, ["signal_week_end", "hold_week_end", "train_max_week", "week", "top", "net", "ic"]
         ),
         "next_week": next_week,
+        "strategy": strategy,
     }
 
 

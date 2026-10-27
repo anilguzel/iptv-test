@@ -86,6 +86,9 @@ def default_strategies(lam: float = 10.0, seed: int = 7) -> list:
     return [
         RidgeRanker(lam=lam),
         FeatureBaseline("momentum_12w", "ex_ret_12w", +1.0),
+        FeatureBaseline("momentum_4w", "ex_ret_4w", +1.0),
         FeatureBaseline("reversal_1w", "ex_ret_1w", -1.0),
+        FeatureBaseline("low_vol_12w", "vol_12w", -1.0),
+        FeatureBaseline("near_high_12w", "dist_from_12w_high", +1.0),
         RandomBaseline(seed=seed),
     ]
