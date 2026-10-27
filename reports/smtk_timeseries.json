@@ -1,0 +1,2195 @@
+{
+  "mode": "timeseries",
+  "generated_at": "2026-10-27T20:25:25.249130+00:00",
+  "meta": {
+    "source": "csv",
+    "universe": "SMTK",
+    "requested_symbols": [
+      "SMTK"
+    ],
+    "missing": [],
+    "jump_warnings": [
+      {
+        "symbol": "SMTK",
+        "date": "2024-11-25",
+        "change": 0.6969
+      },
+      {
+        "symbol": "SMTK",
+        "date": "2025-09-02",
+        "change": 0.72
+      },
+      {
+        "symbol": "SMTK",
+        "date": "2026-06-08",
+        "change": 1.0538
+      },
+      {
+        "symbol": "SMTK",
+        "date": "2026-06-09",
+        "change": -0.5393
+      }
+    ],
+    "data_warning": "Local CSV files from /tmp/claude-0/md/daily/yahoo_us; check that prices are split-adjusted.",
+    "years": 3.0,
+    "symbol": "SMTK",
+    "benchmark_used": "IWM",
+    "symbols_used": [
+      "SMTK"
+    ],
+    "symbols_skipped_short_history": [],
+    "calendar_weeks": 126,
+    "first_week_end": "2024-05-31",
+    "last_week_end": "2026-10-23",
+    "rows": 114,
+    "evaluated_weeks": 35,
+    "segment": "validation",
+    "holdout_locked": true,
+    "config": {
+      "top_n": 5,
+      "min_train_weeks": 52,
+      "holdout_weeks": 26,
+      "cost_bps_per_side": 75.0,
+      "ridge_lambda": 10.0
+    },
+    "feature_names": [
+      "ex_ret_1w",
+      "ex_ret_4w",
+      "ex_ret_12w",
+      "vol_4w",
+      "vol_12w",
+      "log_volume_ratio",
+      "dist_from_12w_high",
+      "range_1w"
+    ]
+  },
+  "tactic_tr": "Her hafta kapanışında model SMTK hissesinin yalnızca kendi geçmişiyle yeniden eğitilir; tahmin pozitifse hisse 1 hafta tutulur (LONG), değilse nakitte beklenir (FLAT). Başarı ölçüsü: kıyasa (IWM) göre maliyet sonrası fazla getiri. Bu bir analizdir, otomatik emir değildir.",
+  "verdict": {
+    "best_baseline": "always_long",
+    "models": {
+      "ridge": {
+        "passed": false,
+        "checks": {
+          "positive_after_costs": true,
+          "beats_best_baseline": true,
+          "ic_significant": false,
+          "consistent": false
+        },
+        "summary_tr": "Tutarlı bir avantaj bulunamadı. Başarısız kriterler: ic_significant, consistent."
+      }
+    }
+  },
+  "strategies": {
+    "ridge": {
+      "metrics": {
+        "weeks": 35,
+        "mean_weekly_net": 0.004394,
+        "sharpe_annualised": 0.141,
+        "cumulative_net": -0.461664,
+        "max_drawdown": -0.836797,
+        "consistency_13w": 0.087,
+        "per_year": {
+          "2025": {
+            "weeks": 18,
+            "mean_net": 0.058595,
+            "cum_net": 1.007123
+          },
+          "2026": {
+            "weeks": 17,
+            "mean_net": -0.052996,
+            "cum_net": -0.731787
+          }
+        },
+        "hit_rate": 0.4857,
+        "accuracy_pvalue": 0.6321,
+        "mean_ic": -0.0885,
+        "ic_tstat": -0.501,
+        "ic_effective_n": 33.8,
+        "exposure": 0.7143,
+        "mean_turnover": 0.3429
+      },
+      "equity": [
+        {
+          "week_end": "2025-08-29",
+          "cum_net": 0.287978
+        },
+        {
+          "week_end": "2025-09-05",
+          "cum_net": 1.506711
+        },
+        {
+          "week_end": "2025-09-12",
+          "cum_net": 1.470325
+        },
+        {
+          "week_end": "2025-09-19",
+          "cum_net": 1.451797
+        },
+        {
+          "week_end": "2025-09-26",
+          "cum_net": 1.451797
+        },
+        {
+          "week_end": "2025-10-03",
+          "cum_net": 1.451797
+        },
+        {
+          "week_end": "2025-10-10",
+          "cum_net": 1.451797
+        },
+        {
+          "week_end": "2025-10-17",
+          "cum_net": 1.387132
+        },
+        {
+          "week_end": "2025-10-24",
+          "cum_net": 1.282844
+        },
+        {
+          "week_end": "2025-10-31",
+          "cum_net": 1.265723
+        },
+        {
+          "week_end": "2025-11-07",
+          "cum_net": 1.265723
+        },
+        {
+          "week_end": "2025-11-14",
+          "cum_net": 1.274137
+        },
+        {
+          "week_end": "2025-11-21",
+          "cum_net": 0.794251
+        },
+        {
+          "week_end": "2025-11-28",
+          "cum_net": 0.780794
+        },
+        {
+          "week_end": "2025-12-05",
+          "cum_net": 0.878383
+        },
+        {
+          "week_end": "2025-12-12",
+          "cum_net": 1.077753
+        },
+        {
+          "week_end": "2025-12-19",
+          "cum_net": 0.863698
+        },
+        {
+          "week_end": "2025-12-26",
+          "cum_net": 1.007123
+        },
+        {
+          "week_end": "2026-01-02",
+          "cum_net": 0.486397
+        },
+        {
+          "week_end": "2026-01-09",
+          "cum_net": 0.318059
+        },
+        {
+          "week_end": "2026-01-16",
+          "cum_net": 0.349426
+        },
+        {
+          "week_end": "2026-01-23",
+          "cum_net": 0.339305
+        },
+        {
+          "week_end": "2026-01-30",
+          "cum_net": 0.396571
+        },
+        {
+          "week_end": "2026-02-06",
+          "cum_net": -0.341021
+        },
+        {
+          "week_end": "2026-02-13",
+          "cum_net": -0.528933
+        },
+        {
+          "week_end": "2026-02-20",
+          "cum_net": -0.4831
+        },
+        {
+          "week_end": "2026-02-27",
+          "cum_net": -0.570528
+        },
+        {
+          "week_end": "2026-03-06",
+          "cum_net": -0.524385
+        },
+        {
+          "week_end": "2026-03-13",
+          "cum_net": -0.535611
+        },
+        {
+          "week_end": "2026-03-20",
+          "cum_net": -0.549709
+        },
+        {
+          "week_end": "2026-03-27",
+          "cum_net": -0.587805
+        },
+        {
+          "week_end": "2026-04-02",
+          "cum_net": -0.590896
+        },
+        {
+          "week_end": "2026-04-10",
+          "cum_net": -0.431168
+        },
+        {
+          "week_end": "2026-04-17",
+          "cum_net": -0.457596
+        },
+        {
+          "week_end": "2026-04-24",
+          "cum_net": -0.461664
+        }
+      ],
+      "steps": [
+        {
+          "signal_week_end": "2025-08-22",
+          "hold_week_end": "2025-08-29",
+          "train_max_week": 63,
+          "week": 64,
+          "score": 0.024299,
+          "position": 1.0,
+          "outcome": 0.295478,
+          "net": 0.287978
+        },
+        {
+          "signal_week_end": "2025-08-29",
+          "hold_week_end": "2025-09-05",
+          "train_max_week": 64,
+          "week": 65,
+          "score": 0.009209,
+          "position": 1.0,
+          "outcome": 0.946238,
+          "net": 0.946238
+        },
+        {
+          "signal_week_end": "2025-09-05",
+          "hold_week_end": "2025-09-12",
+          "train_max_week": 65,
+          "week": 66,
+          "score": 0.063285,
+          "position": 1.0,
+          "outcome": -0.014516,
+          "net": -0.014516
+        },
+        {
+          "signal_week_end": "2025-09-12",
+          "hold_week_end": "2025-09-19",
+          "train_max_week": 66,
+          "week": 67,
+          "score": -0.18935,
+          "position": 0.0,
+          "outcome": -0.132791,
+          "net": -0.0075
+        },
+        {
+          "signal_week_end": "2025-09-19",
+          "hold_week_end": "2025-09-26",
+          "train_max_week": 67,
+          "week": 68,
+          "score": -0.147194,
+          "position": 0.0,
+          "outcome": 0.303299,
+          "net": 0.0
+        },
+        {
+          "signal_week_end": "2025-09-26",
+          "hold_week_end": "2025-10-03",
+          "train_max_week": 68,
+          "week": 69,
+          "score": -0.036763,
+          "position": 0.0,
+          "outcome": 0.194165,
+          "net": 0.0
+        },
+        {
+          "signal_week_end": "2025-10-03",
+          "hold_week_end": "2025-10-10",
+          "train_max_week": 69,
+          "week": 70,
+          "score": -0.012072,
+          "position": 0.0,
+          "outcome": -0.046242,
+          "net": -0.0
+        },
+        {
+          "signal_week_end": "2025-10-10",
+          "hold_week_end": "2025-10-17",
+          "train_max_week": 70,
+          "week": 71,
+          "score": 0.122029,
+          "position": 1.0,
+          "outcome": -0.018875,
+          "net": -0.026375
+        },
+        {
+          "signal_week_end": "2025-10-17",
+          "hold_week_end": "2025-10-24",
+          "train_max_week": 71,
+          "week": 72,
+          "score": 0.014641,
+          "position": 1.0,
+          "outcome": -0.043687,
+          "net": -0.043687
+        },
+        {
+          "signal_week_end": "2025-10-24",
+          "hold_week_end": "2025-10-31",
+          "train_max_week": 72,
+          "week": 73,
+          "score": -0.034963,
+          "position": 0.0,
+          "outcome": 0.032154,
+          "net": -0.0075
+        },
+        {
+          "signal_week_end": "2025-10-31",
+          "hold_week_end": "2025-11-07",
+          "train_max_week": 73,
+          "week": 74,
+          "score": -0.048167,
+          "position": 0.0,
+          "outcome": -0.175552,
+          "net": -0.0
+        },
+        {
+          "signal_week_end": "2025-11-07",
+          "hold_week_end": "2025-11-14",
+          "train_max_week": 74,
+          "week": 75,
+          "score": 0.017789,
+          "position": 1.0,
+          "outcome": 0.011214,
+          "net": 0.003714
+        },
+        {
+          "signal_week_end": "2025-11-14",
+          "hold_week_end": "2025-11-21",
+          "train_max_week": 75,
+          "week": 76,
+          "score": 0.021524,
+          "position": 1.0,
+          "outcome": -0.211019,
+          "net": -0.211019
+        },
+        {
+          "signal_week_end": "2025-11-21",
+          "hold_week_end": "2025-11-28",
+          "train_max_week": 76,
+          "week": 77,
+          "score": -0.035807,
+          "position": 0.0,
+          "outcome": 0.019941,
+          "net": -0.0075
+        },
+        {
+          "signal_week_end": "2025-11-28",
+          "hold_week_end": "2025-12-05",
+          "train_max_week": 77,
+          "week": 78,
+          "score": 0.130305,
+          "position": 1.0,
+          "outcome": 0.062301,
+          "net": 0.054801
+        },
+        {
+          "signal_week_end": "2025-12-05",
+          "hold_week_end": "2025-12-12",
+          "train_max_week": 78,
+          "week": 79,
+          "score": 0.062354,
+          "position": 1.0,
+          "outcome": 0.106139,
+          "net": 0.106139
+        },
+        {
+          "signal_week_end": "2025-12-12",
+          "hold_week_end": "2025-12-19",
+          "train_max_week": 79,
+          "week": 80,
+          "score": 0.04155,
+          "position": 1.0,
+          "outcome": -0.103022,
+          "net": -0.103022
+        },
+        {
+          "signal_week_end": "2025-12-19",
+          "hold_week_end": "2025-12-26",
+          "train_max_week": 80,
+          "week": 81,
+          "score": 0.030422,
+          "position": 1.0,
+          "outcome": 0.076957,
+          "net": 0.076957
+        },
+        {
+          "signal_week_end": "2025-12-26",
+          "hold_week_end": "2026-01-02",
+          "train_max_week": 81,
+          "week": 82,
+          "score": 0.060239,
+          "position": 1.0,
+          "outcome": -0.259439,
+          "net": -0.259439
+        },
+        {
+          "signal_week_end": "2026-01-02",
+          "hold_week_end": "2026-01-09",
+          "train_max_week": 82,
+          "week": 83,
+          "score": 0.072401,
+          "position": 1.0,
+          "outcome": -0.113252,
+          "net": -0.113252
+        },
+        {
+          "signal_week_end": "2026-01-09",
+          "hold_week_end": "2026-01-16",
+          "train_max_week": 83,
+          "week": 84,
+          "score": 0.035797,
+          "position": 1.0,
+          "outcome": 0.023798,
+          "net": 0.023798
+        },
+        {
+          "signal_week_end": "2026-01-16",
+          "hold_week_end": "2026-01-23",
+          "train_max_week": 84,
+          "week": 85,
+          "score": -0.010289,
+          "position": 0.0,
+          "outcome": -0.324014,
+          "net": -0.0075
+        },
+        {
+          "signal_week_end": "2026-01-23",
+          "hold_week_end": "2026-01-30",
+          "train_max_week": 85,
+          "week": 86,
+          "score": 0.084523,
+          "position": 1.0,
+          "outcome": 0.050258,
+          "net": 0.042758
+        },
+        {
+          "signal_week_end": "2026-01-30",
+          "hold_week_end": "2026-02-06",
+          "train_max_week": 86,
+          "week": 87,
+          "score": 0.047023,
+          "position": 1.0,
+          "outcome": -0.528145,
+          "net": -0.528145
+        },
+        {
+          "signal_week_end": "2026-02-06",
+          "hold_week_end": "2026-02-13",
+          "train_max_week": 87,
+          "week": 88,
+          "score": 0.018801,
+          "position": 1.0,
+          "outcome": -0.285157,
+          "net": -0.285157
+        },
+        {
+          "signal_week_end": "2026-02-13",
+          "hold_week_end": "2026-02-20",
+          "train_max_week": 88,
+          "week": 89,
+          "score": 0.018196,
+          "position": 1.0,
+          "outcome": 0.097296,
+          "net": 0.097296
+        },
+        {
+          "signal_week_end": "2026-02-20",
+          "hold_week_end": "2026-02-27",
+          "train_max_week": 89,
+          "week": 90,
+          "score": 0.083298,
+          "position": 1.0,
+          "outcome": -0.169138,
+          "net": -0.169138
+        },
+        {
+          "signal_week_end": "2026-02-27",
+          "hold_week_end": "2026-03-06",
+          "train_max_week": 90,
+          "week": 91,
+          "score": 0.028612,
+          "position": 1.0,
+          "outcome": 0.10744,
+          "net": 0.10744
+        },
+        {
+          "signal_week_end": "2026-03-06",
+          "hold_week_end": "2026-03-13",
+          "train_max_week": 91,
+          "week": 92,
+          "score": 0.043351,
+          "position": 1.0,
+          "outcome": -0.023602,
+          "net": -0.023602
+        },
+        {
+          "signal_week_end": "2026-03-13",
+          "hold_week_end": "2026-03-20",
+          "train_max_week": 92,
+          "week": 93,
+          "score": 0.01805,
+          "position": 1.0,
+          "outcome": -0.03036,
+          "net": -0.03036
+        },
+        {
+          "signal_week_end": "2026-03-20",
+          "hold_week_end": "2026-03-27",
+          "train_max_week": 93,
+          "week": 94,
+          "score": 0.031443,
+          "position": 1.0,
+          "outcome": -0.084602,
+          "net": -0.084602
+        },
+        {
+          "signal_week_end": "2026-03-27",
+          "hold_week_end": "2026-04-02",
+          "train_max_week": 94,
+          "week": 95,
+          "score": -0.001237,
+          "position": 0.0,
+          "outcome": -0.007261,
+          "net": -0.0075
+        },
+        {
+          "signal_week_end": "2026-04-02",
+          "hold_week_end": "2026-04-10",
+          "train_max_week": 95,
+          "week": 96,
+          "score": 0.008917,
+          "position": 1.0,
+          "outcome": 0.397935,
+          "net": 0.390435
+        },
+        {
+          "signal_week_end": "2026-04-10",
+          "hold_week_end": "2026-04-17",
+          "train_max_week": 96,
+          "week": 97,
+          "score": 0.05416,
+          "position": 1.0,
+          "outcome": -0.04646,
+          "net": -0.04646
+        },
+        {
+          "signal_week_end": "2026-04-17",
+          "hold_week_end": "2026-04-24",
+          "train_max_week": 97,
+          "week": 98,
+          "score": -0.003267,
+          "position": 0.0,
+          "outcome": -0.201381,
+          "net": -0.0075
+        }
+      ]
+    },
+    "always_long": {
+      "metrics": {
+        "weeks": 35,
+        "mean_weekly_net": -0.002897,
+        "sharpe_annualised": -0.085,
+        "cumulative_net": -0.650837,
+        "max_drawdown": -0.901627,
+        "consistency_13w": 0.1739,
+        "per_year": {
+          "2025": {
+            "weeks": 18,
+            "mean_net": 0.071927,
+            "cum_net": 1.345193
+          },
+          "2026": {
+            "weeks": 17,
+            "mean_net": -0.082123,
+            "cum_net": -0.851116
+          }
+        },
+        "hit_rate": 0.4286,
+        "accuracy_pvalue": 0.8447,
+        "mean_ic": -0.2599,
+        "ic_tstat": -1.546,
+        "ic_effective_n": 35.0,
+        "exposure": 1.0,
+        "mean_turnover": 0.0286
+      },
+      "equity": [
+        {
+          "week_end": "2025-08-29",
+          "cum_net": 0.287978
+        },
+        {
+          "week_end": "2025-09-05",
+          "cum_net": 1.506711
+        },
+        {
+          "week_end": "2025-09-12",
+          "cum_net": 1.470325
+        },
+        {
+          "week_end": "2025-09-19",
+          "cum_net": 1.142289
+        },
+        {
+          "week_end": "2025-09-26",
+          "cum_net": 1.792043
+        },
+        {
+          "week_end": "2025-10-03",
+          "cum_net": 2.334161
+        },
+        {
+          "week_end": "2025-10-10",
+          "cum_net": 2.179981
+        },
+        {
+          "week_end": "2025-10-17",
+          "cum_net": 2.11996
+        },
+        {
+          "week_end": "2025-10-24",
+          "cum_net": 1.983657
+        },
+        {
+          "week_end": "2025-10-31",
+          "cum_net": 2.079593
+        },
+        {
+          "week_end": "2025-11-07",
+          "cum_net": 1.538964
+        },
+        {
+          "week_end": "2025-11-14",
+          "cum_net": 1.567435
+        },
+        {
+          "week_end": "2025-11-21",
+          "cum_net": 1.025658
+        },
+        {
+          "week_end": "2025-11-28",
+          "cum_net": 1.066052
+        },
+        {
+          "week_end": "2025-12-05",
+          "cum_net": 1.194769
+        },
+        {
+          "week_end": "2025-12-12",
+          "cum_net": 1.427719
+        },
+        {
+          "week_end": "2025-12-19",
+          "cum_net": 1.177611
+        },
+        {
+          "week_end": "2025-12-26",
+          "cum_net": 1.345193
+        },
+        {
+          "week_end": "2026-01-02",
+          "cum_net": 0.736758
+        },
+        {
+          "week_end": "2026-01-09",
+          "cum_net": 0.540067
+        },
+        {
+          "week_end": "2026-01-16",
+          "cum_net": 0.576717
+        },
+        {
+          "week_end": "2026-01-23",
+          "cum_net": 0.065839
+        },
+        {
+          "week_end": "2026-01-30",
+          "cum_net": 0.119405
+        },
+        {
+          "week_end": "2026-02-06",
+          "cum_net": -0.471803
+        },
+        {
+          "week_end": "2026-02-13",
+          "cum_net": -0.622422
+        },
+        {
+          "week_end": "2026-02-20",
+          "cum_net": -0.585685
+        },
+        {
+          "week_end": "2026-02-27",
+          "cum_net": -0.655762
+        },
+        {
+          "week_end": "2026-03-06",
+          "cum_net": -0.618776
+        },
+        {
+          "week_end": "2026-03-13",
+          "cum_net": -0.627774
+        },
+        {
+          "week_end": "2026-03-20",
+          "cum_net": -0.639075
+        },
+        {
+          "week_end": "2026-03-27",
+          "cum_net": -0.66961
+        },
+        {
+          "week_end": "2026-04-02",
+          "cum_net": -0.672009
+        },
+        {
+          "week_end": "2026-04-10",
+          "cum_net": -0.54149
+        },
+        {
+          "week_end": "2026-04-17",
+          "cum_net": -0.562792
+        },
+        {
+          "week_end": "2026-04-24",
+          "cum_net": -0.650837
+        }
+      ],
+      "steps": [
+        {
+          "signal_week_end": "2025-08-22",
+          "hold_week_end": "2025-08-29",
+          "train_max_week": 63,
+          "week": 64,
+          "score": 1.0,
+          "position": 1.0,
+          "outcome": 0.295478,
+          "net": 0.287978
+        },
+        {
+          "signal_week_end": "2025-08-29",
+          "hold_week_end": "2025-09-05",
+          "train_max_week": 64,
+          "week": 65,
+          "score": 1.0,
+          "position": 1.0,
+          "outcome": 0.946238,
+          "net": 0.946238
+        },
+        {
+          "signal_week_end": "2025-09-05",
+          "hold_week_end": "2025-09-12",
+          "train_max_week": 65,
+          "week": 66,
+          "score": 1.0,
+          "position": 1.0,
+          "outcome": -0.014516,
+          "net": -0.014516
+        },
+        {
+          "signal_week_end": "2025-09-12",
+          "hold_week_end": "2025-09-19",
+          "train_max_week": 66,
+          "week": 67,
+          "score": 1.0,
+          "position": 1.0,
+          "outcome": -0.132791,
+          "net": -0.132791
+        },
+        {
+          "signal_week_end": "2025-09-19",
+          "hold_week_end": "2025-09-26",
+          "train_max_week": 67,
+          "week": 68,
+          "score": 1.0,
+          "position": 1.0,
+          "outcome": 0.303299,
+          "net": 0.303299
+        },
+        {
+          "signal_week_end": "2025-09-26",
+          "hold_week_end": "2025-10-03",
+          "train_max_week": 68,
+          "week": 69,
+          "score": 1.0,
+          "position": 1.0,
+          "outcome": 0.194165,
+          "net": 0.194165
+        },
+        {
+          "signal_week_end": "2025-10-03",
+          "hold_week_end": "2025-10-10",
+          "train_max_week": 69,
+          "week": 70,
+          "score": 1.0,
+          "position": 1.0,
+          "outcome": -0.046242,
+          "net": -0.046242
+        },
+        {
+          "signal_week_end": "2025-10-10",
+          "hold_week_end": "2025-10-17",
+          "train_max_week": 70,
+          "week": 71,
+          "score": 1.0,
+          "position": 1.0,
+          "outcome": -0.018875,
+          "net": -0.018875
+        },
+        {
+          "signal_week_end": "2025-10-17",
+          "hold_week_end": "2025-10-24",
+          "train_max_week": 71,
+          "week": 72,
+          "score": 1.0,
+          "position": 1.0,
+          "outcome": -0.043687,
+          "net": -0.043687
+        },
+        {
+          "signal_week_end": "2025-10-24",
+          "hold_week_end": "2025-10-31",
+          "train_max_week": 72,
+          "week": 73,
+          "score": 1.0,
+          "position": 1.0,
+          "outcome": 0.032154,
+          "net": 0.032154
+        },
+        {
+          "signal_week_end": "2025-10-31",
+          "hold_week_end": "2025-11-07",
+          "train_max_week": 73,
+          "week": 74,
+          "score": 1.0,
+          "position": 1.0,
+          "outcome": -0.175552,
+          "net": -0.175552
+        },
+        {
+          "signal_week_end": "2025-11-07",
+          "hold_week_end": "2025-11-14",
+          "train_max_week": 74,
+          "week": 75,
+          "score": 1.0,
+          "position": 1.0,
+          "outcome": 0.011214,
+          "net": 0.011214
+        },
+        {
+          "signal_week_end": "2025-11-14",
+          "hold_week_end": "2025-11-21",
+          "train_max_week": 75,
+          "week": 76,
+          "score": 1.0,
+          "position": 1.0,
+          "outcome": -0.211019,
+          "net": -0.211019
+        },
+        {
+          "signal_week_end": "2025-11-21",
+          "hold_week_end": "2025-11-28",
+          "train_max_week": 76,
+          "week": 77,
+          "score": 1.0,
+          "position": 1.0,
+          "outcome": 0.019941,
+          "net": 0.019941
+        },
+        {
+          "signal_week_end": "2025-11-28",
+          "hold_week_end": "2025-12-05",
+          "train_max_week": 77,
+          "week": 78,
+          "score": 1.0,
+          "position": 1.0,
+          "outcome": 0.062301,
+          "net": 0.062301
+        },
+        {
+          "signal_week_end": "2025-12-05",
+          "hold_week_end": "2025-12-12",
+          "train_max_week": 78,
+          "week": 79,
+          "score": 1.0,
+          "position": 1.0,
+          "outcome": 0.106139,
+          "net": 0.106139
+        },
+        {
+          "signal_week_end": "2025-12-12",
+          "hold_week_end": "2025-12-19",
+          "train_max_week": 79,
+          "week": 80,
+          "score": 1.0,
+          "position": 1.0,
+          "outcome": -0.103022,
+          "net": -0.103022
+        },
+        {
+          "signal_week_end": "2025-12-19",
+          "hold_week_end": "2025-12-26",
+          "train_max_week": 80,
+          "week": 81,
+          "score": 1.0,
+          "position": 1.0,
+          "outcome": 0.076957,
+          "net": 0.076957
+        },
+        {
+          "signal_week_end": "2025-12-26",
+          "hold_week_end": "2026-01-02",
+          "train_max_week": 81,
+          "week": 82,
+          "score": 1.0,
+          "position": 1.0,
+          "outcome": -0.259439,
+          "net": -0.259439
+        },
+        {
+          "signal_week_end": "2026-01-02",
+          "hold_week_end": "2026-01-09",
+          "train_max_week": 82,
+          "week": 83,
+          "score": 1.0,
+          "position": 1.0,
+          "outcome": -0.113252,
+          "net": -0.113252
+        },
+        {
+          "signal_week_end": "2026-01-09",
+          "hold_week_end": "2026-01-16",
+          "train_max_week": 83,
+          "week": 84,
+          "score": 1.0,
+          "position": 1.0,
+          "outcome": 0.023798,
+          "net": 0.023798
+        },
+        {
+          "signal_week_end": "2026-01-16",
+          "hold_week_end": "2026-01-23",
+          "train_max_week": 84,
+          "week": 85,
+          "score": 1.0,
+          "position": 1.0,
+          "outcome": -0.324014,
+          "net": -0.324014
+        },
+        {
+          "signal_week_end": "2026-01-23",
+          "hold_week_end": "2026-01-30",
+          "train_max_week": 85,
+          "week": 86,
+          "score": 1.0,
+          "position": 1.0,
+          "outcome": 0.050258,
+          "net": 0.050258
+        },
+        {
+          "signal_week_end": "2026-01-30",
+          "hold_week_end": "2026-02-06",
+          "train_max_week": 86,
+          "week": 87,
+          "score": 1.0,
+          "position": 1.0,
+          "outcome": -0.528145,
+          "net": -0.528145
+        },
+        {
+          "signal_week_end": "2026-02-06",
+          "hold_week_end": "2026-02-13",
+          "train_max_week": 87,
+          "week": 88,
+          "score": 1.0,
+          "position": 1.0,
+          "outcome": -0.285157,
+          "net": -0.285157
+        },
+        {
+          "signal_week_end": "2026-02-13",
+          "hold_week_end": "2026-02-20",
+          "train_max_week": 88,
+          "week": 89,
+          "score": 1.0,
+          "position": 1.0,
+          "outcome": 0.097296,
+          "net": 0.097296
+        },
+        {
+          "signal_week_end": "2026-02-20",
+          "hold_week_end": "2026-02-27",
+          "train_max_week": 89,
+          "week": 90,
+          "score": 1.0,
+          "position": 1.0,
+          "outcome": -0.169138,
+          "net": -0.169138
+        },
+        {
+          "signal_week_end": "2026-02-27",
+          "hold_week_end": "2026-03-06",
+          "train_max_week": 90,
+          "week": 91,
+          "score": 1.0,
+          "position": 1.0,
+          "outcome": 0.10744,
+          "net": 0.10744
+        },
+        {
+          "signal_week_end": "2026-03-06",
+          "hold_week_end": "2026-03-13",
+          "train_max_week": 91,
+          "week": 92,
+          "score": 1.0,
+          "position": 1.0,
+          "outcome": -0.023602,
+          "net": -0.023602
+        },
+        {
+          "signal_week_end": "2026-03-13",
+          "hold_week_end": "2026-03-20",
+          "train_max_week": 92,
+          "week": 93,
+          "score": 1.0,
+          "position": 1.0,
+          "outcome": -0.03036,
+          "net": -0.03036
+        },
+        {
+          "signal_week_end": "2026-03-20",
+          "hold_week_end": "2026-03-27",
+          "train_max_week": 93,
+          "week": 94,
+          "score": 1.0,
+          "position": 1.0,
+          "outcome": -0.084602,
+          "net": -0.084602
+        },
+        {
+          "signal_week_end": "2026-03-27",
+          "hold_week_end": "2026-04-02",
+          "train_max_week": 94,
+          "week": 95,
+          "score": 1.0,
+          "position": 1.0,
+          "outcome": -0.007261,
+          "net": -0.007261
+        },
+        {
+          "signal_week_end": "2026-04-02",
+          "hold_week_end": "2026-04-10",
+          "train_max_week": 95,
+          "week": 96,
+          "score": 1.0,
+          "position": 1.0,
+          "outcome": 0.397935,
+          "net": 0.397935
+        },
+        {
+          "signal_week_end": "2026-04-10",
+          "hold_week_end": "2026-04-17",
+          "train_max_week": 96,
+          "week": 97,
+          "score": 1.0,
+          "position": 1.0,
+          "outcome": -0.04646,
+          "net": -0.04646
+        },
+        {
+          "signal_week_end": "2026-04-17",
+          "hold_week_end": "2026-04-24",
+          "train_max_week": 97,
+          "week": 98,
+          "score": 1.0,
+          "position": 1.0,
+          "outcome": -0.201381,
+          "net": -0.201381
+        }
+      ]
+    },
+    "momentum_4w": {
+      "metrics": {
+        "weeks": 35,
+        "mean_weekly_net": -0.006848,
+        "sharpe_annualised": -0.555,
+        "cumulative_net": -0.313762,
+        "max_drawdown": -0.480112,
+        "consistency_13w": 0.2609,
+        "per_year": {
+          "2025": {
+            "weeks": 18,
+            "mean_net": 0.01822,
+            "cum_net": 0.294092
+          },
+          "2026": {
+            "weeks": 17,
+            "mean_net": -0.033391,
+            "cum_net": -0.469715
+          }
+        },
+        "hit_rate": 0.4286,
+        "accuracy_pvalue": 0.8447,
+        "mean_ic": -0.0353,
+        "ic_tstat": -0.203,
+        "ic_effective_n": 35.0,
+        "exposure": 0.3714,
+        "mean_turnover": 0.2
+      },
+      "equity": [
+        {
+          "week_end": "2025-08-29",
+          "cum_net": 0.0
+        },
+        {
+          "week_end": "2025-09-05",
+          "cum_net": 0.0
+        },
+        {
+          "week_end": "2025-09-12",
+          "cum_net": -0.022016
+        },
+        {
+          "week_end": "2025-09-19",
+          "cum_net": -0.151883
+        },
+        {
+          "week_end": "2025-09-26",
+          "cum_net": 0.105351
+        },
+        {
+          "week_end": "2025-10-03",
+          "cum_net": 0.319971
+        },
+        {
+          "week_end": "2025-10-10",
+          "cum_net": 0.258933
+        },
+        {
+          "week_end": "2025-10-17",
+          "cum_net": 0.235171
+        },
+        {
+          "week_end": "2025-10-24",
+          "cum_net": 0.181209
+        },
+        {
+          "week_end": "2025-10-31",
+          "cum_net": 0.219189
+        },
+        {
+          "week_end": "2025-11-07",
+          "cum_net": 0.210046
+        },
+        {
+          "week_end": "2025-11-14",
+          "cum_net": 0.210046
+        },
+        {
+          "week_end": "2025-11-21",
+          "cum_net": 0.210046
+        },
+        {
+          "week_end": "2025-11-28",
+          "cum_net": 0.210046
+        },
+        {
+          "week_end": "2025-12-05",
+          "cum_net": 0.210046
+        },
+        {
+          "week_end": "2025-12-12",
+          "cum_net": 0.210046
+        },
+        {
+          "week_end": "2025-12-19",
+          "cum_net": 0.210046
+        },
+        {
+          "week_end": "2025-12-26",
+          "cum_net": 0.294092
+        },
+        {
+          "week_end": "2026-01-02",
+          "cum_net": -0.041646
+        },
+        {
+          "week_end": "2026-01-09",
+          "cum_net": -0.048834
+        },
+        {
+          "week_end": "2026-01-16",
+          "cum_net": -0.048834
+        },
+        {
+          "week_end": "2026-01-23",
+          "cum_net": -0.048834
+        },
+        {
+          "week_end": "2026-01-30",
+          "cum_net": -0.048834
+        },
+        {
+          "week_end": "2026-02-06",
+          "cum_net": -0.048834
+        },
+        {
+          "week_end": "2026-02-13",
+          "cum_net": -0.048834
+        },
+        {
+          "week_end": "2026-02-20",
+          "cum_net": -0.048834
+        },
+        {
+          "week_end": "2026-02-27",
+          "cum_net": -0.048834
+        },
+        {
+          "week_end": "2026-03-06",
+          "cum_net": -0.048834
+        },
+        {
+          "week_end": "2026-03-13",
+          "cum_net": -0.048834
+        },
+        {
+          "week_end": "2026-03-20",
+          "cum_net": -0.084845
+        },
+        {
+          "week_end": "2026-03-27",
+          "cum_net": -0.091709
+        },
+        {
+          "week_end": "2026-04-02",
+          "cum_net": -0.091709
+        },
+        {
+          "week_end": "2026-04-10",
+          "cum_net": -0.091709
+        },
+        {
+          "week_end": "2026-04-17",
+          "cum_net": -0.14072
+        },
+        {
+          "week_end": "2026-04-24",
+          "cum_net": -0.313762
+        }
+      ],
+      "steps": [
+        {
+          "signal_week_end": "2025-08-22",
+          "hold_week_end": "2025-08-29",
+          "train_max_week": 63,
+          "week": 64,
+          "score": -0.391909,
+          "position": 0.0,
+          "outcome": 0.295478,
+          "net": 0.0
+        },
+        {
+          "signal_week_end": "2025-08-29",
+          "hold_week_end": "2025-09-05",
+          "train_max_week": 64,
+          "week": 65,
+          "score": -0.086507,
+          "position": 0.0,
+          "outcome": 0.946238,
+          "net": 0.0
+        },
+        {
+          "signal_week_end": "2025-09-05",
+          "hold_week_end": "2025-09-12",
+          "train_max_week": 65,
+          "week": 66,
+          "score": 0.972766,
+          "position": 1.0,
+          "outcome": -0.014516,
+          "net": -0.022016
+        },
+        {
+          "signal_week_end": "2025-09-12",
+          "hold_week_end": "2025-09-19",
+          "train_max_week": 66,
+          "week": 67,
+          "score": 1.24338,
+          "position": 1.0,
+          "outcome": -0.132791,
+          "net": -0.132791
+        },
+        {
+          "signal_week_end": "2025-09-19",
+          "hold_week_end": "2025-09-26",
+          "train_max_week": 67,
+          "week": 68,
+          "score": 1.094409,
+          "position": 1.0,
+          "outcome": 0.303299,
+          "net": 0.303299
+        },
+        {
+          "signal_week_end": "2025-09-26",
+          "hold_week_end": "2025-10-03",
+          "train_max_week": 68,
+          "week": 69,
+          "score": 1.102231,
+          "position": 1.0,
+          "outcome": 0.194165,
+          "net": 0.194165
+        },
+        {
+          "signal_week_end": "2025-10-03",
+          "hold_week_end": "2025-10-10",
+          "train_max_week": 69,
+          "week": 70,
+          "score": 0.350158,
+          "position": 1.0,
+          "outcome": -0.046242,
+          "net": -0.046242
+        },
+        {
+          "signal_week_end": "2025-10-10",
+          "hold_week_end": "2025-10-17",
+          "train_max_week": 70,
+          "week": 71,
+          "score": 0.318431,
+          "position": 1.0,
+          "outcome": -0.018875,
+          "net": -0.018875
+        },
+        {
+          "signal_week_end": "2025-10-17",
+          "hold_week_end": "2025-10-24",
+          "train_max_week": 71,
+          "week": 72,
+          "score": 0.432347,
+          "position": 1.0,
+          "outcome": -0.043687,
+          "net": -0.043687
+        },
+        {
+          "signal_week_end": "2025-10-24",
+          "hold_week_end": "2025-10-31",
+          "train_max_week": 72,
+          "week": 73,
+          "score": 0.085361,
+          "position": 1.0,
+          "outcome": 0.032154,
+          "net": 0.032154
+        },
+        {
+          "signal_week_end": "2025-10-31",
+          "hold_week_end": "2025-11-07",
+          "train_max_week": 73,
+          "week": 74,
+          "score": -0.076651,
+          "position": 0.0,
+          "outcome": -0.175552,
+          "net": -0.0075
+        },
+        {
+          "signal_week_end": "2025-11-07",
+          "hold_week_end": "2025-11-14",
+          "train_max_week": 74,
+          "week": 75,
+          "score": -0.20596,
+          "position": 0.0,
+          "outcome": 0.011214,
+          "net": 0.0
+        },
+        {
+          "signal_week_end": "2025-11-14",
+          "hold_week_end": "2025-11-21",
+          "train_max_week": 75,
+          "week": 76,
+          "score": -0.175872,
+          "position": 0.0,
+          "outcome": -0.211019,
+          "net": -0.0
+        },
+        {
+          "signal_week_end": "2025-11-21",
+          "hold_week_end": "2025-11-28",
+          "train_max_week": 76,
+          "week": 77,
+          "score": -0.343204,
+          "position": 0.0,
+          "outcome": 0.019941,
+          "net": 0.0
+        },
+        {
+          "signal_week_end": "2025-11-28",
+          "hold_week_end": "2025-12-05",
+          "train_max_week": 77,
+          "week": 78,
+          "score": -0.355416,
+          "position": 0.0,
+          "outcome": 0.062301,
+          "net": 0.0
+        },
+        {
+          "signal_week_end": "2025-12-05",
+          "hold_week_end": "2025-12-12",
+          "train_max_week": 78,
+          "week": 79,
+          "score": -0.117563,
+          "position": 0.0,
+          "outcome": 0.106139,
+          "net": 0.0
+        },
+        {
+          "signal_week_end": "2025-12-12",
+          "hold_week_end": "2025-12-19",
+          "train_max_week": 79,
+          "week": 80,
+          "score": -0.022638,
+          "position": 0.0,
+          "outcome": -0.103022,
+          "net": -0.0
+        },
+        {
+          "signal_week_end": "2025-12-19",
+          "hold_week_end": "2025-12-26",
+          "train_max_week": 80,
+          "week": 81,
+          "score": 0.085359,
+          "position": 1.0,
+          "outcome": 0.076957,
+          "net": 0.069457
+        },
+        {
+          "signal_week_end": "2025-12-26",
+          "hold_week_end": "2026-01-02",
+          "train_max_week": 81,
+          "week": 82,
+          "score": 0.142375,
+          "position": 1.0,
+          "outcome": -0.259439,
+          "net": -0.259439
+        },
+        {
+          "signal_week_end": "2026-01-02",
+          "hold_week_end": "2026-01-09",
+          "train_max_week": 82,
+          "week": 83,
+          "score": -0.179365,
+          "position": 0.0,
+          "outcome": -0.113252,
+          "net": -0.0075
+        },
+        {
+          "signal_week_end": "2026-01-09",
+          "hold_week_end": "2026-01-16",
+          "train_max_week": 83,
+          "week": 84,
+          "score": -0.398756,
+          "position": 0.0,
+          "outcome": 0.023798,
+          "net": 0.0
+        },
+        {
+          "signal_week_end": "2026-01-16",
+          "hold_week_end": "2026-01-23",
+          "train_max_week": 84,
+          "week": 85,
+          "score": -0.271937,
+          "position": 0.0,
+          "outcome": -0.324014,
+          "net": -0.0
+        },
+        {
+          "signal_week_end": "2026-01-23",
+          "hold_week_end": "2026-01-30",
+          "train_max_week": 85,
+          "week": 86,
+          "score": -0.672908,
+          "position": 0.0,
+          "outcome": 0.050258,
+          "net": 0.0
+        },
+        {
+          "signal_week_end": "2026-01-30",
+          "hold_week_end": "2026-02-06",
+          "train_max_week": 86,
+          "week": 87,
+          "score": -0.363211,
+          "position": 0.0,
+          "outcome": -0.528145,
+          "net": -0.0
+        },
+        {
+          "signal_week_end": "2026-02-06",
+          "hold_week_end": "2026-02-13",
+          "train_max_week": 87,
+          "week": 88,
+          "score": -0.778104,
+          "position": 0.0,
+          "outcome": -0.285157,
+          "net": -0.0
+        },
+        {
+          "signal_week_end": "2026-02-13",
+          "hold_week_end": "2026-02-20",
+          "train_max_week": 88,
+          "week": 89,
+          "score": -1.087058,
+          "position": 0.0,
+          "outcome": 0.097296,
+          "net": 0.0
+        },
+        {
+          "signal_week_end": "2026-02-20",
+          "hold_week_end": "2026-02-27",
+          "train_max_week": 89,
+          "week": 90,
+          "score": -0.665748,
+          "position": 0.0,
+          "outcome": -0.169138,
+          "net": -0.0
+        },
+        {
+          "signal_week_end": "2026-02-27",
+          "hold_week_end": "2026-03-06",
+          "train_max_week": 90,
+          "week": 91,
+          "score": -0.885144,
+          "position": 0.0,
+          "outcome": 0.10744,
+          "net": 0.0
+        },
+        {
+          "signal_week_end": "2026-03-06",
+          "hold_week_end": "2026-03-13",
+          "train_max_week": 91,
+          "week": 92,
+          "score": -0.249558,
+          "position": 0.0,
+          "outcome": -0.023602,
+          "net": -0.0
+        },
+        {
+          "signal_week_end": "2026-03-13",
+          "hold_week_end": "2026-03-20",
+          "train_max_week": 92,
+          "week": 93,
+          "score": 0.011997,
+          "position": 1.0,
+          "outcome": -0.03036,
+          "net": -0.03786
+        },
+        {
+          "signal_week_end": "2026-03-20",
+          "hold_week_end": "2026-03-27",
+          "train_max_week": 93,
+          "week": 94,
+          "score": -0.11566,
+          "position": 0.0,
+          "outcome": -0.084602,
+          "net": -0.0075
+        },
+        {
+          "signal_week_end": "2026-03-27",
+          "hold_week_end": "2026-04-02",
+          "train_max_week": 94,
+          "week": 95,
+          "score": -0.031124,
+          "position": 0.0,
+          "outcome": -0.007261,
+          "net": -0.0
+        },
+        {
+          "signal_week_end": "2026-04-02",
+          "hold_week_end": "2026-04-10",
+          "train_max_week": 95,
+          "week": 96,
+          "score": -0.145825,
+          "position": 0.0,
+          "outcome": 0.397935,
+          "net": 0.0
+        },
+        {
+          "signal_week_end": "2026-04-10",
+          "hold_week_end": "2026-04-17",
+          "train_max_week": 96,
+          "week": 97,
+          "score": 0.275711,
+          "position": 1.0,
+          "outcome": -0.04646,
+          "net": -0.05396
+        },
+        {
+          "signal_week_end": "2026-04-17",
+          "hold_week_end": "2026-04-24",
+          "train_max_week": 97,
+          "week": 98,
+          "score": 0.259612,
+          "position": 1.0,
+          "outcome": -0.201381,
+          "net": -0.201381
+        }
+      ]
+    },
+    "random": {
+      "metrics": {
+        "weeks": 35,
+        "mean_weekly_net": -0.006719,
+        "sharpe_annualised": -0.232,
+        "cumulative_net": -0.597541,
+        "max_drawdown": -0.839448,
+        "consistency_13w": 0.087,
+        "per_year": {
+          "2025": {
+            "weeks": 18,
+            "mean_net": 0.047077,
+            "cum_net": 0.617034
+          },
+          "2026": {
+            "weeks": 17,
+            "mean_net": -0.063679,
+            "cum_net": -0.751113
+          }
+        },
+        "hit_rate": 0.4571,
+        "accuracy_pvalue": 0.7502,
+        "mean_ic": -0.0246,
+        "ic_tstat": -0.142,
+        "ic_effective_n": 35.0,
+        "exposure": 0.3429,
+        "mean_turnover": 0.3714
+      },
+      "equity": [
+        {
+          "week_end": "2025-08-29",
+          "cum_net": 0.287978
+        },
+        {
+          "week_end": "2025-09-05",
+          "cum_net": 1.506711
+        },
+        {
+          "week_end": "2025-09-12",
+          "cum_net": 1.487911
+        },
+        {
+          "week_end": "2025-09-19",
+          "cum_net": 1.487911
+        },
+        {
+          "week_end": "2025-09-26",
+          "cum_net": 1.487911
+        },
+        {
+          "week_end": "2025-10-03",
+          "cum_net": 1.487911
+        },
+        {
+          "week_end": "2025-10-10",
+          "cum_net": 1.354205
+        },
+        {
+          "week_end": "2025-10-17",
+          "cum_net": 1.30977
+        },
+        {
+          "week_end": "2025-10-24",
+          "cum_net": 1.292447
+        },
+        {
+          "week_end": "2025-10-31",
+          "cum_net": 1.292447
+        },
+        {
+          "week_end": "2025-11-07",
+          "cum_net": 0.87281
+        },
+        {
+          "week_end": "2025-11-14",
+          "cum_net": 0.893811
+        },
+        {
+          "week_end": "2025-11-21",
+          "cum_net": 0.494181
+        },
+        {
+          "week_end": "2025-11-28",
+          "cum_net": 0.482975
+        },
+        {
+          "week_end": "2025-12-05",
+          "cum_net": 0.482975
+        },
+        {
+          "week_end": "2025-12-12",
+          "cum_net": 0.629254
+        },
+        {
+          "week_end": "2025-12-19",
+          "cum_net": 0.617034
+        },
+        {
+          "week_end": "2025-12-26",
+          "cum_net": 0.617034
+        },
+        {
+          "week_end": "2026-01-02",
+          "cum_net": 0.617034
+        },
+        {
+          "week_end": "2026-01-09",
+          "cum_net": 0.617034
+        },
+        {
+          "week_end": "2026-01-16",
+          "cum_net": 0.617034
+        },
+        {
+          "week_end": "2026-01-23",
+          "cum_net": 0.617034
+        },
+        {
+          "week_end": "2026-01-30",
+          "cum_net": 0.617034
+        },
+        {
+          "week_end": "2026-02-06",
+          "cum_net": -0.249122
+        },
+        {
+          "week_end": "2026-02-13",
+          "cum_net": -0.46324
+        },
+        {
+          "week_end": "2026-02-20",
+          "cum_net": -0.467266
+        },
+        {
+          "week_end": "2026-02-27",
+          "cum_net": -0.467266
+        },
+        {
+          "week_end": "2026-03-06",
+          "cum_net": -0.467266
+        },
+        {
+          "week_end": "2026-03-13",
+          "cum_net": -0.467266
+        },
+        {
+          "week_end": "2026-03-20",
+          "cum_net": -0.487435
+        },
+        {
+          "week_end": "2026-03-27",
+          "cum_net": -0.491279
+        },
+        {
+          "week_end": "2026-04-02",
+          "cum_net": -0.491279
+        },
+        {
+          "week_end": "2026-04-10",
+          "cum_net": -0.491279
+        },
+        {
+          "week_end": "2026-04-17",
+          "cum_net": -0.491279
+        },
+        {
+          "week_end": "2026-04-24",
+          "cum_net": -0.597541
+        }
+      ],
+      "steps": [
+        {
+          "signal_week_end": "2025-08-22",
+          "hold_week_end": "2025-08-29",
+          "train_max_week": 63,
+          "week": 64,
+          "score": 0.00123,
+          "position": 1.0,
+          "outcome": 0.295478,
+          "net": 0.287978
+        },
+        {
+          "signal_week_end": "2025-08-29",
+          "hold_week_end": "2025-09-05",
+          "train_max_week": 64,
+          "week": 65,
+          "score": 0.298746,
+          "position": 1.0,
+          "outcome": 0.946238,
+          "net": 0.946238
+        },
+        {
+          "signal_week_end": "2025-09-05",
+          "hold_week_end": "2025-09-12",
+          "train_max_week": 65,
+          "week": 66,
+          "score": -0.274138,
+          "position": 0.0,
+          "outcome": -0.014516,
+          "net": -0.0075
+        },
+        {
+          "signal_week_end": "2025-09-12",
+          "hold_week_end": "2025-09-19",
+          "train_max_week": 66,
+          "week": 67,
+          "score": -0.890592,
+          "position": 0.0,
+          "outcome": -0.132791,
+          "net": -0.0
+        },
+        {
+          "signal_week_end": "2025-09-19",
+          "hold_week_end": "2025-09-26",
+          "train_max_week": 67,
+          "week": 68,
+          "score": -0.454671,
+          "position": 0.0,
+          "outcome": 0.303299,
+          "net": 0.0
+        },
+        {
+          "signal_week_end": "2025-09-26",
+          "hold_week_end": "2025-10-03",
+          "train_max_week": 68,
+          "week": 69,
+          "score": -0.991647,
+          "position": 0.0,
+          "outcome": 0.194165,
+          "net": 0.0
+        },
+        {
+          "signal_week_end": "2025-10-03",
+          "hold_week_end": "2025-10-10",
+          "train_max_week": 69,
+          "week": 70,
+          "score": 0.060144,
+          "position": 1.0,
+          "outcome": -0.046242,
+          "net": -0.053742
+        },
+        {
+          "signal_week_end": "2025-10-10",
+          "hold_week_end": "2025-10-17",
+          "train_max_week": 70,
+          "week": 71,
+          "score": 1.340215,
+          "position": 1.0,
+          "outcome": -0.018875,
+          "net": -0.018875
+        },
+        {
+          "signal_week_end": "2025-10-17",
+          "hold_week_end": "2025-10-24",
+          "train_max_week": 71,
+          "week": 72,
+          "score": -0.492207,
+          "position": 0.0,
+          "outcome": -0.043687,
+          "net": -0.0075
+        },
+        {
+          "signal_week_end": "2025-10-24",
+          "hold_week_end": "2025-10-31",
+          "train_max_week": 72,
+          "week": 73,
+          "score": -0.620475,
+          "position": 0.0,
+          "outcome": 0.032154,
+          "net": 0.0
+        },
+        {
+          "signal_week_end": "2025-10-31",
+          "hold_week_end": "2025-11-07",
+          "train_max_week": 73,
+          "week": 74,
+          "score": 0.489842,
+          "position": 1.0,
+          "outcome": -0.175552,
+          "net": -0.183052
+        },
+        {
+          "signal_week_end": "2025-11-07",
+          "hold_week_end": "2025-11-14",
+          "train_max_week": 74,
+          "week": 75,
+          "score": 0.356887,
+          "position": 1.0,
+          "outcome": 0.011214,
+          "net": 0.011214
+        },
+        {
+          "signal_week_end": "2025-11-14",
+          "hold_week_end": "2025-11-21",
+          "train_max_week": 75,
+          "week": 76,
+          "score": 0.105414,
+          "position": 1.0,
+          "outcome": -0.211019,
+          "net": -0.211019
+        },
+        {
+          "signal_week_end": "2025-11-21",
+          "hold_week_end": "2025-11-28",
+          "train_max_week": 76,
+          "week": 77,
+          "score": -0.930468,
+          "position": 0.0,
+          "outcome": 0.019941,
+          "net": -0.0075
+        },
+        {
+          "signal_week_end": "2025-11-28",
+          "hold_week_end": "2025-12-05",
+          "train_max_week": 77,
+          "week": 78,
+          "score": -0.029252,
+          "position": 0.0,
+          "outcome": 0.062301,
+          "net": 0.0
+        },
+        {
+          "signal_week_end": "2025-12-05",
+          "hold_week_end": "2025-12-12",
+          "train_max_week": 78,
+          "week": 79,
+          "score": 0.695303,
+          "position": 1.0,
+          "outcome": 0.106139,
+          "net": 0.098639
+        },
+        {
+          "signal_week_end": "2025-12-12",
+          "hold_week_end": "2025-12-19",
+          "train_max_week": 79,
+          "week": 80,
+          "score": -1.344215,
+          "position": 0.0,
+          "outcome": -0.103022,
+          "net": -0.0075
+        },
+        {
+          "signal_week_end": "2025-12-19",
+          "hold_week_end": "2025-12-26",
+          "train_max_week": 80,
+          "week": 81,
+          "score": -0.457616,
+          "position": 0.0,
+          "outcome": 0.076957,
+          "net": 0.0
+        },
+        {
+          "signal_week_end": "2025-12-26",
+          "hold_week_end": "2026-01-02",
+          "train_max_week": 81,
+          "week": 82,
+          "score": -1.901223,
+          "position": 0.0,
+          "outcome": -0.259439,
+          "net": -0.0
+        },
+        {
+          "signal_week_end": "2026-01-02",
+          "hold_week_end": "2026-01-09",
+          "train_max_week": 82,
+          "week": 83,
+          "score": -1.289538,
+          "position": 0.0,
+          "outcome": -0.113252,
+          "net": -0.0
+        },
+        {
+          "signal_week_end": "2026-01-09",
+          "hold_week_end": "2026-01-16",
+          "train_max_week": 83,
+          "week": 84,
+          "score": -1.841735,
+          "position": 0.0,
+          "outcome": 0.023798,
+          "net": 0.0
+        },
+        {
+          "signal_week_end": "2026-01-16",
+          "hold_week_end": "2026-01-23",
+          "train_max_week": 84,
+          "week": 85,
+          "score": -0.235091,
+          "position": 0.0,
+          "outcome": -0.324014,
+          "net": -0.0
+        },
+        {
+          "signal_week_end": "2026-01-23",
+          "hold_week_end": "2026-01-30",
+          "train_max_week": 85,
+          "week": 86,
+          "score": -1.267446,
+          "position": 0.0,
+          "outcome": 0.050258,
+          "net": 0.0
+        },
+        {
+          "signal_week_end": "2026-01-30",
+          "hold_week_end": "2026-02-06",
+          "train_max_week": 86,
+          "week": 87,
+          "score": 0.271264,
+          "position": 1.0,
+          "outcome": -0.528145,
+          "net": -0.535645
+        },
+        {
+          "signal_week_end": "2026-02-06",
+          "hold_week_end": "2026-02-13",
+          "train_max_week": 87,
+          "week": 88,
+          "score": 0.156751,
+          "position": 1.0,
+          "outcome": -0.285157,
+          "net": -0.285157
+        },
+        {
+          "signal_week_end": "2026-02-13",
+          "hold_week_end": "2026-02-20",
+          "train_max_week": 88,
+          "week": 89,
+          "score": -0.186931,
+          "position": 0.0,
+          "outcome": 0.097296,
+          "net": -0.0075
+        },
+        {
+          "signal_week_end": "2026-02-20",
+          "hold_week_end": "2026-02-27",
+          "train_max_week": 89,
+          "week": 90,
+          "score": -2.51676,
+          "position": 0.0,
+          "outcome": -0.169138,
+          "net": -0.0
+        },
+        {
+          "signal_week_end": "2026-02-27",
+          "hold_week_end": "2026-03-06",
+          "train_max_week": 90,
+          "week": 91,
+          "score": -0.538693,
+          "position": 0.0,
+          "outcome": 0.10744,
+          "net": 0.0
+        },
+        {
+          "signal_week_end": "2026-03-06",
+          "hold_week_end": "2026-03-13",
+          "train_max_week": 91,
+          "week": 92,
+          "score": -0.048501,
+          "position": 0.0,
+          "outcome": -0.023602,
+          "net": -0.0
+        },
+        {
+          "signal_week_end": "2026-03-13",
+          "hold_week_end": "2026-03-20",
+          "train_max_week": 92,
+          "week": 93,
+          "score": 0.113309,
+          "position": 1.0,
+          "outcome": -0.03036,
+          "net": -0.03786
+        },
+        {
+          "signal_week_end": "2026-03-20",
+          "hold_week_end": "2026-03-27",
+          "train_max_week": 93,
+          "week": 94,
+          "score": -1.530136,
+          "position": 0.0,
+          "outcome": -0.084602,
+          "net": -0.0075
+        },
+        {
+          "signal_week_end": "2026-03-27",
+          "hold_week_end": "2026-04-02",
+          "train_max_week": 94,
+          "week": 95,
+          "score": -0.477753,
+          "position": 0.0,
+          "outcome": -0.007261,
+          "net": -0.0
+        },
+        {
+          "signal_week_end": "2026-04-02",
+          "hold_week_end": "2026-04-10",
+          "train_max_week": 95,
+          "week": 96,
+          "score": -0.978519,
+          "position": 0.0,
+          "outcome": 0.397935,
+          "net": 0.0
+        },
+        {
+          "signal_week_end": "2026-04-10",
+          "hold_week_end": "2026-04-17",
+          "train_max_week": 96,
+          "week": 97,
+          "score": -0.808837,
+          "position": 0.0,
+          "outcome": -0.04646,
+          "net": -0.0
+        },
+        {
+          "signal_week_end": "2026-04-17",
+          "hold_week_end": "2026-04-24",
+          "train_max_week": 97,
+          "week": 98,
+          "score": 1.060899,
+          "position": 1.0,
+          "outcome": -0.201381,
+          "net": -0.208881
+        }
+      ]
+    }
+  },
+  "next_week": {
+    "as_of_week_end": "2026-10-23",
+    "model": "ridge",
+    "symbol": "SMTK",
+    "predicted_excess": -0.025025,
+    "position": "FLAT",
+    "coefficients": {
+      "ex_ret_1w": 0.02467,
+      "ex_ret_4w": -0.01891,
+      "ex_ret_12w": -0.01505,
+      "vol_4w": 0.02656,
+      "vol_12w": -0.01557,
+      "log_volume_ratio": -0.05795,
+      "dist_from_12w_high": 0.03688,
+      "range_1w": 0.02521
+    },
+    "note": "Analitik tahmin — otomatik emir değildir, gelecek garantisi yoktur."
+  },
+  "name": "smtk_timeseries"
+}

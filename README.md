@@ -8,7 +8,7 @@ Bu dal GitHub Actions tarafından otomatik yazılır; elle düzenlemeyin.
 Bu bir analizdir; buradaki hiçbir şey emir ya da yatırım tavsiyesi değildir.
 
 ## Durum
-Son çalışma: **Günlük veri toplama**, 2026-10-27 00:52 UTC
+Son çalışma: **Haftalık araştırma**, 2026-10-27 20:25 UTC
 
 ### Veri
 | Kaynak | Hisse | En güncel gün | En geride kalan |
@@ -17,4 +17,8 @@ Son çalışma: **Günlük veri toplama**, 2026-10-27 00:52 UTC
 | yahoo_us | 31 | 2026-10-23 | SKYT (2026-07-30) |
 
 ### Haftalık araştırma
-_Henüz rapor yok (ilk araştırma Cumartesi çalışır)._
+| Rapor | Tür | Tarih | Sonuç | IC t | Toplam (model) | Gelecek hafta |
+|---|---|---|---|---|---|---|
+| bist_likit | sıralama (25/44 elemeden geçti) | 2026-10-27 | FAIL ❌ | 0.60 | +95.3% | TUPRS, ALARK, GARAN, YKBNK, SAHOL _(model FAIL: sinyal değil)_ |
+| smtk_peers | sıralama (14/30 elemeden geçti) | 2026-10-27 | FAIL ❌ | -0.71 | -63.3% | UCTT, AEHR, PLAB, LPTH, KLIC _(model FAIL: sinyal değil)_ |
+| smtk_timeseries | tek hisse | 2026-10-27 | FAIL ❌ | -0.50 | -46.2% | SMTK FLAT _(model FAIL: sinyal değil)_ |
