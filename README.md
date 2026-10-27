@@ -117,8 +117,9 @@ winners better than simple baselines, consistently?**
    stocks, "hold" the top N for one week, record the realised net excess return
    and the rank IC, move forward one week, repeat. All stocks are pooled: every
    chart is training data for one shared model.
-5. A ridge model is compared with momentum, short-term reversal and random
-   baselines, after trading costs.
+5. A ridge model is compared with simple rules (12- and 4-week momentum,
+   short-term reversal, low volatility, nearness to the 12-week high) and a
+   random ranking, after trading costs.
 6. The **last 26 weeks are a locked holdout**, opened only with
    `--segment holdout --unlock-holdout` once tuning is finished.
 
@@ -126,6 +127,19 @@ The verdict passes only if the model is positive after costs, beats the best
 baseline, has a significant rank IC (t ≥ 2) and is positive in ≥ 60% of rolling
 13-week windows. The report also lists **next week's ranking** and the model's
 coefficients. Nothing is applied to live scoring or turned into orders.
+
+**Strategy selection and next-week forecast.** Ranking reports also pick one
+strategy by a rule fixed in code (`research/selection.py`): among the
+candidates that were positive after costs and better than random over the
+validation weeks, the one with the highest t-statistic of weekly net returns.
+It is then tested once on the most recent 26 weeks, which played no part in
+the choice, and its ranking for next week is reported with the historical
+mean and the 10–90% range of weekly excess returns. Confidence: **GÜÇLÜ**
+(significant after correcting for the number of strategies tried, and
+positive on the recent weeks), **ORTA** (significant as a single test and
+positive recently), **ZAYIF** (indistinguishable from luck) or **YOK** (nothing
+beat the index: hold the index). Checked on synthetic data: a planted signal
+gave GÜÇLÜ in 40/40 runs; pure noise gave GÜÇLÜ in 1/40 and ORTA in 4/40.
 
 ```bash
 pip install -e "packages/bist_core[research]"

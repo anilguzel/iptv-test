@@ -43,7 +43,7 @@ def data_table(store: Path) -> list[str]:
 
 
 def research_table(store: Path) -> list[str]:
-    rows = ["| Rapor | Tür | Tarih | Sonuç | IC t | Toplam (model) | Gelecek hafta |", "|---|---|---|---|---|---|---|"]
+    rows = ["| Rapor | Tür | Tarih | Model | IC t | Toplam (model) | Seçilen strateji → gelecek hafta |", "|---|---|---|---|---|---|---|"]
     for f in sorted((store / "reports").glob("*.json")):
         try:
             r = json.loads(f.read_text(encoding="utf-8"))
@@ -56,6 +56,10 @@ def research_table(store: Path) -> list[str]:
         nxt = f"{nw['symbol']} {nw['position']}" if ts else ", ".join(p["symbol"] for p in nw["picks"])
         if not verdict["passed"]:
             nxt += " _(model FAIL: sinyal değil)_"
+        st = r.get("strategy")
+        if st:
+            picks = ", ".join(st["next_week"]["picks"]) if st.get("next_week") else "hisse seçme, endeksi tut"
+            nxt = f"**{st.get('chosen') or 'yok'}** [{st['confidence']}]: {picks}"
         ic_t = m.get("ic_tstat")
         kind = "tek hisse" if ts else "sıralama"
         if r.get("screen"):
