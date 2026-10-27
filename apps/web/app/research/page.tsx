@@ -26,6 +26,16 @@ type NextWeek = {
   position?: "LONG" | "FLAT";
   predicted_excess?: number;
 };
+type Selection = {
+  chosen: string | null;
+  description_tr?: string;
+  confidence: "GÜÇLÜ" | "ORTA" | "ZAYIF" | "YOK";
+  summary_tr: string;
+  candidates: { strategy: string; mean_weekly_net: number | null; tstat: number | null; eligible: boolean }[];
+  significance_threshold: number;
+  holdout?: { weeks: number; mean_weekly_net: number | null; cumulative_net: number | null } | null;
+  next_week: { as_of_week_end: string; picks: string[]; expected_weekly_excess: number; typical_range: [number, number]; note: string } | null;
+};
 type Report = {
   available: boolean;
   how_to_run?: string;
@@ -36,11 +46,17 @@ type Report = {
   verdict?: { best_baseline: string | null; models: Record<string, { passed: boolean; summary_tr: string; checks: Record<string, boolean> }> };
   strategies?: Record<string, Strategy>;
   next_week?: NextWeek;
+  strategy?: Selection;
+};
+
+const CONFIDENCE_COLOR: Record<Selection["confidence"], string> = {
+  GÜÇLÜ: "var(--green)", ORTA: "#d6a01f", ZAYIF: "var(--muted)", YOK: "var(--muted)",
 };
 
 const COLORS: Record<string, string> = {
   ridge: "#7aa2f7", momentum_12w: "#1f9d55", momentum_4w: "#1f9d55",
   reversal_1w: "#d6a01f", always_long: "#d6a01f", random: "#8a8f98",
+  low_vol_12w: "#9d7cd8", near_high_12w: "#2ac3de",
 };
 const pct = (v: number | null | undefined, d = 2) => (v == null ? "—" : `${(v * 100).toFixed(d)}%`);
 const num = (v: number | null | undefined, d = 2) => (v == null ? "—" : v.toFixed(d));
@@ -180,10 +196,46 @@ export default function ResearchPage() {
             </p>
           </div>
 
+          {r.strategy && (
+            <div className="card">
+              <h3>
+                Seçilen strateji:{" "}
+                <span style={{ color: CONFIDENCE_COLOR[r.strategy.confidence] }}>
+                  {r.strategy.chosen ?? "yok (endeksi tut)"} · güven {r.strategy.confidence}
+                </span>
+              </h3>
+              <p>{r.strategy.summary_tr}</p>
+              {r.strategy.next_week && (
+                <p style={{ fontSize: 18 }}>
+                  Gelecek hafta ({r.strategy.next_week.as_of_week_end} kapanışına göre):{" "}
+                  <strong>{r.strategy.next_week.picks.join(", ")}</strong>{" "}
+                  <span className="muted">
+                    beklenen {pct(r.strategy.next_week.expected_weekly_excess)}/hafta, tipik aralık{" "}
+                    {pct(r.strategy.next_week.typical_range[0])} … {pct(r.strategy.next_week.typical_range[1])}
+                  </span>
+                </p>
+              )}
+              <table>
+                <thead><tr><th>Aday</th><th>Haftalık net</th><th>t</th><th>Uygun</th></tr></thead>
+                <tbody>
+                  {r.strategy.candidates.map((c) => (
+                    <tr key={c.strategy}>
+                      <td>{c.strategy}</td><td>{pct(c.mean_weekly_net)}</td><td>{num(c.tstat)}</td><td>{c.eligible ? "✓" : "—"}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+              <div className="muted" style={{ fontSize: 12 }}>
+                Anlamlılık eşiği t ≥ {num(r.strategy.significance_threshold)} (denenen strateji sayısına göre düzeltilmiş).
+                {r.strategy.next_week ? " " + r.strategy.next_week.note : ""}
+              </div>
+            </div>
+          )}
+
           {r.next_week && (
             <div className="grid">
               <div className="card">
-                <h3>Next week</h3>
+                <h3>Model ranking for next week</h3>
                 <div className="muted" style={{ fontSize: 12 }}>as of {r.next_week.as_of_week_end}</div>
                 {ts ? (
                   <p style={{ fontSize: 18 }}>
