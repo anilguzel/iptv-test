@@ -18,9 +18,20 @@ def _num(v) -> str:
     return "-" if v is None else f"{v:.2f}"
 
 
+def screen_line(screen: dict, limit: int = 8) -> str:
+    dropped = [r for r in screen["rows"] if r["reasons"]]
+    text = f"Eleme: {len(screen['kept'])}/{len(screen['rows'])} hisse uzun geçmiş + yüksek hacim şartını geçti"
+    if dropped:
+        names = ", ".join(f"{r['symbol']} ({r['reasons'][0]})" for r in dropped[:limit])
+        more = f" +{len(dropped) - limit}" if len(dropped) > limit else ""
+        text += f"; elenen: {names}{more}"
+    return text
+
+
 def summarize_report(report: dict) -> str:
     if "error" in report:
-        return f"⚠️ {report['name']}: araştırma çalışmadı ({report['error']})."
+        text = f"⚠️ {report['name']}: araştırma çalışmadı ({report['error']})."
+        return text + ("\n" + screen_line(report["screen"]) if report.get("screen") else "")
     m = report["meta"]
     ridge = report["strategies"]["ridge"]["metrics"]
     verdict = report["verdict"]["models"]["ridge"]
@@ -43,6 +54,8 @@ def summarize_report(report: dict) -> str:
         lines.append(f"{label}: {nw['symbol']} {nw['position']} (tahmin {_pct(nw['predicted_excess'])})")
     else:
         lines.append(f"{label}: " + ", ".join(p["symbol"] for p in nw["picks"]))
+    if report.get("screen"):
+        lines.append(screen_line(report["screen"]))
     if m.get("missing"):
         lines.append("Eksik veri: " + ", ".join(x["symbol"] for x in m["missing"][:10]))
     lines.append("Analizdir, otomatik emir değildir.")

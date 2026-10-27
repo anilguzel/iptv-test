@@ -3,19 +3,23 @@
   "collect": [
     {"_comment": "US: SMTK and Nasdaq small/mid-cap peers, Russell 2000 ETF as benchmark.",
      "source": "yahoo", "universe": "SMTK_PEERS", "benchmark": "IWM", "dir": "daily/yahoo_us"},
-    {"_comment": "Borsa Istanbul via Yahoo's .IS listings, BIST 100 index as benchmark.",
-     "source": "yahoo", "universe": "BIST30", "benchmark": "XU100", "suffix": ".IS", "dir": "daily/yahoo_bist"},
+    {"_comment": "Borsa Istanbul via Yahoo's .IS listings (BIST30 + other long-listed large caps), BIST 100 index as benchmark.",
+     "source": "yahoo", "universe": "BIST_WIDE", "benchmark": "XU100", "suffix": ".IS", "dir": "daily/yahoo_bist"},
     {"_comment": "Stooq answered 404 from GitHub's runners in the probe of 2026-10-26; kept for later re-checks.",
      "source": "stooq", "universe": "SMTK_PEERS", "benchmark": "IWM", "enabled": false},
     {"_comment": "Alternative BIST source: needs a reachable bist-data-service (BIST_DATA_SERVICE_URL secret).",
      "source": "bist", "universe": "BIST30", "benchmark": "XU100", "enabled": false}
   ],
   "research": [
-    {"name": "smtk_peers", "dir": "daily/yahoo_us", "mode": "cross_section", "universe": "SMTK_PEERS",
-     "benchmark": "IWM", "cost_bps": 75},
+    {"_comment": "Screened: at least 8 years listed, median daily traded value >= 20M USD over the last year, <=5% zero-volume days, data not behind the others.",
+     "name": "smtk_peers", "dir": "daily/yahoo_us", "mode": "cross_section", "universe": "SMTK_PEERS",
+     "benchmark": "IWM", "cost_bps": 75, "years": 8,
+     "min_years": 8, "min_median_value": 20000000, "max_zero_volume_share": 0.05, "max_stale_days": 5},
     {"name": "smtk_timeseries", "dir": "daily/yahoo_us", "mode": "timeseries", "symbol": "SMTK",
      "benchmark": "IWM", "cost_bps": 75},
-    {"name": "bist30", "dir": "daily/yahoo_bist", "mode": "cross_section", "universe": "BIST30",
-     "benchmark": "XU100", "cost_bps": 10}
+    {"_comment": "Screened: at least 8 years listed, median daily traded value >= 500M TL over the last year (nominal TL: raise it with inflation), <=5% zero-volume days, data not behind the others.",
+     "name": "bist_likit", "dir": "daily/yahoo_bist", "mode": "cross_section", "universe": "BIST_WIDE",
+     "benchmark": "XU100", "cost_bps": 10, "years": 8,
+     "min_years": 8, "min_median_value": 500000000, "max_zero_volume_share": 0.05, "max_stale_days": 5}
   ]
 }
