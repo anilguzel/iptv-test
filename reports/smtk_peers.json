@@ -1,15 +1,15 @@
 {
   "mode": "cross_section",
-  "generated_at": "2026-10-27T20:30:36.827605+00:00",
+  "generated_at": "2026-10-28T10:23:18.045805+00:00",
   "meta": {
     "source": "csv",
-    "universe": "AXTI,AEHR,FORM,POET,AMBA,UCTT,ACMR,LASR,KLIC,ICHR,COHU,VECO,PLAB,LPTH",
+    "universe": "AXTI,AEHR,FORM,AMBA,POET,UCTT,ACMR,LASR,KLIC,ICHR,COHU,VECO,PLAB,LPTH",
     "requested_symbols": [
       "AXTI",
       "AEHR",
       "FORM",
-      "POET",
       "AMBA",
+      "POET",
       "UCTT",
       "ACMR",
       "LASR",
@@ -58,11 +58,11 @@
       "VECO"
     ],
     "symbols_skipped_short_history": [],
-    "calendar_weeks": 417,
+    "calendar_weeks": 418,
     "first_week_end": "2018-11-02",
-    "last_week_end": "2026-10-23",
-    "rows": 5670,
-    "evaluated_weeks": 326,
+    "last_week_end": "2026-10-26",
+    "rows": 5684,
+    "evaluated_weeks": 327,
     "segment": "validation",
     "holdout_locked": true,
     "config": {
@@ -102,12 +102,12 @@
   "strategies": {
     "ridge": {
       "metrics": {
-        "weeks": 326,
-        "mean_weekly_net": -0.002115,
-        "sharpe_annualised": -0.347,
-        "cumulative_net": -0.633137,
+        "weeks": 327,
+        "mean_weekly_net": -0.002266,
+        "sharpe_annualised": -0.372,
+        "cumulative_net": -0.65199,
         "max_drawdown": -0.824929,
-        "consistency_13w": 0.3631,
+        "consistency_13w": 0.3651,
         "per_year": {
           "2020": {
             "weeks": 49,
@@ -140,17 +140,17 @@
             "cum_net": -0.221717
           },
           "2026": {
-            "weeks": 17,
-            "mean_net": 0.027088,
-            "cum_net": 0.538916
+            "weeks": 18,
+            "mean_net": 0.022728,
+            "cum_net": 0.459829
           }
         },
-        "hit_rate": 0.454,
-        "mean_ic": -0.012,
-        "ic_tstat": -0.712,
-        "ic_hit_rate": 0.4755,
-        "mean_long_short": -0.006409,
-        "mean_turnover": 0.4387
+        "hit_rate": 0.4526,
+        "mean_ic": -0.0123,
+        "ic_tstat": -0.735,
+        "ic_hit_rate": 0.474,
+        "mean_long_short": -0.006172,
+        "mean_turnover": 0.4391
       },
       "equity": [
         {
@@ -1456,6 +1456,10 @@
         {
           "week_end": "2026-04-24",
           "cum_net": -0.633137
+        },
+        {
+          "week_end": "2026-05-01",
+          "cum_net": -0.65199
         }
       ],
       "steps": [
@@ -6348,17 +6352,32 @@
           ],
           "net": 0.075693,
           "ic": -0.437363
+        },
+        {
+          "signal_week_end": "2026-04-24",
+          "hold_week_end": "2026-05-01",
+          "train_max_week": 389,
+          "week": 390,
+          "top": [
+            "ACMR",
+            "AXTI",
+            "FORM",
+            "ICHR",
+            "LPTH"
+          ],
+          "net": -0.051392,
+          "ic": -0.125275
         }
       ]
     },
     "momentum_12w": {
       "metrics": {
-        "weeks": 326,
-        "mean_weekly_net": 0.003604,
-        "sharpe_annualised": 0.462,
-        "cumulative_net": 0.954065,
+        "weeks": 327,
+        "mean_weekly_net": 0.003254,
+        "sharpe_annualised": 0.415,
+        "cumulative_net": 0.737744,
         "max_drawdown": -0.712615,
-        "consistency_13w": 0.535,
+        "consistency_13w": 0.5365,
         "per_year": {
           "2020": {
             "weeks": 49,
@@ -6391,17 +6410,17 @@
             "cum_net": 0.170301
           },
           "2026": {
-            "weeks": 17,
-            "mean_net": 0.055207,
-            "cum_net": 1.368502
+            "weeks": 18,
+            "mean_net": 0.04599,
+            "cum_net": 1.106301
           }
         },
-        "hit_rate": 0.5061,
-        "mean_ic": -0.0159,
-        "ic_tstat": -0.877,
-        "ic_hit_rate": 0.5,
-        "mean_long_short": -0.001759,
-        "mean_turnover": 0.1871
+        "hit_rate": 0.5046,
+        "mean_ic": -0.0163,
+        "ic_tstat": -0.898,
+        "ic_hit_rate": 0.4985,
+        "mean_long_short": -0.001928,
+        "mean_turnover": 0.1872
       },
       "equity": [
         {
@@ -7707,6 +7726,10 @@
         {
           "week_end": "2026-04-24",
           "cum_net": 0.954065
+        },
+        {
+          "week_end": "2026-05-01",
+          "cum_net": 0.737744
         }
       ],
       "steps": [
@@ -12599,17 +12622,32 @@
           ],
           "net": 0.060687,
           "ic": -0.52967
+        },
+        {
+          "signal_week_end": "2026-04-24",
+          "hold_week_end": "2026-05-01",
+          "train_max_week": 389,
+          "week": 390,
+          "top": [
+            "AEHR",
+            "AXTI",
+            "FORM",
+            "ICHR",
+            "POET"
+          ],
+          "net": -0.110703,
+          "ic": -0.125275
         }
       ]
     },
     "momentum_4w": {
       "metrics": {
-        "weeks": 326,
-        "mean_weekly_net": 0.002899,
-        "sharpe_annualised": 0.375,
-        "cumulative_net": 0.566951,
+        "weeks": 327,
+        "mean_weekly_net": 0.002292,
+        "sharpe_annualised": 0.292,
+        "cumulative_net": 0.260593,
         "max_drawdown": -0.780222,
-        "consistency_13w": 0.4936,
+        "consistency_13w": 0.4952,
         "per_year": {
           "2020": {
             "weeks": 49,
@@ -12642,17 +12680,17 @@
             "cum_net": 0.392422
           },
           "2026": {
-            "weeks": 17,
-            "mean_net": 0.052733,
-            "cum_net": 1.269356
+            "weeks": 18,
+            "mean_net": 0.038942,
+            "cum_net": 0.82567
           }
         },
-        "hit_rate": 0.4939,
-        "mean_ic": -0.0187,
-        "ic_tstat": -1.037,
-        "ic_hit_rate": 0.4816,
-        "mean_long_short": -0.002572,
-        "mean_turnover": 0.308
+        "hit_rate": 0.4924,
+        "mean_ic": -0.0204,
+        "ic_tstat": -1.129,
+        "ic_hit_rate": 0.4801,
+        "mean_long_short": -0.003244,
+        "mean_turnover": 0.3083
       },
       "equity": [
         {
@@ -13905,7 +13943,7 @@
         },
         {
           "week_end": "2026-01-23",
-          "cum_net": -0.14341
+          "cum_net": -0.143409
         },
         {
           "week_end": "2026-01-30",
@@ -13958,6 +13996,10 @@
         {
           "week_end": "2026-04-24",
           "cum_net": 0.566951
+        },
+        {
+          "week_end": "2026-05-01",
+          "cum_net": 0.260593
         }
       ],
       "steps": [
@@ -18548,7 +18590,7 @@
             "LASR",
             "VECO"
           ],
-          "net": 0.048904,
+          "net": 0.048905,
           "ic": -0.164835
         },
         {
@@ -18563,7 +18605,7 @@
             "LPTH",
             "POET"
           ],
-          "net": 0.034165,
+          "net": 0.034164,
           "ic": 0.208791
         },
         {
@@ -18850,17 +18892,32 @@
           ],
           "net": 0.086656,
           "ic": -0.063736
+        },
+        {
+          "signal_week_end": "2026-04-24",
+          "hold_week_end": "2026-05-01",
+          "train_max_week": 389,
+          "week": 390,
+          "top": [
+            "AEHR",
+            "FORM",
+            "ICHR",
+            "LPTH",
+            "POET"
+          ],
+          "net": -0.195512,
+          "ic": -0.569231
         }
       ]
     },
     "reversal_1w": {
       "metrics": {
-        "weeks": 326,
-        "mean_weekly_net": 0.000594,
-        "sharpe_annualised": 0.088,
-        "cumulative_net": -0.170959,
+        "weeks": 327,
+        "mean_weekly_net": 0.000528,
+        "sharpe_annualised": 0.078,
+        "cumulative_net": -0.188236,
         "max_drawdown": -0.791973,
-        "consistency_13w": 0.449,
+        "consistency_13w": 0.4508,
         "per_year": {
           "2020": {
             "weeks": 49,
@@ -18890,20 +18947,20 @@
           "2025": {
             "weeks": 52,
             "mean_net": -0.001427,
-            "cum_net": -0.121373
+            "cum_net": -0.121372
           },
           "2026": {
-            "weeks": 17,
-            "mean_net": 0.045567,
-            "cum_net": 1.029273
+            "weeks": 18,
+            "mean_net": 0.041877,
+            "cum_net": 0.986982
           }
         },
-        "hit_rate": 0.4755,
-        "mean_ic": 0.0307,
-        "ic_tstat": 1.878,
-        "ic_hit_rate": 0.5337,
-        "mean_long_short": 0.002881,
-        "mean_turnover": 0.673
+        "hit_rate": 0.474,
+        "mean_ic": 0.0311,
+        "ic_tstat": 1.907,
+        "ic_hit_rate": 0.5352,
+        "mean_long_short": 0.003191,
+        "mean_turnover": 0.6728
       },
       "equity": [
         {
@@ -20148,7 +20205,7 @@
         },
         {
           "week_end": "2026-01-09",
-          "cum_net": -0.551541
+          "cum_net": -0.55154
         },
         {
           "week_end": "2026-01-16",
@@ -20164,7 +20221,7 @@
         },
         {
           "week_end": "2026-02-06",
-          "cum_net": -0.55747
+          "cum_net": -0.557469
         },
         {
           "week_end": "2026-02-13",
@@ -20184,7 +20241,7 @@
         },
         {
           "week_end": "2026-03-13",
-          "cum_net": -0.463323
+          "cum_net": -0.463322
         },
         {
           "week_end": "2026-03-20",
@@ -20209,6 +20266,10 @@
         {
           "week_end": "2026-04-24",
           "cum_net": -0.170959
+        },
+        {
+          "week_end": "2026-05-01",
+          "cum_net": -0.188236
         }
       ],
       "steps": [
@@ -25101,17 +25162,32 @@
           ],
           "net": 0.286334,
           "ic": 0.103297
+        },
+        {
+          "signal_week_end": "2026-04-24",
+          "hold_week_end": "2026-05-01",
+          "train_max_week": 389,
+          "week": 390,
+          "top": [
+            "AXTI",
+            "ICHR",
+            "KLIC",
+            "LASR",
+            "UCTT"
+          ],
+          "net": -0.02084,
+          "ic": 0.156044
         }
       ]
     },
     "low_vol_12w": {
       "metrics": {
-        "weeks": 326,
-        "mean_weekly_net": 0.003053,
-        "sharpe_annualised": 0.551,
-        "cumulative_net": 1.087609,
+        "weeks": 327,
+        "mean_weekly_net": 0.002905,
+        "sharpe_annualised": 0.524,
+        "cumulative_net": 0.993259,
         "max_drawdown": -0.577214,
-        "consistency_13w": 0.6146,
+        "consistency_13w": 0.6159,
         "per_year": {
           "2020": {
             "weeks": 49,
@@ -25144,17 +25220,17 @@
             "cum_net": -0.104122
           },
           "2026": {
-            "weeks": 17,
-            "mean_net": 0.025843,
-            "cum_net": 0.522829
+            "weeks": 18,
+            "mean_net": 0.021896,
+            "cum_net": 0.454004
           }
         },
-        "hit_rate": 0.5092,
-        "mean_ic": -0.0025,
-        "ic_tstat": -0.143,
-        "ic_hit_rate": 0.5092,
-        "mean_long_short": -0.003549,
-        "mean_turnover": 0.1215
+        "hit_rate": 0.5076,
+        "mean_ic": -0.0019,
+        "ic_tstat": -0.11,
+        "ic_hit_rate": 0.5107,
+        "mean_long_short": -0.003364,
+        "mean_turnover": 0.1217
       },
       "equity": [
         {
@@ -26443,7 +26519,7 @@
         },
         {
           "week_end": "2026-03-27",
-          "cum_net": 0.729854
+          "cum_net": 0.729855
         },
         {
           "week_end": "2026-04-02",
@@ -26460,6 +26536,10 @@
         {
           "week_end": "2026-04-24",
           "cum_net": 1.087609
+        },
+        {
+          "week_end": "2026-05-01",
+          "cum_net": 0.993259
         }
       ],
       "steps": [
@@ -31352,17 +31432,32 @@
           ],
           "net": 0.126078,
           "ic": 0.059341
+        },
+        {
+          "signal_week_end": "2026-04-24",
+          "hold_week_end": "2026-05-01",
+          "train_max_week": 389,
+          "week": 390,
+          "top": [
+            "AMBA",
+            "COHU",
+            "LASR",
+            "PLAB",
+            "UCTT"
+          ],
+          "net": -0.045195,
+          "ic": 0.191209
         }
       ]
     },
     "near_high_12w": {
       "metrics": {
-        "weeks": 326,
-        "mean_weekly_net": 0.001239,
-        "sharpe_annualised": 0.19,
-        "cumulative_net": 0.047519,
+        "weeks": 327,
+        "mean_weekly_net": 0.001004,
+        "sharpe_annualised": 0.153,
+        "cumulative_net": -0.031585,
         "max_drawdown": -0.710696,
-        "consistency_13w": 0.5032,
+        "consistency_13w": 0.5048,
         "per_year": {
           "2020": {
             "weeks": 49,
@@ -31395,17 +31490,17 @@
             "cum_net": -0.207812
           },
           "2026": {
-            "weeks": 17,
-            "mean_net": 0.041978,
-            "cum_net": 0.962485
+            "weeks": 18,
+            "mean_net": 0.035451,
+            "cum_net": 0.814286
           }
         },
-        "hit_rate": 0.4908,
-        "mean_ic": -0.0164,
-        "ic_tstat": -0.945,
-        "ic_hit_rate": 0.4816,
-        "mean_long_short": -0.005304,
-        "mean_turnover": 0.2546
+        "hit_rate": 0.4893,
+        "mean_ic": -0.0172,
+        "ic_tstat": -0.989,
+        "ic_hit_rate": 0.4801,
+        "mean_long_short": -0.005573,
+        "mean_turnover": 0.255
       },
       "equity": [
         {
@@ -32630,7 +32725,7 @@
         },
         {
           "week_end": "2025-12-05",
-          "cum_net": -0.503334
+          "cum_net": -0.503333
         },
         {
           "week_end": "2025-12-12",
@@ -32710,7 +32805,11 @@
         },
         {
           "week_end": "2026-04-24",
-          "cum_net": 0.047519
+          "cum_net": 0.04752
+        },
+        {
+          "week_end": "2026-05-01",
+          "cum_net": -0.031585
         }
       ],
       "steps": [
@@ -37301,7 +37400,7 @@
             "KLIC",
             "LASR"
           ],
-          "net": 0.038442,
+          "net": 0.038443,
           "ic": -0.415385
         },
         {
@@ -37603,17 +37702,32 @@
           ],
           "net": 0.04203,
           "ic": -0.534066
+        },
+        {
+          "signal_week_end": "2026-04-24",
+          "hold_week_end": "2026-05-01",
+          "train_max_week": 389,
+          "week": 390,
+          "top": [
+            "COHU",
+            "FORM",
+            "KLIC",
+            "PLAB",
+            "UCTT"
+          ],
+          "net": -0.075516,
+          "ic": -0.257143
         }
       ]
     },
     "random": {
       "metrics": {
-        "weeks": 326,
-        "mean_weekly_net": -0.002158,
-        "sharpe_annualised": -0.289,
-        "cumulative_net": -0.685131,
+        "weeks": 327,
+        "mean_weekly_net": -0.002261,
+        "sharpe_annualised": -0.304,
+        "cumulative_net": -0.69644,
         "max_drawdown": -0.923675,
-        "consistency_13w": 0.3662,
+        "consistency_13w": 0.3683,
         "per_year": {
           "2020": {
             "weeks": 49,
@@ -37646,17 +37760,17 @@
             "cum_net": -0.148939
           },
           "2026": {
-            "weeks": 17,
-            "mean_net": 0.043372,
-            "cum_net": 0.958799
+            "weeks": 18,
+            "mean_net": 0.038967,
+            "cum_net": 0.888446
           }
         },
-        "hit_rate": 0.454,
-        "mean_ic": -0.0188,
-        "ic_tstat": -1.164,
-        "ic_hit_rate": 0.4601,
-        "mean_long_short": -9.1e-05,
-        "mean_turnover": 0.6491
+        "hit_rate": 0.4526,
+        "mean_ic": -0.0179,
+        "ic_tstat": -1.108,
+        "ic_hit_rate": 0.4618,
+        "mean_long_short": 8.2e-05,
+        "mean_turnover": 0.6489
       },
       "equity": [
         {
@@ -38881,7 +38995,7 @@
         },
         {
           "week_end": "2025-12-05",
-          "cum_net": -0.840831
+          "cum_net": -0.84083
         },
         {
           "week_end": "2025-12-12",
@@ -38962,6 +39076,10 @@
         {
           "week_end": "2026-04-24",
           "cum_net": -0.685131
+        },
+        {
+          "week_end": "2026-05-01",
+          "cum_net": -0.69644
         }
       ],
       "steps": [
@@ -43854,102 +43972,117 @@
           ],
           "net": 0.297322,
           "ic": 0.094505
+        },
+        {
+          "signal_week_end": "2026-04-24",
+          "hold_week_end": "2026-05-01",
+          "train_max_week": 389,
+          "week": 390,
+          "top": [
+            "ACMR",
+            "AEHR",
+            "AMBA",
+            "COHU",
+            "VECO"
+          ],
+          "net": -0.035917,
+          "ic": 0.283516
         }
       ]
     }
   },
   "next_week": {
-    "as_of_week_end": "2026-10-23",
+    "as_of_week_end": "2026-10-26",
     "model": "ridge",
     "picks": [
       {
-        "symbol": "UCTT",
-        "score": 0.01507
-      },
-      {
-        "symbol": "AEHR",
-        "score": 0.00849
-      },
-      {
         "symbol": "PLAB",
-        "score": 0.00788
+        "score": 0.01811
+      },
+      {
+        "symbol": "AMBA",
+        "score": 0.00845
+      },
+      {
+        "symbol": "POET",
+        "score": 0.00787
       },
       {
         "symbol": "LPTH",
-        "score": 0.00248
+        "score": 0.00543
       },
       {
         "symbol": "KLIC",
-        "score": 0.00218
+        "score": 0.00422
       }
     ],
     "ranked": [
       {
-        "symbol": "UCTT",
-        "score": 0.01507
-      },
-      {
-        "symbol": "AEHR",
-        "score": 0.00849
-      },
-      {
         "symbol": "PLAB",
-        "score": 0.00788
-      },
-      {
-        "symbol": "LPTH",
-        "score": 0.00248
-      },
-      {
-        "symbol": "KLIC",
-        "score": 0.00218
-      },
-      {
-        "symbol": "LASR",
-        "score": 0.00147
-      },
-      {
-        "symbol": "POET",
-        "score": 0.00136
+        "score": 0.01811
       },
       {
         "symbol": "AMBA",
-        "score": -0.00053
+        "score": 0.00845
       },
       {
-        "symbol": "ICHR",
-        "score": -0.00303
+        "symbol": "POET",
+        "score": 0.00787
       },
       {
-        "symbol": "COHU",
-        "score": -0.00311
+        "symbol": "LPTH",
+        "score": 0.00543
       },
       {
-        "symbol": "ACMR",
-        "score": -0.00484
-      },
-      {
-        "symbol": "FORM",
-        "score": -0.00837
-      },
-      {
-        "symbol": "AXTI",
-        "score": -0.00938
+        "symbol": "KLIC",
+        "score": 0.00422
       },
       {
         "symbol": "VECO",
-        "score": -0.00967
+        "score": 0.00379
+      },
+      {
+        "symbol": "LASR",
+        "score": 0.00184
+      },
+      {
+        "symbol": "AEHR",
+        "score": 0.00012
+      },
+      {
+        "symbol": "COHU",
+        "score": -0.00254
+      },
+      {
+        "symbol": "ACMR",
+        "score": -0.00271
+      },
+      {
+        "symbol": "ICHR",
+        "score": -0.00451
+      },
+      {
+        "symbol": "FORM",
+        "score": -0.00513
+      },
+      {
+        "symbol": "UCTT",
+        "score": -0.00747
+      },
+      {
+        "symbol": "AXTI",
+        "score": -0.02748
       }
     ],
     "coefficients": {
-      "ex_ret_1w": -0.00479,
-      "ex_ret_4w": 0.00114,
-      "ex_ret_12w": 0.00086,
-      "vol_4w": -0.00931,
-      "vol_12w": 0.00174,
-      "log_volume_ratio": -1e-05,
-      "dist_from_12w_high": -0.00338,
-      "range_1w": 0.00068
+      "ex_ret_1w": -0.00506,
+      "ex_ret_4w": 0.0005,
+      "ex_ret_12w": 0.00106,
+      "vol_4w": -0.00911,
+      "vol_12w": 0.00197,
+      "log_volume_ratio": -9e-05,
+      "dist_from_12w_high": -0.00295,
+      "range_1w": 0.00115
     },
     "note": "Analitik sıralama — otomatik emir değildir, gelecek garantisi yoktur."
   },
@@ -43958,81 +44091,5196 @@
     "candidates": [
       {
         "strategy": "low_vol_12w",
-        "mean_weekly_net": 0.003053,
-        "tstat": 1.38,
+        "mean_weekly_net": 0.002905,
+        "tstat": 1.314,
         "eligible": true
       },
       {
         "strategy": "momentum_12w",
-        "mean_weekly_net": 0.003604,
-        "tstat": 1.157,
+        "mean_weekly_net": 0.003254,
+        "tstat": 1.041,
         "eligible": true
       },
       {
         "strategy": "momentum_4w",
-        "mean_weekly_net": 0.002899,
-        "tstat": 0.939,
+        "mean_weekly_net": 0.002292,
+        "tstat": 0.731,
         "eligible": true
       },
       {
         "strategy": "near_high_12w",
-        "mean_weekly_net": 0.001239,
-        "tstat": 0.475,
+        "mean_weekly_net": 0.001004,
+        "tstat": 0.385,
         "eligible": true
       },
       {
         "strategy": "reversal_1w",
-        "mean_weekly_net": 0.000594,
-        "tstat": 0.219,
+        "mean_weekly_net": 0.000528,
+        "tstat": 0.196,
         "eligible": true
       },
       {
         "strategy": "ridge",
-        "mean_weekly_net": -0.002115,
-        "tstat": -0.87,
+        "mean_weekly_net": -0.002266,
+        "tstat": -0.933,
         "eligible": false
       }
     ],
-    "control_mean_weekly_net": -0.002158,
+    "control_mean_weekly_net": -0.002261,
     "significance_threshold": 2.394,
     "chosen": "low_vol_12w",
     "description_tr": "son 12 haftada en az dalgalananları al (düşük oynaklık)",
     "confidence": "ZAYIF",
     "past": {
-      "weeks": 326,
+      "weeks": 327,
       "from": "2020-01-31",
-      "to": "2026-04-24",
-      "mean_weekly_net": 0.003053,
-      "tstat": 1.38,
-      "cumulative_net": 1.087609,
+      "to": "2026-05-01",
+      "mean_weekly_net": 0.002905,
+      "tstat": 1.314,
+      "cumulative_net": 0.993259,
       "max_drawdown": -0.577214,
-      "hit_rate": 0.5092
+      "hit_rate": 0.5076
     },
     "holdout": {
       "weeks": 26,
-      "from": "2026-05-01",
-      "to": "2026-10-23",
-      "mean_weekly_net": -0.010063,
-      "cumulative_net": -0.281976,
-      "hit_rate": 0.4615
+      "from": "2026-05-08",
+      "to": "2026-10-26",
+      "mean_weekly_net": -0.008151,
+      "cumulative_net": -0.243566,
+      "hit_rate": 0.5
     },
-    "summary_tr": "Geçmişe göre en iyi strateji: son 12 haftada en az dalgalananları al (düşük oynaklık). Kıyasa (IWM) göre haftada ortalama +0.31% (maliyet sonrası), t=1.38 (anlamlılık eşiği 2.39). Seçimde kullanılmayan son 26 haftada haftalık -1.01%. Güven: ZAYIF — istatistiksel olarak şanstan ayırt edilemiyor; sinyal sayılmaz.",
+    "summary_tr": "Geçmişe göre en iyi strateji: son 12 haftada en az dalgalananları al (düşük oynaklık). Kıyasa (IWM) göre haftada ortalama +0.29% (maliyet sonrası), t=1.31 (anlamlılık eşiği 2.39). Seçimde kullanılmayan son 26 haftada haftalık -0.82%. Güven: ZAYIF — istatistiksel olarak şanstan ayırt edilemiyor; sinyal sayılmaz.",
     "next_week": {
-      "as_of_week_end": "2026-10-23",
+      "as_of_week_end": "2026-10-26",
       "picks": [
         "PLAB",
-        "AMBA",
         "LASR",
-        "KLIC",
-        "UCTT"
+        "AMBA",
+        "POET",
+        "KLIC"
       ],
-      "expected_weekly_excess": 0.003053,
+      "expected_weekly_excess": 0.002905,
       "typical_range": [
-        -0.046653,
-        0.056355
+        -0.046587,
+        0.056215
       ],
       "note": "Beklenen değer geçmiş ortalamadır; aralık geçmiş haftaların %10-%90 dilimidir. Garanti değildir, otomatik emir değildir."
     }
+  },
+  "forecast": {
+    "as_of_week_end": "2026-10-26",
+    "benchmark": "IWM",
+    "stocks": [
+      {
+        "rank": 1,
+        "symbol": "PLAB",
+        "score": 1.62134,
+        "group": 5,
+        "expected_excess": -0.000251,
+        "beat_benchmark_probability": 0.4788,
+        "pick": true
+      },
+      {
+        "rank": 2,
+        "symbol": "LASR",
+        "score": 1.35702,
+        "group": 5,
+        "expected_excess": -0.000251,
+        "beat_benchmark_probability": 0.4788,
+        "pick": true
+      },
+      {
+        "rank": 3,
+        "symbol": "AMBA",
+        "score": 0.97679,
+        "group": 4,
+        "expected_excess": 0.006825,
+        "beat_benchmark_probability": 0.5071,
+        "pick": true
+      },
+      {
+        "rank": 4,
+        "symbol": "POET",
+        "score": 0.52313,
+        "group": 4,
+        "expected_excess": 0.006825,
+        "beat_benchmark_probability": 0.5071,
+        "pick": true
+      },
+      {
+        "rank": 5,
+        "symbol": "KLIC",
+        "score": 0.44458,
+        "group": 4,
+        "expected_excess": 0.006825,
+        "beat_benchmark_probability": 0.5071,
+        "pick": true
+      },
+      {
+        "rank": 6,
+        "symbol": "UCTT",
+        "score": 0.28899,
+        "group": 3,
+        "expected_excess": 0.00647,
+        "beat_benchmark_probability": 0.5014,
+        "pick": false
+      },
+      {
+        "rank": 7,
+        "symbol": "ACMR",
+        "score": 0.11582,
+        "group": 3,
+        "expected_excess": 0.00647,
+        "beat_benchmark_probability": 0.5014,
+        "pick": false
+      },
+      {
+        "rank": 8,
+        "symbol": "VECO",
+        "score": 0.11234,
+        "group": 3,
+        "expected_excess": 0.00647,
+        "beat_benchmark_probability": 0.5014,
+        "pick": false
+      },
+      {
+        "rank": 9,
+        "symbol": "ICHR",
+        "score": -0.15836,
+        "group": 2,
+        "expected_excess": 0.00724,
+        "beat_benchmark_probability": 0.4891,
+        "pick": false
+      },
+      {
+        "rank": 10,
+        "symbol": "FORM",
+        "score": -0.60719,
+        "group": 2,
+        "expected_excess": 0.00724,
+        "beat_benchmark_probability": 0.4891,
+        "pick": false
+      },
+      {
+        "rank": 11,
+        "symbol": "LPTH",
+        "score": -0.62921,
+        "group": 2,
+        "expected_excess": 0.00724,
+        "beat_benchmark_probability": 0.4891,
+        "pick": false
+      },
+      {
+        "rank": 12,
+        "symbol": "COHU",
+        "score": -0.66655,
+        "group": 1,
+        "expected_excess": 0.007303,
+        "beat_benchmark_probability": 0.4948,
+        "pick": false
+      },
+      {
+        "rank": 13,
+        "symbol": "AXTI",
+        "score": -0.96375,
+        "group": 1,
+        "expected_excess": 0.007303,
+        "beat_benchmark_probability": 0.4948,
+        "pick": false
+      },
+      {
+        "rank": 14,
+        "symbol": "AEHR",
+        "score": -2.41496,
+        "group": 1,
+        "expected_excess": 0.007303,
+        "beat_benchmark_probability": 0.4948,
+        "pick": false
+      }
+    ],
+    "calibration": [
+      {
+        "group": 1,
+        "observations": 1059,
+        "mean_excess": 0.007303,
+        "beat_benchmark_probability": 0.4948
+      },
+      {
+        "group": 2,
+        "observations": 1059,
+        "mean_excess": 0.00724,
+        "beat_benchmark_probability": 0.4891
+      },
+      {
+        "group": 3,
+        "observations": 1059,
+        "mean_excess": 0.00647,
+        "beat_benchmark_probability": 0.5014
+      },
+      {
+        "group": 4,
+        "observations": 1059,
+        "mean_excess": 0.006825,
+        "beat_benchmark_probability": 0.5071
+      },
+      {
+        "group": 5,
+        "observations": 706,
+        "mean_excess": -0.000251,
+        "beat_benchmark_probability": 0.4788
+      }
+    ],
+    "history": [
+      {
+        "signal_week_end": "2020-01-24",
+        "hold_week_end": "2020-01-31",
+        "picks": [
+          "FORM",
+          "KLIC",
+          "AMBA",
+          "LPTH",
+          "UCTT"
+        ],
+        "picks_excess": -0.02994,
+        "picks_beat_benchmark_share": 0.2,
+        "all_stocks_excess": -0.05208
+      },
+      {
+        "signal_week_end": "2020-01-31",
+        "hold_week_end": "2020-02-07",
+        "picks": [
+          "AMBA",
+          "KLIC",
+          "FORM",
+          "LPTH",
+          "UCTT"
+        ],
+        "picks_excess": 0.166261,
+        "picks_beat_benchmark_share": 0.4,
+        "all_stocks_excess": 0.078107
+      },
+      {
+        "signal_week_end": "2020-02-07",
+        "hold_week_end": "2020-02-14",
+        "picks": [
+          "KLIC",
+          "AMBA",
+          "FORM",
+          "LASR",
+          "UCTT"
+        ],
+        "picks_excess": 0.038419,
+        "picks_beat_benchmark_share": 0.6,
+        "all_stocks_excess": 0.068052
+      },
+      {
+        "signal_week_end": "2020-02-14",
+        "hold_week_end": "2020-02-21",
+        "picks": [
+          "KLIC",
+          "FORM",
+          "AMBA",
+          "COHU",
+          "LASR"
+        ],
+        "picks_excess": -0.068909,
+        "picks_beat_benchmark_share": 0.0,
+        "all_stocks_excess": -0.035184
+      },
+      {
+        "signal_week_end": "2020-02-21",
+        "hold_week_end": "2020-02-28",
+        "picks": [
+          "KLIC",
+          "FORM",
+          "AMBA",
+          "COHU",
+          "UCTT"
+        ],
+        "picks_excess": 0.032934,
+        "picks_beat_benchmark_share": 1.0,
+        "all_stocks_excess": 0.02723
+      },
+      {
+        "signal_week_end": "2020-02-28",
+        "hold_week_end": "2020-03-06",
+        "picks": [
+          "KLIC",
+          "FORM",
+          "COHU",
+          "LASR",
+          "AMBA"
+        ],
+        "picks_excess": -0.034767,
+        "picks_beat_benchmark_share": 0.4,
+        "all_stocks_excess": -0.023135
+      },
+      {
+        "signal_week_end": "2020-03-06",
+        "hold_week_end": "2020-03-13",
+        "picks": [
+          "KLIC",
+          "FORM",
+          "COHU",
+          "PLAB",
+          "LASR"
+        ],
+        "picks_excess": 0.020197,
+        "picks_beat_benchmark_share": 0.6,
+        "all_stocks_excess": -0.020976
+      },
+      {
+        "signal_week_end": "2020-03-13",
+        "hold_week_end": "2020-03-20",
+        "picks": [
+          "KLIC",
+          "FORM",
+          "LASR",
+          "UCTT",
+          "AMBA"
+        ],
+        "picks_excess": -0.032664,
+        "picks_beat_benchmark_share": 0.2,
+        "all_stocks_excess": -0.003579
+      },
+      {
+        "signal_week_end": "2020-03-20",
+        "hold_week_end": "2020-03-27",
+        "picks": [
+          "KLIC",
+          "FORM",
+          "AMBA",
+          "PLAB",
+          "LASR"
+        ],
+        "picks_excess": 0.028543,
+        "picks_beat_benchmark_share": 0.8,
+        "all_stocks_excess": 0.068481
+      },
+      {
+        "signal_week_end": "2020-03-27",
+        "hold_week_end": "2020-04-03",
+        "picks": [
+          "KLIC",
+          "PLAB",
+          "FORM",
+          "LASR",
+          "AMBA"
+        ],
+        "picks_excess": -0.010858,
+        "picks_beat_benchmark_share": 0.6,
+        "all_stocks_excess": 0.00692
+      },
+      {
+        "signal_week_end": "2020-04-03",
+        "hold_week_end": "2020-04-09",
+        "picks": [
+          "KLIC",
+          "PLAB",
+          "FORM",
+          "AMBA",
+          "LASR"
+        ],
+        "picks_excess": 0.007071,
+        "picks_beat_benchmark_share": 0.4,
+        "all_stocks_excess": 0.040532
+      },
+      {
+        "signal_week_end": "2020-04-09",
+        "hold_week_end": "2020-04-17",
+        "picks": [
+          "KLIC",
+          "PLAB",
+          "AMBA",
+          "FORM",
+          "AXTI"
+        ],
+        "picks_excess": 0.064113,
+        "picks_beat_benchmark_share": 1.0,
+        "all_stocks_excess": 0.068237
+      },
+      {
+        "signal_week_end": "2020-04-17",
+        "hold_week_end": "2020-04-24",
+        "picks": [
+          "KLIC",
+          "PLAB",
+          "AMBA",
+          "FORM",
+          "AXTI"
+        ],
+        "picks_excess": 0.031818,
+        "picks_beat_benchmark_share": 0.6,
+        "all_stocks_excess": 0.033581
+      },
+      {
+        "signal_week_end": "2020-04-24",
+        "hold_week_end": "2020-05-01",
+        "picks": [
+          "KLIC",
+          "PLAB",
+          "AMBA",
+          "FORM",
+          "AXTI"
+        ],
+        "picks_excess": 0.016498,
+        "picks_beat_benchmark_share": 0.2,
+        "all_stocks_excess": 0.010019
+      },
+      {
+        "signal_week_end": "2020-05-01",
+        "hold_week_end": "2020-05-08",
+        "picks": [
+          "KLIC",
+          "PLAB",
+          "AMBA",
+          "FORM",
+          "ACMR"
+        ],
+        "picks_excess": 0.084983,
+        "picks_beat_benchmark_share": 1.0,
+        "all_stocks_excess": 0.05535
+      },
+      {
+        "signal_week_end": "2020-05-08",
+        "hold_week_end": "2020-05-15",
+        "picks": [
+          "KLIC",
+          "PLAB",
+          "AMBA",
+          "FORM",
+          "AEHR"
+        ],
+        "picks_excess": -0.023625,
+        "picks_beat_benchmark_share": 0.2,
+        "all_stocks_excess": -0.005505
+      },
+      {
+        "signal_week_end": "2020-05-15",
+        "hold_week_end": "2020-05-22",
+        "picks": [
+          "KLIC",
+          "PLAB",
+          "AMBA",
+          "FORM",
+          "AEHR"
+        ],
+        "picks_excess": 0.006028,
+        "picks_beat_benchmark_share": 0.6,
+        "all_stocks_excess": -0.011755
+      },
+      {
+        "signal_week_end": "2020-05-22",
+        "hold_week_end": "2020-05-29",
+        "picks": [
+          "KLIC",
+          "PLAB",
+          "AMBA",
+          "FORM",
+          "AEHR"
+        ],
+        "picks_excess": -0.030477,
+        "picks_beat_benchmark_share": 0.2,
+        "all_stocks_excess": -0.019443
+      },
+      {
+        "signal_week_end": "2020-05-29",
+        "hold_week_end": "2020-06-05",
+        "picks": [
+          "KLIC",
+          "AMBA",
+          "PLAB",
+          "FORM",
+          "AEHR"
+        ],
+        "picks_excess": -0.014333,
+        "picks_beat_benchmark_share": 0.6,
+        "all_stocks_excess": 0.027667
+      },
+      {
+        "signal_week_end": "2020-06-05",
+        "hold_week_end": "2020-06-12",
+        "picks": [
+          "PLAB",
+          "AMBA",
+          "KLIC",
+          "FORM",
+          "AXTI"
+        ],
+        "picks_excess": -0.007807,
+        "picks_beat_benchmark_share": 0.4,
+        "all_stocks_excess": 0.014098
+      },
+      {
+        "signal_week_end": "2020-06-12",
+        "hold_week_end": "2020-06-19",
+        "picks": [
+          "KLIC",
+          "PLAB",
+          "AMBA",
+          "FORM",
+          "POET"
+        ],
+        "picks_excess": 0.010303,
+        "picks_beat_benchmark_share": 0.4,
+        "all_stocks_excess": 0.010607
+      },
+      {
+        "signal_week_end": "2020-06-19",
+        "hold_week_end": "2020-06-26",
+        "picks": [
+          "AMBA",
+          "KLIC",
+          "PLAB",
+          "AEHR",
+          "FORM"
+        ],
+        "picks_excess": -0.038146,
+        "picks_beat_benchmark_share": 0.2,
+        "all_stocks_excess": -0.008643
+      },
+      {
+        "signal_week_end": "2020-06-26",
+        "hold_week_end": "2020-07-02",
+        "picks": [
+          "AMBA",
+          "POET",
+          "AEHR",
+          "KLIC",
+          "PLAB"
+        ],
+        "picks_excess": 0.000692,
+        "picks_beat_benchmark_share": 0.6,
+        "all_stocks_excess": 0.019395
+      },
+      {
+        "signal_week_end": "2020-07-02",
+        "hold_week_end": "2020-07-10",
+        "picks": [
+          "AMBA",
+          "AEHR",
+          "KLIC",
+          "PLAB",
+          "POET"
+        ],
+        "picks_excess": 0.034831,
+        "picks_beat_benchmark_share": 0.8,
+        "all_stocks_excess": 0.039475
+      },
+      {
+        "signal_week_end": "2020-07-10",
+        "hold_week_end": "2020-07-17",
+        "picks": [
+          "AEHR",
+          "AMBA",
+          "PLAB",
+          "KLIC",
+          "POET"
+        ],
+        "picks_excess": -0.033143,
+        "picks_beat_benchmark_share": 0.2,
+        "all_stocks_excess": -0.036792
+      },
+      {
+        "signal_week_end": "2020-07-17",
+        "hold_week_end": "2020-07-24",
+        "picks": [
+          "AEHR",
+          "AMBA",
+          "PLAB",
+          "KLIC",
+          "LPTH"
+        ],
+        "picks_excess": 0.024583,
+        "picks_beat_benchmark_share": 0.8,
+        "all_stocks_excess": 0.00682
+      },
+      {
+        "signal_week_end": "2020-07-24",
+        "hold_week_end": "2020-07-31",
+        "picks": [
+          "AXTI",
+          "AEHR",
+          "AMBA",
+          "KLIC",
+          "PLAB"
+        ],
+        "picks_excess": -0.007086,
+        "picks_beat_benchmark_share": 0.6,
+        "all_stocks_excess": 0.067497
+      },
+      {
+        "signal_week_end": "2020-07-31",
+        "hold_week_end": "2020-08-07",
+        "picks": [
+          "AMBA",
+          "AXTI",
+          "LASR",
+          "AEHR",
+          "KLIC"
+        ],
+        "picks_excess": -0.011935,
+        "picks_beat_benchmark_share": 0.2,
+        "all_stocks_excess": -0.077441
+      },
+      {
+        "signal_week_end": "2020-08-07",
+        "hold_week_end": "2020-08-14",
+        "picks": [
+          "AMBA",
+          "AXTI",
+          "PLAB",
+          "KLIC",
+          "AEHR"
+        ],
+        "picks_excess": -0.025715,
+        "picks_beat_benchmark_share": 0.0,
+        "all_stocks_excess": -0.016226
+      },
+      {
+        "signal_week_end": "2020-08-14",
+        "hold_week_end": "2020-08-21",
+        "picks": [
+          "AMBA",
+          "PLAB",
+          "AXTI",
+          "KLIC",
+          "AEHR"
+        ],
+        "picks_excess": -0.030618,
+        "picks_beat_benchmark_share": 0.4,
+        "all_stocks_excess": -0.046867
+      },
+      {
+        "signal_week_end": "2020-08-21",
+        "hold_week_end": "2020-08-28",
+        "picks": [
+          "AMBA",
+          "PLAB",
+          "AXTI",
+          "KLIC",
+          "LASR"
+        ],
+        "picks_excess": 0.06221,
+        "picks_beat_benchmark_share": 0.8,
+        "all_stocks_excess": 0.002786
+      },
+      {
+        "signal_week_end": "2020-08-28",
+        "hold_week_end": "2020-09-04",
+        "picks": [
+          "PLAB",
+          "AEHR",
+          "LASR",
+          "KLIC",
+          "AMBA"
+        ],
+        "picks_excess": -0.016633,
+        "picks_beat_benchmark_share": 0.6,
+        "all_stocks_excess": -0.047035
+      },
+      {
+        "signal_week_end": "2020-09-04",
+        "hold_week_end": "2020-09-11",
+        "picks": [
+          "PLAB",
+          "AEHR",
+          "KLIC",
+          "LASR",
+          "AMBA"
+        ],
+        "picks_excess": -0.064927,
+        "picks_beat_benchmark_share": 0.0,
+        "all_stocks_excess": -0.044141
+      },
+      {
+        "signal_week_end": "2020-09-11",
+        "hold_week_end": "2020-09-18",
+        "picks": [
+          "PLAB",
+          "KLIC",
+          "AMBA",
+          "LASR",
+          "COHU"
+        ],
+        "picks_excess": 0.071407,
+        "picks_beat_benchmark_share": 0.8,
+        "all_stocks_excess": 0.060835
+      },
+      {
+        "signal_week_end": "2020-09-18",
+        "hold_week_end": "2020-09-25",
+        "picks": [
+          "KLIC",
+          "AMBA",
+          "COHU",
+          "PLAB",
+          "FORM"
+        ],
+        "picks_excess": 0.000867,
+        "picks_beat_benchmark_share": 0.4,
+        "all_stocks_excess": 0.002015
+      },
+      {
+        "signal_week_end": "2020-09-25",
+        "hold_week_end": "2020-10-02",
+        "picks": [
+          "KLIC",
+          "FORM",
+          "AMBA",
+          "COHU",
+          "POET"
+        ],
+        "picks_excess": 0.000268,
+        "picks_beat_benchmark_share": 0.8,
+        "all_stocks_excess": -0.005618
+      },
+      {
+        "signal_week_end": "2020-10-02",
+        "hold_week_end": "2020-10-09",
+        "picks": [
+          "KLIC",
+          "FORM",
+          "AMBA",
+          "POET",
+          "PLAB"
+        ],
+        "picks_excess": 0.047742,
+        "picks_beat_benchmark_share": 1.0,
+        "all_stocks_excess": 0.026605
+      },
+      {
+        "signal_week_end": "2020-10-09",
+        "hold_week_end": "2020-10-16",
+        "picks": [
+          "KLIC",
+          "AMBA",
+          "POET",
+          "PLAB",
+          "COHU"
+        ],
+        "picks_excess": -0.006621,
+        "picks_beat_benchmark_share": 0.2,
+        "all_stocks_excess": -0.009891
+      },
+      {
+        "signal_week_end": "2020-10-16",
+        "hold_week_end": "2020-10-23",
+        "picks": [
+          "KLIC",
+          "AMBA",
+          "POET",
+          "COHU",
+          "PLAB"
+        ],
+        "picks_excess": 0.003081,
+        "picks_beat_benchmark_share": 0.6,
+        "all_stocks_excess": -0.023238
+      },
+      {
+        "signal_week_end": "2020-10-23",
+        "hold_week_end": "2020-10-30",
+        "picks": [
+          "KLIC",
+          "AMBA",
+          "POET",
+          "COHU",
+          "PLAB"
+        ],
+        "picks_excess": 0.047507,
+        "picks_beat_benchmark_share": 0.8,
+        "all_stocks_excess": 0.037723
+      },
+      {
+        "signal_week_end": "2020-10-30",
+        "hold_week_end": "2020-11-06",
+        "picks": [
+          "KLIC",
+          "AMBA",
+          "POET",
+          "PLAB",
+          "VECO"
+        ],
+        "picks_excess": 0.011406,
+        "picks_beat_benchmark_share": 0.8,
+        "all_stocks_excess": 0.073119
+      },
+      {
+        "signal_week_end": "2020-11-06",
+        "hold_week_end": "2020-11-13",
+        "picks": [
+          "POET",
+          "KLIC",
+          "AMBA",
+          "COHU",
+          "PLAB"
+        ],
+        "picks_excess": -0.034304,
+        "picks_beat_benchmark_share": 0.2,
+        "all_stocks_excess": -0.013887
+      },
+      {
+        "signal_week_end": "2020-11-13",
+        "hold_week_end": "2020-11-20",
+        "picks": [
+          "POET",
+          "KLIC",
+          "AMBA",
+          "COHU",
+          "PLAB"
+        ],
+        "picks_excess": 0.014448,
+        "picks_beat_benchmark_share": 0.6,
+        "all_stocks_excess": 0.0324
+      },
+      {
+        "signal_week_end": "2020-11-20",
+        "hold_week_end": "2020-11-27",
+        "picks": [
+          "POET",
+          "KLIC",
+          "AMBA",
+          "COHU",
+          "PLAB"
+        ],
+        "picks_excess": 0.042481,
+        "picks_beat_benchmark_share": 0.6,
+        "all_stocks_excess": 0.030773
+      },
+      {
+        "signal_week_end": "2020-11-27",
+        "hold_week_end": "2020-12-04",
+        "picks": [
+          "KLIC",
+          "COHU",
+          "PLAB",
+          "POET",
+          "VECO"
+        ],
+        "picks_excess": 0.08432,
+        "picks_beat_benchmark_share": 0.8,
+        "all_stocks_excess": 0.072602
+      },
+      {
+        "signal_week_end": "2020-12-04",
+        "hold_week_end": "2020-12-11",
+        "picks": [
+          "KLIC",
+          "PLAB",
+          "POET",
+          "VECO",
+          "FORM"
+        ],
+        "picks_excess": -0.008294,
+        "picks_beat_benchmark_share": 0.4,
+        "all_stocks_excess": -0.041972
+      },
+      {
+        "signal_week_end": "2020-12-11",
+        "hold_week_end": "2020-12-18",
+        "picks": [
+          "KLIC",
+          "VECO",
+          "PLAB",
+          "FORM",
+          "LPTH"
+        ],
+        "picks_excess": 0.013949,
+        "picks_beat_benchmark_share": 0.4,
+        "all_stocks_excess": 0.001276
+      },
+      {
+        "signal_week_end": "2020-12-18",
+        "hold_week_end": "2020-12-24",
+        "picks": [
+          "KLIC",
+          "VECO",
+          "PLAB",
+          "LPTH",
+          "FORM"
+        ],
+        "picks_excess": 0.013086,
+        "picks_beat_benchmark_share": 0.4,
+        "all_stocks_excess": 0.017772
+      },
+      {
+        "signal_week_end": "2020-12-24",
+        "hold_week_end": "2020-12-31",
+        "picks": [
+          "KLIC",
+          "VECO",
+          "PLAB",
+          "FORM",
+          "LPTH"
+        ],
+        "picks_excess": -0.011482,
+        "picks_beat_benchmark_share": 0.4,
+        "all_stocks_excess": 0.016247
+      },
+      {
+        "signal_week_end": "2020-12-31",
+        "hold_week_end": "2021-01-08",
+        "picks": [
+          "KLIC",
+          "VECO",
+          "FORM",
+          "PLAB",
+          "LPTH"
+        ],
+        "picks_excess": -0.008343,
+        "picks_beat_benchmark_share": 0.4,
+        "all_stocks_excess": 0.018562
+      },
+      {
+        "signal_week_end": "2021-01-08",
+        "hold_week_end": "2021-01-15",
+        "picks": [
+          "KLIC",
+          "PLAB",
+          "FORM",
+          "VECO",
+          "LPTH"
+        ],
+        "picks_excess": 0.086252,
+        "picks_beat_benchmark_share": 0.8,
+        "all_stocks_excess": 0.042289
+      },
+      {
+        "signal_week_end": "2021-01-15",
+        "hold_week_end": "2021-01-22",
+        "picks": [
+          "KLIC",
+          "PLAB",
+          "FORM",
+          "VECO",
+          "AMBA"
+        ],
+        "picks_excess": 0.004267,
+        "picks_beat_benchmark_share": 0.4,
+        "all_stocks_excess": 0.021968
+      },
+      {
+        "signal_week_end": "2021-01-22",
+        "hold_week_end": "2021-01-29",
+        "picks": [
+          "KLIC",
+          "PLAB",
+          "FORM",
+          "VECO",
+          "UCTT"
+        ],
+        "picks_excess": -0.059406,
+        "picks_beat_benchmark_share": 0.0,
+        "all_stocks_excess": -0.048259
+      },
+      {
+        "signal_week_end": "2021-01-29",
+        "hold_week_end": "2021-02-05",
+        "picks": [
+          "KLIC",
+          "PLAB",
+          "VECO",
+          "FORM",
+          "UCTT"
+        ],
+        "picks_excess": 0.049378,
+        "picks_beat_benchmark_share": 1.0,
+        "all_stocks_excess": 0.046822
+      },
+      {
+        "signal_week_end": "2021-02-05",
+        "hold_week_end": "2021-02-12",
+        "picks": [
+          "PLAB",
+          "VECO",
+          "KLIC",
+          "FORM",
+          "LASR"
+        ],
+        "picks_excess": 0.103278,
+        "picks_beat_benchmark_share": 1.0,
+        "all_stocks_excess": 0.10089
+      },
+      {
+        "signal_week_end": "2021-02-12",
+        "hold_week_end": "2021-02-19",
+        "picks": [
+          "PLAB",
+          "VECO",
+          "KLIC",
+          "FORM",
+          "AXTI"
+        ],
+        "picks_excess": 0.057806,
+        "picks_beat_benchmark_share": 0.8,
+        "all_stocks_excess": 0.027719
+      },
+      {
+        "signal_week_end": "2021-02-19",
+        "hold_week_end": "2021-02-26",
+        "picks": [
+          "PLAB",
+          "VECO",
+          "KLIC",
+          "FORM",
+          "UCTT"
+        ],
+        "picks_excess": -0.030216,
+        "picks_beat_benchmark_share": 0.2,
+        "all_stocks_excess": -0.064102
+      },
+      {
+        "signal_week_end": "2021-02-26",
+        "hold_week_end": "2021-03-05",
+        "picks": [
+          "PLAB",
+          "VECO",
+          "KLIC",
+          "FORM",
+          "COHU"
+        ],
+        "picks_excess": -0.050214,
+        "picks_beat_benchmark_share": 0.0,
+        "all_stocks_excess": -0.070835
+      },
+      {
+        "signal_week_end": "2021-03-05",
+        "hold_week_end": "2021-03-12",
+        "picks": [
+          "PLAB",
+          "VECO",
+          "FORM",
+          "ICHR",
+          "KLIC"
+        ],
+        "picks_excess": -0.027471,
+        "picks_beat_benchmark_share": 0.0,
+        "all_stocks_excess": 0.001314
+      },
+      {
+        "signal_week_end": "2021-03-12",
+        "hold_week_end": "2021-03-19",
+        "picks": [
+          "PLAB",
+          "VECO",
+          "FORM",
+          "ICHR",
+          "KLIC"
+        ],
+        "picks_excess": 0.031589,
+        "picks_beat_benchmark_share": 0.6,
+        "all_stocks_excess": 0.025692
+      },
+      {
+        "signal_week_end": "2021-03-19",
+        "hold_week_end": "2021-03-26",
+        "picks": [
+          "PLAB",
+          "VECO",
+          "ICHR",
+          "FORM",
+          "KLIC"
+        ],
+        "picks_excess": 0.052005,
+        "picks_beat_benchmark_share": 0.8,
+        "all_stocks_excess": -0.013905
+      },
+      {
+        "signal_week_end": "2021-03-26",
+        "hold_week_end": "2021-04-01",
+        "picks": [
+          "PLAB",
+          "VECO",
+          "ICHR",
+          "FORM",
+          "UCTT"
+        ],
+        "picks_excess": 0.067638,
+        "picks_beat_benchmark_share": 1.0,
+        "all_stocks_excess": 0.071102
+      },
+      {
+        "signal_week_end": "2021-04-01",
+        "hold_week_end": "2021-04-09",
+        "picks": [
+          "PLAB",
+          "VECO",
+          "ICHR",
+          "UCTT",
+          "FORM"
+        ],
+        "picks_excess": -0.017428,
+        "picks_beat_benchmark_share": 0.6,
+        "all_stocks_excess": -0.007493
+      },
+      {
+        "signal_week_end": "2021-04-09",
+        "hold_week_end": "2021-04-16",
+        "picks": [
+          "PLAB",
+          "VECO",
+          "ICHR",
+          "FORM",
+          "KLIC"
+        ],
+        "picks_excess": -0.025238,
+        "picks_beat_benchmark_share": 0.0,
+        "all_stocks_excess": -0.064131
+      },
+      {
+        "signal_week_end": "2021-04-16",
+        "hold_week_end": "2021-04-23",
+        "picks": [
+          "PLAB",
+          "VECO",
+          "ICHR",
+          "FORM",
+          "KLIC"
+        ],
+        "picks_excess": 0.02285,
+        "picks_beat_benchmark_share": 0.6,
+        "all_stocks_excess": 0.012174
+      },
+      {
+        "signal_week_end": "2021-04-23",
+        "hold_week_end": "2021-04-30",
+        "picks": [
+          "VECO",
+          "PLAB",
+          "FORM",
+          "ICHR",
+          "KLIC"
+        ],
+        "picks_excess": -0.047889,
+        "picks_beat_benchmark_share": 0.4,
+        "all_stocks_excess": -0.050029
+      },
+      {
+        "signal_week_end": "2021-04-30",
+        "hold_week_end": "2021-05-07",
+        "picks": [
+          "PLAB",
+          "VECO",
+          "AMBA",
+          "ICHR",
+          "KLIC"
+        ],
+        "picks_excess": -0.030781,
+        "picks_beat_benchmark_share": 0.2,
+        "all_stocks_excess": -0.027565
+      },
+      {
+        "signal_week_end": "2021-05-07",
+        "hold_week_end": "2021-05-14",
+        "picks": [
+          "VECO",
+          "PLAB",
+          "AMBA",
+          "ICHR",
+          "AEHR"
+        ],
+        "picks_excess": -0.028422,
+        "picks_beat_benchmark_share": 0.0,
+        "all_stocks_excess": -0.041668
+      },
+      {
+        "signal_week_end": "2021-05-14",
+        "hold_week_end": "2021-05-21",
+        "picks": [
+          "VECO",
+          "PLAB",
+          "AMBA",
+          "LASR",
+          "AEHR"
+        ],
+        "picks_excess": 0.041691,
+        "picks_beat_benchmark_share": 1.0,
+        "all_stocks_excess": 0.046816
+      },
+      {
+        "signal_week_end": "2021-05-21",
+        "hold_week_end": "2021-05-28",
+        "picks": [
+          "PLAB",
+          "VECO",
+          "AMBA",
+          "LASR",
+          "ICHR"
+        ],
+        "picks_excess": 0.028758,
+        "picks_beat_benchmark_share": 0.8,
+        "all_stocks_excess": 0.019947
+      },
+      {
+        "signal_week_end": "2021-05-28",
+        "hold_week_end": "2021-06-04",
+        "picks": [
+          "PLAB",
+          "VECO",
+          "AMBA",
+          "LASR",
+          "AEHR"
+        ],
+        "picks_excess": 0.024321,
+        "picks_beat_benchmark_share": 0.4,
+        "all_stocks_excess": 0.032684
+      },
+      {
+        "signal_week_end": "2021-06-04",
+        "hold_week_end": "2021-06-11",
+        "picks": [
+          "PLAB",
+          "VECO",
+          "LASR",
+          "AMBA",
+          "ICHR"
+        ],
+        "picks_excess": -0.009823,
+        "picks_beat_benchmark_share": 0.4,
+        "all_stocks_excess": -0.019784
+      },
+      {
+        "signal_week_end": "2021-06-11",
+        "hold_week_end": "2021-06-18",
+        "picks": [
+          "PLAB",
+          "VECO",
+          "AMBA",
+          "LASR",
+          "ICHR"
+        ],
+        "picks_excess": 0.004985,
+        "picks_beat_benchmark_share": 0.6,
+        "all_stocks_excess": 0.014838
+      },
+      {
+        "signal_week_end": "2021-06-18",
+        "hold_week_end": "2021-06-25",
+        "picks": [
+          "PLAB",
+          "VECO",
+          "AMBA",
+          "LASR",
+          "KLIC"
+        ],
+        "picks_excess": 0.021838,
+        "picks_beat_benchmark_share": 0.6,
+        "all_stocks_excess": 0.010233
+      },
+      {
+        "signal_week_end": "2021-06-25",
+        "hold_week_end": "2021-07-02",
+        "picks": [
+          "PLAB",
+          "VECO",
+          "AMBA",
+          "COHU",
+          "LASR"
+        ],
+        "picks_excess": 0.038691,
+        "picks_beat_benchmark_share": 0.6,
+        "all_stocks_excess": 0.027061
+      },
+      {
+        "signal_week_end": "2021-07-02",
+        "hold_week_end": "2021-07-09",
+        "picks": [
+          "PLAB",
+          "AMBA",
+          "VECO",
+          "COHU",
+          "ICHR"
+        ],
+        "picks_excess": -0.023836,
+        "picks_beat_benchmark_share": 0.0,
+        "all_stocks_excess": -0.044772
+      },
+      {
+        "signal_week_end": "2021-07-09",
+        "hold_week_end": "2021-07-16",
+        "picks": [
+          "PLAB",
+          "AMBA",
+          "VECO",
+          "COHU",
+          "ICHR"
+        ],
+        "picks_excess": -0.007686,
+        "picks_beat_benchmark_share": 0.2,
+        "all_stocks_excess": 0.005761
+      },
+      {
+        "signal_week_end": "2021-07-16",
+        "hold_week_end": "2021-07-23",
+        "picks": [
+          "PLAB",
+          "VECO",
+          "COHU",
+          "AMBA",
+          "ICHR"
+        ],
+        "picks_excess": 0.049545,
+        "picks_beat_benchmark_share": 1.0,
+        "all_stocks_excess": 0.102899
+      },
+      {
+        "signal_week_end": "2021-07-23",
+        "hold_week_end": "2021-07-30",
+        "picks": [
+          "PLAB",
+          "VECO",
+          "AMBA",
+          "FORM",
+          "COHU"
+        ],
+        "picks_excess": 0.003177,
+        "picks_beat_benchmark_share": 0.6,
+        "all_stocks_excess": 0.016153
+      },
+      {
+        "signal_week_end": "2021-07-30",
+        "hold_week_end": "2021-08-06",
+        "picks": [
+          "PLAB",
+          "VECO",
+          "AMBA",
+          "FORM",
+          "COHU"
+        ],
+        "picks_excess": 0.005285,
+        "picks_beat_benchmark_share": 0.6,
+        "all_stocks_excess": -0.031091
+      },
+      {
+        "signal_week_end": "2021-08-06",
+        "hold_week_end": "2021-08-13",
+        "picks": [
+          "PLAB",
+          "FORM",
+          "VECO",
+          "AMBA",
+          "COHU"
+        ],
+        "picks_excess": -0.056022,
+        "picks_beat_benchmark_share": 0.0,
+        "all_stocks_excess": -0.045599
+      },
+      {
+        "signal_week_end": "2021-08-13",
+        "hold_week_end": "2021-08-20",
+        "picks": [
+          "PLAB",
+          "FORM",
+          "VECO",
+          "AXTI",
+          "AMBA"
+        ],
+        "picks_excess": -0.009981,
+        "picks_beat_benchmark_share": 0.4,
+        "all_stocks_excess": -0.011139
+      },
+      {
+        "signal_week_end": "2021-08-20",
+        "hold_week_end": "2021-08-27",
+        "picks": [
+          "PLAB",
+          "FORM",
+          "AMBA",
+          "VECO",
+          "AXTI"
+        ],
+        "picks_excess": 0.043298,
+        "picks_beat_benchmark_share": 1.0,
+        "all_stocks_excess": 0.069711
+      },
+      {
+        "signal_week_end": "2021-08-27",
+        "hold_week_end": "2021-09-03",
+        "picks": [
+          "PLAB",
+          "AMBA",
+          "FORM",
+          "VECO",
+          "AXTI"
+        ],
+        "picks_excess": 0.0815,
+        "picks_beat_benchmark_share": 1.0,
+        "all_stocks_excess": 0.055949
+      },
+      {
+        "signal_week_end": "2021-09-03",
+        "hold_week_end": "2021-09-10",
+        "picks": [
+          "PLAB",
+          "FORM",
+          "VECO",
+          "AXTI",
+          "COHU"
+        ],
+        "picks_excess": -0.005213,
+        "picks_beat_benchmark_share": 0.4,
+        "all_stocks_excess": 0.02722
+      },
+      {
+        "signal_week_end": "2021-09-10",
+        "hold_week_end": "2021-09-17",
+        "picks": [
+          "PLAB",
+          "VECO",
+          "FORM",
+          "AXTI",
+          "ICHR"
+        ],
+        "picks_excess": -0.044048,
+        "picks_beat_benchmark_share": 0.0,
+        "all_stocks_excess": -0.014064
+      },
+      {
+        "signal_week_end": "2021-09-17",
+        "hold_week_end": "2021-09-24",
+        "picks": [
+          "PLAB",
+          "VECO",
+          "FORM",
+          "AXTI",
+          "ICHR"
+        ],
+        "picks_excess": 0.028287,
+        "picks_beat_benchmark_share": 1.0,
+        "all_stocks_excess": 0.038317
+      },
+      {
+        "signal_week_end": "2021-09-24",
+        "hold_week_end": "2021-10-01",
+        "picks": [
+          "PLAB",
+          "VECO",
+          "FORM",
+          "LASR",
+          "ICHR"
+        ],
+        "picks_excess": -0.037165,
+        "picks_beat_benchmark_share": 0.2,
+        "all_stocks_excess": -0.045761
+      },
+      {
+        "signal_week_end": "2021-10-01",
+        "hold_week_end": "2021-10-08",
+        "picks": [
+          "PLAB",
+          "VECO",
+          "POET",
+          "FORM",
+          "LASR"
+        ],
+        "picks_excess": -0.0117,
+        "picks_beat_benchmark_share": 0.4,
+        "all_stocks_excess": 0.020226
+      },
+      {
+        "signal_week_end": "2021-10-08",
+        "hold_week_end": "2021-10-15",
+        "picks": [
+          "PLAB",
+          "VECO",
+          "POET",
+          "FORM",
+          "LASR"
+        ],
+        "picks_excess": -0.015578,
+        "picks_beat_benchmark_share": 0.4,
+        "all_stocks_excess": -0.005007
+      },
+      {
+        "signal_week_end": "2021-10-15",
+        "hold_week_end": "2021-10-22",
+        "picks": [
+          "PLAB",
+          "VECO",
+          "POET",
+          "FORM",
+          "LASR"
+        ],
+        "picks_excess": -0.009195,
+        "picks_beat_benchmark_share": 0.6,
+        "all_stocks_excess": -0.005897
+      },
+      {
+        "signal_week_end": "2021-10-22",
+        "hold_week_end": "2021-10-29",
+        "picks": [
+          "PLAB",
+          "VECO",
+          "POET",
+          "FORM",
+          "LASR"
+        ],
+        "picks_excess": 0.041002,
+        "picks_beat_benchmark_share": 1.0,
+        "all_stocks_excess": 0.049186
+      },
+      {
+        "signal_week_end": "2021-10-29",
+        "hold_week_end": "2021-11-05",
+        "picks": [
+          "PLAB",
+          "POET",
+          "VECO",
+          "LASR",
+          "FORM"
+        ],
+        "picks_excess": 0.011467,
+        "picks_beat_benchmark_share": 0.6,
+        "all_stocks_excess": 0.01383
+      },
+      {
+        "signal_week_end": "2021-11-05",
+        "hold_week_end": "2021-11-12",
+        "picks": [
+          "LASR",
+          "POET",
+          "PLAB",
+          "VECO",
+          "FORM"
+        ],
+        "picks_excess": -0.015225,
+        "picks_beat_benchmark_share": 0.4,
+        "all_stocks_excess": 0.000536
+      },
+      {
+        "signal_week_end": "2021-11-12",
+        "hold_week_end": "2021-11-19",
+        "picks": [
+          "POET",
+          "PLAB",
+          "VECO",
+          "LASR",
+          "ACMR"
+        ],
+        "picks_excess": -0.013268,
+        "picks_beat_benchmark_share": 0.6,
+        "all_stocks_excess": -0.010139
+      },
+      {
+        "signal_week_end": "2021-11-19",
+        "hold_week_end": "2021-11-26",
+        "picks": [
+          "PLAB",
+          "COHU",
+          "VECO",
+          "POET",
+          "LPTH"
+        ],
+        "picks_excess": 0.013632,
+        "picks_beat_benchmark_share": 0.6,
+        "all_stocks_excess": -0.008269
+      },
+      {
+        "signal_week_end": "2021-11-26",
+        "hold_week_end": "2021-12-03",
+        "picks": [
+          "PLAB",
+          "VECO",
+          "COHU",
+          "LASR",
+          "POET"
+        ],
+        "picks_excess": 0.029072,
+        "picks_beat_benchmark_share": 0.8,
+        "all_stocks_excess": 0.01122
+      },
+      {
+        "signal_week_end": "2021-12-03",
+        "hold_week_end": "2021-12-10",
+        "picks": [
+          "PLAB",
+          "VECO",
+          "LASR",
+          "COHU",
+          "POET"
+        ],
+        "picks_excess": 0.058057,
+        "picks_beat_benchmark_share": 0.6,
+        "all_stocks_excess": 0.054131
+      },
+      {
+        "signal_week_end": "2021-12-10",
+        "hold_week_end": "2021-12-17",
+        "picks": [
+          "VECO",
+          "LASR",
+          "POET",
+          "FORM",
+          "ACMR"
+        ],
+        "picks_excess": -0.009547,
+        "picks_beat_benchmark_share": 0.4,
+        "all_stocks_excess": -0.021356
+      },
+      {
+        "signal_week_end": "2021-12-17",
+        "hold_week_end": "2021-12-23",
+        "picks": [
+          "VECO",
+          "LASR",
+          "AXTI",
+          "FORM",
+          "POET"
+        ],
+        "picks_excess": 0.018601,
+        "picks_beat_benchmark_share": 0.8,
+        "all_stocks_excess": 0.040874
+      },
+      {
+        "signal_week_end": "2021-12-23",
+        "hold_week_end": "2021-12-31",
+        "picks": [
+          "VECO",
+          "ACMR",
+          "FORM",
+          "POET",
+          "LASR"
+        ],
+        "picks_excess": 0.032074,
+        "picks_beat_benchmark_share": 0.8,
+        "all_stocks_excess": 0.037829
+      },
+      {
+        "signal_week_end": "2021-12-31",
+        "hold_week_end": "2022-01-07",
+        "picks": [
+          "VECO",
+          "FORM",
+          "POET",
+          "LASR",
+          "AXTI"
+        ],
+        "picks_excess": -0.010398,
+        "picks_beat_benchmark_share": 0.6,
+        "all_stocks_excess": -0.045177
+      },
+      {
+        "signal_week_end": "2022-01-07",
+        "hold_week_end": "2022-01-14",
+        "picks": [
+          "VECO",
+          "POET",
+          "LASR",
+          "FORM",
+          "ACMR"
+        ],
+        "picks_excess": 0.061622,
+        "picks_beat_benchmark_share": 0.8,
+        "all_stocks_excess": 0.047412
+      },
+      {
+        "signal_week_end": "2022-01-14",
+        "hold_week_end": "2022-01-21",
+        "picks": [
+          "POET",
+          "LASR",
+          "FORM",
+          "AXTI",
+          "VECO"
+        ],
+        "picks_excess": -0.02923,
+        "picks_beat_benchmark_share": 0.2,
+        "all_stocks_excess": -0.049376
+      },
+      {
+        "signal_week_end": "2022-01-21",
+        "hold_week_end": "2022-01-28",
+        "picks": [
+          "POET",
+          "FORM",
+          "LASR",
+          "AXTI",
+          "ICHR"
+        ],
+        "picks_excess": -0.04149,
+        "picks_beat_benchmark_share": 0.0,
+        "all_stocks_excess": -0.021967
+      },
+      {
+        "signal_week_end": "2022-01-28",
+        "hold_week_end": "2022-02-04",
+        "picks": [
+          "FORM",
+          "AXTI",
+          "POET",
+          "LASR",
+          "COHU"
+        ],
+        "picks_excess": 0.013728,
+        "picks_beat_benchmark_share": 0.2,
+        "all_stocks_excess": 0.026723
+      },
+      {
+        "signal_week_end": "2022-02-04",
+        "hold_week_end": "2022-02-11",
+        "picks": [
+          "FORM",
+          "AXTI",
+          "LASR",
+          "COHU",
+          "VECO"
+        ],
+        "picks_excess": -0.004769,
+        "picks_beat_benchmark_share": 0.4,
+        "all_stocks_excess": -0.014171
+      },
+      {
+        "signal_week_end": "2022-02-11",
+        "hold_week_end": "2022-02-18",
+        "picks": [
+          "FORM",
+          "LASR",
+          "AXTI",
+          "COHU",
+          "VECO"
+        ],
+        "picks_excess": -0.014405,
+        "picks_beat_benchmark_share": 0.6,
+        "all_stocks_excess": -0.00705
+      },
+      {
+        "signal_week_end": "2022-02-18",
+        "hold_week_end": "2022-02-25",
+        "picks": [
+          "FORM",
+          "AXTI",
+          "COHU",
+          "POET",
+          "VECO"
+        ],
+        "picks_excess": -0.02488,
+        "picks_beat_benchmark_share": 0.2,
+        "all_stocks_excess": -0.016492
+      },
+      {
+        "signal_week_end": "2022-02-25",
+        "hold_week_end": "2022-03-04",
+        "picks": [
+          "FORM",
+          "AXTI",
+          "COHU",
+          "POET",
+          "VECO"
+        ],
+        "picks_excess": 0.015385,
+        "picks_beat_benchmark_share": 0.4,
+        "all_stocks_excess": -0.046175
+      },
+      {
+        "signal_week_end": "2022-03-04",
+        "hold_week_end": "2022-03-11",
+        "picks": [
+          "FORM",
+          "AXTI",
+          "PLAB",
+          "COHU",
+          "LPTH"
+        ],
+        "picks_excess": 0.010146,
+        "picks_beat_benchmark_share": 0.6,
+        "all_stocks_excess": 0.001701
+      },
+      {
+        "signal_week_end": "2022-03-11",
+        "hold_week_end": "2022-03-18",
+        "picks": [
+          "FORM",
+          "AXTI",
+          "PLAB",
+          "KLIC",
+          "COHU"
+        ],
+        "picks_excess": 0.049517,
+        "picks_beat_benchmark_share": 0.8,
+        "all_stocks_excess": 0.017721
+      },
+      {
+        "signal_week_end": "2022-03-18",
+        "hold_week_end": "2022-03-25",
+        "picks": [
+          "AXTI",
+          "PLAB",
+          "FORM",
+          "COHU",
+          "VECO"
+        ],
+        "picks_excess": 0.006545,
+        "picks_beat_benchmark_share": 0.6,
+        "all_stocks_excess": -0.005991
+      },
+      {
+        "signal_week_end": "2022-03-25",
+        "hold_week_end": "2022-04-01",
+        "picks": [
+          "AXTI",
+          "PLAB",
+          "FORM",
+          "COHU",
+          "VECO"
+        ],
+        "picks_excess": -0.074496,
+        "picks_beat_benchmark_share": 0.0,
+        "all_stocks_excess": -0.05699
+      },
+      {
+        "signal_week_end": "2022-04-01",
+        "hold_week_end": "2022-04-08",
+        "picks": [
+          "AXTI",
+          "FORM",
+          "PLAB",
+          "COHU",
+          "VECO"
+        ],
+        "picks_excess": -0.041737,
+        "picks_beat_benchmark_share": 0.2,
+        "all_stocks_excess": -0.042056
+      },
+      {
+        "signal_week_end": "2022-04-08",
+        "hold_week_end": "2022-04-14",
+        "picks": [
+          "AXTI",
+          "FORM",
+          "VECO",
+          "PLAB",
+          "COHU"
+        ],
+        "picks_excess": -0.014425,
+        "picks_beat_benchmark_share": 0.2,
+        "all_stocks_excess": -0.04108
+      },
+      {
+        "signal_week_end": "2022-04-14",
+        "hold_week_end": "2022-04-22",
+        "picks": [
+          "VECO",
+          "AXTI",
+          "FORM",
+          "PLAB",
+          "AEHR"
+        ],
+        "picks_excess": -0.00442,
+        "picks_beat_benchmark_share": 0.6,
+        "all_stocks_excess": 0.007815
+      },
+      {
+        "signal_week_end": "2022-04-22",
+        "hold_week_end": "2022-04-29",
+        "picks": [
+          "AXTI",
+          "VECO",
+          "FORM",
+          "PLAB",
+          "COHU"
+        ],
+        "picks_excess": 0.040337,
+        "picks_beat_benchmark_share": 1.0,
+        "all_stocks_excess": 0.020074
+      },
+      {
+        "signal_week_end": "2022-04-29",
+        "hold_week_end": "2022-05-06",
+        "picks": [
+          "VECO",
+          "AXTI",
+          "FORM",
+          "PLAB",
+          "AEHR"
+        ],
+        "picks_excess": 0.024272,
+        "picks_beat_benchmark_share": 0.8,
+        "all_stocks_excess": 0.033947
+      },
+      {
+        "signal_week_end": "2022-05-06",
+        "hold_week_end": "2022-05-13",
+        "picks": [
+          "AXTI",
+          "VECO",
+          "AEHR",
+          "FORM",
+          "PLAB"
+        ],
+        "picks_excess": 0.011618,
+        "picks_beat_benchmark_share": 0.6,
+        "all_stocks_excess": -0.006735
+      },
+      {
+        "signal_week_end": "2022-05-13",
+        "hold_week_end": "2022-05-20",
+        "picks": [
+          "AXTI",
+          "VECO",
+          "FORM",
+          "AEHR",
+          "PLAB"
+        ],
+        "picks_excess": -0.014251,
+        "picks_beat_benchmark_share": 0.2,
+        "all_stocks_excess": -0.007641
+      },
+      {
+        "signal_week_end": "2022-05-20",
+        "hold_week_end": "2022-05-27",
+        "picks": [
+          "AXTI",
+          "VECO",
+          "FORM",
+          "AEHR",
+          "PLAB"
+        ],
+        "picks_excess": 0.072841,
+        "picks_beat_benchmark_share": 0.8,
+        "all_stocks_excess": 0.030131
+      },
+      {
+        "signal_week_end": "2022-05-27",
+        "hold_week_end": "2022-06-03",
+        "picks": [
+          "VECO",
+          "AXTI",
+          "FORM",
+          "AEHR",
+          "COHU"
+        ],
+        "picks_excess": 0.011156,
+        "picks_beat_benchmark_share": 0.4,
+        "all_stocks_excess": -0.005346
+      },
+      {
+        "signal_week_end": "2022-06-03",
+        "hold_week_end": "2022-06-10",
+        "picks": [
+          "VECO",
+          "AXTI",
+          "FORM",
+          "AEHR",
+          "POET"
+        ],
+        "picks_excess": 0.000452,
+        "picks_beat_benchmark_share": 0.4,
+        "all_stocks_excess": -0.004258
+      },
+      {
+        "signal_week_end": "2022-06-10",
+        "hold_week_end": "2022-06-17",
+        "picks": [
+          "VECO",
+          "AXTI",
+          "POET",
+          "FORM",
+          "COHU"
+        ],
+        "picks_excess": 0.012626,
+        "picks_beat_benchmark_share": 0.6,
+        "all_stocks_excess": -0.010524
+      },
+      {
+        "signal_week_end": "2022-06-17",
+        "hold_week_end": "2022-06-24",
+        "picks": [
+          "VECO",
+          "AXTI",
+          "POET",
+          "FORM",
+          "ACMR"
+        ],
+        "picks_excess": 0.021116,
+        "picks_beat_benchmark_share": 0.6,
+        "all_stocks_excess": 0.005661
+      },
+      {
+        "signal_week_end": "2022-06-24",
+        "hold_week_end": "2022-07-01",
+        "picks": [
+          "VECO",
+          "POET",
+          "COHU",
+          "AXTI",
+          "LPTH"
+        ],
+        "picks_excess": -0.040658,
+        "picks_beat_benchmark_share": 0.2,
+        "all_stocks_excess": -0.076959
+      },
+      {
+        "signal_week_end": "2022-07-01",
+        "hold_week_end": "2022-07-08",
+        "picks": [
+          "VECO",
+          "POET",
+          "AXTI",
+          "ACMR",
+          "LPTH"
+        ],
+        "picks_excess": 0.017708,
+        "picks_beat_benchmark_share": 0.6,
+        "all_stocks_excess": 0.041745
+      },
+      {
+        "signal_week_end": "2022-07-08",
+        "hold_week_end": "2022-07-15",
+        "picks": [
+          "POET",
+          "VECO",
+          "AXTI",
+          "LPTH",
+          "ACMR"
+        ],
+        "picks_excess": -0.018444,
+        "picks_beat_benchmark_share": 0.4,
+        "all_stocks_excess": 0.030095
+      },
+      {
+        "signal_week_end": "2022-07-15",
+        "hold_week_end": "2022-07-22",
+        "picks": [
+          "POET",
+          "VECO",
+          "LPTH",
+          "AXTI",
+          "ACMR"
+        ],
+        "picks_excess": 0.083849,
+        "picks_beat_benchmark_share": 0.4,
+        "all_stocks_excess": 0.083323
+      },
+      {
+        "signal_week_end": "2022-07-22",
+        "hold_week_end": "2022-07-29",
+        "picks": [
+          "POET",
+          "VECO",
+          "AXTI",
+          "ACMR",
+          "COHU"
+        ],
+        "picks_excess": 0.03004,
+        "picks_beat_benchmark_share": 0.6,
+        "all_stocks_excess": -5.9e-05
+      },
+      {
+        "signal_week_end": "2022-07-29",
+        "hold_week_end": "2022-08-05",
+        "picks": [
+          "POET",
+          "VECO",
+          "COHU",
+          "ACMR",
+          "FORM"
+        ],
+        "picks_excess": 0.018104,
+        "picks_beat_benchmark_share": 0.4,
+        "all_stocks_excess": 0.024849
+      },
+      {
+        "signal_week_end": "2022-08-05",
+        "hold_week_end": "2022-08-12",
+        "picks": [
+          "POET",
+          "VECO",
+          "ACMR",
+          "COHU",
+          "UCTT"
+        ],
+        "picks_excess": -0.071618,
+        "picks_beat_benchmark_share": 0.0,
+        "all_stocks_excess": -0.019973
+      },
+      {
+        "signal_week_end": "2022-08-12",
+        "hold_week_end": "2022-08-19",
+        "picks": [
+          "POET",
+          "VECO",
+          "ACMR",
+          "COHU",
+          "UCTT"
+        ],
+        "picks_excess": -0.037477,
+        "picks_beat_benchmark_share": 0.0,
+        "all_stocks_excess": -0.015677
+      },
+      {
+        "signal_week_end": "2022-08-19",
+        "hold_week_end": "2022-08-26",
+        "picks": [
+          "POET",
+          "VECO",
+          "COHU",
+          "UCTT",
+          "FORM"
+        ],
+        "picks_excess": 0.05351,
+        "picks_beat_benchmark_share": 0.6,
+        "all_stocks_excess": 0.020203
+      },
+      {
+        "signal_week_end": "2022-08-26",
+        "hold_week_end": "2022-09-02",
+        "picks": [
+          "VECO",
+          "COHU",
+          "UCTT",
+          "FORM",
+          "KLIC"
+        ],
+        "picks_excess": -0.044808,
+        "picks_beat_benchmark_share": 0.2,
+        "all_stocks_excess": -0.082427
+      },
+      {
+        "signal_week_end": "2022-09-02",
+        "hold_week_end": "2022-09-09",
+        "picks": [
+          "COHU",
+          "VECO",
+          "KLIC",
+          "UCTT",
+          "FORM"
+        ],
+        "picks_excess": 0.00281,
+        "picks_beat_benchmark_share": 0.6,
+        "all_stocks_excess": 0.012224
+      },
+      {
+        "signal_week_end": "2022-09-09",
+        "hold_week_end": "2022-09-16",
+        "picks": [
+          "COHU",
+          "VECO",
+          "KLIC",
+          "LASR",
+          "UCTT"
+        ],
+        "picks_excess": -0.028673,
+        "picks_beat_benchmark_share": 0.2,
+        "all_stocks_excess": -0.026295
+      },
+      {
+        "signal_week_end": "2022-09-16",
+        "hold_week_end": "2022-09-23",
+        "picks": [
+          "COHU",
+          "FORM",
+          "KLIC",
+          "VECO",
+          "UCTT"
+        ],
+        "picks_excess": 0.025607,
+        "picks_beat_benchmark_share": 1.0,
+        "all_stocks_excess": -0.016752
+      },
+      {
+        "signal_week_end": "2022-09-23",
+        "hold_week_end": "2022-09-30",
+        "picks": [
+          "COHU",
+          "KLIC",
+          "FORM",
+          "VECO",
+          "UCTT"
+        ],
+        "picks_excess": -0.014432,
+        "picks_beat_benchmark_share": 0.0,
+        "all_stocks_excess": -0.026974
+      },
+      {
+        "signal_week_end": "2022-09-30",
+        "hold_week_end": "2022-10-07",
+        "picks": [
+          "COHU",
+          "KLIC",
+          "FORM",
+          "UCTT",
+          "VECO"
+        ],
+        "picks_excess": 0.04473,
+        "picks_beat_benchmark_share": 0.8,
+        "all_stocks_excess": 0.021192
+      },
+      {
+        "signal_week_end": "2022-10-07",
+        "hold_week_end": "2022-10-14",
+        "picks": [
+          "KLIC",
+          "COHU",
+          "FORM",
+          "UCTT",
+          "VECO"
+        ],
+        "picks_excess": -0.072977,
+        "picks_beat_benchmark_share": 0.0,
+        "all_stocks_excess": -0.105217
+      },
+      {
+        "signal_week_end": "2022-10-14",
+        "hold_week_end": "2022-10-21",
+        "picks": [
+          "KLIC",
+          "COHU",
+          "UCTT",
+          "FORM",
+          "VECO"
+        ],
+        "picks_excess": 0.056494,
+        "picks_beat_benchmark_share": 1.0,
+        "all_stocks_excess": 0.039444
+      },
+      {
+        "signal_week_end": "2022-10-21",
+        "hold_week_end": "2022-10-28",
+        "picks": [
+          "KLIC",
+          "FORM",
+          "VECO",
+          "LASR",
+          "COHU"
+        ],
+        "picks_excess": -0.044964,
+        "picks_beat_benchmark_share": 0.4,
+        "all_stocks_excess": -0.007319
+      },
+      {
+        "signal_week_end": "2022-10-28",
+        "hold_week_end": "2022-11-04",
+        "picks": [
+          "KLIC",
+          "VECO",
+          "COHU",
+          "LASR",
+          "UCTT"
+        ],
+        "picks_excess": -0.019774,
+        "picks_beat_benchmark_share": 0.6,
+        "all_stocks_excess": -0.014789
+      },
+      {
+        "signal_week_end": "2022-11-04",
+        "hold_week_end": "2022-11-11",
+        "picks": [
+          "KLIC",
+          "VECO",
+          "COHU",
+          "ICHR",
+          "UCTT"
+        ],
+        "picks_excess": 0.06987,
+        "picks_beat_benchmark_share": 1.0,
+        "all_stocks_excess": 0.103442
+      },
+      {
+        "signal_week_end": "2022-11-11",
+        "hold_week_end": "2022-11-18",
+        "picks": [
+          "KLIC",
+          "VECO",
+          "COHU",
+          "UCTT",
+          "LPTH"
+        ],
+        "picks_excess": 0.044674,
+        "picks_beat_benchmark_share": 0.6,
+        "all_stocks_excess": 0.035225
+      },
+      {
+        "signal_week_end": "2022-11-18",
+        "hold_week_end": "2022-11-25",
+        "picks": [
+          "KLIC",
+          "VECO",
+          "COHU",
+          "UCTT",
+          "ICHR"
+        ],
+        "picks_excess": -0.020984,
+        "picks_beat_benchmark_share": 0.0,
+        "all_stocks_excess": -0.007183
+      },
+      {
+        "signal_week_end": "2022-11-25",
+        "hold_week_end": "2022-12-02",
+        "picks": [
+          "KLIC",
+          "VECO",
+          "PLAB",
+          "COHU",
+          "UCTT"
+        ],
+        "picks_excess": 0.000894,
+        "picks_beat_benchmark_share": 0.6,
+        "all_stocks_excess": 0.007265
+      },
+      {
+        "signal_week_end": "2022-12-02",
+        "hold_week_end": "2022-12-09",
+        "picks": [
+          "VECO",
+          "KLIC",
+          "PLAB",
+          "COHU",
+          "UCTT"
+        ],
+        "picks_excess": 0.035054,
+        "picks_beat_benchmark_share": 1.0,
+        "all_stocks_excess": 0.02935
+      },
+      {
+        "signal_week_end": "2022-12-09",
+        "hold_week_end": "2022-12-16",
+        "picks": [
+          "VECO",
+          "KLIC",
+          "PLAB",
+          "COHU",
+          "UCTT"
+        ],
+        "picks_excess": 0.002627,
+        "picks_beat_benchmark_share": 0.6,
+        "all_stocks_excess": -0.002739
+      },
+      {
+        "signal_week_end": "2022-12-16",
+        "hold_week_end": "2022-12-23",
+        "picks": [
+          "VECO",
+          "KLIC",
+          "PLAB",
+          "COHU",
+          "UCTT"
+        ],
+        "picks_excess": -0.053327,
+        "picks_beat_benchmark_share": 0.0,
+        "all_stocks_excess": -0.048571
+      },
+      {
+        "signal_week_end": "2022-12-23",
+        "hold_week_end": "2022-12-30",
+        "picks": [
+          "VECO",
+          "KLIC",
+          "PLAB",
+          "COHU",
+          "UCTT"
+        ],
+        "picks_excess": 0.007853,
+        "picks_beat_benchmark_share": 0.6,
+        "all_stocks_excess": 0.011484
+      },
+      {
+        "signal_week_end": "2022-12-30",
+        "hold_week_end": "2023-01-06",
+        "picks": [
+          "VECO",
+          "KLIC",
+          "PLAB",
+          "AXTI",
+          "COHU"
+        ],
+        "picks_excess": 0.041933,
+        "picks_beat_benchmark_share": 1.0,
+        "all_stocks_excess": 0.06378
+      },
+      {
+        "signal_week_end": "2023-01-06",
+        "hold_week_end": "2023-01-13",
+        "picks": [
+          "VECO",
+          "KLIC",
+          "POET",
+          "PLAB",
+          "AXTI"
+        ],
+        "picks_excess": 0.077335,
+        "picks_beat_benchmark_share": 0.6,
+        "all_stocks_excess": 0.048538
+      },
+      {
+        "signal_week_end": "2023-01-13",
+        "hold_week_end": "2023-01-20",
+        "picks": [
+          "VECO",
+          "KLIC",
+          "PLAB",
+          "COHU",
+          "AXTI"
+        ],
+        "picks_excess": 0.002776,
+        "picks_beat_benchmark_share": 0.2,
+        "all_stocks_excess": 0.042152
+      },
+      {
+        "signal_week_end": "2023-01-20",
+        "hold_week_end": "2023-01-27",
+        "picks": [
+          "VECO",
+          "COHU",
+          "KLIC",
+          "PLAB",
+          "UCTT"
+        ],
+        "picks_excess": -0.000843,
+        "picks_beat_benchmark_share": 0.4,
+        "all_stocks_excess": 0.017059
+      },
+      {
+        "signal_week_end": "2023-01-27",
+        "hold_week_end": "2023-02-03",
+        "picks": [
+          "VECO",
+          "COHU",
+          "KLIC",
+          "UCTT",
+          "PLAB"
+        ],
+        "picks_excess": 0.027967,
+        "picks_beat_benchmark_share": 0.8,
+        "all_stocks_excess": 0.004327
+      },
+      {
+        "signal_week_end": "2023-02-03",
+        "hold_week_end": "2023-02-10",
+        "picks": [
+          "VECO",
+          "PLAB",
+          "COHU",
+          "KLIC",
+          "FORM"
+        ],
+        "picks_excess": 0.007976,
+        "picks_beat_benchmark_share": 0.2,
+        "all_stocks_excess": -0.000396
+      },
+      {
+        "signal_week_end": "2023-02-10",
+        "hold_week_end": "2023-02-17",
+        "picks": [
+          "AMBA",
+          "VECO",
+          "PLAB",
+          "COHU",
+          "FORM"
+        ],
+        "picks_excess": -0.003218,
+        "picks_beat_benchmark_share": 0.2,
+        "all_stocks_excess": -0.012414
+      },
+      {
+        "signal_week_end": "2023-02-17",
+        "hold_week_end": "2023-02-24",
+        "picks": [
+          "AMBA",
+          "PLAB",
+          "COHU",
+          "VECO",
+          "KLIC"
+        ],
+        "picks_excess": 0.013143,
+        "picks_beat_benchmark_share": 0.8,
+        "all_stocks_excess": -0.023618
+      },
+      {
+        "signal_week_end": "2023-02-24",
+        "hold_week_end": "2023-03-03",
+        "picks": [
+          "AMBA",
+          "PLAB",
+          "COHU",
+          "VECO",
+          "KLIC"
+        ],
+        "picks_excess": -0.018182,
+        "picks_beat_benchmark_share": 0.6,
+        "all_stocks_excess": -0.003449
+      },
+      {
+        "signal_week_end": "2023-03-03",
+        "hold_week_end": "2023-03-10",
+        "picks": [
+          "PLAB",
+          "COHU",
+          "AMBA",
+          "VECO",
+          "KLIC"
+        ],
+        "picks_excess": 0.027782,
+        "picks_beat_benchmark_share": 1.0,
+        "all_stocks_excess": 0.017625
+      },
+      {
+        "signal_week_end": "2023-03-10",
+        "hold_week_end": "2023-03-17",
+        "picks": [
+          "PLAB",
+          "COHU",
+          "AMBA",
+          "VECO",
+          "KLIC"
+        ],
+        "picks_excess": 0.038466,
+        "picks_beat_benchmark_share": 1.0,
+        "all_stocks_excess": 0.021618
+      },
+      {
+        "signal_week_end": "2023-03-17",
+        "hold_week_end": "2023-03-24",
+        "picks": [
+          "PLAB",
+          "COHU",
+          "VECO",
+          "AMBA",
+          "FORM"
+        ],
+        "picks_excess": -0.012128,
+        "picks_beat_benchmark_share": 0.2,
+        "all_stocks_excess": -0.000887
+      },
+      {
+        "signal_week_end": "2023-03-24",
+        "hold_week_end": "2023-03-31",
+        "picks": [
+          "PLAB",
+          "COHU",
+          "VECO",
+          "AMBA",
+          "FORM"
+        ],
+        "picks_excess": -0.004288,
+        "picks_beat_benchmark_share": 0.4,
+        "all_stocks_excess": -0.015054
+      },
+      {
+        "signal_week_end": "2023-03-31",
+        "hold_week_end": "2023-04-06",
+        "picks": [
+          "PLAB",
+          "COHU",
+          "VECO",
+          "AMBA",
+          "KLIC"
+        ],
+        "picks_excess": -0.046441,
+        "picks_beat_benchmark_share": 0.0,
+        "all_stocks_excess": -0.036458
+      },
+      {
+        "signal_week_end": "2023-04-06",
+        "hold_week_end": "2023-04-14",
+        "picks": [
+          "PLAB",
+          "COHU",
+          "KLIC",
+          "AMBA",
+          "VECO"
+        ],
+        "picks_excess": -0.020167,
+        "picks_beat_benchmark_share": 0.2,
+        "all_stocks_excess": -0.025262
+      },
+      {
+        "signal_week_end": "2023-04-14",
+        "hold_week_end": "2023-04-21",
+        "picks": [
+          "PLAB",
+          "COHU",
+          "KLIC",
+          "AMBA",
+          "VECO"
+        ],
+        "picks_excess": -0.031711,
+        "picks_beat_benchmark_share": 0.0,
+        "all_stocks_excess": -0.046142
+      },
+      {
+        "signal_week_end": "2023-04-21",
+        "hold_week_end": "2023-04-28",
+        "picks": [
+          "PLAB",
+          "COHU",
+          "KLIC",
+          "AMBA",
+          "VECO"
+        ],
+        "picks_excess": -0.024235,
+        "picks_beat_benchmark_share": 0.2,
+        "all_stocks_excess": -0.025571
+      },
+      {
+        "signal_week_end": "2023-04-28",
+        "hold_week_end": "2023-05-05",
+        "picks": [
+          "KLIC",
+          "PLAB",
+          "AMBA",
+          "COHU",
+          "VECO"
+        ],
+        "picks_excess": 0.02548,
+        "picks_beat_benchmark_share": 0.8,
+        "all_stocks_excess": 0.07158
+      },
+      {
+        "signal_week_end": "2023-05-05",
+        "hold_week_end": "2023-05-12",
+        "picks": [
+          "KLIC",
+          "PLAB",
+          "COHU",
+          "VECO",
+          "FORM"
+        ],
+        "picks_excess": 0.039887,
+        "picks_beat_benchmark_share": 1.0,
+        "all_stocks_excess": 0.014887
+      },
+      {
+        "signal_week_end": "2023-05-12",
+        "hold_week_end": "2023-05-19",
+        "picks": [
+          "KLIC",
+          "PLAB",
+          "COHU",
+          "FORM",
+          "AMBA"
+        ],
+        "picks_excess": 0.075261,
+        "picks_beat_benchmark_share": 1.0,
+        "all_stocks_excess": 0.077362
+      },
+      {
+        "signal_week_end": "2023-05-19",
+        "hold_week_end": "2023-05-26",
+        "picks": [
+          "KLIC",
+          "COHU",
+          "UCTT",
+          "FORM",
+          "PLAB"
+        ],
+        "picks_excess": 0.114964,
+        "picks_beat_benchmark_share": 1.0,
+        "all_stocks_excess": 0.063962
+      },
+      {
+        "signal_week_end": "2023-05-26",
+        "hold_week_end": "2023-06-02",
+        "picks": [
+          "KLIC",
+          "COHU",
+          "FORM",
+          "VECO",
+          "AMBA"
+        ],
+        "picks_excess": -0.035778,
+        "picks_beat_benchmark_share": 0.0,
+        "all_stocks_excess": -0.019447
+      },
+      {
+        "signal_week_end": "2023-06-02",
+        "hold_week_end": "2023-06-09",
+        "picks": [
+          "KLIC",
+          "COHU",
+          "FORM",
+          "POET",
+          "VECO"
+        ],
+        "picks_excess": 0.014542,
+        "picks_beat_benchmark_share": 0.4,
+        "all_stocks_excess": 0.02346
+      },
+      {
+        "signal_week_end": "2023-06-09",
+        "hold_week_end": "2023-06-16",
+        "picks": [
+          "COHU",
+          "KLIC",
+          "LPTH",
+          "FORM",
+          "VECO"
+        ],
+        "picks_excess": -0.005872,
+        "picks_beat_benchmark_share": 0.4,
+        "all_stocks_excess": 0.011289
+      },
+      {
+        "signal_week_end": "2023-06-16",
+        "hold_week_end": "2023-06-23",
+        "picks": [
+          "KLIC",
+          "COHU",
+          "LPTH",
+          "FORM",
+          "VECO"
+        ],
+        "picks_excess": 0.001565,
+        "picks_beat_benchmark_share": 0.4,
+        "all_stocks_excess": -0.009738
+      },
+      {
+        "signal_week_end": "2023-06-23",
+        "hold_week_end": "2023-06-30",
+        "picks": [
+          "FORM",
+          "COHU",
+          "KLIC",
+          "LPTH",
+          "VECO"
+        ],
+        "picks_excess": 0.032164,
+        "picks_beat_benchmark_share": 0.8,
+        "all_stocks_excess": 0.025915
+      },
+      {
+        "signal_week_end": "2023-06-30",
+        "hold_week_end": "2023-07-07",
+        "picks": [
+          "COHU",
+          "KLIC",
+          "LPTH",
+          "VECO",
+          "FORM"
+        ],
+        "picks_excess": 0.002912,
+        "picks_beat_benchmark_share": 0.2,
+        "all_stocks_excess": -0.021106
+      },
+      {
+        "signal_week_end": "2023-07-07",
+        "hold_week_end": "2023-07-14",
+        "picks": [
+          "COHU",
+          "KLIC",
+          "VECO",
+          "FORM",
+          "AMBA"
+        ],
+        "picks_excess": 0.015387,
+        "picks_beat_benchmark_share": 0.6,
+        "all_stocks_excess": 0.018785
+      },
+      {
+        "signal_week_end": "2023-07-14",
+        "hold_week_end": "2023-07-21",
+        "picks": [
+          "KLIC",
+          "COHU",
+          "VECO",
+          "FORM",
+          "AMBA"
+        ],
+        "picks_excess": -0.021878,
+        "picks_beat_benchmark_share": 0.2,
+        "all_stocks_excess": -0.0308
+      },
+      {
+        "signal_week_end": "2023-07-21",
+        "hold_week_end": "2023-07-28",
+        "picks": [
+          "COHU",
+          "KLIC",
+          "VECO",
+          "AMBA",
+          "FORM"
+        ],
+        "picks_excess": 0.034939,
+        "picks_beat_benchmark_share": 1.0,
+        "all_stocks_excess": 0.014237
+      },
+      {
+        "signal_week_end": "2023-07-28",
+        "hold_week_end": "2023-08-04",
+        "picks": [
+          "LASR",
+          "COHU",
+          "KLIC",
+          "VECO",
+          "AMBA"
+        ],
+        "picks_excess": -0.053004,
+        "picks_beat_benchmark_share": 0.2,
+        "all_stocks_excess": -0.027799
+      },
+      {
+        "signal_week_end": "2023-08-04",
+        "hold_week_end": "2023-08-11",
+        "picks": [
+          "VECO",
+          "COHU",
+          "KLIC",
+          "ACMR",
+          "AMBA"
+        ],
+        "picks_excess": 0.005575,
+        "picks_beat_benchmark_share": 0.4,
+        "all_stocks_excess": -0.036764
+      },
+      {
+        "signal_week_end": "2023-08-11",
+        "hold_week_end": "2023-08-18",
+        "picks": [
+          "VECO",
+          "COHU",
+          "KLIC",
+          "AMBA",
+          "ICHR"
+        ],
+        "picks_excess": -0.005521,
+        "picks_beat_benchmark_share": 0.4,
+        "all_stocks_excess": -0.013433
+      },
+      {
+        "signal_week_end": "2023-08-18",
+        "hold_week_end": "2023-08-25",
+        "picks": [
+          "VECO",
+          "KLIC",
+          "COHU",
+          "UCTT",
+          "AMBA"
+        ],
+        "picks_excess": 0.01065,
+        "picks_beat_benchmark_share": 0.6,
+        "all_stocks_excess": 0.020476
+      },
+      {
+        "signal_week_end": "2023-08-25",
+        "hold_week_end": "2023-09-01",
+        "picks": [
+          "VECO",
+          "UCTT",
+          "KLIC",
+          "COHU",
+          "AMBA"
+        ],
+        "picks_excess": -0.00686,
+        "picks_beat_benchmark_share": 0.6,
+        "all_stocks_excess": 0.052014
+      },
+      {
+        "signal_week_end": "2023-09-01",
+        "hold_week_end": "2023-09-08",
+        "picks": [
+          "VECO",
+          "KLIC",
+          "AMBA",
+          "POET",
+          "COHU"
+        ],
+        "picks_excess": -0.026251,
+        "picks_beat_benchmark_share": 0.0,
+        "all_stocks_excess": -0.040479
+      },
+      {
+        "signal_week_end": "2023-09-08",
+        "hold_week_end": "2023-09-15",
+        "picks": [
+          "KLIC",
+          "AMBA",
+          "VECO",
+          "COHU",
+          "POET"
+        ],
+        "picks_excess": -0.027546,
+        "picks_beat_benchmark_share": 0.2,
+        "all_stocks_excess": -0.036571
+      },
+      {
+        "signal_week_end": "2023-09-15",
+        "hold_week_end": "2023-09-22",
+        "picks": [
+          "POET",
+          "AMBA",
+          "KLIC",
+          "COHU",
+          "VECO"
+        ],
+        "picks_excess": 0.005893,
+        "picks_beat_benchmark_share": 0.6,
+        "all_stocks_excess": 0.007802
+      },
+      {
+        "signal_week_end": "2023-09-22",
+        "hold_week_end": "2023-09-29",
+        "picks": [
+          "AMBA",
+          "KLIC",
+          "POET",
+          "COHU",
+          "VECO"
+        ],
+        "picks_excess": -0.000927,
+        "picks_beat_benchmark_share": 0.6,
+        "all_stocks_excess": 0.02922
+      },
+      {
+        "signal_week_end": "2023-09-29",
+        "hold_week_end": "2023-10-06",
+        "picks": [
+          "KLIC",
+          "AMBA",
+          "COHU",
+          "POET",
+          "VECO"
+        ],
+        "picks_excess": 0.010576,
+        "picks_beat_benchmark_share": 0.6,
+        "all_stocks_excess": 0.007415
+      },
+      {
+        "signal_week_end": "2023-10-06",
+        "hold_week_end": "2023-10-13",
+        "picks": [
+          "KLIC",
+          "AMBA",
+          "COHU",
+          "POET",
+          "VECO"
+        ],
+        "picks_excess": -0.002301,
+        "picks_beat_benchmark_share": 0.6,
+        "all_stocks_excess": -0.011226
+      },
+      {
+        "signal_week_end": "2023-10-13",
+        "hold_week_end": "2023-10-20",
+        "picks": [
+          "KLIC",
+          "AMBA",
+          "COHU",
+          "POET",
+          "VECO"
+        ],
+        "picks_excess": -0.024005,
+        "picks_beat_benchmark_share": 0.2,
+        "all_stocks_excess": -0.032467
+      },
+      {
+        "signal_week_end": "2023-10-20",
+        "hold_week_end": "2023-10-27",
+        "picks": [
+          "KLIC",
+          "AMBA",
+          "COHU",
+          "POET",
+          "VECO"
+        ],
+        "picks_excess": -0.022417,
+        "picks_beat_benchmark_share": 0.2,
+        "all_stocks_excess": -0.029178
+      },
+      {
+        "signal_week_end": "2023-10-27",
+        "hold_week_end": "2023-11-03",
+        "picks": [
+          "KLIC",
+          "AMBA",
+          "COHU",
+          "LASR",
+          "POET"
+        ],
+        "picks_excess": -0.111995,
+        "picks_beat_benchmark_share": 0.2,
+        "all_stocks_excess": -0.067025
+      },
+      {
+        "signal_week_end": "2023-11-03",
+        "hold_week_end": "2023-11-10",
+        "picks": [
+          "KLIC",
+          "COHU",
+          "AMBA",
+          "VECO",
+          "FORM"
+        ],
+        "picks_excess": 0.07245,
+        "picks_beat_benchmark_share": 1.0,
+        "all_stocks_excess": 0.029947
+      },
+      {
+        "signal_week_end": "2023-11-10",
+        "hold_week_end": "2023-11-17",
+        "picks": [
+          "KLIC",
+          "COHU",
+          "AMBA",
+          "VECO",
+          "FORM"
+        ],
+        "picks_excess": 0.004957,
+        "picks_beat_benchmark_share": 0.4,
+        "all_stocks_excess": -0.018068
+      },
+      {
+        "signal_week_end": "2023-11-17",
+        "hold_week_end": "2023-11-24",
+        "picks": [
+          "COHU",
+          "KLIC",
+          "AMBA",
+          "VECO",
+          "FORM"
+        ],
+        "picks_excess": 0.000567,
+        "picks_beat_benchmark_share": 0.4,
+        "all_stocks_excess": 0.002893
+      },
+      {
+        "signal_week_end": "2023-11-24",
+        "hold_week_end": "2023-12-01",
+        "picks": [
+          "COHU",
+          "FORM",
+          "KLIC",
+          "AMBA",
+          "VECO"
+        ],
+        "picks_excess": -0.019729,
+        "picks_beat_benchmark_share": 0.4,
+        "all_stocks_excess": -0.026736
+      },
+      {
+        "signal_week_end": "2023-12-01",
+        "hold_week_end": "2023-12-08",
+        "picks": [
+          "COHU",
+          "PLAB",
+          "FORM",
+          "KLIC",
+          "UCTT"
+        ],
+        "picks_excess": -0.007596,
+        "picks_beat_benchmark_share": 0.4,
+        "all_stocks_excess": 0.007523
+      },
+      {
+        "signal_week_end": "2023-12-08",
+        "hold_week_end": "2023-12-15",
+        "picks": [
+          "COHU",
+          "PLAB",
+          "FORM",
+          "VECO",
+          "KLIC"
+        ],
+        "picks_excess": 0.080552,
+        "picks_beat_benchmark_share": 0.8,
+        "all_stocks_excess": 0.022231
+      },
+      {
+        "signal_week_end": "2023-12-15",
+        "hold_week_end": "2023-12-22",
+        "picks": [
+          "COHU",
+          "FORM",
+          "KLIC",
+          "AMBA",
+          "VECO"
+        ],
+        "picks_excess": -0.011365,
+        "picks_beat_benchmark_share": 0.4,
+        "all_stocks_excess": 0.004677
+      },
+      {
+        "signal_week_end": "2023-12-22",
+        "hold_week_end": "2023-12-29",
+        "picks": [
+          "COHU",
+          "FORM",
+          "KLIC",
+          "VECO",
+          "AMBA"
+        ],
+        "picks_excess": -0.005245,
+        "picks_beat_benchmark_share": 0.2,
+        "all_stocks_excess": -0.002792
+      },
+      {
+        "signal_week_end": "2023-12-29",
+        "hold_week_end": "2024-01-05",
+        "picks": [
+          "COHU",
+          "FORM",
+          "KLIC",
+          "VECO",
+          "AMBA"
+        ],
+        "picks_excess": -0.046609,
+        "picks_beat_benchmark_share": 0.0,
+        "all_stocks_excess": -0.032063
+      },
+      {
+        "signal_week_end": "2024-01-05",
+        "hold_week_end": "2024-01-12",
+        "picks": [
+          "COHU",
+          "FORM",
+          "KLIC",
+          "VECO",
+          "UCTT"
+        ],
+        "picks_excess": 0.015756,
+        "picks_beat_benchmark_share": 0.6,
+        "all_stocks_excess": 0.046371
+      },
+      {
+        "signal_week_end": "2024-01-12",
+        "hold_week_end": "2024-01-19",
+        "picks": [
+          "COHU",
+          "VECO",
+          "KLIC",
+          "FORM",
+          "UCTT"
+        ],
+        "picks_excess": 0.094919,
+        "picks_beat_benchmark_share": 1.0,
+        "all_stocks_excess": 0.02932
+      },
+      {
+        "signal_week_end": "2024-01-19",
+        "hold_week_end": "2024-01-26",
+        "picks": [
+          "COHU",
+          "KLIC",
+          "FORM",
+          "AMBA",
+          "UCTT"
+        ],
+        "picks_excess": -0.032699,
+        "picks_beat_benchmark_share": 0.0,
+        "all_stocks_excess": -0.01981
+      },
+      {
+        "signal_week_end": "2024-01-26",
+        "hold_week_end": "2024-02-02",
+        "picks": [
+          "COHU",
+          "KLIC",
+          "AMBA",
+          "UCTT",
+          "FORM"
+        ],
+        "picks_excess": -0.029475,
+        "picks_beat_benchmark_share": 0.2,
+        "all_stocks_excess": 0.010238
+      },
+      {
+        "signal_week_end": "2024-02-02",
+        "hold_week_end": "2024-02-09",
+        "picks": [
+          "COHU",
+          "FORM",
+          "ICHR",
+          "UCTT",
+          "VECO"
+        ],
+        "picks_excess": 0.061097,
+        "picks_beat_benchmark_share": 1.0,
+        "all_stocks_excess": 0.044491
+      },
+      {
+        "signal_week_end": "2024-02-09",
+        "hold_week_end": "2024-02-16",
+        "picks": [
+          "COHU",
+          "AMBA",
+          "FORM",
+          "UCTT",
+          "VECO"
+        ],
+        "picks_excess": -0.024073,
+        "picks_beat_benchmark_share": 0.4,
+        "all_stocks_excess": -0.004688
+      },
+      {
+        "signal_week_end": "2024-02-16",
+        "hold_week_end": "2024-02-23",
+        "picks": [
+          "COHU",
+          "AMBA",
+          "UCTT",
+          "FORM",
+          "VECO"
+        ],
+        "picks_excess": 0.003367,
+        "picks_beat_benchmark_share": 0.2,
+        "all_stocks_excess": 0.015702
+      },
+      {
+        "signal_week_end": "2024-02-23",
+        "hold_week_end": "2024-03-01",
+        "picks": [
+          "COHU",
+          "AMBA",
+          "FORM",
+          "VECO",
+          "LASR"
+        ],
+        "picks_excess": 0.019322,
+        "picks_beat_benchmark_share": 0.8,
+        "all_stocks_excess": 0.054471
+      },
+      {
+        "signal_week_end": "2024-03-01",
+        "hold_week_end": "2024-03-08",
+        "picks": [
+          "COHU",
+          "AMBA",
+          "VECO",
+          "FORM",
+          "UCTT"
+        ],
+        "picks_excess": -0.00913,
+        "picks_beat_benchmark_share": 0.4,
+        "all_stocks_excess": -0.01861
+      },
+      {
+        "signal_week_end": "2024-03-08",
+        "hold_week_end": "2024-03-15",
+        "picks": [
+          "COHU",
+          "AMBA",
+          "FORM",
+          "VECO",
+          "UCTT"
+        ],
+        "picks_excess": -0.040016,
+        "picks_beat_benchmark_share": 0.2,
+        "all_stocks_excess": -0.032209
+      },
+      {
+        "signal_week_end": "2024-03-15",
+        "hold_week_end": "2024-03-22",
+        "picks": [
+          "COHU",
+          "AMBA",
+          "FORM",
+          "VECO",
+          "KLIC"
+        ],
+        "picks_excess": 0.002266,
+        "picks_beat_benchmark_share": 0.4,
+        "all_stocks_excess": 0.015109
+      },
+      {
+        "signal_week_end": "2024-03-22",
+        "hold_week_end": "2024-03-28",
+        "picks": [
+          "COHU",
+          "AMBA",
+          "LPTH",
+          "FORM",
+          "VECO"
+        ],
+        "picks_excess": -0.003399,
+        "picks_beat_benchmark_share": 0.4,
+        "all_stocks_excess": -0.033057
+      },
+      {
+        "signal_week_end": "2024-03-28",
+        "hold_week_end": "2024-04-05",
+        "picks": [
+          "COHU",
+          "FORM",
+          "AMBA",
+          "UCTT",
+          "VECO"
+        ],
+        "picks_excess": 0.008792,
+        "picks_beat_benchmark_share": 0.6,
+        "all_stocks_excess": -0.010628
+      },
+      {
+        "signal_week_end": "2024-04-05",
+        "hold_week_end": "2024-04-12",
+        "picks": [
+          "COHU",
+          "FORM",
+          "AMBA",
+          "UCTT",
+          "VECO"
+        ],
+        "picks_excess": 0.007282,
+        "picks_beat_benchmark_share": 0.4,
+        "all_stocks_excess": 0.012255
+      },
+      {
+        "signal_week_end": "2024-04-12",
+        "hold_week_end": "2024-04-19",
+        "picks": [
+          "VECO",
+          "UCTT",
+          "FORM",
+          "COHU",
+          "AMBA"
+        ],
+        "picks_excess": -0.068745,
+        "picks_beat_benchmark_share": 0.0,
+        "all_stocks_excess": -0.062792
+      },
+      {
+        "signal_week_end": "2024-04-19",
+        "hold_week_end": "2024-04-26",
+        "picks": [
+          "VECO",
+          "COHU",
+          "FORM",
+          "UCTT",
+          "KLIC"
+        ],
+        "picks_excess": 0.049052,
+        "picks_beat_benchmark_share": 1.0,
+        "all_stocks_excess": 0.136276
+      },
+      {
+        "signal_week_end": "2024-04-26",
+        "hold_week_end": "2024-05-03",
+        "picks": [
+          "LPTH",
+          "KLIC",
+          "VECO",
+          "COHU",
+          "FORM"
+        ],
+        "picks_excess": 0.023627,
+        "picks_beat_benchmark_share": 0.4,
+        "all_stocks_excess": 0.012595
+      },
+      {
+        "signal_week_end": "2024-05-03",
+        "hold_week_end": "2024-05-10",
+        "picks": [
+          "KLIC",
+          "LPTH",
+          "VECO",
+          "COHU",
+          "UCTT"
+        ],
+        "picks_excess": 0.013343,
+        "picks_beat_benchmark_share": 0.8,
+        "all_stocks_excess": -0.003176
+      },
+      {
+        "signal_week_end": "2024-05-10",
+        "hold_week_end": "2024-05-17",
+        "picks": [
+          "KLIC",
+          "LPTH",
+          "COHU",
+          "VECO",
+          "UCTT"
+        ],
+        "picks_excess": -0.015261,
+        "picks_beat_benchmark_share": 0.4,
+        "all_stocks_excess": -0.017556
+      },
+      {
+        "signal_week_end": "2024-05-17",
+        "hold_week_end": "2024-05-24",
+        "picks": [
+          "KLIC",
+          "LPTH",
+          "COHU",
+          "PLAB",
+          "VECO"
+        ],
+        "picks_excess": 0.00564,
+        "picks_beat_benchmark_share": 0.6,
+        "all_stocks_excess": 0.0023
+      },
+      {
+        "signal_week_end": "2024-05-24",
+        "hold_week_end": "2024-05-31",
+        "picks": [
+          "KLIC",
+          "LPTH",
+          "VECO",
+          "PLAB",
+          "LASR"
+        ],
+        "picks_excess": -0.003672,
+        "picks_beat_benchmark_share": 0.4,
+        "all_stocks_excess": 0.011322
+      },
+      {
+        "signal_week_end": "2024-05-31",
+        "hold_week_end": "2024-06-07",
+        "picks": [
+          "KLIC",
+          "LPTH",
+          "VECO",
+          "LASR",
+          "COHU"
+        ],
+        "picks_excess": -0.004879,
+        "picks_beat_benchmark_share": 0.4,
+        "all_stocks_excess": 0.007936
+      },
+      {
+        "signal_week_end": "2024-06-07",
+        "hold_week_end": "2024-06-14",
+        "picks": [
+          "ICHR",
+          "KLIC",
+          "LPTH",
+          "VECO",
+          "UCTT"
+        ],
+        "picks_excess": 0.030432,
+        "picks_beat_benchmark_share": 0.8,
+        "all_stocks_excess": 0.023728
+      },
+      {
+        "signal_week_end": "2024-06-14",
+        "hold_week_end": "2024-06-21",
+        "picks": [
+          "KLIC",
+          "ICHR",
+          "LPTH",
+          "UCTT",
+          "VECO"
+        ],
+        "picks_excess": -0.003138,
+        "picks_beat_benchmark_share": 0.6,
+        "all_stocks_excess": -0.011949
+      },
+      {
+        "signal_week_end": "2024-06-21",
+        "hold_week_end": "2024-06-28",
+        "picks": [
+          "KLIC",
+          "ICHR",
+          "LPTH",
+          "COHU",
+          "UCTT"
+        ],
+        "picks_excess": 0.026789,
+        "picks_beat_benchmark_share": 1.0,
+        "all_stocks_excess": 0.002609
+      },
+      {
+        "signal_week_end": "2024-06-28",
+        "hold_week_end": "2024-07-05",
+        "picks": [
+          "LPTH",
+          "KLIC",
+          "ICHR",
+          "COHU",
+          "VECO"
+        ],
+        "picks_excess": 0.039215,
+        "picks_beat_benchmark_share": 1.0,
+        "all_stocks_excess": 0.086043
+      },
+      {
+        "signal_week_end": "2024-07-05",
+        "hold_week_end": "2024-07-12",
+        "picks": [
+          "KLIC",
+          "ICHR",
+          "LPTH",
+          "COHU",
+          "VECO"
+        ],
+        "picks_excess": -0.047679,
+        "picks_beat_benchmark_share": 0.2,
+        "all_stocks_excess": -0.010333
+      },
+      {
+        "signal_week_end": "2024-07-12",
+        "hold_week_end": "2024-07-19",
+        "picks": [
+          "UCTT",
+          "VECO",
+          "KLIC",
+          "ICHR",
+          "COHU"
+        ],
+        "picks_excess": -0.136191,
+        "picks_beat_benchmark_share": 0.0,
+        "all_stocks_excess": -0.079004
+      },
+      {
+        "signal_week_end": "2024-07-19",
+        "hold_week_end": "2024-07-26",
+        "picks": [
+          "LPTH",
+          "PLAB",
+          "KLIC",
+          "ICHR",
+          "COHU"
+        ],
+        "picks_excess": -0.027686,
+        "picks_beat_benchmark_share": 0.2,
+        "all_stocks_excess": -0.060772
+      },
+      {
+        "signal_week_end": "2024-07-26",
+        "hold_week_end": "2024-08-02",
+        "picks": [
+          "PLAB",
+          "KLIC",
+          "COHU",
+          "ICHR",
+          "UCTT"
+        ],
+        "picks_excess": -0.085944,
+        "picks_beat_benchmark_share": 0.0,
+        "all_stocks_excess": -0.070966
+      },
+      {
+        "signal_week_end": "2024-08-02",
+        "hold_week_end": "2024-08-09",
+        "picks": [
+          "PLAB",
+          "LPTH",
+          "KLIC",
+          "LASR",
+          "ICHR"
+        ],
+        "picks_excess": 0.005123,
+        "picks_beat_benchmark_share": 0.6,
+        "all_stocks_excess": 0.007396
+      },
+      {
+        "signal_week_end": "2024-08-09",
+        "hold_week_end": "2024-08-16",
+        "picks": [
+          "LPTH",
+          "PLAB",
+          "KLIC",
+          "LASR",
+          "ICHR"
+        ],
+        "picks_excess": 0.035499,
+        "picks_beat_benchmark_share": 0.8,
+        "all_stocks_excess": 0.05506
+      },
+      {
+        "signal_week_end": "2024-08-16",
+        "hold_week_end": "2024-08-23",
+        "picks": [
+          "LPTH",
+          "PLAB",
+          "KLIC",
+          "COHU",
+          "VECO"
+        ],
+        "picks_excess": -0.021416,
+        "picks_beat_benchmark_share": 0.2,
+        "all_stocks_excess": -0.018029
+      },
+      {
+        "signal_week_end": "2024-08-23",
+        "hold_week_end": "2024-08-30",
+        "picks": [
+          "LPTH",
+          "PLAB",
+          "KLIC",
+          "COHU",
+          "VECO"
+        ],
+        "picks_excess": -0.011284,
+        "picks_beat_benchmark_share": 0.6,
+        "all_stocks_excess": -0.002512
+      },
+      {
+        "signal_week_end": "2024-08-30",
+        "hold_week_end": "2024-09-06",
+        "picks": [
+          "LPTH",
+          "LASR",
+          "PLAB",
+          "KLIC",
+          "COHU"
+        ],
+        "picks_excess": -0.061448,
+        "picks_beat_benchmark_share": 0.0,
+        "all_stocks_excess": -0.070054
+      },
+      {
+        "signal_week_end": "2024-09-06",
+        "hold_week_end": "2024-09-13",
+        "picks": [
+          "LPTH",
+          "COHU",
+          "LASR",
+          "KLIC",
+          "VECO"
+        ],
+        "picks_excess": -0.009501,
+        "picks_beat_benchmark_share": 0.4,
+        "all_stocks_excess": -0.000114
+      },
+      {
+        "signal_week_end": "2024-09-13",
+        "hold_week_end": "2024-09-20",
+        "picks": [
+          "LPTH",
+          "LASR",
+          "COHU",
+          "KLIC",
+          "VECO"
+        ],
+        "picks_excess": -0.002276,
+        "picks_beat_benchmark_share": 0.4,
+        "all_stocks_excess": -0.027583
+      },
+      {
+        "signal_week_end": "2024-09-20",
+        "hold_week_end": "2024-09-27",
+        "picks": [
+          "LPTH",
+          "LASR",
+          "COHU",
+          "KLIC",
+          "VECO"
+        ],
+        "picks_excess": 0.063047,
+        "picks_beat_benchmark_share": 1.0,
+        "all_stocks_excess": 0.11724
+      },
+      {
+        "signal_week_end": "2024-09-27",
+        "hold_week_end": "2024-10-04",
+        "picks": [
+          "LASR",
+          "LPTH",
+          "COHU",
+          "KLIC",
+          "VECO"
+        ],
+        "picks_excess": 0.01224,
+        "picks_beat_benchmark_share": 0.6,
+        "all_stocks_excess": 0.008655
+      },
+      {
+        "signal_week_end": "2024-10-04",
+        "hold_week_end": "2024-10-11",
+        "picks": [
+          "LASR",
+          "COHU",
+          "LPTH",
+          "KLIC",
+          "PLAB"
+        ],
+        "picks_excess": 0.008543,
+        "picks_beat_benchmark_share": 0.6,
+        "all_stocks_excess": 0.013647
+      },
+      {
+        "signal_week_end": "2024-10-11",
+        "hold_week_end": "2024-10-18",
+        "picks": [
+          "LASR",
+          "COHU",
+          "KLIC",
+          "LPTH",
+          "VECO"
+        ],
+        "picks_excess": -0.036952,
+        "picks_beat_benchmark_share": 0.2,
+        "all_stocks_excess": -0.047188
+      },
+      {
+        "signal_week_end": "2024-10-18",
+        "hold_week_end": "2024-10-25",
+        "picks": [
+          "LASR",
+          "LPTH",
+          "COHU",
+          "KLIC",
+          "VECO"
+        ],
+        "picks_excess": 0.01647,
+        "picks_beat_benchmark_share": 0.6,
+        "all_stocks_excess": 0.026794
+      },
+      {
+        "signal_week_end": "2024-10-25",
+        "hold_week_end": "2024-11-01",
+        "picks": [
+          "COHU",
+          "KLIC",
+          "LASR",
+          "LPTH",
+          "PLAB"
+        ],
+        "picks_excess": 0.038273,
+        "picks_beat_benchmark_share": 0.6,
+        "all_stocks_excess": -0.043387
+      },
+      {
+        "signal_week_end": "2024-11-01",
+        "hold_week_end": "2024-11-08",
+        "picks": [
+          "COHU",
+          "KLIC",
+          "LPTH",
+          "PLAB",
+          "VECO"
+        ],
+        "picks_excess": -0.05142,
+        "picks_beat_benchmark_share": 0.2,
+        "all_stocks_excess": -0.03815
+      },
+      {
+        "signal_week_end": "2024-11-08",
+        "hold_week_end": "2024-11-15",
+        "picks": [
+          "COHU",
+          "KLIC",
+          "LPTH",
+          "VECO",
+          "PLAB"
+        ],
+        "picks_excess": -0.033888,
+        "picks_beat_benchmark_share": 0.0,
+        "all_stocks_excess": -0.045116
+      },
+      {
+        "signal_week_end": "2024-11-15",
+        "hold_week_end": "2024-11-22",
+        "picks": [
+          "KLIC",
+          "COHU",
+          "VECO",
+          "LPTH",
+          "PLAB"
+        ],
+        "picks_excess": 0.003088,
+        "picks_beat_benchmark_share": 0.6,
+        "all_stocks_excess": 0.03274
+      },
+      {
+        "signal_week_end": "2024-11-22",
+        "hold_week_end": "2024-11-29",
+        "picks": [
+          "KLIC",
+          "COHU",
+          "LPTH",
+          "VECO",
+          "AMBA"
+        ],
+        "picks_excess": 0.033268,
+        "picks_beat_benchmark_share": 0.6,
+        "all_stocks_excess": 0.022407
+      },
+      {
+        "signal_week_end": "2024-11-29",
+        "hold_week_end": "2024-12-06",
+        "picks": [
+          "KLIC",
+          "VECO",
+          "PLAB",
+          "COHU",
+          "AMBA"
+        ],
+        "picks_excess": 0.015005,
+        "picks_beat_benchmark_share": 1.0,
+        "all_stocks_excess": 0.013281
+      },
+      {
+        "signal_week_end": "2024-12-06",
+        "hold_week_end": "2024-12-13",
+        "picks": [
+          "KLIC",
+          "VECO",
+          "PLAB",
+          "COHU",
+          "AMBA"
+        ],
+        "picks_excess": 0.045728,
+        "picks_beat_benchmark_share": 1.0,
+        "all_stocks_excess": 0.038537
+      },
+      {
+        "signal_week_end": "2024-12-13",
+        "hold_week_end": "2024-12-20",
+        "picks": [
+          "KLIC",
+          "VECO",
+          "PLAB",
+          "COHU",
+          "AMBA"
+        ],
+        "picks_excess": -0.007235,
+        "picks_beat_benchmark_share": 0.4,
+        "all_stocks_excess": 0.043991
+      },
+      {
+        "signal_week_end": "2024-12-20",
+        "hold_week_end": "2024-12-27",
+        "picks": [
+          "KLIC",
+          "VECO",
+          "PLAB",
+          "COHU",
+          "AMBA"
+        ],
+        "picks_excess": 0.025608,
+        "picks_beat_benchmark_share": 0.8,
+        "all_stocks_excess": 0.092602
+      },
+      {
+        "signal_week_end": "2024-12-27",
+        "hold_week_end": "2025-01-03",
+        "picks": [
+          "KLIC",
+          "VECO",
+          "PLAB",
+          "COHU",
+          "ACMR"
+        ],
+        "picks_excess": -0.008434,
+        "picks_beat_benchmark_share": 0.2,
+        "all_stocks_excess": 0.014287
+      },
+      {
+        "signal_week_end": "2025-01-03",
+        "hold_week_end": "2025-01-10",
+        "picks": [
+          "KLIC",
+          "VECO",
+          "PLAB",
+          "COHU",
+          "AMBA"
+        ],
+        "picks_excess": 0.005051,
+        "picks_beat_benchmark_share": 0.8,
+        "all_stocks_excess": -0.019923
+      },
+      {
+        "signal_week_end": "2025-01-10",
+        "hold_week_end": "2025-01-17",
+        "picks": [
+          "VECO",
+          "KLIC",
+          "PLAB",
+          "ACMR",
+          "COHU"
+        ],
+        "picks_excess": -0.00265,
+        "picks_beat_benchmark_share": 0.4,
+        "all_stocks_excess": -0.031473
+      },
+      {
+        "signal_week_end": "2025-01-17",
+        "hold_week_end": "2025-01-24",
+        "picks": [
+          "VECO",
+          "KLIC",
+          "PLAB",
+          "COHU",
+          "AMBA"
+        ],
+        "picks_excess": -0.050584,
+        "picks_beat_benchmark_share": 0.0,
+        "all_stocks_excess": -0.025861
+      },
+      {
+        "signal_week_end": "2025-01-24",
+        "hold_week_end": "2025-01-31",
+        "picks": [
+          "VECO",
+          "KLIC",
+          "COHU",
+          "PLAB",
+          "FORM"
+        ],
+        "picks_excess": -0.017175,
+        "picks_beat_benchmark_share": 0.0,
+        "all_stocks_excess": -0.028383
+      },
+      {
+        "signal_week_end": "2025-01-31",
+        "hold_week_end": "2025-02-07",
+        "picks": [
+          "KLIC",
+          "VECO",
+          "PLAB",
+          "COHU",
+          "FORM"
+        ],
+        "picks_excess": -0.053891,
+        "picks_beat_benchmark_share": 0.0,
+        "all_stocks_excess": 0.003037
+      },
+      {
+        "signal_week_end": "2025-02-07",
+        "hold_week_end": "2025-02-14",
+        "picks": [
+          "VECO",
+          "KLIC",
+          "PLAB",
+          "UCTT",
+          "COHU"
+        ],
+        "picks_excess": -0.009736,
+        "picks_beat_benchmark_share": 0.2,
+        "all_stocks_excess": -0.008087
+      },
+      {
+        "signal_week_end": "2025-02-14",
+        "hold_week_end": "2025-02-21",
+        "picks": [
+          "VECO",
+          "KLIC",
+          "UCTT",
+          "COHU",
+          "PLAB"
+        ],
+        "picks_excess": 0.036391,
+        "picks_beat_benchmark_share": 1.0,
+        "all_stocks_excess": 0.014579
+      },
+      {
+        "signal_week_end": "2025-02-21",
+        "hold_week_end": "2025-02-28",
+        "picks": [
+          "VECO",
+          "KLIC",
+          "UCTT",
+          "AMBA",
+          "COHU"
+        ],
+        "picks_excess": -0.146273,
+        "picks_beat_benchmark_share": 0.0,
+        "all_stocks_excess": -0.088008
+      },
+      {
+        "signal_week_end": "2025-02-28",
+        "hold_week_end": "2025-03-07",
+        "picks": [
+          "KLIC",
+          "VECO",
+          "PLAB",
+          "COHU",
+          "FORM"
+        ],
+        "picks_excess": 0.010811,
+        "picks_beat_benchmark_share": 0.6,
+        "all_stocks_excess": 0.011984
+      },
+      {
+        "signal_week_end": "2025-03-07",
+        "hold_week_end": "2025-03-14",
+        "picks": [
+          "KLIC",
+          "VECO",
+          "PLAB",
+          "COHU",
+          "FORM"
+        ],
+        "picks_excess": -0.000766,
+        "picks_beat_benchmark_share": 0.4,
+        "all_stocks_excess": 0.023287
+      },
+      {
+        "signal_week_end": "2025-03-14",
+        "hold_week_end": "2025-03-21",
+        "picks": [
+          "PLAB",
+          "KLIC",
+          "VECO",
+          "ACMR",
+          "COHU"
+        ],
+        "picks_excess": -0.037608,
+        "picks_beat_benchmark_share": 0.0,
+        "all_stocks_excess": -0.025299
+      },
+      {
+        "signal_week_end": "2025-03-21",
+        "hold_week_end": "2025-03-28",
+        "picks": [
+          "PLAB",
+          "KLIC",
+          "COHU",
+          "VECO",
+          "FORM"
+        ],
+        "picks_excess": -0.043498,
+        "picks_beat_benchmark_share": 0.0,
+        "all_stocks_excess": -0.064323
+      },
+      {
+        "signal_week_end": "2025-03-28",
+        "hold_week_end": "2025-04-04",
+        "picks": [
+          "PLAB",
+          "KLIC",
+          "COHU",
+          "VECO",
+          "FORM"
+        ],
+        "picks_excess": -0.035791,
+        "picks_beat_benchmark_share": 0.0,
+        "all_stocks_excess": -0.049343
+      },
+      {
+        "signal_week_end": "2025-04-04",
+        "hold_week_end": "2025-04-11",
+        "picks": [
+          "COHU",
+          "KLIC",
+          "VECO",
+          "PLAB",
+          "FORM"
+        ],
+        "picks_excess": 0.042315,
+        "picks_beat_benchmark_share": 1.0,
+        "all_stocks_excess": 0.025726
+      },
+      {
+        "signal_week_end": "2025-04-11",
+        "hold_week_end": "2025-04-17",
+        "picks": [
+          "KLIC",
+          "PLAB",
+          "VECO",
+          "COHU",
+          "FORM"
+        ],
+        "picks_excess": -0.048268,
+        "picks_beat_benchmark_share": 0.0,
+        "all_stocks_excess": -0.02021
+      },
+      {
+        "signal_week_end": "2025-04-17",
+        "hold_week_end": "2025-04-25",
+        "picks": [
+          "KLIC",
+          "PLAB",
+          "VECO",
+          "COHU",
+          "LASR"
+        ],
+        "picks_excess": 0.063877,
+        "picks_beat_benchmark_share": 1.0,
+        "all_stocks_excess": 0.082976
+      },
+      {
+        "signal_week_end": "2025-04-25",
+        "hold_week_end": "2025-05-02",
+        "picks": [
+          "PLAB",
+          "KLIC",
+          "VECO",
+          "LASR",
+          "POET"
+        ],
+        "picks_excess": 0.011254,
+        "picks_beat_benchmark_share": 0.6,
+        "all_stocks_excess": -0.013726
+      },
+      {
+        "signal_week_end": "2025-05-02",
+        "hold_week_end": "2025-05-09",
+        "picks": [
+          "PLAB",
+          "KLIC",
+          "VECO",
+          "POET",
+          "LASR"
+        ],
+        "picks_excess": 0.069718,
+        "picks_beat_benchmark_share": 0.6,
+        "all_stocks_excess": 0.009421
+      },
+      {
+        "signal_week_end": "2025-05-09",
+        "hold_week_end": "2025-05-16",
+        "picks": [
+          "PLAB",
+          "VECO",
+          "KLIC",
+          "POET",
+          "FORM"
+        ],
+        "picks_excess": 0.01818,
+        "picks_beat_benchmark_share": 1.0,
+        "all_stocks_excess": 0.044343
+      },
+      {
+        "signal_week_end": "2025-05-16",
+        "hold_week_end": "2025-05-23",
+        "picks": [
+          "PLAB",
+          "KLIC",
+          "VECO",
+          "POET",
+          "FORM"
+        ],
+        "picks_excess": -0.024818,
+        "picks_beat_benchmark_share": 0.0,
+        "all_stocks_excess": -0.009181
+      },
+      {
+        "signal_week_end": "2025-05-23",
+        "hold_week_end": "2025-05-30",
+        "picks": [
+          "PLAB",
+          "VECO",
+          "KLIC",
+          "POET",
+          "FORM"
+        ],
+        "picks_excess": -0.043281,
+        "picks_beat_benchmark_share": 0.0,
+        "all_stocks_excess": -0.014024
+      },
+      {
+        "signal_week_end": "2025-05-30",
+        "hold_week_end": "2025-06-06",
+        "picks": [
+          "POET",
+          "VECO",
+          "KLIC",
+          "PLAB",
+          "FORM"
+        ],
+        "picks_excess": 0.011476,
+        "picks_beat_benchmark_share": 0.6,
+        "all_stocks_excess": 0.05373
+      },
+      {
+        "signal_week_end": "2025-06-06",
+        "hold_week_end": "2025-06-13",
+        "picks": [
+          "POET",
+          "KLIC",
+          "VECO",
+          "PLAB",
+          "FORM"
+        ],
+        "picks_excess": 0.028489,
+        "picks_beat_benchmark_share": 1.0,
+        "all_stocks_excess": 0.027839
+      },
+      {
+        "signal_week_end": "2025-06-13",
+        "hold_week_end": "2025-06-20",
+        "picks": [
+          "POET",
+          "VECO",
+          "KLIC",
+          "PLAB",
+          "COHU"
+        ],
+        "picks_excess": -0.017656,
+        "picks_beat_benchmark_share": 0.2,
+        "all_stocks_excess": -0.025824
+      },
+      {
+        "signal_week_end": "2025-06-20",
+        "hold_week_end": "2025-06-27",
+        "picks": [
+          "POET",
+          "KLIC",
+          "VECO",
+          "PLAB",
+          "COHU"
+        ],
+        "picks_excess": 0.063807,
+        "picks_beat_benchmark_share": 0.8,
+        "all_stocks_excess": 0.077619
+      },
+      {
+        "signal_week_end": "2025-06-27",
+        "hold_week_end": "2025-07-03",
+        "picks": [
+          "KLIC",
+          "VECO",
+          "PLAB",
+          "ACMR",
+          "FORM"
+        ],
+        "picks_excess": 0.024606,
+        "picks_beat_benchmark_share": 1.0,
+        "all_stocks_excess": 0.040208
+      },
+      {
+        "signal_week_end": "2025-07-03",
+        "hold_week_end": "2025-07-11",
+        "picks": [
+          "KLIC",
+          "VECO",
+          "ACMR",
+          "FORM",
+          "PLAB"
+        ],
+        "picks_excess": -0.002604,
+        "picks_beat_benchmark_share": 0.4,
+        "all_stocks_excess": 0.015651
+      },
+      {
+        "signal_week_end": "2025-07-11",
+        "hold_week_end": "2025-07-18",
+        "picks": [
+          "KLIC",
+          "VECO",
+          "FORM",
+          "ACMR",
+          "PLAB"
+        ],
+        "picks_excess": -0.000981,
+        "picks_beat_benchmark_share": 0.4,
+        "all_stocks_excess": 0.009817
+      },
+      {
+        "signal_week_end": "2025-07-18",
+        "hold_week_end": "2025-07-25",
+        "picks": [
+          "KLIC",
+          "VECO",
+          "COHU",
+          "FORM",
+          "ACMR"
+        ],
+        "picks_excess": -0.036692,
+        "picks_beat_benchmark_share": 0.0,
+        "all_stocks_excess": -0.00996
+      },
+      {
+        "signal_week_end": "2025-07-25",
+        "hold_week_end": "2025-08-01",
+        "picks": [
+          "KLIC",
+          "VECO",
+          "COHU",
+          "FORM",
+          "ACMR"
+        ],
+        "picks_excess": -0.003872,
+        "picks_beat_benchmark_share": 0.6,
+        "all_stocks_excess": -0.025567
+      },
+      {
+        "signal_week_end": "2025-08-01",
+        "hold_week_end": "2025-08-08",
+        "picks": [
+          "KLIC",
+          "VECO",
+          "COHU",
+          "ACMR",
+          "PLAB"
+        ],
+        "picks_excess": -0.005477,
+        "picks_beat_benchmark_share": 0.4,
+        "all_stocks_excess": 0.030435
+      },
+      {
+        "signal_week_end": "2025-08-08",
+        "hold_week_end": "2025-08-15",
+        "picks": [
+          "COHU",
+          "KLIC",
+          "VECO",
+          "PLAB",
+          "FORM"
+        ],
+        "picks_excess": -0.014601,
+        "picks_beat_benchmark_share": 0.0,
+        "all_stocks_excess": -0.026659
+      },
+      {
+        "signal_week_end": "2025-08-15",
+        "hold_week_end": "2025-08-22",
+        "picks": [
+          "COHU",
+          "KLIC",
+          "VECO",
+          "PLAB",
+          "FORM"
+        ],
+        "picks_excess": 0.009425,
+        "picks_beat_benchmark_share": 0.6,
+        "all_stocks_excess": 0.049588
+      },
+      {
+        "signal_week_end": "2025-08-22",
+        "hold_week_end": "2025-08-29",
+        "picks": [
+          "COHU",
+          "PLAB",
+          "KLIC",
+          "VECO",
+          "FORM"
+        ],
+        "picks_excess": -0.008244,
+        "picks_beat_benchmark_share": 0.2,
+        "all_stocks_excess": 0.051509
+      },
+      {
+        "signal_week_end": "2025-08-29",
+        "hold_week_end": "2025-09-05",
+        "picks": [
+          "PLAB",
+          "COHU",
+          "KLIC",
+          "VECO",
+          "FORM"
+        ],
+        "picks_excess": -0.00203,
+        "picks_beat_benchmark_share": 0.4,
+        "all_stocks_excess": 0.001924
+      },
+      {
+        "signal_week_end": "2025-09-05",
+        "hold_week_end": "2025-09-12",
+        "picks": [
+          "COHU",
+          "PLAB",
+          "KLIC",
+          "FORM",
+          "VECO"
+        ],
+        "picks_excess": 0.013914,
+        "picks_beat_benchmark_share": 0.8,
+        "all_stocks_excess": 0.022004
+      },
+      {
+        "signal_week_end": "2025-09-12",
+        "hold_week_end": "2025-09-19",
+        "picks": [
+          "COHU",
+          "PLAB",
+          "KLIC",
+          "VECO",
+          "FORM"
+        ],
+        "picks_excess": 0.094792,
+        "picks_beat_benchmark_share": 1.0,
+        "all_stocks_excess": 0.100384
+      },
+      {
+        "signal_week_end": "2025-09-19",
+        "hold_week_end": "2025-09-26",
+        "picks": [
+          "COHU",
+          "PLAB",
+          "KLIC",
+          "UCTT",
+          "AMBA"
+        ],
+        "picks_excess": -0.035857,
+        "picks_beat_benchmark_share": 0.2,
+        "all_stocks_excess": 0.010144
+      },
+      {
+        "signal_week_end": "2025-09-26",
+        "hold_week_end": "2025-10-03",
+        "picks": [
+          "COHU",
+          "UCTT",
+          "PLAB",
+          "KLIC",
+          "AMBA"
+        ],
+        "picks_excess": 0.004541,
+        "picks_beat_benchmark_share": 0.4,
+        "all_stocks_excess": 0.04189
+      },
+      {
+        "signal_week_end": "2025-10-03",
+        "hold_week_end": "2025-10-10",
+        "picks": [
+          "PLAB",
+          "COHU",
+          "KLIC",
+          "UCTT",
+          "AMBA"
+        ],
+        "picks_excess": -0.052388,
+        "picks_beat_benchmark_share": 0.2,
+        "all_stocks_excess": -0.046965
+      },
+      {
+        "signal_week_end": "2025-10-10",
+        "hold_week_end": "2025-10-17",
+        "picks": [
+          "COHU",
+          "KLIC",
+          "PLAB",
+          "UCTT",
+          "AMBA"
+        ],
+        "picks_excess": 0.061617,
+        "picks_beat_benchmark_share": 0.8,
+        "all_stocks_excess": 0.04212
+      },
+      {
+        "signal_week_end": "2025-10-17",
+        "hold_week_end": "2025-10-24",
+        "picks": [
+          "KLIC",
+          "COHU",
+          "PLAB",
+          "UCTT",
+          "VECO"
+        ],
+        "picks_excess": 0.012345,
+        "picks_beat_benchmark_share": 0.8,
+        "all_stocks_excess": 0.054465
+      },
+      {
+        "signal_week_end": "2025-10-24",
+        "hold_week_end": "2025-10-31",
+        "picks": [
+          "KLIC",
+          "COHU",
+          "PLAB",
+          "FORM",
+          "UCTT"
+        ],
+        "picks_excess": 0.053947,
+        "picks_beat_benchmark_share": 0.6,
+        "all_stocks_excess": 0.038541
+      },
+      {
+        "signal_week_end": "2025-10-31",
+        "hold_week_end": "2025-11-07",
+        "picks": [
+          "KLIC",
+          "COHU",
+          "LASR",
+          "PLAB",
+          "VECO"
+        ],
+        "picks_excess": 0.012614,
+        "picks_beat_benchmark_share": 0.6,
+        "all_stocks_excess": -0.039083
+      },
+      {
+        "signal_week_end": "2025-11-07",
+        "hold_week_end": "2025-11-14",
+        "picks": [
+          "KLIC",
+          "COHU",
+          "LASR",
+          "VECO",
+          "PLAB"
+        ],
+        "picks_excess": -0.039845,
+        "picks_beat_benchmark_share": 0.0,
+        "all_stocks_excess": -0.041279
+      },
+      {
+        "signal_week_end": "2025-11-14",
+        "hold_week_end": "2025-11-21",
+        "picks": [
+          "KLIC",
+          "COHU",
+          "VECO",
+          "PLAB",
+          "LASR"
+        ],
+        "picks_excess": 0.014417,
+        "picks_beat_benchmark_share": 0.8,
+        "all_stocks_excess": -0.017346
+      },
+      {
+        "signal_week_end": "2025-11-21",
+        "hold_week_end": "2025-11-28",
+        "picks": [
+          "KLIC",
+          "COHU",
+          "AMBA",
+          "PLAB",
+          "VECO"
+        ],
+        "picks_excess": -0.012172,
+        "picks_beat_benchmark_share": 0.8,
+        "all_stocks_excess": 0.054949
+      },
+      {
+        "signal_week_end": "2025-11-28",
+        "hold_week_end": "2025-12-05",
+        "picks": [
+          "KLIC",
+          "COHU",
+          "VECO",
+          "PLAB",
+          "AMBA"
+        ],
+        "picks_excess": 0.042196,
+        "picks_beat_benchmark_share": 0.8,
+        "all_stocks_excess": 0.066335
+      },
+      {
+        "signal_week_end": "2025-12-05",
+        "hold_week_end": "2025-12-12",
+        "picks": [
+          "KLIC",
+          "COHU",
+          "PLAB",
+          "VECO",
+          "AMBA"
+        ],
+        "picks_excess": 0.072185,
+        "picks_beat_benchmark_share": 0.4,
+        "all_stocks_excess": 0.041487
+      },
+      {
+        "signal_week_end": "2025-12-12",
+        "hold_week_end": "2025-12-19",
+        "picks": [
+          "KLIC",
+          "COHU",
+          "VECO",
+          "AMBA",
+          "LASR"
+        ],
+        "picks_excess": -0.0107,
+        "picks_beat_benchmark_share": 0.2,
+        "all_stocks_excess": -0.012412
+      },
+      {
+        "signal_week_end": "2025-12-19",
+        "hold_week_end": "2025-12-26",
+        "picks": [
+          "COHU",
+          "KLIC",
+          "VECO",
+          "LASR",
+          "AMBA"
+        ],
+        "picks_excess": 0.00682,
+        "picks_beat_benchmark_share": 0.4,
+        "all_stocks_excess": 0.027297
+      },
+      {
+        "signal_week_end": "2025-12-26",
+        "hold_week_end": "2026-01-02",
+        "picks": [
+          "COHU",
+          "KLIC",
+          "VECO",
+          "LASR",
+          "AMBA"
+        ],
+        "picks_excess": 0.041713,
+        "picks_beat_benchmark_share": 0.8,
+        "all_stocks_excess": 0.072707
+      },
+      {
+        "signal_week_end": "2026-01-02",
+        "hold_week_end": "2026-01-09",
+        "picks": [
+          "COHU",
+          "VECO",
+          "KLIC",
+          "AMBA",
+          "LASR"
+        ],
+        "picks_excess": 0.01092,
+        "picks_beat_benchmark_share": 0.6,
+        "all_stocks_excess": 0.074625
+      },
+      {
+        "signal_week_end": "2026-01-09",
+        "hold_week_end": "2026-01-16",
+        "picks": [
+          "COHU",
+          "AMBA",
+          "VECO",
+          "KLIC",
+          "LASR"
+        ],
+        "picks_excess": 0.014295,
+        "picks_beat_benchmark_share": 0.6,
+        "all_stocks_excess": 0.056685
+      },
+      {
+        "signal_week_end": "2026-01-16",
+        "hold_week_end": "2026-01-23",
+        "picks": [
+          "COHU",
+          "AMBA",
+          "VECO",
+          "KLIC",
+          "LASR"
+        ],
+        "picks_excess": -0.004857,
+        "picks_beat_benchmark_share": 0.6,
+        "all_stocks_excess": -0.034994
+      },
+      {
+        "signal_week_end": "2026-01-23",
+        "hold_week_end": "2026-01-30",
+        "picks": [
+          "COHU",
+          "AMBA",
+          "VECO",
+          "KLIC",
+          "LASR"
+        ],
+        "picks_excess": 0.012268,
+        "picks_beat_benchmark_share": 0.6,
+        "all_stocks_excess": -0.000843
+      },
+      {
+        "signal_week_end": "2026-01-30",
+        "hold_week_end": "2026-02-06",
+        "picks": [
+          "AMBA",
+          "COHU",
+          "VECO",
+          "KLIC",
+          "LASR"
+        ],
+        "picks_excess": 0.062369,
+        "picks_beat_benchmark_share": 0.6,
+        "all_stocks_excess": 0.076895
+      },
+      {
+        "signal_week_end": "2026-02-06",
+        "hold_week_end": "2026-02-13",
+        "picks": [
+          "COHU",
+          "AMBA",
+          "VECO",
+          "LASR",
+          "ACMR"
+        ],
+        "picks_excess": 0.04535,
+        "picks_beat_benchmark_share": 0.8,
+        "all_stocks_excess": 0.083099
+      },
+      {
+        "signal_week_end": "2026-02-13",
+        "hold_week_end": "2026-02-20",
+        "picks": [
+          "COHU",
+          "AMBA",
+          "LASR",
+          "VECO",
+          "ACMR"
+        ],
+        "picks_excess": -0.000424,
+        "picks_beat_benchmark_share": 0.8,
+        "all_stocks_excess": 0.034491
+      },
+      {
+        "signal_week_end": "2026-02-20",
+        "hold_week_end": "2026-02-27",
+        "picks": [
+          "AMBA",
+          "COHU",
+          "LASR",
+          "VECO",
+          "ACMR"
+        ],
+        "picks_excess": -0.042749,
+        "picks_beat_benchmark_share": 0.4,
+        "all_stocks_excess": 0.013904
+      },
+      {
+        "signal_week_end": "2026-02-27",
+        "hold_week_end": "2026-03-06",
+        "picks": [
+          "LASR",
+          "COHU",
+          "AMBA",
+          "VECO",
+          "KLIC"
+        ],
+        "picks_excess": -0.019606,
+        "picks_beat_benchmark_share": 0.4,
+        "all_stocks_excess": -0.043191
+      },
+      {
+        "signal_week_end": "2026-03-06",
+        "hold_week_end": "2026-03-13",
+        "picks": [
+          "LASR",
+          "COHU",
+          "PLAB",
+          "AMBA",
+          "VECO"
+        ],
+        "picks_excess": 0.0362,
+        "picks_beat_benchmark_share": 1.0,
+        "all_stocks_excess": 0.08166
+      },
+      {
+        "signal_week_end": "2026-03-13",
+        "hold_week_end": "2026-03-20",
+        "picks": [
+          "LASR",
+          "PLAB",
+          "COHU",
+          "AMBA",
+          "VECO"
+        ],
+        "picks_excess": 0.064039,
+        "picks_beat_benchmark_share": 1.0,
+        "all_stocks_excess": 0.039401
+      },
+      {
+        "signal_week_end": "2026-03-20",
+        "hold_week_end": "2026-03-27",
+        "picks": [
+          "LASR",
+          "PLAB",
+          "COHU",
+          "VECO",
+          "AMBA"
+        ],
+        "picks_excess": 0.030052,
+        "picks_beat_benchmark_share": 0.6,
+        "all_stocks_excess": -0.004649
+      },
+      {
+        "signal_week_end": "2026-03-27",
+        "hold_week_end": "2026-04-02",
+        "picks": [
+          "LASR",
+          "COHU",
+          "AMBA",
+          "PLAB",
+          "VECO"
+        ],
+        "picks_excess": -0.030913,
+        "picks_beat_benchmark_share": 0.2,
+        "all_stocks_excess": 0.021676
+      },
+      {
+        "signal_week_end": "2026-04-02",
+        "hold_week_end": "2026-04-10",
+        "picks": [
+          "COHU",
+          "LASR",
+          "AMBA",
+          "PLAB",
+          "VECO"
+        ],
+        "picks_excess": 0.071745,
+        "picks_beat_benchmark_share": 1.0,
+        "all_stocks_excess": 0.151035
+      },
+      {
+        "signal_week_end": "2026-04-10",
+        "hold_week_end": "2026-04-17",
+        "picks": [
+          "LASR",
+          "AMBA",
+          "PLAB",
+          "COHU",
+          "VECO"
+        ],
+        "picks_excess": 0.03185,
+        "picks_beat_benchmark_share": 1.0,
+        "all_stocks_excess": 0.048786
+      },
+      {
+        "signal_week_end": "2026-04-17",
+        "hold_week_end": "2026-04-24",
+        "picks": [
+          "LASR",
+          "PLAB",
+          "AMBA",
+          "COHU",
+          "VECO"
+        ],
+        "picks_excess": 0.126078,
+        "picks_beat_benchmark_share": 1.0,
+        "all_stocks_excess": 0.165505
+      },
+      {
+        "signal_week_end": "2026-04-24",
+        "hold_week_end": "2026-05-01",
+        "picks": [
+          "LASR",
+          "PLAB",
+          "COHU",
+          "AMBA",
+          "UCTT"
+        ],
+        "picks_excess": -0.042195,
+        "picks_beat_benchmark_share": 0.2,
+        "all_stocks_excess": -0.075058
+      },
+      {
+        "signal_week_end": "2026-05-01",
+        "hold_week_end": "2026-05-08",
+        "picks": [
+          "LASR",
+          "PLAB",
+          "COHU",
+          "KLIC",
+          "AMBA"
+        ],
+        "picks_excess": 0.073032,
+        "picks_beat_benchmark_share": 1.0,
+        "all_stocks_excess": 0.109406
+      },
+      {
+        "signal_week_end": "2026-05-08",
+        "hold_week_end": "2026-05-15",
+        "picks": [
+          "LASR",
+          "PLAB",
+          "COHU",
+          "AMBA",
+          "KLIC"
+        ],
+        "picks_excess": 0.016064,
+        "picks_beat_benchmark_share": 0.6,
+        "all_stocks_excess": 0.050763
+      },
+      {
+        "signal_week_end": "2026-05-15",
+        "hold_week_end": "2026-05-22",
+        "picks": [
+          "LASR",
+          "PLAB",
+          "COHU",
+          "AMBA",
+          "VECO"
+        ],
+        "picks_excess": 0.002693,
+        "picks_beat_benchmark_share": 0.6,
+        "all_stocks_excess": 0.02591
+      },
+      {
+        "signal_week_end": "2026-05-22",
+        "hold_week_end": "2026-05-29",
+        "picks": [
+          "LASR",
+          "PLAB",
+          "AMBA",
+          "COHU",
+          "KLIC"
+        ],
+        "picks_excess": -0.117344,
+        "picks_beat_benchmark_share": 0.2,
+        "all_stocks_excess": -0.074027
+      },
+      {
+        "signal_week_end": "2026-05-29",
+        "hold_week_end": "2026-06-05",
+        "picks": [
+          "LASR",
+          "COHU",
+          "KLIC",
+          "UCTT",
+          "AMBA"
+        ],
+        "picks_excess": -0.042731,
+        "picks_beat_benchmark_share": 0.0,
+        "all_stocks_excess": -0.039651
+      },
+      {
+        "signal_week_end": "2026-06-05",
+        "hold_week_end": "2026-06-12",
+        "picks": [
+          "LASR",
+          "COHU",
+          "KLIC",
+          "UCTT",
+          "VECO"
+        ],
+        "picks_excess": 0.178706,
+        "picks_beat_benchmark_share": 1.0,
+        "all_stocks_excess": 0.121333
+      },
+      {
+        "signal_week_end": "2026-06-12",
+        "hold_week_end": "2026-06-18",
+        "picks": [
+          "LASR",
+          "KLIC",
+          "COHU",
+          "AMBA",
+          "FORM"
+        ],
+        "picks_excess": 0.0379,
+        "picks_beat_benchmark_share": 0.8,
+        "all_stocks_excess": 0.039823
+      },
+      {
+        "signal_week_end": "2026-06-18",
+        "hold_week_end": "2026-06-26",
+        "picks": [
+          "LASR",
+          "KLIC",
+          "AMBA",
+          "COHU",
+          "ACMR"
+        ],
+        "picks_excess": -0.066745,
+        "picks_beat_benchmark_share": 0.2,
+        "all_stocks_excess": -0.113064
+      },
+      {
+        "signal_week_end": "2026-06-26",
+        "hold_week_end": "2026-07-02",
+        "picks": [
+          "LASR",
+          "KLIC",
+          "AMBA",
+          "COHU",
+          "ACMR"
+        ],
+        "picks_excess": 0.03177,
+        "picks_beat_benchmark_share": 0.4,
+        "all_stocks_excess": -0.037899
+      },
+      {
+        "signal_week_end": "2026-07-02",
+        "hold_week_end": "2026-07-10",
+        "picks": [
+          "LASR",
+          "KLIC",
+          "COHU",
+          "FORM",
+          "ACMR"
+        ],
+        "picks_excess": 0.01053,
+        "picks_beat_benchmark_share": 0.4,
+        "all_stocks_excess": -0.004
+      },
+      {
+        "signal_week_end": "2026-07-10",
+        "hold_week_end": "2026-07-17",
+        "picks": [
+          "LASR",
+          "KLIC",
+          "COHU",
+          "FORM",
+          "AEHR"
+        ],
+        "picks_excess": -0.044526,
+        "picks_beat_benchmark_share": 0.2,
+        "all_stocks_excess": -0.099658
+      },
+      {
+        "signal_week_end": "2026-07-17",
+        "hold_week_end": "2026-07-24",
+        "picks": [
+          "LASR",
+          "KLIC",
+          "FORM",
+          "COHU",
+          "AEHR"
+        ],
+        "picks_excess": 0.003953,
+        "picks_beat_benchmark_share": 0.6,
+        "all_stocks_excess": 0.021288
+      },
+      {
+        "signal_week_end": "2026-07-24",
+        "hold_week_end": "2026-07-31",
+        "picks": [
+          "LASR",
+          "KLIC",
+          "FORM",
+          "COHU",
+          "AEHR"
+        ],
+        "picks_excess": -0.024473,
+        "picks_beat_benchmark_share": 0.4,
+        "all_stocks_excess": 0.004065
+      },
+      {
+        "signal_week_end": "2026-07-31",
+        "hold_week_end": "2026-08-07",
+        "picks": [
+          "LASR",
+          "KLIC",
+          "FORM",
+          "COHU",
+          "AEHR"
+        ],
+        "picks_excess": 0.031588,
+        "picks_beat_benchmark_share": 0.6,
+        "all_stocks_excess": 0.071666
+      },
+      {
+        "signal_week_end": "2026-08-07",
+        "hold_week_end": "2026-08-14",
+        "picks": [
+          "KLIC",
+          "LASR",
+          "FORM",
+          "COHU",
+          "UCTT"
+        ],
+        "picks_excess": 0.035846,
+        "picks_beat_benchmark_share": 0.6,
+        "all_stocks_excess": 0.035078
+      },
+      {
+        "signal_week_end": "2026-08-14",
+        "hold_week_end": "2026-08-21",
+        "picks": [
+          "LASR",
+          "KLIC",
+          "FORM",
+          "COHU",
+          "UCTT"
+        ],
+        "picks_excess": -0.093071,
+        "picks_beat_benchmark_share": 0.0,
+        "all_stocks_excess": -0.093894
+      },
+      {
+        "signal_week_end": "2026-08-21",
+        "hold_week_end": "2026-08-28",
+        "picks": [
+          "PLAB",
+          "LASR",
+          "KLIC",
+          "FORM",
+          "COHU"
+        ],
+        "picks_excess": -0.079239,
+        "picks_beat_benchmark_share": 0.0,
+        "all_stocks_excess": -0.09343
+      },
+      {
+        "signal_week_end": "2026-08-28",
+        "hold_week_end": "2026-09-04",
+        "picks": [
+          "PLAB",
+          "LASR",
+          "KLIC",
+          "FORM",
+          "ACMR"
+        ],
+        "picks_excess": 0.001642,
+        "picks_beat_benchmark_share": 0.6,
+        "all_stocks_excess": 0.003638
+      },
+      {
+        "signal_week_end": "2026-09-04",
+        "hold_week_end": "2026-09-11",
+        "picks": [
+          "PLAB",
+          "VECO",
+          "UCTT",
+          "LASR",
+          "KLIC"
+        ],
+        "picks_excess": 0.040855,
+        "picks_beat_benchmark_share": 1.0,
+        "all_stocks_excess": 0.058547
+      },
+      {
+        "signal_week_end": "2026-09-11",
+        "hold_week_end": "2026-09-18",
+        "picks": [
+          "PLAB",
+          "UCTT",
+          "ACMR",
+          "VECO",
+          "KLIC"
+        ],
+        "picks_excess": -0.019898,
+        "picks_beat_benchmark_share": 0.2,
+        "all_stocks_excess": 0.007939
+      },
+      {
+        "signal_week_end": "2026-09-18",
+        "hold_week_end": "2026-09-25",
+        "picks": [
+          "PLAB",
+          "UCTT",
+          "VECO",
+          "ACMR",
+          "KLIC"
+        ],
+        "picks_excess": 0.113859,
+        "picks_beat_benchmark_share": 1.0,
+        "all_stocks_excess": 0.09349
+      },
+      {
+        "signal_week_end": "2026-09-25",
+        "hold_week_end": "2026-10-02",
+        "picks": [
+          "PLAB",
+          "VECO",
+          "UCTT",
+          "LASR",
+          "ACMR"
+        ],
+        "picks_excess": 0.043911,
+        "picks_beat_benchmark_share": 0.8,
+        "all_stocks_excess": 0.059997
+      },
+      {
+        "signal_week_end": "2026-10-02",
+        "hold_week_end": "2026-10-09",
+        "picks": [
+          "PLAB",
+          "LASR",
+          "UCTT",
+          "ACMR",
+          "VECO"
+        ],
+        "picks_excess": -0.070927,
+        "picks_beat_benchmark_share": 0.0,
+        "all_stocks_excess": -0.085596
+      },
+      {
+        "signal_week_end": "2026-10-09",
+        "hold_week_end": "2026-10-16",
+        "picks": [
+          "PLAB",
+          "LASR",
+          "UCTT",
+          "ACMR",
+          "ICHR"
+        ],
+        "picks_excess": -0.170618,
+        "picks_beat_benchmark_share": 0.0,
+        "all_stocks_excess": -0.175688
+      },
+      {
+        "signal_week_end": "2026-10-16",
+        "hold_week_end": "2026-10-23",
+        "picks": [
+          "PLAB",
+          "LASR",
+          "KLIC",
+          "UCTT",
+          "VECO"
+        ],
+        "picks_excess": -0.037213,
+        "picks_beat_benchmark_share": 0.4,
+        "all_stocks_excess": -0.047732
+      },
+      {
+        "signal_week_end": "2026-10-23",
+        "hold_week_end": "2026-10-26",
+        "picks": [
+          "PLAB",
+          "AMBA",
+          "LASR",
+          "KLIC",
+          "UCTT"
+        ],
+        "picks_excess": 0.007504,
+        "picks_beat_benchmark_share": 0.8,
+        "all_stocks_excess": 0.012227
+      }
+    ],
+    "track_record": {
+      "weeks": 353,
+      "weeks_picks_beat_benchmark": 0.5354,
+      "mean_weekly_excess": 0.003994,
+      "cumulative_excess_before_costs": 1.956216
+    },
+    "strategy": "low_vol_12w"
   },
   "name": "smtk_peers",
   "screen": {
@@ -44040,8 +49288,8 @@
       "AXTI",
       "AEHR",
       "FORM",
-      "POET",
       "AMBA",
+      "POET",
       "UCTT",
       "ACMR",
       "LASR",
@@ -44055,264 +49303,264 @@
     "rows": [
       {
         "symbol": "AXTI",
-        "years": 9.99,
+        "years": 10.0,
         "median_value": 497305435.0,
         "zero_share": 0.0,
-        "last": "2026-10-23",
+        "last": "2026-10-26",
         "reasons": []
       },
       {
         "symbol": "NVTS",
-        "years": 5.01,
-        "median_value": 193431591.5,
+        "years": 5.02,
+        "median_value": 191943378.0,
         "zero_share": 0.0,
-        "last": "2026-10-23",
+        "last": "2026-10-26",
         "reasons": [
           "geçmiş 5.0 yıl < 8"
         ]
       },
       {
         "symbol": "SITM",
-        "years": 6.92,
-        "median_value": 185804966.0,
+        "years": 6.93,
+        "median_value": 188235290.0,
         "zero_share": 0.0,
-        "last": "2026-10-23",
+        "last": "2026-10-26",
         "reasons": [
           "geçmiş 6.9 yıl < 8"
         ]
       },
       {
         "symbol": "AEHR",
-        "years": 9.99,
+        "years": 10.0,
         "median_value": 152587335.0,
         "zero_share": 0.0,
-        "last": "2026-10-23",
+        "last": "2026-10-26",
         "reasons": []
       },
       {
         "symbol": "FORM",
-        "years": 9.99,
+        "years": 10.0,
         "median_value": 135701184.0,
         "zero_share": 0.0,
-        "last": "2026-10-23",
-        "reasons": []
-      },
-      {
-        "symbol": "POET",
-        "years": 9.99,
-        "median_value": 69039578.0,
-        "zero_share": 0.0,
-        "last": "2026-10-23",
+        "last": "2026-10-26",
         "reasons": []
       },
       {
         "symbol": "AMBA",
-        "years": 9.99,
-        "median_value": 68240634.0,
+        "years": 10.0,
+        "median_value": 68999940.0,
         "zero_share": 0.0,
-        "last": "2026-10-23",
+        "last": "2026-10-26",
+        "reasons": []
+      },
+      {
+        "symbol": "POET",
+        "years": 10.0,
+        "median_value": 68821263.0,
+        "zero_share": 0.0,
+        "last": "2026-10-26",
         "reasons": []
       },
       {
         "symbol": "UCTT",
-        "years": 9.99,
+        "years": 10.0,
         "median_value": 66420805.5,
         "zero_share": 0.0,
-        "last": "2026-10-23",
+        "last": "2026-10-26",
         "reasons": []
       },
       {
         "symbol": "ACMR",
-        "years": 8.97,
+        "years": 8.98,
         "median_value": 65580198.5,
         "zero_share": 0.0,
-        "last": "2026-10-23",
+        "last": "2026-10-26",
         "reasons": []
       },
       {
         "symbol": "LASR",
-        "years": 8.49,
+        "years": 8.5,
         "median_value": 55714732.0,
         "zero_share": 0.0,
-        "last": "2026-10-23",
+        "last": "2026-10-26",
         "reasons": []
       },
       {
         "symbol": "KLIC",
-        "years": 9.99,
+        "years": 10.0,
         "median_value": 52020680.42,
         "zero_share": 0.0,
-        "last": "2026-10-23",
+        "last": "2026-10-26",
         "reasons": []
       },
       {
         "symbol": "ICHR",
-        "years": 9.87,
+        "years": 9.88,
         "median_value": 39350242.0,
         "zero_share": 0.0,
-        "last": "2026-10-23",
+        "last": "2026-10-26",
         "reasons": []
       },
       {
         "symbol": "COHU",
-        "years": 9.99,
-        "median_value": 36804972.0,
+        "years": 10.0,
+        "median_value": 37170687.5,
         "zero_share": 0.0,
-        "last": "2026-10-23",
+        "last": "2026-10-26",
         "reasons": []
       },
       {
         "symbol": "VECO",
-        "years": 9.99,
+        "years": 10.0,
         "median_value": 34074080.0,
         "zero_share": 0.0,
-        "last": "2026-10-23",
+        "last": "2026-10-26",
         "reasons": []
       },
       {
         "symbol": "PLAB",
-        "years": 9.99,
+        "years": 10.0,
         "median_value": 32215629.0,
         "zero_share": 0.0,
-        "last": "2026-10-23",
+        "last": "2026-10-26",
         "reasons": []
       },
       {
         "symbol": "LPTH",
-        "years": 9.99,
+        "years": 10.0,
         "median_value": 28441331.0,
         "zero_share": 0.0,
-        "last": "2026-10-23",
+        "last": "2026-10-26",
         "reasons": []
       },
       {
         "symbol": "PDFS",
-        "years": 9.99,
+        "years": 10.0,
         "median_value": 17168433.5,
         "zero_share": 0.0,
-        "last": "2026-10-23",
+        "last": "2026-10-26",
         "reasons": [
           "medyan işlem hacmi 17,168,434 < 20,000,000"
         ]
       },
       {
         "symbol": "INDI",
-        "years": 7.05,
-        "median_value": 15049860.0,
+        "years": 7.06,
+        "median_value": 15032946.0,
         "zero_share": 0.0,
-        "last": "2026-10-23",
+        "last": "2026-10-26",
         "reasons": [
-          "geçmiş 7.0 yıl < 8",
-          "medyan işlem hacmi 15,049,860 < 20,000,000"
+          "geçmiş 7.1 yıl < 8",
+          "medyan işlem hacmi 15,032,946 < 20,000,000"
         ]
       },
       {
         "symbol": "CEVA",
-        "years": 9.99,
+        "years": 10.0,
         "median_value": 14070525.0,
         "zero_share": 0.0,
-        "last": "2026-10-23",
+        "last": "2026-10-26",
         "reasons": [
           "medyan işlem hacmi 14,070,525 < 20,000,000"
         ]
       },
       {
         "symbol": "KOPN",
-        "years": 9.99,
-        "median_value": 12405183.5,
+        "years": 10.0,
+        "median_value": 12357058.5,
         "zero_share": 0.0,
-        "last": "2026-10-23",
+        "last": "2026-10-26",
         "reasons": [
-          "medyan işlem hacmi 12,405,184 < 20,000,000"
+          "medyan işlem hacmi 12,357,058 < 20,000,000"
         ]
       },
       {
         "symbol": "AOSL",
-        "years": 9.99,
+        "years": 10.0,
         "median_value": 11960980.5,
         "zero_share": 0.0,
-        "last": "2026-10-23",
+        "last": "2026-10-26",
         "reasons": [
           "medyan işlem hacmi 11,960,980 < 20,000,000"
         ]
       },
       {
         "symbol": "GSIT",
-        "years": 9.99,
-        "median_value": 5519350.5,
+        "years": 10.0,
+        "median_value": 5481870.0,
         "zero_share": 0.0,
-        "last": "2026-10-23",
+        "last": "2026-10-26",
         "reasons": [
-          "medyan işlem hacmi 5,519,350 < 20,000,000"
+          "medyan işlem hacmi 5,481,870 < 20,000,000"
         ]
       },
       {
         "symbol": "VUZI",
-        "years": 9.99,
-        "median_value": 3109812.0,
+        "years": 10.0,
+        "median_value": 3078297.0,
         "zero_share": 0.0,
-        "last": "2026-10-23",
+        "last": "2026-10-26",
         "reasons": [
-          "medyan işlem hacmi 3,109,812 < 20,000,000"
+          "medyan işlem hacmi 3,078,297 < 20,000,000"
         ]
       },
       {
         "symbol": "MVIS",
-        "years": 9.99,
-        "median_value": 2878567.0,
+        "years": 10.0,
+        "median_value": 2864043.98,
         "zero_share": 0.0,
-        "last": "2026-10-23",
+        "last": "2026-10-26",
         "reasons": [
-          "medyan işlem hacmi 2,878,567 < 20,000,000"
+          "medyan işlem hacmi 2,864,044 < 20,000,000"
         ]
       },
       {
         "symbol": "ATOM",
-        "years": 9.99,
+        "years": 10.0,
         "median_value": 2622501.0,
         "zero_share": 0.0,
-        "last": "2026-10-23",
+        "last": "2026-10-26",
         "reasons": [
           "medyan işlem hacmi 2,622,501 < 20,000,000"
         ]
       },
       {
         "symbol": "QUIK",
-        "years": 9.99,
+        "years": 10.0,
         "median_value": 2282695.0,
         "zero_share": 0.0,
-        "last": "2026-10-23",
+        "last": "2026-10-26",
         "reasons": [
           "medyan işlem hacmi 2,282,695 < 20,000,000"
         ]
       },
       {
         "symbol": "PXLW",
-        "years": 9.99,
-        "median_value": 262870.0,
+        "years": 10.0,
+        "median_value": 256784.5,
         "zero_share": 0.0,
-        "last": "2026-10-23",
+        "last": "2026-10-26",
         "reasons": [
-          "medyan işlem hacmi 262,870 < 20,000,000"
+          "medyan işlem hacmi 256,784 < 20,000,000"
         ]
       },
       {
         "symbol": "SMTK",
         "years": 2.4,
-        "median_value": 116905.35,
+        "median_value": 114800.0,
         "zero_share": 0.0,
-        "last": "2026-10-23",
+        "last": "2026-10-26",
         "reasons": [
           "geçmiş 2.4 yıl < 8",
-          "medyan işlem hacmi 116,905 < 20,000,000"
+          "medyan işlem hacmi 114,800 < 20,000,000"
         ]
       },
       {
         "symbol": "DAIO",
-        "years": 9.99,
+        "years": 10.0,
         "median_value": 77026.0,
         "zero_share": 0.0,
-        "last": "2026-10-23",
+        "last": "2026-10-26",
         "reasons": [
           "medyan işlem hacmi 77,026 < 20,000,000"
         ]
@@ -44327,7 +49575,7 @@
           "geçmiş 0.0 yıl < 8",
           "medyan işlem hacmi 0 < 20,000,000",
           "hacimsiz gün oranı %100",
-          "son veri 2026-07-30 (85 gün geride)"
+          "son veri 2026-07-30 (88 gün geride)"
         ]
       }
     ]

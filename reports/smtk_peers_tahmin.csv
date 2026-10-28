@@ -1,0 +1,15 @@
+rank,symbol,group,expected_excess_pct,beat_benchmark_probability_pct,pick
+1,PLAB,5,-0.03,47.9,EVET
+2,LASR,5,-0.03,47.9,EVET
+3,AMBA,4,0.68,50.7,EVET
+4,POET,4,0.68,50.7,EVET
+5,KLIC,4,0.68,50.7,EVET
+6,UCTT,3,0.65,50.1,
+7,ACMR,3,0.65,50.1,
+8,VECO,3,0.65,50.1,
+9,ICHR,2,0.72,48.9,
+10,FORM,2,0.72,48.9,
+11,LPTH,2,0.72,48.9,
+12,COHU,1,0.73,49.5,
+13,AXTI,1,0.73,49.5,
+14,AEHR,1,0.73,49.5,
