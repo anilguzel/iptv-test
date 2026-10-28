@@ -36,7 +36,8 @@ SIGNIFICANCE = 0.05
 CONTROL = "random"
 
 STRATEGY_TR = {
-    "ridge": "8 göstergeyi birlikte tartan öğrenen model",
+    "ridge": "göstergeleri birlikte tartan doğrusal model",
+    "boosting": "geçmişten kendi kurallarını öğrenen model (karar ağaçları)",
     "momentum_12w": "son 12 haftada kıyasa göre en çok yükselenleri al (momentum)",
     "momentum_4w": "son 4 haftada kıyasa göre en çok yükselenleri al (kısa momentum)",
     "reversal_1w": "geçen hafta en çok düşenleri al (tepki alımı)",

@@ -233,6 +233,8 @@ def predict_next_week(panel: Panel, strategy, top_n: int) -> dict:
     """Train on everything known, then rank the latest week's stocks for next week."""
     latest = int(panel.week.max())
     train = np.isfinite(panel.y_rank)
+    if hasattr(strategy, "reset"):
+        strategy.reset()  # always retrain on every known week before forecasting
     if strategy.trains:
         strategy.fit(panel.X[train], panel.y_rank[train])
     rows = panel.week == latest

@@ -61,6 +61,8 @@ def build_forecast(panel: Panel, strategy, weeks: list[int], top_n: int) -> dict
         })
 
     latest = int(panel.week.max())
+    if hasattr(strategy, "reset"):
+        strategy.reset()  # the final forecast always uses a model trained on every known week
     if strategy.trains:
         strategy.fit(panel.X[has_target], panel.y_rank[has_target])
     rows = panel.week == latest
