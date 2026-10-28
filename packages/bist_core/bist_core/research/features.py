@@ -27,6 +27,7 @@ FEATURE_NAMES: list[str] = [
     "log_volume_ratio",    # this week's volume vs the previous 12 weeks
     "dist_from_12w_high",  # close vs the 12-week high
     "range_1w",            # (high - low) / close this week
+    "fx_beta_x_trend",     # USD/TRY sensitivity (12w beta) x USD/TRY move over 4 weeks; 0 without FX data
 ]
 LOOKBACK = 12
 # The benchmark must cover this share of the calendar, otherwise we fall back
@@ -76,12 +77,26 @@ def _zscore(values: np.ndarray) -> np.ndarray:
     return z
 
 
+def _fx_beta_x_trend(ex: np.ndarray, fx: np.ndarray) -> float:
+    """How strongly a stock's excess return moved with USD/TRY over the window,
+    times USD/TRY's move over the last 4 weeks. Positive = the stock tended to
+    gain when the lira weakened, and the lira has been weakening."""
+    if not np.isfinite(fx).all():
+        return 0.0
+    var = fx.var()
+    if var < 1e-12:
+        return 0.0
+    beta = float(((ex - ex.mean()) * (fx - fx.mean())).mean() / var)
+    return beta * float(fx[-4:].sum())
+
+
 def build_panel(
     weekly_by_symbol: dict[str, list[WeeklyBar]],
     benchmark_weekly: list[WeeklyBar] | None = None,
     *,
     benchmark_name: str = "XU100",
     fallback: str = "universe_ew",
+    fx_weekly: list[WeeklyBar] | None = None,
 ) -> Panel:
     """Build the panel. ``fallback`` applies when the benchmark is missing or
     too sparse: "universe_ew" (equal-weighted average of the universe) or
@@ -120,6 +135,9 @@ def build_panel(
         sums = np.nansum(stacked, axis=0)
         bench = np.where(counts >= 3, sums / np.maximum(counts, 1), np.nan)
 
+    # Weekly USD/TRY change on the same calendar (NaN where unknown).
+    fx = _returns(_series(fx_weekly, index, T)["close"]) if fx_weekly else np.full(T, np.nan)
+
     rows_x: list[list[float]] = []
     rows_w: list[int] = []
     rows_s: list[str] = []
@@ -144,6 +162,7 @@ def build_panel(
                 float(np.log(v[i] / base_vol.mean())),
                 c[i] / h[win].max() - 1,
                 (h[i] - lo[i]) / c[i],
+                _fx_beta_x_trend(ex[win], fx[win]),
             ]
             target = ex[i + 1] if i + 1 < T else np.nan  # next week's excess return
             rows_x.append(feats)

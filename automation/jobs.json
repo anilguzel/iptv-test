@@ -21,7 +21,7 @@
      "benchmark": "IWM", "cost_bps": 75},
     {"_comment": "Screened: at least 8 years listed, median daily traded value >= 500M TL over the last year (nominal TL: raise it with inflation), <=5% zero-volume days, data not behind the others.",
      "name": "bist_likit", "dir": "daily/yahoo_bist", "mode": "cross_section", "universe": "BIST_WIDE",
-     "benchmark": "XU100", "cost_bps": 10, "years": 8,
+     "benchmark": "XU100", "cost_bps": 10, "years": 8, "fx": "daily/evds/TP.DK.USD.A.csv",
      "min_years": 8, "min_median_value": 500000000, "max_zero_volume_share": 0.05, "max_stale_days": 5}
   ]
 }

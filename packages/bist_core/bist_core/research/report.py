@@ -98,24 +98,33 @@ def run_research(
     ridge_lambda: float = 10.0,
     seed: int = 7,
     meta: dict | None = None,
+    fx_daily: list[OhlcvBar] | None = None,
 ) -> dict:
-    """Cross-sectional mode: rank the universe each week, hold the top N."""
+    """Cross-sectional mode: rank the universe each week, hold the top N.
+
+    ``fx_daily`` (USD/TRY) adds the currency-sensitivity feature and rule."""
     weekly, skipped = _weekly(daily_by_symbol)
     bench_weekly = to_weekly(benchmark_daily) if benchmark_daily else None
-    panel = build_panel(weekly, bench_weekly, benchmark_name=benchmark_name)
+    panel = build_panel(weekly, bench_weekly, benchmark_name=benchmark_name,
+                        fx_weekly=to_weekly(fx_daily) if fx_daily else None)
     weeks = eval_weeks(panel, cfg)
-    results = {st.name: run_strategy(panel, st, weeks, cfg) for st in default_strategies(ridge_lambda, seed)}
+    with_fx = bool(fx_daily)
+
+    def strategies() -> list:
+        return default_strategies(ridge_lambda, seed, with_fx=with_fx)
+
+    results = {st.name: run_strategy(panel, st, weeks, cfg) for st in strategies()}
 
     final_model = RidgeRanker(lam=ridge_lambda)
     next_week = predict_next_week(panel, final_model, cfg.top_n)
     next_week["coefficients"] = final_model.coefficients()
     next_week["note"] = "Analitik sıralama — otomatik emir değildir, gelecek garantisi yoktur."
-    fresh = {st.name: st for st in default_strategies(ridge_lambda, seed)}
+    fresh = {st.name: st for st in strategies()}
     strategy = select_strategy(panel, results, fresh, cfg)
     forecast = None
     if strategy.get("chosen"):
         all_weeks = eval_weeks(panel, replace(cfg, holdout_weeks=0, segment="validation"))
-        chosen = {st.name: st for st in default_strategies(ridge_lambda, seed)}[strategy["chosen"]]
+        chosen = {st.name: st for st in strategies()}[strategy["chosen"]]
         forecast = build_forecast(panel, chosen, all_weeks, cfg.top_n)
         forecast["strategy"] = strategy["chosen"]
 
