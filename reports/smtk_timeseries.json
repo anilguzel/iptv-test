@@ -1,6 +1,6 @@
 {
   "mode": "timeseries",
-  "generated_at": "2026-10-28T10:23:18.152462+00:00",
+  "generated_at": "2026-10-28T10:55:51.636738+00:00",
   "meta": {
     "source": "csv",
     "universe": "SMTK",
@@ -60,7 +60,8 @@
       "vol_12w",
       "log_volume_ratio",
       "dist_from_12w_high",
-      "range_1w"
+      "range_1w",
+      "fx_beta_x_trend"
     ]
   },
   "tactic_tr": "Her hafta kapanışında model SMTK hissesinin yalnızca kendi geçmişiyle yeniden eğitilir; tahmin pozitifse hisse 1 hafta tutulur (LONG), değilse nakitte beklenir (FLAT). Başarı ölçüsü: kıyasa (IWM) göre maliyet sonrası fazla getiri. Bu bir analizdir, otomatik emir değildir.",
@@ -2243,7 +2244,8 @@
       "vol_12w": -0.01612,
       "log_volume_ratio": -0.05746,
       "dist_from_12w_high": 0.03677,
-      "range_1w": 0.02537
+      "range_1w": 0.02537,
+      "fx_beta_x_trend": 0.0
     },
     "note": "Analitik tahmin — otomatik emir değildir, gelecek garantisi yoktur."
   },

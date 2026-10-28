@@ -1,6 +1,6 @@
 {
   "mode": "cross_section",
-  "generated_at": "2026-10-28T10:23:18.045805+00:00",
+  "generated_at": "2026-10-28T10:55:51.522899+00:00",
   "meta": {
     "source": "csv",
     "universe": "AXTI,AEHR,FORM,AMBA,POET,UCTT,ACMR,LASR,KLIC,ICHR,COHU,VECO,PLAB,LPTH",
@@ -80,14 +80,26 @@
       "vol_12w",
       "log_volume_ratio",
       "dist_from_12w_high",
-      "range_1w"
-    ]
+      "range_1w",
+      "fx_beta_x_trend"
+    ],
+    "fx": null
   },
   "tactic_tr": "Her hafta kapanışında model geçmiş haftalarla yeniden eğitilir; en yüksek skorlu 5 hisse eşit ağırlıkla 1 hafta tutulur. Başarı ölçüsü: kıyasa (IWM) göre maliyet sonrası fazla getiri. Bu bir analizdir, otomatik emir değildir.",
   "verdict": {
     "best_baseline": "momentum_12w",
     "models": {
       "ridge": {
+        "passed": false,
+        "checks": {
+          "positive_after_costs": false,
+          "beats_best_baseline": false,
+          "ic_significant": false,
+          "consistent": false
+        },
+        "summary_tr": "Tutarlı bir avantaj bulunamadı. Başarısız kriterler: positive_after_costs, beats_best_baseline, ic_significant, consistent."
+      },
+      "boosting": {
         "passed": false,
         "checks": {
           "positive_after_costs": false,
@@ -6367,6 +6379,6276 @@
           ],
           "net": -0.051392,
           "ic": -0.125275
+        }
+      ]
+    },
+    "boosting": {
+      "metrics": {
+        "weeks": 327,
+        "mean_weekly_net": -0.002314,
+        "sharpe_annualised": -0.391,
+        "cumulative_net": -0.65132,
+        "max_drawdown": -0.817769,
+        "consistency_13w": 0.4127,
+        "per_year": {
+          "2020": {
+            "weeks": 49,
+            "mean_net": -0.005346,
+            "cum_net": -0.2642
+          },
+          "2021": {
+            "weeks": 52,
+            "mean_net": -0.000539,
+            "cum_net": -0.07437
+          },
+          "2022": {
+            "weeks": 52,
+            "mean_net": -0.005808,
+            "cum_net": -0.293769
+          },
+          "2023": {
+            "weeks": 52,
+            "mean_net": -0.007587,
+            "cum_net": -0.3446
+          },
+          "2024": {
+            "weeks": 52,
+            "mean_net": -0.002085,
+            "cum_net": -0.149534
+          },
+          "2025": {
+            "weeks": 52,
+            "mean_net": -0.001701,
+            "cum_net": -0.123215
+          },
+          "2026": {
+            "weeks": 18,
+            "mean_net": 0.023697,
+            "cum_net": 0.48329
+          }
+        },
+        "hit_rate": 0.4404,
+        "mean_ic": -0.0019,
+        "ic_tstat": -0.11,
+        "ic_hit_rate": 0.4924,
+        "mean_long_short": -0.002973,
+        "mean_turnover": 0.5021
+      },
+      "equity": [
+        {
+          "week_end": "2020-01-31",
+          "cum_net": -0.084596
+        },
+        {
+          "week_end": "2020-02-07",
+          "cum_net": -0.085511
+        },
+        {
+          "week_end": "2020-02-14",
+          "cum_net": -0.0573
+        },
+        {
+          "week_end": "2020-02-21",
+          "cum_net": -0.072921
+        },
+        {
+          "week_end": "2020-02-28",
+          "cum_net": -0.057796
+        },
+        {
+          "week_end": "2020-03-06",
+          "cum_net": -0.099878
+        },
+        {
+          "week_end": "2020-03-13",
+          "cum_net": -0.171146
+        },
+        {
+          "week_end": "2020-03-20",
+          "cum_net": -0.224516
+        },
+        {
+          "week_end": "2020-03-27",
+          "cum_net": -0.163631
+        },
+        {
+          "week_end": "2020-04-03",
+          "cum_net": -0.234411
+        },
+        {
+          "week_end": "2020-04-09",
+          "cum_net": -0.229798
+        },
+        {
+          "week_end": "2020-04-17",
+          "cum_net": -0.18581
+        },
+        {
+          "week_end": "2020-04-24",
+          "cum_net": -0.194065
+        },
+        {
+          "week_end": "2020-05-01",
+          "cum_net": -0.224997
+        },
+        {
+          "week_end": "2020-05-08",
+          "cum_net": -0.187458
+        },
+        {
+          "week_end": "2020-05-15",
+          "cum_net": -0.217548
+        },
+        {
+          "week_end": "2020-05-22",
+          "cum_net": -0.225539
+        },
+        {
+          "week_end": "2020-05-29",
+          "cum_net": -0.247476
+        },
+        {
+          "week_end": "2020-06-05",
+          "cum_net": -0.247977
+        },
+        {
+          "week_end": "2020-06-12",
+          "cum_net": -0.230161
+        },
+        {
+          "week_end": "2020-06-19",
+          "cum_net": -0.260209
+        },
+        {
+          "week_end": "2020-06-26",
+          "cum_net": -0.292061
+        },
+        {
+          "week_end": "2020-07-02",
+          "cum_net": -0.285403
+        },
+        {
+          "week_end": "2020-07-10",
+          "cum_net": -0.262759
+        },
+        {
+          "week_end": "2020-07-17",
+          "cum_net": -0.292328
+        },
+        {
+          "week_end": "2020-07-24",
+          "cum_net": -0.28061
+        },
+        {
+          "week_end": "2020-07-31",
+          "cum_net": -0.280113
+        },
+        {
+          "week_end": "2020-08-07",
+          "cum_net": -0.330196
+        },
+        {
+          "week_end": "2020-08-14",
+          "cum_net": -0.353687
+        },
+        {
+          "week_end": "2020-08-21",
+          "cum_net": -0.391375
+        },
+        {
+          "week_end": "2020-08-28",
+          "cum_net": -0.391458
+        },
+        {
+          "week_end": "2020-09-04",
+          "cum_net": -0.413199
+        },
+        {
+          "week_end": "2020-09-11",
+          "cum_net": -0.451072
+        },
+        {
+          "week_end": "2020-09-18",
+          "cum_net": -0.421947
+        },
+        {
+          "week_end": "2020-09-25",
+          "cum_net": -0.419956
+        },
+        {
+          "week_end": "2020-10-02",
+          "cum_net": -0.411347
+        },
+        {
+          "week_end": "2020-10-09",
+          "cum_net": -0.389282
+        },
+        {
+          "week_end": "2020-10-16",
+          "cum_net": -0.403192
+        },
+        {
+          "week_end": "2020-10-23",
+          "cum_net": -0.41982
+        },
+        {
+          "week_end": "2020-10-30",
+          "cum_net": -0.403451
+        },
+        {
+          "week_end": "2020-11-06",
+          "cum_net": -0.364677
+        },
+        {
+          "week_end": "2020-11-13",
+          "cum_net": -0.364617
+        },
+        {
+          "week_end": "2020-11-20",
+          "cum_net": -0.37855
+        },
+        {
+          "week_end": "2020-11-27",
+          "cum_net": -0.325491
+        },
+        {
+          "week_end": "2020-12-04",
+          "cum_net": -0.298551
+        },
+        {
+          "week_end": "2020-12-11",
+          "cum_net": -0.307712
+        },
+        {
+          "week_end": "2020-12-18",
+          "cum_net": -0.305787
+        },
+        {
+          "week_end": "2020-12-24",
+          "cum_net": -0.269977
+        },
+        {
+          "week_end": "2020-12-31",
+          "cum_net": -0.2642
+        },
+        {
+          "week_end": "2021-01-08",
+          "cum_net": -0.29254
+        },
+        {
+          "week_end": "2021-01-15",
+          "cum_net": -0.276788
+        },
+        {
+          "week_end": "2021-01-22",
+          "cum_net": -0.27569
+        },
+        {
+          "week_end": "2021-01-29",
+          "cum_net": -0.338152
+        },
+        {
+          "week_end": "2021-02-05",
+          "cum_net": -0.327243
+        },
+        {
+          "week_end": "2021-02-12",
+          "cum_net": -0.260768
+        },
+        {
+          "week_end": "2021-02-19",
+          "cum_net": -0.21218
+        },
+        {
+          "week_end": "2021-02-26",
+          "cum_net": -0.249155
+        },
+        {
+          "week_end": "2021-03-05",
+          "cum_net": -0.264154
+        },
+        {
+          "week_end": "2021-03-12",
+          "cum_net": -0.272568
+        },
+        {
+          "week_end": "2021-03-19",
+          "cum_net": -0.277727
+        },
+        {
+          "week_end": "2021-03-26",
+          "cum_net": -0.32331
+        },
+        {
+          "week_end": "2021-04-01",
+          "cum_net": -0.285986
+        },
+        {
+          "week_end": "2021-04-09",
+          "cum_net": -0.289719
+        },
+        {
+          "week_end": "2021-04-16",
+          "cum_net": -0.352317
+        },
+        {
+          "week_end": "2021-04-23",
+          "cum_net": -0.348161
+        },
+        {
+          "week_end": "2021-04-30",
+          "cum_net": -0.392926
+        },
+        {
+          "week_end": "2021-05-07",
+          "cum_net": -0.395175
+        },
+        {
+          "week_end": "2021-05-14",
+          "cum_net": -0.437743
+        },
+        {
+          "week_end": "2021-05-21",
+          "cum_net": -0.410099
+        },
+        {
+          "week_end": "2021-05-28",
+          "cum_net": -0.409334
+        },
+        {
+          "week_end": "2021-06-04",
+          "cum_net": -0.390205
+        },
+        {
+          "week_end": "2021-06-11",
+          "cum_net": -0.413751
+        },
+        {
+          "week_end": "2021-06-18",
+          "cum_net": -0.400782
+        },
+        {
+          "week_end": "2021-06-25",
+          "cum_net": -0.411368
+        },
+        {
+          "week_end": "2021-07-02",
+          "cum_net": -0.390267
+        },
+        {
+          "week_end": "2021-07-09",
+          "cum_net": -0.409928
+        },
+        {
+          "week_end": "2021-07-16",
+          "cum_net": -0.440769
+        },
+        {
+          "week_end": "2021-07-23",
+          "cum_net": -0.409138
+        },
+        {
+          "week_end": "2021-07-30",
+          "cum_net": -0.402118
+        },
+        {
+          "week_end": "2021-08-06",
+          "cum_net": -0.390214
+        },
+        {
+          "week_end": "2021-08-13",
+          "cum_net": -0.428741
+        },
+        {
+          "week_end": "2021-08-20",
+          "cum_net": -0.450915
+        },
+        {
+          "week_end": "2021-08-27",
+          "cum_net": -0.426329
+        },
+        {
+          "week_end": "2021-09-03",
+          "cum_net": -0.377349
+        },
+        {
+          "week_end": "2021-09-10",
+          "cum_net": -0.364799
+        },
+        {
+          "week_end": "2021-09-17",
+          "cum_net": -0.401938
+        },
+        {
+          "week_end": "2021-09-24",
+          "cum_net": -0.403168
+        },
+        {
+          "week_end": "2021-10-01",
+          "cum_net": -0.406354
+        },
+        {
+          "week_end": "2021-10-08",
+          "cum_net": -0.402019
+        },
+        {
+          "week_end": "2021-10-15",
+          "cum_net": -0.421386
+        },
+        {
+          "week_end": "2021-10-22",
+          "cum_net": -0.430719
+        },
+        {
+          "week_end": "2021-10-29",
+          "cum_net": -0.406799
+        },
+        {
+          "week_end": "2021-11-05",
+          "cum_net": -0.411012
+        },
+        {
+          "week_end": "2021-11-12",
+          "cum_net": -0.412157
+        },
+        {
+          "week_end": "2021-11-19",
+          "cum_net": -0.435707
+        },
+        {
+          "week_end": "2021-11-26",
+          "cum_net": -0.436961
+        },
+        {
+          "week_end": "2021-12-03",
+          "cum_net": -0.4149
+        },
+        {
+          "week_end": "2021-12-10",
+          "cum_net": -0.37676
+        },
+        {
+          "week_end": "2021-12-17",
+          "cum_net": -0.368844
+        },
+        {
+          "week_end": "2021-12-23",
+          "cum_net": -0.338915
+        },
+        {
+          "week_end": "2021-12-31",
+          "cum_net": -0.318921
+        },
+        {
+          "week_end": "2022-01-07",
+          "cum_net": -0.336198
+        },
+        {
+          "week_end": "2022-01-14",
+          "cum_net": -0.342293
+        },
+        {
+          "week_end": "2022-01-21",
+          "cum_net": -0.362537
+        },
+        {
+          "week_end": "2022-01-28",
+          "cum_net": -0.378183
+        },
+        {
+          "week_end": "2022-02-04",
+          "cum_net": -0.380038
+        },
+        {
+          "week_end": "2022-02-11",
+          "cum_net": -0.401394
+        },
+        {
+          "week_end": "2022-02-18",
+          "cum_net": -0.415405
+        },
+        {
+          "week_end": "2022-02-25",
+          "cum_net": -0.421843
+        },
+        {
+          "week_end": "2022-03-04",
+          "cum_net": -0.429233
+        },
+        {
+          "week_end": "2022-03-11",
+          "cum_net": -0.440606
+        },
+        {
+          "week_end": "2022-03-18",
+          "cum_net": -0.43844
+        },
+        {
+          "week_end": "2022-03-25",
+          "cum_net": -0.444256
+        },
+        {
+          "week_end": "2022-04-01",
+          "cum_net": -0.469202
+        },
+        {
+          "week_end": "2022-04-08",
+          "cum_net": -0.497509
+        },
+        {
+          "week_end": "2022-04-14",
+          "cum_net": -0.536898
+        },
+        {
+          "week_end": "2022-04-22",
+          "cum_net": -0.527742
+        },
+        {
+          "week_end": "2022-04-29",
+          "cum_net": -0.514892
+        },
+        {
+          "week_end": "2022-05-06",
+          "cum_net": -0.506194
+        },
+        {
+          "week_end": "2022-05-13",
+          "cum_net": -0.503985
+        },
+        {
+          "week_end": "2022-05-20",
+          "cum_net": -0.505955
+        },
+        {
+          "week_end": "2022-05-27",
+          "cum_net": -0.479106
+        },
+        {
+          "week_end": "2022-06-03",
+          "cum_net": -0.501402
+        },
+        {
+          "week_end": "2022-06-10",
+          "cum_net": -0.505883
+        },
+        {
+          "week_end": "2022-06-17",
+          "cum_net": -0.504293
+        },
+        {
+          "week_end": "2022-06-24",
+          "cum_net": -0.488958
+        },
+        {
+          "week_end": "2022-07-01",
+          "cum_net": -0.509321
+        },
+        {
+          "week_end": "2022-07-08",
+          "cum_net": -0.482984
+        },
+        {
+          "week_end": "2022-07-15",
+          "cum_net": -0.467408
+        },
+        {
+          "week_end": "2022-07-22",
+          "cum_net": -0.416395
+        },
+        {
+          "week_end": "2022-07-29",
+          "cum_net": -0.455523
+        },
+        {
+          "week_end": "2022-08-05",
+          "cum_net": -0.44473
+        },
+        {
+          "week_end": "2022-08-12",
+          "cum_net": -0.470145
+        },
+        {
+          "week_end": "2022-08-19",
+          "cum_net": -0.484387
+        },
+        {
+          "week_end": "2022-08-26",
+          "cum_net": -0.493647
+        },
+        {
+          "week_end": "2022-09-02",
+          "cum_net": -0.536047
+        },
+        {
+          "week_end": "2022-09-09",
+          "cum_net": -0.539057
+        },
+        {
+          "week_end": "2022-09-16",
+          "cum_net": -0.540964
+        },
+        {
+          "week_end": "2022-09-23",
+          "cum_net": -0.538642
+        },
+        {
+          "week_end": "2022-09-30",
+          "cum_net": -0.559913
+        },
+        {
+          "week_end": "2022-10-07",
+          "cum_net": -0.547521
+        },
+        {
+          "week_end": "2022-10-14",
+          "cum_net": -0.577479
+        },
+        {
+          "week_end": "2022-10-21",
+          "cum_net": -0.534237
+        },
+        {
+          "week_end": "2022-10-28",
+          "cum_net": -0.565783
+        },
+        {
+          "week_end": "2022-11-04",
+          "cum_net": -0.560458
+        },
+        {
+          "week_end": "2022-11-11",
+          "cum_net": -0.510848
+        },
+        {
+          "week_end": "2022-11-18",
+          "cum_net": -0.489597
+        },
+        {
+          "week_end": "2022-11-25",
+          "cum_net": -0.503101
+        },
+        {
+          "week_end": "2022-12-02",
+          "cum_net": -0.50036
+        },
+        {
+          "week_end": "2022-12-09",
+          "cum_net": -0.502457
+        },
+        {
+          "week_end": "2022-12-16",
+          "cum_net": -0.499144
+        },
+        {
+          "week_end": "2022-12-23",
+          "cum_net": -0.517528
+        },
+        {
+          "week_end": "2022-12-30",
+          "cum_net": -0.519001
+        },
+        {
+          "week_end": "2023-01-06",
+          "cum_net": -0.502281
+        },
+        {
+          "week_end": "2023-01-13",
+          "cum_net": -0.466776
+        },
+        {
+          "week_end": "2023-01-20",
+          "cum_net": -0.468496
+        },
+        {
+          "week_end": "2023-01-27",
+          "cum_net": -0.46768
+        },
+        {
+          "week_end": "2023-02-03",
+          "cum_net": -0.460047
+        },
+        {
+          "week_end": "2023-02-10",
+          "cum_net": -0.473155
+        },
+        {
+          "week_end": "2023-02-17",
+          "cum_net": -0.488692
+        },
+        {
+          "week_end": "2023-02-24",
+          "cum_net": -0.489251
+        },
+        {
+          "week_end": "2023-03-03",
+          "cum_net": -0.504082
+        },
+        {
+          "week_end": "2023-03-10",
+          "cum_net": -0.50416
+        },
+        {
+          "week_end": "2023-03-17",
+          "cum_net": -0.510104
+        },
+        {
+          "week_end": "2023-03-24",
+          "cum_net": -0.519208
+        },
+        {
+          "week_end": "2023-03-31",
+          "cum_net": -0.521097
+        },
+        {
+          "week_end": "2023-04-06",
+          "cum_net": -0.549726
+        },
+        {
+          "week_end": "2023-04-14",
+          "cum_net": -0.559515
+        },
+        {
+          "week_end": "2023-04-21",
+          "cum_net": -0.58868
+        },
+        {
+          "week_end": "2023-04-28",
+          "cum_net": -0.603661
+        },
+        {
+          "week_end": "2023-05-05",
+          "cum_net": -0.590072
+        },
+        {
+          "week_end": "2023-05-12",
+          "cum_net": -0.583289
+        },
+        {
+          "week_end": "2023-05-19",
+          "cum_net": -0.569301
+        },
+        {
+          "week_end": "2023-05-26",
+          "cum_net": -0.530801
+        },
+        {
+          "week_end": "2023-06-02",
+          "cum_net": -0.519883
+        },
+        {
+          "week_end": "2023-06-09",
+          "cum_net": -0.505468
+        },
+        {
+          "week_end": "2023-06-16",
+          "cum_net": -0.515238
+        },
+        {
+          "week_end": "2023-06-23",
+          "cum_net": -0.526064
+        },
+        {
+          "week_end": "2023-06-30",
+          "cum_net": -0.509777
+        },
+        {
+          "week_end": "2023-07-07",
+          "cum_net": -0.523069
+        },
+        {
+          "week_end": "2023-07-14",
+          "cum_net": -0.527732
+        },
+        {
+          "week_end": "2023-07-21",
+          "cum_net": -0.551307
+        },
+        {
+          "week_end": "2023-07-28",
+          "cum_net": -0.537937
+        },
+        {
+          "week_end": "2023-08-04",
+          "cum_net": -0.564978
+        },
+        {
+          "week_end": "2023-08-11",
+          "cum_net": -0.580746
+        },
+        {
+          "week_end": "2023-08-18",
+          "cum_net": -0.58804
+        },
+        {
+          "week_end": "2023-08-25",
+          "cum_net": -0.591354
+        },
+        {
+          "week_end": "2023-09-01",
+          "cum_net": -0.574648
+        },
+        {
+          "week_end": "2023-09-08",
+          "cum_net": -0.588734
+        },
+        {
+          "week_end": "2023-09-15",
+          "cum_net": -0.600746
+        },
+        {
+          "week_end": "2023-09-22",
+          "cum_net": -0.607463
+        },
+        {
+          "week_end": "2023-09-29",
+          "cum_net": -0.602562
+        },
+        {
+          "week_end": "2023-10-06",
+          "cum_net": -0.602235
+        },
+        {
+          "week_end": "2023-10-13",
+          "cum_net": -0.61498
+        },
+        {
+          "week_end": "2023-10-20",
+          "cum_net": -0.631001
+        },
+        {
+          "week_end": "2023-10-27",
+          "cum_net": -0.637823
+        },
+        {
+          "week_end": "2023-11-03",
+          "cum_net": -0.641969
+        },
+        {
+          "week_end": "2023-11-10",
+          "cum_net": -0.633433
+        },
+        {
+          "week_end": "2023-11-17",
+          "cum_net": -0.648617
+        },
+        {
+          "week_end": "2023-11-24",
+          "cum_net": -0.649845
+        },
+        {
+          "week_end": "2023-12-01",
+          "cum_net": -0.661181
+        },
+        {
+          "week_end": "2023-12-08",
+          "cum_net": -0.664289
+        },
+        {
+          "week_end": "2023-12-15",
+          "cum_net": -0.67987
+        },
+        {
+          "week_end": "2023-12-22",
+          "cum_net": -0.677555
+        },
+        {
+          "week_end": "2023-12-29",
+          "cum_net": -0.684753
+        },
+        {
+          "week_end": "2024-01-05",
+          "cum_net": -0.694204
+        },
+        {
+          "week_end": "2024-01-12",
+          "cum_net": -0.6877
+        },
+        {
+          "week_end": "2024-01-19",
+          "cum_net": -0.673349
+        },
+        {
+          "week_end": "2024-01-26",
+          "cum_net": -0.666862
+        },
+        {
+          "week_end": "2024-02-02",
+          "cum_net": -0.654408
+        },
+        {
+          "week_end": "2024-02-09",
+          "cum_net": -0.63087
+        },
+        {
+          "week_end": "2024-02-16",
+          "cum_net": -0.632795
+        },
+        {
+          "week_end": "2024-02-23",
+          "cum_net": -0.638737
+        },
+        {
+          "week_end": "2024-03-01",
+          "cum_net": -0.633572
+        },
+        {
+          "week_end": "2024-03-08",
+          "cum_net": -0.646968
+        },
+        {
+          "week_end": "2024-03-15",
+          "cum_net": -0.662591
+        },
+        {
+          "week_end": "2024-03-22",
+          "cum_net": -0.661448
+        },
+        {
+          "week_end": "2024-03-28",
+          "cum_net": -0.672399
+        },
+        {
+          "week_end": "2024-04-05",
+          "cum_net": -0.671462
+        },
+        {
+          "week_end": "2024-04-12",
+          "cum_net": -0.660985
+        },
+        {
+          "week_end": "2024-04-19",
+          "cum_net": -0.683065
+        },
+        {
+          "week_end": "2024-04-26",
+          "cum_net": -0.668232
+        },
+        {
+          "week_end": "2024-05-03",
+          "cum_net": -0.650825
+        },
+        {
+          "week_end": "2024-05-10",
+          "cum_net": -0.663775
+        },
+        {
+          "week_end": "2024-05-17",
+          "cum_net": -0.667513
+        },
+        {
+          "week_end": "2024-05-24",
+          "cum_net": -0.676885
+        },
+        {
+          "week_end": "2024-05-31",
+          "cum_net": -0.680446
+        },
+        {
+          "week_end": "2024-06-07",
+          "cum_net": -0.680679
+        },
+        {
+          "week_end": "2024-06-14",
+          "cum_net": -0.683034
+        },
+        {
+          "week_end": "2024-06-21",
+          "cum_net": -0.697272
+        },
+        {
+          "week_end": "2024-06-28",
+          "cum_net": -0.704147
+        },
+        {
+          "week_end": "2024-07-05",
+          "cum_net": -0.697237
+        },
+        {
+          "week_end": "2024-07-12",
+          "cum_net": -0.680117
+        },
+        {
+          "week_end": "2024-07-19",
+          "cum_net": -0.697474
+        },
+        {
+          "week_end": "2024-07-26",
+          "cum_net": -0.723955
+        },
+        {
+          "week_end": "2024-08-02",
+          "cum_net": -0.745057
+        },
+        {
+          "week_end": "2024-08-09",
+          "cum_net": -0.729086
+        },
+        {
+          "week_end": "2024-08-16",
+          "cum_net": -0.716277
+        },
+        {
+          "week_end": "2024-08-23",
+          "cum_net": -0.726192
+        },
+        {
+          "week_end": "2024-08-30",
+          "cum_net": -0.734896
+        },
+        {
+          "week_end": "2024-09-06",
+          "cum_net": -0.757596
+        },
+        {
+          "week_end": "2024-09-13",
+          "cum_net": -0.756672
+        },
+        {
+          "week_end": "2024-09-20",
+          "cum_net": -0.769413
+        },
+        {
+          "week_end": "2024-09-27",
+          "cum_net": -0.743942
+        },
+        {
+          "week_end": "2024-10-04",
+          "cum_net": -0.748942
+        },
+        {
+          "week_end": "2024-10-11",
+          "cum_net": -0.735799
+        },
+        {
+          "week_end": "2024-10-18",
+          "cum_net": -0.742811
+        },
+        {
+          "week_end": "2024-10-25",
+          "cum_net": -0.73975
+        },
+        {
+          "week_end": "2024-11-01",
+          "cum_net": -0.738193
+        },
+        {
+          "week_end": "2024-11-08",
+          "cum_net": -0.755133
+        },
+        {
+          "week_end": "2024-11-15",
+          "cum_net": -0.768823
+        },
+        {
+          "week_end": "2024-11-22",
+          "cum_net": -0.765004
+        },
+        {
+          "week_end": "2024-11-29",
+          "cum_net": -0.745824
+        },
+        {
+          "week_end": "2024-12-06",
+          "cum_net": -0.752573
+        },
+        {
+          "week_end": "2024-12-13",
+          "cum_net": -0.733421
+        },
+        {
+          "week_end": "2024-12-20",
+          "cum_net": -0.739687
+        },
+        {
+          "week_end": "2024-12-27",
+          "cum_net": -0.731893
+        },
+        {
+          "week_end": "2025-01-03",
+          "cum_net": -0.731166
+        },
+        {
+          "week_end": "2025-01-10",
+          "cum_net": -0.72975
+        },
+        {
+          "week_end": "2025-01-17",
+          "cum_net": -0.740203
+        },
+        {
+          "week_end": "2025-01-24",
+          "cum_net": -0.754603
+        },
+        {
+          "week_end": "2025-01-31",
+          "cum_net": -0.769028
+        },
+        {
+          "week_end": "2025-02-07",
+          "cum_net": -0.769291
+        },
+        {
+          "week_end": "2025-02-14",
+          "cum_net": -0.773358
+        },
+        {
+          "week_end": "2025-02-21",
+          "cum_net": -0.769367
+        },
+        {
+          "week_end": "2025-02-28",
+          "cum_net": -0.789909
+        },
+        {
+          "week_end": "2025-03-07",
+          "cum_net": -0.788797
+        },
+        {
+          "week_end": "2025-03-14",
+          "cum_net": -0.78515
+        },
+        {
+          "week_end": "2025-03-21",
+          "cum_net": -0.796498
+        },
+        {
+          "week_end": "2025-03-28",
+          "cum_net": -0.804774
+        },
+        {
+          "week_end": "2025-04-04",
+          "cum_net": -0.820255
+        },
+        {
+          "week_end": "2025-04-11",
+          "cum_net": -0.820571
+        },
+        {
+          "week_end": "2025-04-17",
+          "cum_net": -0.826658
+        },
+        {
+          "week_end": "2025-04-25",
+          "cum_net": -0.812288
+        },
+        {
+          "week_end": "2025-05-02",
+          "cum_net": -0.818322
+        },
+        {
+          "week_end": "2025-05-09",
+          "cum_net": -0.815385
+        },
+        {
+          "week_end": "2025-05-16",
+          "cum_net": -0.80791
+        },
+        {
+          "week_end": "2025-05-23",
+          "cum_net": -0.814056
+        },
+        {
+          "week_end": "2025-05-30",
+          "cum_net": -0.816037
+        },
+        {
+          "week_end": "2025-06-06",
+          "cum_net": -0.806536
+        },
+        {
+          "week_end": "2025-06-13",
+          "cum_net": -0.805861
+        },
+        {
+          "week_end": "2025-06-20",
+          "cum_net": -0.810409
+        },
+        {
+          "week_end": "2025-06-27",
+          "cum_net": -0.806204
+        },
+        {
+          "week_end": "2025-07-03",
+          "cum_net": -0.803694
+        },
+        {
+          "week_end": "2025-07-11",
+          "cum_net": -0.804288
+        },
+        {
+          "week_end": "2025-07-18",
+          "cum_net": -0.802019
+        },
+        {
+          "week_end": "2025-07-25",
+          "cum_net": -0.810438
+        },
+        {
+          "week_end": "2025-08-01",
+          "cum_net": -0.81475
+        },
+        {
+          "week_end": "2025-08-08",
+          "cum_net": -0.816477
+        },
+        {
+          "week_end": "2025-08-15",
+          "cum_net": -0.82254
+        },
+        {
+          "week_end": "2025-08-22",
+          "cum_net": -0.822643
+        },
+        {
+          "week_end": "2025-08-29",
+          "cum_net": -0.82617
+        },
+        {
+          "week_end": "2025-09-05",
+          "cum_net": -0.82821
+        },
+        {
+          "week_end": "2025-09-12",
+          "cum_net": -0.827333
+        },
+        {
+          "week_end": "2025-09-19",
+          "cum_net": -0.817144
+        },
+        {
+          "week_end": "2025-09-26",
+          "cum_net": -0.81899
+        },
+        {
+          "week_end": "2025-10-03",
+          "cum_net": -0.812177
+        },
+        {
+          "week_end": "2025-10-10",
+          "cum_net": -0.807652
+        },
+        {
+          "week_end": "2025-10-17",
+          "cum_net": -0.800386
+        },
+        {
+          "week_end": "2025-10-24",
+          "cum_net": -0.795618
+        },
+        {
+          "week_end": "2025-10-31",
+          "cum_net": -0.789984
+        },
+        {
+          "week_end": "2025-11-07",
+          "cum_net": -0.798872
+        },
+        {
+          "week_end": "2025-11-14",
+          "cum_net": -0.807506
+        },
+        {
+          "week_end": "2025-11-21",
+          "cum_net": -0.811935
+        },
+        {
+          "week_end": "2025-11-28",
+          "cum_net": -0.800717
+        },
+        {
+          "week_end": "2025-12-05",
+          "cum_net": -0.788788
+        },
+        {
+          "week_end": "2025-12-12",
+          "cum_net": -0.759674
+        },
+        {
+          "week_end": "2025-12-19",
+          "cum_net": -0.765322
+        },
+        {
+          "week_end": "2025-12-26",
+          "cum_net": -0.764928
+        },
+        {
+          "week_end": "2026-01-02",
+          "cum_net": -0.750821
+        },
+        {
+          "week_end": "2026-01-09",
+          "cum_net": -0.730198
+        },
+        {
+          "week_end": "2026-01-16",
+          "cum_net": -0.732398
+        },
+        {
+          "week_end": "2026-01-23",
+          "cum_net": -0.750545
+        },
+        {
+          "week_end": "2026-01-30",
+          "cum_net": -0.752055
+        },
+        {
+          "week_end": "2026-02-06",
+          "cum_net": -0.740517
+        },
+        {
+          "week_end": "2026-02-13",
+          "cum_net": -0.712254
+        },
+        {
+          "week_end": "2026-02-20",
+          "cum_net": -0.703241
+        },
+        {
+          "week_end": "2026-02-27",
+          "cum_net": -0.705831
+        },
+        {
+          "week_end": "2026-03-06",
+          "cum_net": -0.72407
+        },
+        {
+          "week_end": "2026-03-13",
+          "cum_net": -0.720818
+        },
+        {
+          "week_end": "2026-03-20",
+          "cum_net": -0.70452
+        },
+        {
+          "week_end": "2026-03-27",
+          "cum_net": -0.71542
+        },
+        {
+          "week_end": "2026-04-02",
+          "cum_net": -0.705147
+        },
+        {
+          "week_end": "2026-04-10",
+          "cum_net": -0.677354
+        },
+        {
+          "week_end": "2026-04-17",
+          "cum_net": -0.654356
+        },
+        {
+          "week_end": "2026-04-24",
+          "cum_net": -0.624777
+        },
+        {
+          "week_end": "2026-05-01",
+          "cum_net": -0.65132
+        }
+      ],
+      "steps": [
+        {
+          "signal_week_end": "2020-01-24",
+          "hold_week_end": "2020-01-31",
+          "train_max_week": 63,
+          "week": 64,
+          "top": [
+            "AEHR",
+            "AXTI",
+            "LASR",
+            "LPTH",
+            "UCTT"
+          ],
+          "net": -0.084596,
+          "ic": -0.402198
+        },
+        {
+          "signal_week_end": "2020-01-31",
+          "hold_week_end": "2020-02-07",
+          "train_max_week": 64,
+          "week": 65,
+          "top": [
+            "AEHR",
+            "COHU",
+            "FORM",
+            "UCTT",
+            "VECO"
+          ],
+          "net": -0.001,
+          "ic": -0.261538
+        },
+        {
+          "signal_week_end": "2020-02-07",
+          "hold_week_end": "2020-02-14",
+          "train_max_week": 65,
+          "week": 66,
+          "top": [
+            "AEHR",
+            "AXTI",
+            "ICHR",
+            "LASR",
+            "POET"
+          ],
+          "net": 0.030849,
+          "ic": -0.30989
+        },
+        {
+          "signal_week_end": "2020-02-14",
+          "hold_week_end": "2020-02-21",
+          "train_max_week": 66,
+          "week": 67,
+          "top": [
+            "AMBA",
+            "AXTI",
+            "PLAB",
+            "POET",
+            "UCTT"
+          ],
+          "net": -0.016571,
+          "ic": 0.142857
+        },
+        {
+          "signal_week_end": "2020-02-21",
+          "hold_week_end": "2020-02-28",
+          "train_max_week": 67,
+          "week": 68,
+          "top": [
+            "AMBA",
+            "FORM",
+            "ICHR",
+            "KLIC",
+            "PLAB"
+          ],
+          "net": 0.016315,
+          "ic": -0.041758
+        },
+        {
+          "signal_week_end": "2020-02-28",
+          "hold_week_end": "2020-03-06",
+          "train_max_week": 68,
+          "week": 69,
+          "top": [
+            "AEHR",
+            "AMBA",
+            "AXTI",
+            "KLIC",
+            "PLAB"
+          ],
+          "net": -0.044664,
+          "ic": -0.204396
+        },
+        {
+          "signal_week_end": "2020-03-06",
+          "hold_week_end": "2020-03-13",
+          "train_max_week": 69,
+          "week": 70,
+          "top": [
+            "AXTI",
+            "COHU",
+            "ICHR",
+            "PLAB",
+            "VECO"
+          ],
+          "net": -0.079176,
+          "ic": -0.353846
+        },
+        {
+          "signal_week_end": "2020-03-13",
+          "hold_week_end": "2020-03-20",
+          "train_max_week": 70,
+          "week": 71,
+          "top": [
+            "AEHR",
+            "COHU",
+            "FORM",
+            "KLIC",
+            "UCTT"
+          ],
+          "net": -0.064389,
+          "ic": -0.30989
+        },
+        {
+          "signal_week_end": "2020-03-20",
+          "hold_week_end": "2020-03-27",
+          "train_max_week": 71,
+          "week": 72,
+          "top": [
+            "AXTI",
+            "COHU",
+            "FORM",
+            "ICHR",
+            "KLIC"
+          ],
+          "net": 0.078512,
+          "ic": 0.221978
+        },
+        {
+          "signal_week_end": "2020-03-27",
+          "hold_week_end": "2020-04-03",
+          "train_max_week": 72,
+          "week": 73,
+          "top": [
+            "AEHR",
+            "COHU",
+            "ICHR",
+            "KLIC",
+            "UCTT"
+          ],
+          "net": -0.084627,
+          "ic": -0.749451
+        },
+        {
+          "signal_week_end": "2020-04-03",
+          "hold_week_end": "2020-04-09",
+          "train_max_week": 73,
+          "week": 74,
+          "top": [
+            "AEHR",
+            "COHU",
+            "KLIC",
+            "PLAB",
+            "UCTT"
+          ],
+          "net": 0.006025,
+          "ic": -0.2
+        },
+        {
+          "signal_week_end": "2020-04-09",
+          "hold_week_end": "2020-04-17",
+          "train_max_week": 74,
+          "week": 75,
+          "top": [
+            "AMBA",
+            "COHU",
+            "KLIC",
+            "PLAB",
+            "UCTT"
+          ],
+          "net": 0.057113,
+          "ic": -0.169231
+        },
+        {
+          "signal_week_end": "2020-04-17",
+          "hold_week_end": "2020-04-24",
+          "train_max_week": 75,
+          "week": 76,
+          "top": [
+            "AMBA",
+            "ICHR",
+            "KLIC",
+            "PLAB",
+            "UCTT"
+          ],
+          "net": -0.010139,
+          "ic": -0.028571
+        },
+        {
+          "signal_week_end": "2020-04-24",
+          "hold_week_end": "2020-05-01",
+          "train_max_week": 76,
+          "week": 77,
+          "top": [
+            "AMBA",
+            "KLIC",
+            "PLAB",
+            "UCTT",
+            "VECO"
+          ],
+          "net": -0.03838,
+          "ic": -0.318681
+        },
+        {
+          "signal_week_end": "2020-05-01",
+          "hold_week_end": "2020-05-08",
+          "train_max_week": 77,
+          "week": 78,
+          "top": [
+            "AEHR",
+            "AMBA",
+            "KLIC",
+            "PLAB",
+            "VECO"
+          ],
+          "net": 0.048437,
+          "ic": 0.054945
+        },
+        {
+          "signal_week_end": "2020-05-08",
+          "hold_week_end": "2020-05-15",
+          "train_max_week": 78,
+          "week": 79,
+          "top": [
+            "AEHR",
+            "AMBA",
+            "ICHR",
+            "KLIC",
+            "PLAB"
+          ],
+          "net": -0.037032,
+          "ic": -0.054945
+        },
+        {
+          "signal_week_end": "2020-05-15",
+          "hold_week_end": "2020-05-22",
+          "train_max_week": 79,
+          "week": 80,
+          "top": [
+            "AMBA",
+            "FORM",
+            "PLAB",
+            "POET",
+            "UCTT"
+          ],
+          "net": -0.010213,
+          "ic": 0.296703
+        },
+        {
+          "signal_week_end": "2020-05-22",
+          "hold_week_end": "2020-05-29",
+          "train_max_week": 80,
+          "week": 81,
+          "top": [
+            "AMBA",
+            "FORM",
+            "KLIC",
+            "PLAB",
+            "UCTT"
+          ],
+          "net": -0.028325,
+          "ic": -0.173626
+        },
+        {
+          "signal_week_end": "2020-05-29",
+          "hold_week_end": "2020-06-05",
+          "train_max_week": 81,
+          "week": 82,
+          "top": [
+            "AEHR",
+            "AMBA",
+            "KLIC",
+            "PLAB",
+            "UCTT"
+          ],
+          "net": -0.000666,
+          "ic": -0.01978
+        },
+        {
+          "signal_week_end": "2020-06-05",
+          "hold_week_end": "2020-06-12",
+          "train_max_week": 82,
+          "week": 83,
+          "top": [
+            "AEHR",
+            "AMBA",
+            "KLIC",
+            "PLAB",
+            "POET"
+          ],
+          "net": 0.023691,
+          "ic": 0.415385
+        },
+        {
+          "signal_week_end": "2020-06-12",
+          "hold_week_end": "2020-06-19",
+          "train_max_week": 83,
+          "week": 84,
+          "top": [
+            "AMBA",
+            "KLIC",
+            "LPTH",
+            "PLAB",
+            "POET"
+          ],
+          "net": -0.039032,
+          "ic": -0.617582
+        },
+        {
+          "signal_week_end": "2020-06-19",
+          "hold_week_end": "2020-06-26",
+          "train_max_week": 84,
+          "week": 85,
+          "top": [
+            "ACMR",
+            "AMBA",
+            "AXTI",
+            "KLIC",
+            "PLAB"
+          ],
+          "net": -0.043055,
+          "ic": -0.323077
+        },
+        {
+          "signal_week_end": "2020-06-26",
+          "hold_week_end": "2020-07-02",
+          "train_max_week": 85,
+          "week": 86,
+          "top": [
+            "ACMR",
+            "AEHR",
+            "PLAB",
+            "POET",
+            "UCTT"
+          ],
+          "net": 0.009405,
+          "ic": 0.032967
+        },
+        {
+          "signal_week_end": "2020-07-02",
+          "hold_week_end": "2020-07-10",
+          "train_max_week": 86,
+          "week": 87,
+          "top": [
+            "AMBA",
+            "KLIC",
+            "LASR",
+            "PLAB",
+            "UCTT"
+          ],
+          "net": 0.031687,
+          "ic": 0.301099
+        },
+        {
+          "signal_week_end": "2020-07-10",
+          "hold_week_end": "2020-07-17",
+          "train_max_week": 87,
+          "week": 88,
+          "top": [
+            "AMBA",
+            "AXTI",
+            "COHU",
+            "ICHR",
+            "PLAB"
+          ],
+          "net": -0.040108,
+          "ic": 0.389011
+        },
+        {
+          "signal_week_end": "2020-07-17",
+          "hold_week_end": "2020-07-24",
+          "train_max_week": 88,
+          "week": 89,
+          "top": [
+            "AMBA",
+            "AXTI",
+            "COHU",
+            "KLIC",
+            "LPTH"
+          ],
+          "net": 0.016558,
+          "ic": 0.415385
+        },
+        {
+          "signal_week_end": "2020-07-24",
+          "hold_week_end": "2020-07-31",
+          "train_max_week": 89,
+          "week": 90,
+          "top": [
+            "AEHR",
+            "AMBA",
+            "COHU",
+            "KLIC",
+            "POET"
+          ],
+          "net": 0.000692,
+          "ic": -0.503297
+        },
+        {
+          "signal_week_end": "2020-07-31",
+          "hold_week_end": "2020-08-07",
+          "train_max_week": 90,
+          "week": 91,
+          "top": [
+            "ICHR",
+            "LASR",
+            "PLAB",
+            "POET",
+            "VECO"
+          ],
+          "net": -0.06957,
+          "ic": -0.006593
+        },
+        {
+          "signal_week_end": "2020-08-07",
+          "hold_week_end": "2020-08-14",
+          "train_max_week": 91,
+          "week": 92,
+          "top": [
+            "AMBA",
+            "AXTI",
+            "KLIC",
+            "LASR",
+            "PLAB"
+          ],
+          "net": -0.035072,
+          "ic": -0.573626
+        },
+        {
+          "signal_week_end": "2020-08-14",
+          "hold_week_end": "2020-08-21",
+          "train_max_week": 92,
+          "week": 93,
+          "top": [
+            "ACMR",
+            "AEHR",
+            "AMBA",
+            "LASR",
+            "VECO"
+          ],
+          "net": -0.058312,
+          "ic": 0.208791
+        },
+        {
+          "signal_week_end": "2020-08-21",
+          "hold_week_end": "2020-08-28",
+          "train_max_week": 93,
+          "week": 94,
+          "top": [
+            "ACMR",
+            "AEHR",
+            "AMBA",
+            "KLIC",
+            "LASR"
+          ],
+          "net": -0.000136,
+          "ic": -0.120879
+        },
+        {
+          "signal_week_end": "2020-08-28",
+          "hold_week_end": "2020-09-04",
+          "train_max_week": 94,
+          "week": 95,
+          "top": [
+            "ACMR",
+            "AEHR",
+            "COHU",
+            "KLIC",
+            "LASR"
+          ],
+          "net": -0.035727,
+          "ic": 0.630769
+        },
+        {
+          "signal_week_end": "2020-09-04",
+          "hold_week_end": "2020-09-11",
+          "train_max_week": 95,
+          "week": 96,
+          "top": [
+            "AEHR",
+            "FORM",
+            "ICHR",
+            "KLIC",
+            "LPTH"
+          ],
+          "net": -0.06454,
+          "ic": 0.217582
+        },
+        {
+          "signal_week_end": "2020-09-11",
+          "hold_week_end": "2020-09-18",
+          "train_max_week": 96,
+          "week": 97,
+          "top": [
+            "AEHR",
+            "COHU",
+            "FORM",
+            "KLIC",
+            "VECO"
+          ],
+          "net": 0.053058,
+          "ic": 0.151648
+        },
+        {
+          "signal_week_end": "2020-09-18",
+          "hold_week_end": "2020-09-25",
+          "train_max_week": 97,
+          "week": 98,
+          "top": [
+            "AEHR",
+            "AMBA",
+            "ICHR",
+            "KLIC",
+            "POET"
+          ],
+          "net": 0.003444,
+          "ic": 0.068132
+        },
+        {
+          "signal_week_end": "2020-09-25",
+          "hold_week_end": "2020-10-02",
+          "train_max_week": 98,
+          "week": 99,
+          "top": [
+            "AXTI",
+            "KLIC",
+            "PLAB",
+            "POET",
+            "VECO"
+          ],
+          "net": 0.014841,
+          "ic": 0.050549
+        },
+        {
+          "signal_week_end": "2020-10-02",
+          "hold_week_end": "2020-10-09",
+          "train_max_week": 99,
+          "week": 100,
+          "top": [
+            "AEHR",
+            "FORM",
+            "ICHR",
+            "LPTH",
+            "VECO"
+          ],
+          "net": 0.037485,
+          "ic": 0.516484
+        },
+        {
+          "signal_week_end": "2020-10-09",
+          "hold_week_end": "2020-10-16",
+          "train_max_week": 100,
+          "week": 101,
+          "top": [
+            "AEHR",
+            "AMBA",
+            "LPTH",
+            "PLAB",
+            "VECO"
+          ],
+          "net": -0.022776,
+          "ic": -0.085714
+        },
+        {
+          "signal_week_end": "2020-10-16",
+          "hold_week_end": "2020-10-23",
+          "train_max_week": 101,
+          "week": 102,
+          "top": [
+            "AEHR",
+            "AMBA",
+            "LPTH",
+            "PLAB",
+            "VECO"
+          ],
+          "net": -0.027863,
+          "ic": -0.041758
+        },
+        {
+          "signal_week_end": "2020-10-23",
+          "hold_week_end": "2020-10-30",
+          "train_max_week": 102,
+          "week": 103,
+          "top": [
+            "ACMR",
+            "AEHR",
+            "AMBA",
+            "LPTH",
+            "UCTT"
+          ],
+          "net": 0.028213,
+          "ic": 0.125275
+        },
+        {
+          "signal_week_end": "2020-10-30",
+          "hold_week_end": "2020-11-06",
+          "train_max_week": 103,
+          "week": 104,
+          "top": [
+            "ACMR",
+            "AMBA",
+            "POET",
+            "UCTT",
+            "VECO"
+          ],
+          "net": 0.064998,
+          "ic": 0.125275
+        },
+        {
+          "signal_week_end": "2020-11-06",
+          "hold_week_end": "2020-11-13",
+          "train_max_week": 104,
+          "week": 105,
+          "top": [
+            "AEHR",
+            "AMBA",
+            "LPTH",
+            "POET",
+            "VECO"
+          ],
+          "net": 9.5e-05,
+          "ic": 0.345055
+        },
+        {
+          "signal_week_end": "2020-11-13",
+          "hold_week_end": "2020-11-20",
+          "train_max_week": 105,
+          "week": 106,
+          "top": [
+            "ACMR",
+            "LASR",
+            "LPTH",
+            "POET",
+            "VECO"
+          ],
+          "net": -0.021929,
+          "ic": -0.305495
+        },
+        {
+          "signal_week_end": "2020-11-20",
+          "hold_week_end": "2020-11-27",
+          "train_max_week": 106,
+          "week": 107,
+          "top": [
+            "ACMR",
+            "AEHR",
+            "AMBA",
+            "LPTH",
+            "POET"
+          ],
+          "net": 0.08538,
+          "ic": 0.81978
+        },
+        {
+          "signal_week_end": "2020-11-27",
+          "hold_week_end": "2020-12-04",
+          "train_max_week": 107,
+          "week": 108,
+          "top": [
+            "ICHR",
+            "PLAB",
+            "POET",
+            "UCTT",
+            "VECO"
+          ],
+          "net": 0.03994,
+          "ic": 0.292308
+        },
+        {
+          "signal_week_end": "2020-12-04",
+          "hold_week_end": "2020-12-11",
+          "train_max_week": 108,
+          "week": 109,
+          "top": [
+            "ACMR",
+            "KLIC",
+            "LPTH",
+            "PLAB",
+            "POET"
+          ],
+          "net": -0.01306,
+          "ic": 0.27033
+        },
+        {
+          "signal_week_end": "2020-12-11",
+          "hold_week_end": "2020-12-18",
+          "train_max_week": 109,
+          "week": 110,
+          "top": [
+            "ACMR",
+            "ICHR",
+            "LPTH",
+            "PLAB",
+            "POET"
+          ],
+          "net": 0.002781,
+          "ic": 0.024176
+        },
+        {
+          "signal_week_end": "2020-12-18",
+          "hold_week_end": "2020-12-24",
+          "train_max_week": 110,
+          "week": 111,
+          "top": [
+            "ACMR",
+            "LPTH",
+            "PLAB",
+            "POET",
+            "UCTT"
+          ],
+          "net": 0.051583,
+          "ic": 0.063736
+        },
+        {
+          "signal_week_end": "2020-12-24",
+          "hold_week_end": "2020-12-31",
+          "train_max_week": 111,
+          "week": 112,
+          "top": [
+            "ACMR",
+            "KLIC",
+            "LASR",
+            "PLAB",
+            "VECO"
+          ],
+          "net": 0.007914,
+          "ic": -0.103297
+        },
+        {
+          "signal_week_end": "2020-12-31",
+          "hold_week_end": "2021-01-08",
+          "train_max_week": 112,
+          "week": 113,
+          "top": [
+            "AEHR",
+            "FORM",
+            "ICHR",
+            "KLIC",
+            "PLAB"
+          ],
+          "net": -0.038516,
+          "ic": -0.156044
+        },
+        {
+          "signal_week_end": "2021-01-08",
+          "hold_week_end": "2021-01-15",
+          "train_max_week": 113,
+          "week": 114,
+          "top": [
+            "FORM",
+            "KLIC",
+            "LASR",
+            "PLAB",
+            "VECO"
+          ],
+          "net": 0.022266,
+          "ic": 0.015385
+        },
+        {
+          "signal_week_end": "2021-01-15",
+          "hold_week_end": "2021-01-22",
+          "train_max_week": 114,
+          "week": 115,
+          "top": [
+            "FORM",
+            "KLIC",
+            "PLAB",
+            "UCTT",
+            "VECO"
+          ],
+          "net": 0.001518,
+          "ic": -0.186813
+        },
+        {
+          "signal_week_end": "2021-01-22",
+          "hold_week_end": "2021-01-29",
+          "train_max_week": 115,
+          "week": 116,
+          "top": [
+            "AXTI",
+            "FORM",
+            "ICHR",
+            "LPTH",
+            "VECO"
+          ],
+          "net": -0.086236,
+          "ic": -0.235165
+        },
+        {
+          "signal_week_end": "2021-01-29",
+          "hold_week_end": "2021-02-05",
+          "train_max_week": 116,
+          "week": 117,
+          "top": [
+            "AXTI",
+            "FORM",
+            "ICHR",
+            "LASR",
+            "PLAB"
+          ],
+          "net": 0.016482,
+          "ic": -0.375824
+        },
+        {
+          "signal_week_end": "2021-02-05",
+          "hold_week_end": "2021-02-12",
+          "train_max_week": 117,
+          "week": 118,
+          "top": [
+            "AXTI",
+            "KLIC",
+            "LASR",
+            "PLAB",
+            "VECO"
+          ],
+          "net": 0.09881,
+          "ic": 0.072527
+        },
+        {
+          "signal_week_end": "2021-02-12",
+          "hold_week_end": "2021-02-19",
+          "train_max_week": 118,
+          "week": 119,
+          "top": [
+            "AXTI",
+            "FORM",
+            "LASR",
+            "LPTH",
+            "PLAB"
+          ],
+          "net": 0.065727,
+          "ic": 0.336264
+        },
+        {
+          "signal_week_end": "2021-02-19",
+          "hold_week_end": "2021-02-26",
+          "train_max_week": 119,
+          "week": 120,
+          "top": [
+            "FORM",
+            "ICHR",
+            "KLIC",
+            "LASR",
+            "VECO"
+          ],
+          "net": -0.046933,
+          "ic": 0.151648
+        },
+        {
+          "signal_week_end": "2021-02-26",
+          "hold_week_end": "2021-03-05",
+          "train_max_week": 120,
+          "week": 121,
+          "top": [
+            "AMBA",
+            "FORM",
+            "ICHR",
+            "PLAB",
+            "UCTT"
+          ],
+          "net": -0.019976,
+          "ic": 0.621978
+        },
+        {
+          "signal_week_end": "2021-03-05",
+          "hold_week_end": "2021-03-12",
+          "train_max_week": 121,
+          "week": 122,
+          "top": [
+            "COHU",
+            "FORM",
+            "ICHR",
+            "LPTH",
+            "UCTT"
+          ],
+          "net": -0.011434,
+          "ic": 0.01978
+        },
+        {
+          "signal_week_end": "2021-03-12",
+          "hold_week_end": "2021-03-19",
+          "train_max_week": 122,
+          "week": 123,
+          "top": [
+            "AEHR",
+            "AMBA",
+            "FORM",
+            "LASR",
+            "LPTH"
+          ],
+          "net": -0.007092,
+          "ic": -0.327473
+        },
+        {
+          "signal_week_end": "2021-03-19",
+          "hold_week_end": "2021-03-26",
+          "train_max_week": 123,
+          "week": 124,
+          "top": [
+            "AEHR",
+            "AMBA",
+            "COHU",
+            "LASR",
+            "LPTH"
+          ],
+          "net": -0.06311,
+          "ic": -0.006593
+        },
+        {
+          "signal_week_end": "2021-03-26",
+          "hold_week_end": "2021-04-01",
+          "train_max_week": 124,
+          "week": 125,
+          "top": [
+            "ACMR",
+            "AEHR",
+            "AMBA",
+            "LASR",
+            "LPTH"
+          ],
+          "net": 0.055156,
+          "ic": -0.463736
+        },
+        {
+          "signal_week_end": "2021-04-01",
+          "hold_week_end": "2021-04-09",
+          "train_max_week": 125,
+          "week": 126,
+          "top": [
+            "ACMR",
+            "AEHR",
+            "AMBA",
+            "COHU",
+            "LASR"
+          ],
+          "net": -0.005229,
+          "ic": 0.002198
+        },
+        {
+          "signal_week_end": "2021-04-09",
+          "hold_week_end": "2021-04-16",
+          "train_max_week": 126,
+          "week": 127,
+          "top": [
+            "ACMR",
+            "AEHR",
+            "AMBA",
+            "LASR",
+            "LPTH"
+          ],
+          "net": -0.088131,
+          "ic": -0.156044
+        },
+        {
+          "signal_week_end": "2021-04-16",
+          "hold_week_end": "2021-04-23",
+          "train_max_week": 127,
+          "week": 128,
+          "top": [
+            "ACMR",
+            "FORM",
+            "KLIC",
+            "LASR",
+            "PLAB"
+          ],
+          "net": 0.006416,
+          "ic": 0.054945
+        },
+        {
+          "signal_week_end": "2021-04-23",
+          "hold_week_end": "2021-04-30",
+          "train_max_week": 128,
+          "week": 129,
+          "top": [
+            "COHU",
+            "FORM",
+            "LASR",
+            "PLAB",
+            "VECO"
+          ],
+          "net": -0.068674,
+          "ic": 0.002198
+        },
+        {
+          "signal_week_end": "2021-04-30",
+          "hold_week_end": "2021-05-07",
+          "train_max_week": 129,
+          "week": 130,
+          "top": [
+            "FORM",
+            "ICHR",
+            "LPTH",
+            "PLAB",
+            "VECO"
+          ],
+          "net": -0.003705,
+          "ic": 0.67033
+        },
+        {
+          "signal_week_end": "2021-05-07",
+          "hold_week_end": "2021-05-14",
+          "train_max_week": 130,
+          "week": 131,
+          "top": [
+            "ACMR",
+            "COHU",
+            "ICHR",
+            "KLIC",
+            "LASR"
+          ],
+          "net": -0.07038,
+          "ic": 0.037363
+        },
+        {
+          "signal_week_end": "2021-05-14",
+          "hold_week_end": "2021-05-21",
+          "train_max_week": 131,
+          "week": 132,
+          "top": [
+            "AXTI",
+            "COHU",
+            "LPTH",
+            "PLAB",
+            "POET"
+          ],
+          "net": 0.049166,
+          "ic": -0.068132
+        },
+        {
+          "signal_week_end": "2021-05-21",
+          "hold_week_end": "2021-05-28",
+          "train_max_week": 132,
+          "week": 133,
+          "top": [
+            "COHU",
+            "ICHR",
+            "LASR",
+            "LPTH",
+            "PLAB"
+          ],
+          "net": 0.001296,
+          "ic": 0.120879
+        },
+        {
+          "signal_week_end": "2021-05-28",
+          "hold_week_end": "2021-06-04",
+          "train_max_week": 133,
+          "week": 134,
+          "top": [
+            "AMBA",
+            "AXTI",
+            "LPTH",
+            "UCTT",
+            "VECO"
+          ],
+          "net": 0.032386,
+          "ic": -0.068132
+        },
+        {
+          "signal_week_end": "2021-06-04",
+          "hold_week_end": "2021-06-11",
+          "train_max_week": 134,
+          "week": 135,
+          "top": [
+            "AMBA",
+            "AXTI",
+            "COHU",
+            "FORM",
+            "PLAB"
+          ],
+          "net": -0.038612,
+          "ic": -0.059341
+        },
+        {
+          "signal_week_end": "2021-06-11",
+          "hold_week_end": "2021-06-18",
+          "train_max_week": 135,
+          "week": 136,
+          "top": [
+            "ACMR",
+            "COHU",
+            "FORM",
+            "KLIC",
+            "VECO"
+          ],
+          "net": 0.022122,
+          "ic": 0.38022
+        },
+        {
+          "signal_week_end": "2021-06-18",
+          "hold_week_end": "2021-06-25",
+          "train_max_week": 136,
+          "week": 137,
+          "top": [
+            "ACMR",
+            "AXTI",
+            "COHU",
+            "FORM",
+            "LASR"
+          ],
+          "net": -0.017666,
+          "ic": -0.494505
+        },
+        {
+          "signal_week_end": "2021-06-25",
+          "hold_week_end": "2021-07-02",
+          "train_max_week": 137,
+          "week": 138,
+          "top": [
+            "ACMR",
+            "COHU",
+            "FORM",
+            "KLIC",
+            "LASR"
+          ],
+          "net": 0.035847,
+          "ic": 0.235165
+        },
+        {
+          "signal_week_end": "2021-07-02",
+          "hold_week_end": "2021-07-09",
+          "train_max_week": 138,
+          "week": 139,
+          "top": [
+            "AXTI",
+            "COHU",
+            "FORM",
+            "ICHR",
+            "LASR"
+          ],
+          "net": -0.032246,
+          "ic": 0.138462
+        },
+        {
+          "signal_week_end": "2021-07-09",
+          "hold_week_end": "2021-07-16",
+          "train_max_week": 139,
+          "week": 140,
+          "top": [
+            "AMBA",
+            "AXTI",
+            "ICHR",
+            "LASR",
+            "UCTT"
+          ],
+          "net": -0.052266,
+          "ic": -0.323077
+        },
+        {
+          "signal_week_end": "2021-07-16",
+          "hold_week_end": "2021-07-23",
+          "train_max_week": 140,
+          "week": 141,
+          "top": [
+            "AMBA",
+            "AXTI",
+            "COHU",
+            "KLIC",
+            "UCTT"
+          ],
+          "net": 0.056562,
+          "ic": 0.076923
+        },
+        {
+          "signal_week_end": "2021-07-23",
+          "hold_week_end": "2021-07-30",
+          "train_max_week": 141,
+          "week": 142,
+          "top": [
+            "AMBA",
+            "COHU",
+            "FORM",
+            "ICHR",
+            "UCTT"
+          ],
+          "net": 0.01188,
+          "ic": -0.024176
+        },
+        {
+          "signal_week_end": "2021-07-30",
+          "hold_week_end": "2021-08-06",
+          "train_max_week": 142,
+          "week": 143,
+          "top": [
+            "AMBA",
+            "FORM",
+            "KLIC",
+            "PLAB",
+            "UCTT"
+          ],
+          "net": 0.019911,
+          "ic": 0.384615
+        },
+        {
+          "signal_week_end": "2021-08-06",
+          "hold_week_end": "2021-08-13",
+          "train_max_week": 143,
+          "week": 144,
+          "top": [
+            "AMBA",
+            "AXTI",
+            "COHU",
+            "FORM",
+            "VECO"
+          ],
+          "net": -0.063181,
+          "ic": 0.063736
+        },
+        {
+          "signal_week_end": "2021-08-13",
+          "hold_week_end": "2021-08-20",
+          "train_max_week": 144,
+          "week": 145,
+          "top": [
+            "AMBA",
+            "AXTI",
+            "PLAB",
+            "POET",
+            "UCTT"
+          ],
+          "net": -0.038816,
+          "ic": -0.274725
+        },
+        {
+          "signal_week_end": "2021-08-20",
+          "hold_week_end": "2021-08-27",
+          "train_max_week": 145,
+          "week": 146,
+          "top": [
+            "COHU",
+            "FORM",
+            "PLAB",
+            "POET",
+            "VECO"
+          ],
+          "net": 0.044777,
+          "ic": 0.221978
+        },
+        {
+          "signal_week_end": "2021-08-27",
+          "hold_week_end": "2021-09-03",
+          "train_max_week": 146,
+          "week": 147,
+          "top": [
+            "AMBA",
+            "ICHR",
+            "LASR",
+            "POET",
+            "VECO"
+          ],
+          "net": 0.08538,
+          "ic": 0.226374
+        },
+        {
+          "signal_week_end": "2021-09-03",
+          "hold_week_end": "2021-09-10",
+          "train_max_week": 147,
+          "week": 148,
+          "top": [
+            "ACMR",
+            "COHU",
+            "ICHR",
+            "UCTT",
+            "VECO"
+          ],
+          "net": 0.020155,
+          "ic": 0.072527
+        },
+        {
+          "signal_week_end": "2021-09-10",
+          "hold_week_end": "2021-09-17",
+          "train_max_week": 148,
+          "week": 149,
+          "top": [
+            "ACMR",
+            "AXTI",
+            "COHU",
+            "PLAB",
+            "VECO"
+          ],
+          "net": -0.058467,
+          "ic": -0.802198
+        },
+        {
+          "signal_week_end": "2021-09-17",
+          "hold_week_end": "2021-09-24",
+          "train_max_week": 149,
+          "week": 150,
+          "top": [
+            "ACMR",
+            "COHU",
+            "FORM",
+            "PLAB",
+            "VECO"
+          ],
+          "net": -0.002057,
+          "ic": -0.125275
+        },
+        {
+          "signal_week_end": "2021-09-24",
+          "hold_week_end": "2021-10-01",
+          "train_max_week": 150,
+          "week": 151,
+          "top": [
+            "ACMR",
+            "LASR",
+            "LPTH",
+            "POET",
+            "VECO"
+          ],
+          "net": -0.00534,
+          "ic": 0.538462
+        },
+        {
+          "signal_week_end": "2021-10-01",
+          "hold_week_end": "2021-10-08",
+          "train_max_week": 151,
+          "week": 152,
+          "top": [
+            "ACMR",
+            "AXTI",
+            "LASR",
+            "POET",
+            "VECO"
+          ],
+          "net": 0.007302,
+          "ic": 0.147253
+        },
+        {
+          "signal_week_end": "2021-10-08",
+          "hold_week_end": "2021-10-15",
+          "train_max_week": 152,
+          "week": 153,
+          "top": [
+            "ACMR",
+            "AXTI",
+            "ICHR",
+            "LASR",
+            "POET"
+          ],
+          "net": -0.032387,
+          "ic": -0.578022
+        },
+        {
+          "signal_week_end": "2021-10-15",
+          "hold_week_end": "2021-10-22",
+          "train_max_week": 153,
+          "week": 154,
+          "top": [
+            "AMBA",
+            "FORM",
+            "LASR",
+            "PLAB",
+            "VECO"
+          ],
+          "net": -0.016129,
+          "ic": 0.252747
+        },
+        {
+          "signal_week_end": "2021-10-22",
+          "hold_week_end": "2021-10-29",
+          "train_max_week": 154,
+          "week": 155,
+          "top": [
+            "ACMR",
+            "AMBA",
+            "COHU",
+            "ICHR",
+            "KLIC"
+          ],
+          "net": 0.042017,
+          "ic": 0.12967
+        },
+        {
+          "signal_week_end": "2021-10-29",
+          "hold_week_end": "2021-11-05",
+          "train_max_week": 155,
+          "week": 156,
+          "top": [
+            "AXTI",
+            "ICHR",
+            "KLIC",
+            "POET",
+            "VECO"
+          ],
+          "net": -0.007101,
+          "ic": 0.09011
+        },
+        {
+          "signal_week_end": "2021-11-05",
+          "hold_week_end": "2021-11-12",
+          "train_max_week": 156,
+          "week": 157,
+          "top": [
+            "AMBA",
+            "COHU",
+            "FORM",
+            "PLAB",
+            "POET"
+          ],
+          "net": -0.001945,
+          "ic": -0.054945
+        },
+        {
+          "signal_week_end": "2021-11-12",
+          "hold_week_end": "2021-11-19",
+          "train_max_week": 157,
+          "week": 158,
+          "top": [
+            "AEHR",
+            "AXTI",
+            "LASR",
+            "LPTH",
+            "VECO"
+          ],
+          "net": -0.040061,
+          "ic": -0.037363
+        },
+        {
+          "signal_week_end": "2021-11-19",
+          "hold_week_end": "2021-11-26",
+          "train_max_week": 158,
+          "week": 159,
+          "top": [
+            "AEHR",
+            "AXTI",
+            "KLIC",
+            "LPTH",
+            "POET"
+          ],
+          "net": -0.002222,
+          "ic": 0.041758
+        },
+        {
+          "signal_week_end": "2021-11-26",
+          "hold_week_end": "2021-12-03",
+          "train_max_week": 159,
+          "week": 160,
+          "top": [
+            "AEHR",
+            "AMBA",
+            "AXTI",
+            "PLAB",
+            "POET"
+          ],
+          "net": 0.039181,
+          "ic": 0.138462
+        },
+        {
+          "signal_week_end": "2021-12-03",
+          "hold_week_end": "2021-12-10",
+          "train_max_week": 160,
+          "week": 161,
+          "top": [
+            "ACMR",
+            "AEHR",
+            "AXTI",
+            "KLIC",
+            "LPTH"
+          ],
+          "net": 0.065186,
+          "ic": 0.059341
+        },
+        {
+          "signal_week_end": "2021-12-10",
+          "hold_week_end": "2021-12-17",
+          "train_max_week": 161,
+          "week": 162,
+          "top": [
+            "ACMR",
+            "AEHR",
+            "AXTI",
+            "COHU",
+            "POET"
+          ],
+          "net": 0.012702,
+          "ic": 0.367033
+        },
+        {
+          "signal_week_end": "2021-12-17",
+          "hold_week_end": "2021-12-23",
+          "train_max_week": 162,
+          "week": 163,
+          "top": [
+            "ACMR",
+            "AEHR",
+            "KLIC",
+            "LASR",
+            "POET"
+          ],
+          "net": 0.047419,
+          "ic": -0.191209
+        },
+        {
+          "signal_week_end": "2021-12-23",
+          "hold_week_end": "2021-12-31",
+          "train_max_week": 163,
+          "week": 164,
+          "top": [
+            "ACMR",
+            "AMBA",
+            "KLIC",
+            "LASR",
+            "POET"
+          ],
+          "net": 0.030244,
+          "ic": -0.120879
+        },
+        {
+          "signal_week_end": "2021-12-31",
+          "hold_week_end": "2022-01-07",
+          "train_max_week": 164,
+          "week": 165,
+          "top": [
+            "AXTI",
+            "FORM",
+            "ICHR",
+            "LASR",
+            "VECO"
+          ],
+          "net": -0.025367,
+          "ic": -0.107692
+        },
+        {
+          "signal_week_end": "2022-01-07",
+          "hold_week_end": "2022-01-14",
+          "train_max_week": 165,
+          "week": 166,
+          "top": [
+            "AEHR",
+            "AXTI",
+            "COHU",
+            "ICHR",
+            "LASR"
+          ],
+          "net": -0.009182,
+          "ic": -0.481319
+        },
+        {
+          "signal_week_end": "2022-01-14",
+          "hold_week_end": "2022-01-21",
+          "train_max_week": 166,
+          "week": 167,
+          "top": [
+            "COHU",
+            "LASR",
+            "LPTH",
+            "PLAB",
+            "POET"
+          ],
+          "net": -0.030779,
+          "ic": 0.595604
+        },
+        {
+          "signal_week_end": "2022-01-21",
+          "hold_week_end": "2022-01-28",
+          "train_max_week": 167,
+          "week": 168,
+          "top": [
+            "AEHR",
+            "AMBA",
+            "AXTI",
+            "FORM",
+            "LASR"
+          ],
+          "net": -0.024544,
+          "ic": -0.2
+        },
+        {
+          "signal_week_end": "2022-01-28",
+          "hold_week_end": "2022-02-04",
+          "train_max_week": 168,
+          "week": 169,
+          "top": [
+            "AMBA",
+            "AXTI",
+            "FORM",
+            "LASR",
+            "PLAB"
+          ],
+          "net": -0.002984,
+          "ic": -0.301099
+        },
+        {
+          "signal_week_end": "2022-02-04",
+          "hold_week_end": "2022-02-11",
+          "train_max_week": 169,
+          "week": 170,
+          "top": [
+            "AMBA",
+            "COHU",
+            "LASR",
+            "LPTH",
+            "POET"
+          ],
+          "net": -0.034448,
+          "ic": 0.16044
+        },
+        {
+          "signal_week_end": "2022-02-11",
+          "hold_week_end": "2022-02-18",
+          "train_max_week": 170,
+          "week": 171,
+          "top": [
+            "AXTI",
+            "COHU",
+            "FORM",
+            "LASR",
+            "VECO"
+          ],
+          "net": -0.023405,
+          "ic": 0.230769
+        },
+        {
+          "signal_week_end": "2022-02-18",
+          "hold_week_end": "2022-02-25",
+          "train_max_week": 171,
+          "week": 172,
+          "top": [
+            "AEHR",
+            "AMBA",
+            "FORM",
+            "LASR",
+            "PLAB"
+          ],
+          "net": -0.011012,
+          "ic": 0.279121
+        },
+        {
+          "signal_week_end": "2022-02-25",
+          "hold_week_end": "2022-03-04",
+          "train_max_week": 172,
+          "week": 173,
+          "top": [
+            "AXTI",
+            "COHU",
+            "ICHR",
+            "POET",
+            "VECO"
+          ],
+          "net": -0.012782,
+          "ic": 0.173626
+        },
+        {
+          "signal_week_end": "2022-03-04",
+          "hold_week_end": "2022-03-11",
+          "train_max_week": 173,
+          "week": 174,
+          "top": [
+            "AMBA",
+            "AXTI",
+            "KLIC",
+            "PLAB",
+            "VECO"
+          ],
+          "net": -0.019926,
+          "ic": -0.582418
+        },
+        {
+          "signal_week_end": "2022-03-11",
+          "hold_week_end": "2022-03-18",
+          "train_max_week": 174,
+          "week": 175,
+          "top": [
+            "AEHR",
+            "AMBA",
+            "AXTI",
+            "KLIC",
+            "LPTH"
+          ],
+          "net": 0.003872,
+          "ic": -0.01978
+        },
+        {
+          "signal_week_end": "2022-03-18",
+          "hold_week_end": "2022-03-25",
+          "train_max_week": 175,
+          "week": 176,
+          "top": [
+            "AEHR",
+            "AXTI",
+            "COHU",
+            "ICHR",
+            "LPTH"
+          ],
+          "net": -0.010357,
+          "ic": 0.068132
+        },
+        {
+          "signal_week_end": "2022-03-25",
+          "hold_week_end": "2022-04-01",
+          "train_max_week": 176,
+          "week": 177,
+          "top": [
+            "AEHR",
+            "AMBA",
+            "COHU",
+            "LASR",
+            "POET"
+          ],
+          "net": -0.044887,
+          "ic": -0.046154
+        },
+        {
+          "signal_week_end": "2022-04-01",
+          "hold_week_end": "2022-04-08",
+          "train_max_week": 177,
+          "week": 178,
+          "top": [
+            "AEHR",
+            "AXTI",
+            "COHU",
+            "PLAB",
+            "UCTT"
+          ],
+          "net": -0.05333,
+          "ic": 0.120879
+        },
+        {
+          "signal_week_end": "2022-04-08",
+          "hold_week_end": "2022-04-14",
+          "train_max_week": 178,
+          "week": 179,
+          "top": [
+            "ACMR",
+            "AEHR",
+            "COHU",
+            "POET",
+            "VECO"
+          ],
+          "net": -0.078387,
+          "ic": -0.454945
+        },
+        {
+          "signal_week_end": "2022-04-14",
+          "hold_week_end": "2022-04-22",
+          "train_max_week": 179,
+          "week": 180,
+          "top": [
+            "ACMR",
+            "AXTI",
+            "KLIC",
+            "LPTH",
+            "POET"
+          ],
+          "net": 0.019771,
+          "ic": 0.586813
+        },
+        {
+          "signal_week_end": "2022-04-22",
+          "hold_week_end": "2022-04-29",
+          "train_max_week": 180,
+          "week": 181,
+          "top": [
+            "ACMR",
+            "AEHR",
+            "AMBA",
+            "COHU",
+            "FORM"
+          ],
+          "net": 0.027208,
+          "ic": 0.318681
+        },
+        {
+          "signal_week_end": "2022-04-29",
+          "hold_week_end": "2022-05-06",
+          "train_max_week": 181,
+          "week": 182,
+          "top": [
+            "ACMR",
+            "AEHR",
+            "AXTI",
+            "ICHR",
+            "LPTH"
+          ],
+          "net": 0.017931,
+          "ic": -0.103297
+        },
+        {
+          "signal_week_end": "2022-05-06",
+          "hold_week_end": "2022-05-13",
+          "train_max_week": 182,
+          "week": 183,
+          "top": [
+            "ACMR",
+            "AEHR",
+            "AMBA",
+            "COHU",
+            "FORM"
+          ],
+          "net": 0.004474,
+          "ic": 0.283516
+        },
+        {
+          "signal_week_end": "2022-05-13",
+          "hold_week_end": "2022-05-20",
+          "train_max_week": 183,
+          "week": 184,
+          "top": [
+            "ACMR",
+            "COHU",
+            "FORM",
+            "PLAB",
+            "VECO"
+          ],
+          "net": -0.003972,
+          "ic": 0.107692
+        },
+        {
+          "signal_week_end": "2022-05-20",
+          "hold_week_end": "2022-05-27",
+          "train_max_week": 184,
+          "week": 185,
+          "top": [
+            "AEHR",
+            "FORM",
+            "LASR",
+            "PLAB",
+            "VECO"
+          ],
+          "net": 0.054345,
+          "ic": -0.248352
+        },
+        {
+          "signal_week_end": "2022-05-27",
+          "hold_week_end": "2022-06-03",
+          "train_max_week": 185,
+          "week": 186,
+          "top": [
+            "AMBA",
+            "FORM",
+            "POET",
+            "UCTT",
+            "VECO"
+          ],
+          "net": -0.042803,
+          "ic": -0.49011
+        },
+        {
+          "signal_week_end": "2022-06-03",
+          "hold_week_end": "2022-06-10",
+          "train_max_week": 186,
+          "week": 187,
+          "top": [
+            "ACMR",
+            "AEHR",
+            "LPTH",
+            "POET",
+            "VECO"
+          ],
+          "net": -0.008988,
+          "ic": -0.015385
+        },
+        {
+          "signal_week_end": "2022-06-10",
+          "hold_week_end": "2022-06-17",
+          "train_max_week": 187,
+          "week": 188,
+          "top": [
+            "ACMR",
+            "AEHR",
+            "COHU",
+            "LPTH",
+            "POET"
+          ],
+          "net": 0.003218,
+          "ic": 0.621978
+        },
+        {
+          "signal_week_end": "2022-06-17",
+          "hold_week_end": "2022-06-24",
+          "train_max_week": 188,
+          "week": 189,
+          "top": [
+            "ACMR",
+            "AXTI",
+            "COHU",
+            "FORM",
+            "LASR"
+          ],
+          "net": 0.030935,
+          "ic": 0.608791
+        },
+        {
+          "signal_week_end": "2022-06-24",
+          "hold_week_end": "2022-07-01",
+          "train_max_week": 189,
+          "week": 190,
+          "top": [
+            "ACMR",
+            "COHU",
+            "KLIC",
+            "LPTH",
+            "POET"
+          ],
+          "net": -0.039846,
+          "ic": 0.617582
+        },
+        {
+          "signal_week_end": "2022-07-01",
+          "hold_week_end": "2022-07-08",
+          "train_max_week": 190,
+          "week": 191,
+          "top": [
+            "ACMR",
+            "AXTI",
+            "COHU",
+            "ICHR",
+            "LPTH"
+          ],
+          "net": 0.053674,
+          "ic": -0.059341
+        },
+        {
+          "signal_week_end": "2022-07-08",
+          "hold_week_end": "2022-07-15",
+          "train_max_week": 191,
+          "week": 192,
+          "top": [
+            "AXTI",
+            "COHU",
+            "FORM",
+            "POET",
+            "UCTT"
+          ],
+          "net": 0.030127,
+          "ic": -0.16044
+        },
+        {
+          "signal_week_end": "2022-07-15",
+          "hold_week_end": "2022-07-22",
+          "train_max_week": 192,
+          "week": 193,
+          "top": [
+            "COHU",
+            "LASR",
+            "LPTH",
+            "POET",
+            "UCTT"
+          ],
+          "net": 0.095781,
+          "ic": -0.006593
+        },
+        {
+          "signal_week_end": "2022-07-22",
+          "hold_week_end": "2022-07-29",
+          "train_max_week": 193,
+          "week": 194,
+          "top": [
+            "COHU",
+            "FORM",
+            "KLIC",
+            "LASR",
+            "POET"
+          ],
+          "net": -0.067045,
+          "ic": -0.305495
+        },
+        {
+          "signal_week_end": "2022-07-29",
+          "hold_week_end": "2022-08-05",
+          "train_max_week": 194,
+          "week": 195,
+          "top": [
+            "ACMR",
+            "COHU",
+            "FORM",
+            "PLAB",
+            "VECO"
+          ],
+          "net": 0.019823,
+          "ic": -0.050549
+        },
+        {
+          "signal_week_end": "2022-08-05",
+          "hold_week_end": "2022-08-12",
+          "train_max_week": 195,
+          "week": 196,
+          "top": [
+            "COHU",
+            "FORM",
+            "LASR",
+            "UCTT",
+            "VECO"
+          ],
+          "net": -0.045771,
+          "ic": -0.542857
+        },
+        {
+          "signal_week_end": "2022-08-12",
+          "hold_week_end": "2022-08-19",
+          "train_max_week": 196,
+          "week": 197,
+          "top": [
+            "COHU",
+            "FORM",
+            "KLIC",
+            "LASR",
+            "POET"
+          ],
+          "net": -0.026878,
+          "ic": -0.09011
+        },
+        {
+          "signal_week_end": "2022-08-19",
+          "hold_week_end": "2022-08-26",
+          "train_max_week": 197,
+          "week": 198,
+          "top": [
+            "AMBA",
+            "COHU",
+            "FORM",
+            "KLIC",
+            "UCTT"
+          ],
+          "net": -0.01796,
+          "ic": -0.287912
+        },
+        {
+          "signal_week_end": "2022-08-26",
+          "hold_week_end": "2022-09-02",
+          "train_max_week": 198,
+          "week": 199,
+          "top": [
+            "AMBA",
+            "FORM",
+            "KLIC",
+            "UCTT",
+            "VECO"
+          ],
+          "net": -0.083735,
+          "ic": 0.041758
+        },
+        {
+          "signal_week_end": "2022-09-02",
+          "hold_week_end": "2022-09-09",
+          "train_max_week": 199,
+          "week": 200,
+          "top": [
+            "FORM",
+            "KLIC",
+            "LASR",
+            "PLAB",
+            "VECO"
+          ],
+          "net": -0.006489,
+          "ic": -0.454945
+        },
+        {
+          "signal_week_end": "2022-09-09",
+          "hold_week_end": "2022-09-16",
+          "train_max_week": 200,
+          "week": 201,
+          "top": [
+            "COHU",
+            "FORM",
+            "KLIC",
+            "PLAB",
+            "VECO"
+          ],
+          "net": -0.004135,
+          "ic": 0.767033
+        },
+        {
+          "signal_week_end": "2022-09-16",
+          "hold_week_end": "2022-09-23",
+          "train_max_week": 201,
+          "week": 202,
+          "top": [
+            "ACMR",
+            "COHU",
+            "FORM",
+            "UCTT",
+            "VECO"
+          ],
+          "net": 0.005058,
+          "ic": 0.534066
+        },
+        {
+          "signal_week_end": "2022-09-23",
+          "hold_week_end": "2022-09-30",
+          "train_max_week": 202,
+          "week": 203,
+          "top": [
+            "COHU",
+            "FORM",
+            "KLIC",
+            "POET",
+            "VECO"
+          ],
+          "net": -0.046105,
+          "ic": -0.345055
+        },
+        {
+          "signal_week_end": "2022-09-30",
+          "hold_week_end": "2022-10-07",
+          "train_max_week": 203,
+          "week": 204,
+          "top": [
+            "COHU",
+            "FORM",
+            "LASR",
+            "UCTT",
+            "VECO"
+          ],
+          "net": 0.028157,
+          "ic": 0.516484
+        },
+        {
+          "signal_week_end": "2022-10-07",
+          "hold_week_end": "2022-10-14",
+          "train_max_week": 204,
+          "week": 205,
+          "top": [
+            "COHU",
+            "FORM",
+            "ICHR",
+            "LASR",
+            "UCTT"
+          ],
+          "net": -0.066209,
+          "ic": 0.362637
+        },
+        {
+          "signal_week_end": "2022-10-14",
+          "hold_week_end": "2022-10-21",
+          "train_max_week": 205,
+          "week": 206,
+          "top": [
+            "AEHR",
+            "COHU",
+            "FORM",
+            "KLIC",
+            "LASR"
+          ],
+          "net": 0.102343,
+          "ic": 0.393407
+        },
+        {
+          "signal_week_end": "2022-10-21",
+          "hold_week_end": "2022-10-28",
+          "train_max_week": 206,
+          "week": 207,
+          "top": [
+            "AXTI",
+            "FORM",
+            "KLIC",
+            "UCTT",
+            "VECO"
+          ],
+          "net": -0.06773,
+          "ic": -0.173626
+        },
+        {
+          "signal_week_end": "2022-10-28",
+          "hold_week_end": "2022-11-04",
+          "train_max_week": 207,
+          "week": 208,
+          "top": [
+            "ACMR",
+            "AXTI",
+            "ICHR",
+            "KLIC",
+            "VECO"
+          ],
+          "net": 0.012265,
+          "ic": 0.318681
+        },
+        {
+          "signal_week_end": "2022-11-04",
+          "hold_week_end": "2022-11-11",
+          "train_max_week": 208,
+          "week": 209,
+          "top": [
+            "ACMR",
+            "AXTI",
+            "COHU",
+            "KLIC",
+            "UCTT"
+          ],
+          "net": 0.112867,
+          "ic": 0.068132
+        },
+        {
+          "signal_week_end": "2022-11-11",
+          "hold_week_end": "2022-11-18",
+          "train_max_week": 209,
+          "week": 210,
+          "top": [
+            "AXTI",
+            "COHU",
+            "KLIC",
+            "LPTH",
+            "UCTT"
+          ],
+          "net": 0.043444,
+          "ic": 0.23956
+        },
+        {
+          "signal_week_end": "2022-11-18",
+          "hold_week_end": "2022-11-25",
+          "train_max_week": 210,
+          "week": 211,
+          "top": [
+            "AXTI",
+            "COHU",
+            "KLIC",
+            "PLAB",
+            "VECO"
+          ],
+          "net": -0.026457,
+          "ic": 0.252747
+        },
+        {
+          "signal_week_end": "2022-11-25",
+          "hold_week_end": "2022-12-02",
+          "train_max_week": 211,
+          "week": 212,
+          "top": [
+            "FORM",
+            "ICHR",
+            "LASR",
+            "PLAB",
+            "VECO"
+          ],
+          "net": 0.005516,
+          "ic": 0.226374
+        },
+        {
+          "signal_week_end": "2022-12-02",
+          "hold_week_end": "2022-12-09",
+          "train_max_week": 212,
+          "week": 213,
+          "top": [
+            "AXTI",
+            "KLIC",
+            "LPTH",
+            "PLAB",
+            "VECO"
+          ],
+          "net": -0.004196,
+          "ic": -0.569231
+        },
+        {
+          "signal_week_end": "2022-12-09",
+          "hold_week_end": "2022-12-16",
+          "train_max_week": 213,
+          "week": 214,
+          "top": [
+            "ACMR",
+            "AXTI",
+            "ICHR",
+            "KLIC",
+            "VECO"
+          ],
+          "net": 0.006659,
+          "ic": 0.287912
+        },
+        {
+          "signal_week_end": "2022-12-16",
+          "hold_week_end": "2022-12-23",
+          "train_max_week": 214,
+          "week": 215,
+          "top": [
+            "AXTI",
+            "FORM",
+            "KLIC",
+            "LPTH",
+            "VECO"
+          ],
+          "net": -0.036705,
+          "ic": 0.059341
+        },
+        {
+          "signal_week_end": "2022-12-23",
+          "hold_week_end": "2022-12-30",
+          "train_max_week": 215,
+          "week": 216,
+          "top": [
+            "AEHR",
+            "AMBA",
+            "AXTI",
+            "FORM",
+            "VECO"
+          ],
+          "net": -0.003053,
+          "ic": -0.389011
+        },
+        {
+          "signal_week_end": "2022-12-30",
+          "hold_week_end": "2023-01-06",
+          "train_max_week": 216,
+          "week": 217,
+          "top": [
+            "AMBA",
+            "AXTI",
+            "FORM",
+            "POET",
+            "VECO"
+          ],
+          "net": 0.034762,
+          "ic": -0.261538
+        },
+        {
+          "signal_week_end": "2023-01-06",
+          "hold_week_end": "2023-01-13",
+          "train_max_week": 217,
+          "week": 218,
+          "top": [
+            "AXTI",
+            "KLIC",
+            "PLAB",
+            "POET",
+            "VECO"
+          ],
+          "net": 0.071335,
+          "ic": -0.054945
+        },
+        {
+          "signal_week_end": "2023-01-13",
+          "hold_week_end": "2023-01-20",
+          "train_max_week": 218,
+          "week": 219,
+          "top": [
+            "COHU",
+            "FORM",
+            "PLAB",
+            "UCTT",
+            "VECO"
+          ],
+          "net": -0.003226,
+          "ic": -0.665934
+        },
+        {
+          "signal_week_end": "2023-01-20",
+          "hold_week_end": "2023-01-27",
+          "train_max_week": 219,
+          "week": 220,
+          "top": [
+            "AXTI",
+            "COHU",
+            "PLAB",
+            "UCTT",
+            "VECO"
+          ],
+          "net": 0.001534,
+          "ic": -0.257143
+        },
+        {
+          "signal_week_end": "2023-01-27",
+          "hold_week_end": "2023-02-03",
+          "train_max_week": 220,
+          "week": 221,
+          "top": [
+            "AXTI",
+            "COHU",
+            "POET",
+            "UCTT",
+            "VECO"
+          ],
+          "net": 0.01434,
+          "ic": 0.49011
+        },
+        {
+          "signal_week_end": "2023-02-03",
+          "hold_week_end": "2023-02-10",
+          "train_max_week": 221,
+          "week": 222,
+          "top": [
+            "COHU",
+            "LASR",
+            "PLAB",
+            "POET",
+            "VECO"
+          ],
+          "net": -0.024278,
+          "ic": -0.358242
+        },
+        {
+          "signal_week_end": "2023-02-10",
+          "hold_week_end": "2023-02-17",
+          "train_max_week": 222,
+          "week": 223,
+          "top": [
+            "COHU",
+            "PLAB",
+            "POET",
+            "UCTT",
+            "VECO"
+          ],
+          "net": -0.02949,
+          "ic": -0.221978
+        },
+        {
+          "signal_week_end": "2023-02-17",
+          "hold_week_end": "2023-02-24",
+          "train_max_week": 223,
+          "week": 224,
+          "top": [
+            "COHU",
+            "KLIC",
+            "PLAB",
+            "POET",
+            "UCTT"
+          ],
+          "net": -0.001093,
+          "ic": 0.503297
+        },
+        {
+          "signal_week_end": "2023-02-24",
+          "hold_week_end": "2023-03-03",
+          "train_max_week": 224,
+          "week": 225,
+          "top": [
+            "AMBA",
+            "FORM",
+            "KLIC",
+            "LASR",
+            "VECO"
+          ],
+          "net": -0.029037,
+          "ic": 0.336264
+        },
+        {
+          "signal_week_end": "2023-03-03",
+          "hold_week_end": "2023-03-10",
+          "train_max_week": 225,
+          "week": 226,
+          "top": [
+            "AMBA",
+            "AXTI",
+            "COHU",
+            "UCTT",
+            "VECO"
+          ],
+          "net": -0.000157,
+          "ic": -0.081319
+        },
+        {
+          "signal_week_end": "2023-03-10",
+          "hold_week_end": "2023-03-17",
+          "train_max_week": 226,
+          "week": 227,
+          "top": [
+            "AMBA",
+            "AXTI",
+            "LPTH",
+            "UCTT",
+            "VECO"
+          ],
+          "net": -0.011989,
+          "ic": -0.178022
+        },
+        {
+          "signal_week_end": "2023-03-17",
+          "hold_week_end": "2023-03-24",
+          "train_max_week": 227,
+          "week": 228,
+          "top": [
+            "COHU",
+            "FORM",
+            "ICHR",
+            "KLIC",
+            "UCTT"
+          ],
+          "net": -0.018582,
+          "ic": 0.191209
+        },
+        {
+          "signal_week_end": "2023-03-24",
+          "hold_week_end": "2023-03-31",
+          "train_max_week": 228,
+          "week": 229,
+          "top": [
+            "AMBA",
+            "COHU",
+            "LASR",
+            "PLAB",
+            "UCTT"
+          ],
+          "net": -0.003928,
+          "ic": 0.30989
+        },
+        {
+          "signal_week_end": "2023-03-31",
+          "hold_week_end": "2023-04-06",
+          "train_max_week": 229,
+          "week": 230,
+          "top": [
+            "AMBA",
+            "COHU",
+            "ICHR",
+            "PLAB",
+            "VECO"
+          ],
+          "net": -0.059782,
+          "ic": -0.582418
+        },
+        {
+          "signal_week_end": "2023-04-06",
+          "hold_week_end": "2023-04-14",
+          "train_max_week": 230,
+          "week": 231,
+          "top": [
+            "FORM",
+            "KLIC",
+            "PLAB",
+            "UCTT",
+            "VECO"
+          ],
+          "net": -0.021739,
+          "ic": 0.098901
+        },
+        {
+          "signal_week_end": "2023-04-14",
+          "hold_week_end": "2023-04-21",
+          "train_max_week": 231,
+          "week": 232,
+          "top": [
+            "AXTI",
+            "COHU",
+            "FORM",
+            "LASR",
+            "VECO"
+          ],
+          "net": -0.066212,
+          "ic": -0.094505
+        },
+        {
+          "signal_week_end": "2023-04-21",
+          "hold_week_end": "2023-04-28",
+          "train_max_week": 232,
+          "week": 233,
+          "top": [
+            "AXTI",
+            "COHU",
+            "FORM",
+            "KLIC",
+            "VECO"
+          ],
+          "net": -0.03642,
+          "ic": -0.261538
+        },
+        {
+          "signal_week_end": "2023-04-28",
+          "hold_week_end": "2023-05-05",
+          "train_max_week": 233,
+          "week": 234,
+          "top": [
+            "AXTI",
+            "COHU",
+            "FORM",
+            "PLAB",
+            "VECO"
+          ],
+          "net": 0.034287,
+          "ic": -0.2
+        },
+        {
+          "signal_week_end": "2023-05-05",
+          "hold_week_end": "2023-05-12",
+          "train_max_week": 234,
+          "week": 235,
+          "top": [
+            "AMBA",
+            "COHU",
+            "ICHR",
+            "KLIC",
+            "VECO"
+          ],
+          "net": 0.016545,
+          "ic": 0.103297
+        },
+        {
+          "signal_week_end": "2023-05-12",
+          "hold_week_end": "2023-05-19",
+          "train_max_week": 235,
+          "week": 236,
+          "top": [
+            "ACMR",
+            "AMBA",
+            "COHU",
+            "FORM",
+            "POET"
+          ],
+          "net": 0.033569,
+          "ic": -0.454945
+        },
+        {
+          "signal_week_end": "2023-05-19",
+          "hold_week_end": "2023-05-26",
+          "train_max_week": 236,
+          "week": 237,
+          "top": [
+            "ACMR",
+            "AMBA",
+            "ICHR",
+            "KLIC",
+            "UCTT"
+          ],
+          "net": 0.08939,
+          "ic": 0.09011
+        },
+        {
+          "signal_week_end": "2023-05-26",
+          "hold_week_end": "2023-06-02",
+          "train_max_week": 237,
+          "week": 238,
+          "top": [
+            "AEHR",
+            "ICHR",
+            "KLIC",
+            "LPTH",
+            "POET"
+          ],
+          "net": 0.023269,
+          "ic": 0.389011
+        },
+        {
+          "signal_week_end": "2023-06-02",
+          "hold_week_end": "2023-06-09",
+          "train_max_week": 238,
+          "week": 239,
+          "top": [
+            "ACMR",
+            "AXTI",
+            "COHU",
+            "ICHR",
+            "KLIC"
+          ],
+          "net": 0.030022,
+          "ic": 0.178022
+        },
+        {
+          "signal_week_end": "2023-06-09",
+          "hold_week_end": "2023-06-16",
+          "train_max_week": 239,
+          "week": 240,
+          "top": [
+            "AMBA",
+            "FORM",
+            "LASR",
+            "LPTH",
+            "VECO"
+          ],
+          "net": -0.019754,
+          "ic": -0.182418
+        },
+        {
+          "signal_week_end": "2023-06-16",
+          "hold_week_end": "2023-06-23",
+          "train_max_week": 240,
+          "week": 241,
+          "top": [
+            "AMBA",
+            "COHU",
+            "FORM",
+            "ICHR",
+            "KLIC"
+          ],
+          "net": -0.022334,
+          "ic": -0.221978
+        },
+        {
+          "signal_week_end": "2023-06-23",
+          "hold_week_end": "2023-06-30",
+          "train_max_week": 241,
+          "week": 242,
+          "top": [
+            "AMBA",
+            "FORM",
+            "ICHR",
+            "UCTT",
+            "VECO"
+          ],
+          "net": 0.034365,
+          "ic": 0.397802
+        },
+        {
+          "signal_week_end": "2023-06-30",
+          "hold_week_end": "2023-07-07",
+          "train_max_week": 242,
+          "week": 243,
+          "top": [
+            "AXTI",
+            "COHU",
+            "ICHR",
+            "LPTH",
+            "VECO"
+          ],
+          "net": -0.027113,
+          "ic": -0.30989
+        },
+        {
+          "signal_week_end": "2023-07-07",
+          "hold_week_end": "2023-07-14",
+          "train_max_week": 243,
+          "week": 244,
+          "top": [
+            "AMBA",
+            "AXTI",
+            "COHU",
+            "FORM",
+            "POET"
+          ],
+          "net": -0.009777,
+          "ic": -0.191209
+        },
+        {
+          "signal_week_end": "2023-07-14",
+          "hold_week_end": "2023-07-21",
+          "train_max_week": 244,
+          "week": 245,
+          "top": [
+            "AMBA",
+            "COHU",
+            "KLIC",
+            "POET",
+            "UCTT"
+          ],
+          "net": -0.04992,
+          "ic": -0.327473
+        },
+        {
+          "signal_week_end": "2023-07-21",
+          "hold_week_end": "2023-07-28",
+          "train_max_week": 245,
+          "week": 246,
+          "top": [
+            "AMBA",
+            "COHU",
+            "FORM",
+            "KLIC",
+            "POET"
+          ],
+          "net": 0.029798,
+          "ic": 0.362637
+        },
+        {
+          "signal_week_end": "2023-07-28",
+          "hold_week_end": "2023-08-04",
+          "train_max_week": 246,
+          "week": 247,
+          "top": [
+            "AXTI",
+            "COHU",
+            "KLIC",
+            "LASR",
+            "UCTT"
+          ],
+          "net": -0.058521,
+          "ic": -0.235165
+        },
+        {
+          "signal_week_end": "2023-08-04",
+          "hold_week_end": "2023-08-11",
+          "train_max_week": 247,
+          "week": 248,
+          "top": [
+            "KLIC",
+            "LASR",
+            "PLAB",
+            "POET",
+            "VECO"
+          ],
+          "net": -0.036248,
+          "ic": -0.103297
+        },
+        {
+          "signal_week_end": "2023-08-11",
+          "hold_week_end": "2023-08-18",
+          "train_max_week": 248,
+          "week": 249,
+          "top": [
+            "ACMR",
+            "AXTI",
+            "KLIC",
+            "LASR",
+            "POET"
+          ],
+          "net": -0.017397,
+          "ic": -0.169231
+        },
+        {
+          "signal_week_end": "2023-08-18",
+          "hold_week_end": "2023-08-25",
+          "train_max_week": 249,
+          "week": 250,
+          "top": [
+            "AXTI",
+            "COHU",
+            "ICHR",
+            "KLIC",
+            "UCTT"
+          ],
+          "net": -0.008043,
+          "ic": -0.323077
+        },
+        {
+          "signal_week_end": "2023-08-25",
+          "hold_week_end": "2023-09-01",
+          "train_max_week": 250,
+          "week": 251,
+          "top": [
+            "AXTI",
+            "COHU",
+            "KLIC",
+            "POET",
+            "UCTT"
+          ],
+          "net": 0.040881,
+          "ic": -0.406593
+        },
+        {
+          "signal_week_end": "2023-09-01",
+          "hold_week_end": "2023-09-08",
+          "train_max_week": 251,
+          "week": 252,
+          "top": [
+            "AMBA",
+            "COHU",
+            "KLIC",
+            "LASR",
+            "VECO"
+          ],
+          "net": -0.033115,
+          "ic": -0.041758
+        },
+        {
+          "signal_week_end": "2023-09-08",
+          "hold_week_end": "2023-09-15",
+          "train_max_week": 252,
+          "week": 253,
+          "top": [
+            "COHU",
+            "KLIC",
+            "LASR",
+            "PLAB",
+            "VECO"
+          ],
+          "net": -0.029208,
+          "ic": 0.301099
+        },
+        {
+          "signal_week_end": "2023-09-15",
+          "hold_week_end": "2023-09-22",
+          "train_max_week": 253,
+          "week": 254,
+          "top": [
+            "AMBA",
+            "COHU",
+            "FORM",
+            "ICHR",
+            "LPTH"
+          ],
+          "net": -0.016824,
+          "ic": 0.059341
+        },
+        {
+          "signal_week_end": "2023-09-22",
+          "hold_week_end": "2023-09-29",
+          "train_max_week": 254,
+          "week": 255,
+          "top": [
+            "AMBA",
+            "COHU",
+            "KLIC",
+            "LPTH",
+            "VECO"
+          ],
+          "net": 0.012485,
+          "ic": -0.323077
+        },
+        {
+          "signal_week_end": "2023-09-29",
+          "hold_week_end": "2023-10-06",
+          "train_max_week": 255,
+          "week": 256,
+          "top": [
+            "AMBA",
+            "COHU",
+            "KLIC",
+            "LASR",
+            "POET"
+          ],
+          "net": 0.000824,
+          "ic": -0.428571
+        },
+        {
+          "signal_week_end": "2023-10-06",
+          "hold_week_end": "2023-10-13",
+          "train_max_week": 256,
+          "week": 257,
+          "top": [
+            "AXTI",
+            "COHU",
+            "ICHR",
+            "KLIC",
+            "LASR"
+          ],
+          "net": -0.032042,
+          "ic": -0.578022
+        },
+        {
+          "signal_week_end": "2023-10-13",
+          "hold_week_end": "2023-10-20",
+          "train_max_week": 257,
+          "week": 258,
+          "top": [
+            "COHU",
+            "FORM",
+            "ICHR",
+            "LASR",
+            "PLAB"
+          ],
+          "net": -0.041612,
+          "ic": 0.094505
+        },
+        {
+          "signal_week_end": "2023-10-20",
+          "hold_week_end": "2023-10-27",
+          "train_max_week": 258,
+          "week": 259,
+          "top": [
+            "AEHR",
+            "AXTI",
+            "COHU",
+            "KLIC",
+            "LPTH"
+          ],
+          "net": -0.018486,
+          "ic": 0.261538
+        },
+        {
+          "signal_week_end": "2023-10-27",
+          "hold_week_end": "2023-11-03",
+          "train_max_week": 259,
+          "week": 260,
+          "top": [
+            "ACMR",
+            "AXTI",
+            "KLIC",
+            "PLAB",
+            "VECO"
+          ],
+          "net": -0.011448,
+          "ic": 0.41978
+        },
+        {
+          "signal_week_end": "2023-11-03",
+          "hold_week_end": "2023-11-10",
+          "train_max_week": 260,
+          "week": 261,
+          "top": [
+            "AEHR",
+            "LASR",
+            "PLAB",
+            "POET",
+            "UCTT"
+          ],
+          "net": 0.02384,
+          "ic": -0.050549
+        },
+        {
+          "signal_week_end": "2023-11-10",
+          "hold_week_end": "2023-11-17",
+          "train_max_week": 261,
+          "week": 262,
+          "top": [
+            "FORM",
+            "LASR",
+            "POET",
+            "UCTT",
+            "VECO"
+          ],
+          "net": -0.04142,
+          "ic": -0.582418
+        },
+        {
+          "signal_week_end": "2023-11-17",
+          "hold_week_end": "2023-11-24",
+          "train_max_week": 262,
+          "week": 263,
+          "top": [
+            "COHU",
+            "KLIC",
+            "LASR",
+            "PLAB",
+            "POET"
+          ],
+          "net": -0.003496,
+          "ic": 0.098901
+        },
+        {
+          "signal_week_end": "2023-11-24",
+          "hold_week_end": "2023-12-01",
+          "train_max_week": 263,
+          "week": 264,
+          "top": [
+            "AEHR",
+            "AMBA",
+            "COHU",
+            "KLIC",
+            "VECO"
+          ],
+          "net": -0.032374,
+          "ic": 0.257143
+        },
+        {
+          "signal_week_end": "2023-12-01",
+          "hold_week_end": "2023-12-08",
+          "train_max_week": 264,
+          "week": 265,
+          "top": [
+            "ACMR",
+            "AEHR",
+            "FORM",
+            "LPTH",
+            "POET"
+          ],
+          "net": -0.009175,
+          "ic": -0.204396
+        },
+        {
+          "signal_week_end": "2023-12-08",
+          "hold_week_end": "2023-12-15",
+          "train_max_week": 265,
+          "week": 266,
+          "top": [
+            "AMBA",
+            "FORM",
+            "KLIC",
+            "POET",
+            "VECO"
+          ],
+          "net": -0.04641,
+          "ic": 0.068132
+        },
+        {
+          "signal_week_end": "2023-12-15",
+          "hold_week_end": "2023-12-22",
+          "train_max_week": 266,
+          "week": 267,
+          "top": [
+            "AMBA",
+            "LASR",
+            "LPTH",
+            "POET",
+            "UCTT"
+          ],
+          "net": 0.00723,
+          "ic": 0.151648
+        },
+        {
+          "signal_week_end": "2023-12-22",
+          "hold_week_end": "2023-12-29",
+          "train_max_week": 267,
+          "week": 268,
+          "top": [
+            "AXTI",
+            "COHU",
+            "FORM",
+            "KLIC",
+            "VECO"
+          ],
+          "net": -0.022323,
+          "ic": -0.49011
+        },
+        {
+          "signal_week_end": "2023-12-29",
+          "hold_week_end": "2024-01-05",
+          "train_max_week": 268,
+          "week": 269,
+          "top": [
+            "AEHR",
+            "AMBA",
+            "AXTI",
+            "ICHR",
+            "LPTH"
+          ],
+          "net": -0.029978,
+          "ic": 0.142857
+        },
+        {
+          "signal_week_end": "2024-01-05",
+          "hold_week_end": "2024-01-12",
+          "train_max_week": 269,
+          "week": 270,
+          "top": [
+            "ACMR",
+            "AEHR",
+            "AMBA",
+            "ICHR",
+            "UCTT"
+          ],
+          "net": 0.021269,
+          "ic": -0.283516
+        },
+        {
+          "signal_week_end": "2024-01-12",
+          "hold_week_end": "2024-01-19",
+          "train_max_week": 270,
+          "week": 271,
+          "top": [
+            "AEHR",
+            "COHU",
+            "FORM",
+            "ICHR",
+            "LPTH"
+          ],
+          "net": 0.045951,
+          "ic": 0.393407
+        },
+        {
+          "signal_week_end": "2024-01-19",
+          "hold_week_end": "2024-01-26",
+          "train_max_week": 271,
+          "week": 272,
+          "top": [
+            "ICHR",
+            "LPTH",
+            "PLAB",
+            "POET",
+            "UCTT"
+          ],
+          "net": 0.01986,
+          "ic": 0.525275
+        },
+        {
+          "signal_week_end": "2024-01-26",
+          "hold_week_end": "2024-02-02",
+          "train_max_week": 272,
+          "week": 273,
+          "top": [
+            "AEHR",
+            "AXTI",
+            "ICHR",
+            "LPTH",
+            "UCTT"
+          ],
+          "net": 0.037384,
+          "ic": 0.331868
+        },
+        {
+          "signal_week_end": "2024-02-02",
+          "hold_week_end": "2024-02-09",
+          "train_max_week": 273,
+          "week": 274,
+          "top": [
+            "AEHR",
+            "AMBA",
+            "COHU",
+            "ICHR",
+            "UCTT"
+          ],
+          "net": 0.06811,
+          "ic": 0.428571
+        },
+        {
+          "signal_week_end": "2024-02-09",
+          "hold_week_end": "2024-02-16",
+          "train_max_week": 274,
+          "week": 275,
+          "top": [
+            "ICHR",
+            "KLIC",
+            "LASR",
+            "LPTH",
+            "UCTT"
+          ],
+          "net": -0.005217,
+          "ic": -0.248352
+        },
+        {
+          "signal_week_end": "2024-02-16",
+          "hold_week_end": "2024-02-23",
+          "train_max_week": 275,
+          "week": 276,
+          "top": [
+            "AMBA",
+            "COHU",
+            "FORM",
+            "LPTH",
+            "VECO"
+          ],
+          "net": -0.016182,
+          "ic": 0.024176
+        },
+        {
+          "signal_week_end": "2024-02-23",
+          "hold_week_end": "2024-03-01",
+          "train_max_week": 276,
+          "week": 277,
+          "top": [
+            "AEHR",
+            "FORM",
+            "ICHR",
+            "LASR",
+            "LPTH"
+          ],
+          "net": 0.014299,
+          "ic": 0.252747
+        },
+        {
+          "signal_week_end": "2024-03-01",
+          "hold_week_end": "2024-03-08",
+          "train_max_week": 277,
+          "week": 278,
+          "top": [
+            "AEHR",
+            "AMBA",
+            "COHU",
+            "KLIC",
+            "LPTH"
+          ],
+          "net": -0.03656,
+          "ic": 0.032967
+        },
+        {
+          "signal_week_end": "2024-03-08",
+          "hold_week_end": "2024-03-15",
+          "train_max_week": 278,
+          "week": 279,
+          "top": [
+            "AEHR",
+            "COHU",
+            "FORM",
+            "PLAB",
+            "UCTT"
+          ],
+          "net": -0.044255,
+          "ic": -0.063736
+        },
+        {
+          "signal_week_end": "2024-03-15",
+          "hold_week_end": "2024-03-22",
+          "train_max_week": 279,
+          "week": 280,
+          "top": [
+            "AEHR",
+            "COHU",
+            "FORM",
+            "KLIC",
+            "UCTT"
+          ],
+          "net": 0.003388,
+          "ic": 0.01978
+        },
+        {
+          "signal_week_end": "2024-03-22",
+          "hold_week_end": "2024-03-28",
+          "train_max_week": 280,
+          "week": 281,
+          "top": [
+            "AMBA",
+            "AXTI",
+            "FORM",
+            "ICHR",
+            "POET"
+          ],
+          "net": -0.032346,
+          "ic": 0.384615
+        },
+        {
+          "signal_week_end": "2024-03-28",
+          "hold_week_end": "2024-04-05",
+          "train_max_week": 281,
+          "week": 282,
+          "top": [
+            "AEHR",
+            "KLIC",
+            "LPTH",
+            "UCTT",
+            "VECO"
+          ],
+          "net": 0.00286,
+          "ic": 0.16044
+        },
+        {
+          "signal_week_end": "2024-04-05",
+          "hold_week_end": "2024-04-12",
+          "train_max_week": 282,
+          "week": 283,
+          "top": [
+            "AEHR",
+            "AXTI",
+            "COHU",
+            "FORM",
+            "KLIC"
+          ],
+          "net": 0.03189,
+          "ic": 0.323077
+        },
+        {
+          "signal_week_end": "2024-04-12",
+          "hold_week_end": "2024-04-19",
+          "train_max_week": 283,
+          "week": 284,
+          "top": [
+            "ACMR",
+            "FORM",
+            "KLIC",
+            "LPTH",
+            "VECO"
+          ],
+          "net": -0.06513,
+          "ic": 0.107692
+        },
+        {
+          "signal_week_end": "2024-04-19",
+          "hold_week_end": "2024-04-26",
+          "train_max_week": 284,
+          "week": 285,
+          "top": [
+            "AXTI",
+            "COHU",
+            "FORM",
+            "KLIC",
+            "PLAB"
+          ],
+          "net": 0.046801,
+          "ic": -0.076923
+        },
+        {
+          "signal_week_end": "2024-04-26",
+          "hold_week_end": "2024-05-03",
+          "train_max_week": 285,
+          "week": 286,
+          "top": [
+            "AMBA",
+            "AXTI",
+            "KLIC",
+            "LASR",
+            "UCTT"
+          ],
+          "net": 0.052469,
+          "ic": 0.358242
+        },
+        {
+          "signal_week_end": "2024-05-03",
+          "hold_week_end": "2024-05-10",
+          "train_max_week": 286,
+          "week": 287,
+          "top": [
+            "ACMR",
+            "COHU",
+            "ICHR",
+            "KLIC",
+            "UCTT"
+          ],
+          "net": -0.037086,
+          "ic": 0.094505
+        },
+        {
+          "signal_week_end": "2024-05-10",
+          "hold_week_end": "2024-05-17",
+          "train_max_week": 287,
+          "week": 288,
+          "top": [
+            "AEHR",
+            "AMBA",
+            "FORM",
+            "LASR",
+            "VECO"
+          ],
+          "net": -0.011119,
+          "ic": 0.23956
+        },
+        {
+          "signal_week_end": "2024-05-17",
+          "hold_week_end": "2024-05-24",
+          "train_max_week": 288,
+          "week": 289,
+          "top": [
+            "ICHR",
+            "KLIC",
+            "LASR",
+            "LPTH",
+            "PLAB"
+          ],
+          "net": -0.028187,
+          "ic": -0.261538
+        },
+        {
+          "signal_week_end": "2024-05-24",
+          "hold_week_end": "2024-05-31",
+          "train_max_week": 289,
+          "week": 290,
+          "top": [
+            "ACMR",
+            "LPTH",
+            "PLAB",
+            "POET",
+            "VECO"
+          ],
+          "net": -0.011021,
+          "ic": -0.16044
+        },
+        {
+          "signal_week_end": "2024-05-31",
+          "hold_week_end": "2024-06-07",
+          "train_max_week": 290,
+          "week": 291,
+          "top": [
+            "ACMR",
+            "ICHR",
+            "KLIC",
+            "PLAB",
+            "POET"
+          ],
+          "net": -0.000728,
+          "ic": 0.191209
+        },
+        {
+          "signal_week_end": "2024-06-07",
+          "hold_week_end": "2024-06-14",
+          "train_max_week": 291,
+          "week": 292,
+          "top": [
+            "AEHR",
+            "AXTI",
+            "LASR",
+            "LPTH",
+            "PLAB"
+          ],
+          "net": -0.007377,
+          "ic": -0.085714
+        },
+        {
+          "signal_week_end": "2024-06-14",
+          "hold_week_end": "2024-06-21",
+          "train_max_week": 292,
+          "week": 293,
+          "top": [
+            "AEHR",
+            "AMBA",
+            "LASR",
+            "LPTH",
+            "PLAB"
+          ],
+          "net": -0.04492,
+          "ic": -0.134066
+        },
+        {
+          "signal_week_end": "2024-06-21",
+          "hold_week_end": "2024-06-28",
+          "train_max_week": 293,
+          "week": 294,
+          "top": [
+            "ACMR",
+            "AEHR",
+            "AMBA",
+            "LASR",
+            "LPTH"
+          ],
+          "net": -0.022708,
+          "ic": -0.367033
+        },
+        {
+          "signal_week_end": "2024-06-28",
+          "hold_week_end": "2024-07-05",
+          "train_max_week": 294,
+          "week": 295,
+          "top": [
+            "AMBA",
+            "AXTI",
+            "FORM",
+            "LASR",
+            "PLAB"
+          ],
+          "net": 0.023353,
+          "ic": -0.221978
+        },
+        {
+          "signal_week_end": "2024-07-05",
+          "hold_week_end": "2024-07-12",
+          "train_max_week": 295,
+          "week": 296,
+          "top": [
+            "AEHR",
+            "COHU",
+            "KLIC",
+            "LASR",
+            "UCTT"
+          ],
+          "net": 0.056546,
+          "ic": 0.837363
+        },
+        {
+          "signal_week_end": "2024-07-12",
+          "hold_week_end": "2024-07-19",
+          "train_max_week": 296,
+          "week": 297,
+          "top": [
+            "AEHR",
+            "FORM",
+            "ICHR",
+            "LPTH",
+            "VECO"
+          ],
+          "net": -0.054258,
+          "ic": 0.050549
+        },
+        {
+          "signal_week_end": "2024-07-19",
+          "hold_week_end": "2024-07-26",
+          "train_max_week": 297,
+          "week": 298,
+          "top": [
+            "ACMR",
+            "COHU",
+            "FORM",
+            "ICHR",
+            "KLIC"
+          ],
+          "net": -0.087535,
+          "ic": -0.037363
+        },
+        {
+          "signal_week_end": "2024-07-26",
+          "hold_week_end": "2024-08-02",
+          "train_max_week": 298,
+          "week": 299,
+          "top": [
+            "ACMR",
+            "COHU",
+            "FORM",
+            "ICHR",
+            "LPTH"
+          ],
+          "net": -0.076442,
+          "ic": -0.09011
+        },
+        {
+          "signal_week_end": "2024-08-02",
+          "hold_week_end": "2024-08-09",
+          "train_max_week": 299,
+          "week": 300,
+          "top": [
+            "ACMR",
+            "FORM",
+            "LASR",
+            "LPTH",
+            "UCTT"
+          ],
+          "net": 0.062644,
+          "ic": 0.718681
+        },
+        {
+          "signal_week_end": "2024-08-09",
+          "hold_week_end": "2024-08-16",
+          "train_max_week": 300,
+          "week": 301,
+          "top": [
+            "AEHR",
+            "AXTI",
+            "COHU",
+            "KLIC",
+            "VECO"
+          ],
+          "net": 0.04728,
+          "ic": -0.151648
+        },
+        {
+          "signal_week_end": "2024-08-16",
+          "hold_week_end": "2024-08-23",
+          "train_max_week": 301,
+          "week": 302,
+          "top": [
+            "COHU",
+            "LASR",
+            "PLAB",
+            "UCTT",
+            "VECO"
+          ],
+          "net": -0.034946,
+          "ic": -0.16044
+        },
+        {
+          "signal_week_end": "2024-08-23",
+          "hold_week_end": "2024-08-30",
+          "train_max_week": 302,
+          "week": 303,
+          "top": [
+            "ACMR",
+            "KLIC",
+            "LASR",
+            "UCTT",
+            "VECO"
+          ],
+          "net": -0.031787,
+          "ic": 0.226374
+        },
+        {
+          "signal_week_end": "2024-08-30",
+          "hold_week_end": "2024-09-06",
+          "train_max_week": 303,
+          "week": 304,
+          "top": [
+            "AXTI",
+            "COHU",
+            "LASR",
+            "PLAB",
+            "VECO"
+          ],
+          "net": -0.085625,
+          "ic": -0.041758
+        },
+        {
+          "signal_week_end": "2024-09-06",
+          "hold_week_end": "2024-09-13",
+          "train_max_week": 304,
+          "week": 305,
+          "top": [
+            "ACMR",
+            "ICHR",
+            "KLIC",
+            "LASR",
+            "VECO"
+          ],
+          "net": 0.003811,
+          "ic": 0.257143
+        },
+        {
+          "signal_week_end": "2024-09-13",
+          "hold_week_end": "2024-09-20",
+          "train_max_week": 305,
+          "week": 306,
+          "top": [
+            "AEHR",
+            "AXTI",
+            "FORM",
+            "LPTH",
+            "UCTT"
+          ],
+          "net": -0.052363,
+          "ic": -0.182418
+        },
+        {
+          "signal_week_end": "2024-09-20",
+          "hold_week_end": "2024-09-27",
+          "train_max_week": 306,
+          "week": 307,
+          "top": [
+            "AEHR",
+            "AXTI",
+            "ICHR",
+            "KLIC",
+            "VECO"
+          ],
+          "net": 0.110462,
+          "ic": 0.120879
+        },
+        {
+          "signal_week_end": "2024-09-27",
+          "hold_week_end": "2024-10-04",
+          "train_max_week": 307,
+          "week": 308,
+          "top": [
+            "AEHR",
+            "AMBA",
+            "FORM",
+            "LASR",
+            "VECO"
+          ],
+          "net": -0.019525,
+          "ic": -0.191209
+        },
+        {
+          "signal_week_end": "2024-10-04",
+          "hold_week_end": "2024-10-11",
+          "train_max_week": 308,
+          "week": 309,
+          "top": [
+            "ACMR",
+            "AEHR",
+            "COHU",
+            "LPTH",
+            "VECO"
+          ],
+          "net": 0.052349,
+          "ic": 0.345055
+        },
+        {
+          "signal_week_end": "2024-10-11",
+          "hold_week_end": "2024-10-18",
+          "train_max_week": 309,
+          "week": 310,
+          "top": [
+            "AMBA",
+            "ICHR",
+            "LPTH",
+            "PLAB",
+            "POET"
+          ],
+          "net": -0.026541,
+          "ic": 0.226374
+        },
+        {
+          "signal_week_end": "2024-10-18",
+          "hold_week_end": "2024-10-25",
+          "train_max_week": 310,
+          "week": 311,
+          "top": [
+            "ACMR",
+            "FORM",
+            "LPTH",
+            "UCTT",
+            "VECO"
+          ],
+          "net": 0.011901,
+          "ic": -0.195604
+        },
+        {
+          "signal_week_end": "2024-10-25",
+          "hold_week_end": "2024-11-01",
+          "train_max_week": 311,
+          "week": 312,
+          "top": [
+            "AMBA",
+            "LASR",
+            "LPTH",
+            "POET",
+            "VECO"
+          ],
+          "net": 0.005983,
+          "ic": 0.498901
+        },
+        {
+          "signal_week_end": "2024-11-01",
+          "hold_week_end": "2024-11-08",
+          "train_max_week": 312,
+          "week": 313,
+          "top": [
+            "ACMR",
+            "AXTI",
+            "KLIC",
+            "POET",
+            "VECO"
+          ],
+          "net": -0.064703,
+          "ic": -0.402198
+        },
+        {
+          "signal_week_end": "2024-11-08",
+          "hold_week_end": "2024-11-15",
+          "train_max_week": 313,
+          "week": 314,
+          "top": [
+            "AMBA",
+            "COHU",
+            "LASR",
+            "LPTH",
+            "VECO"
+          ],
+          "net": -0.05591,
+          "ic": 0.257143
+        },
+        {
+          "signal_week_end": "2024-11-15",
+          "hold_week_end": "2024-11-22",
+          "train_max_week": 314,
+          "week": 315,
+          "top": [
+            "AMBA",
+            "COHU",
+            "KLIC",
+            "PLAB",
+            "VECO"
+          ],
+          "net": 0.016521,
+          "ic": -0.314286
+        },
+        {
+          "signal_week_end": "2024-11-22",
+          "hold_week_end": "2024-11-29",
+          "train_max_week": 315,
+          "week": 316,
+          "top": [
+            "ACMR",
+            "AMBA",
+            "LPTH",
+            "POET",
+            "UCTT"
+          ],
+          "net": 0.081618,
+          "ic": 0.643956
+        },
+        {
+          "signal_week_end": "2024-11-29",
+          "hold_week_end": "2024-12-06",
+          "train_max_week": 316,
+          "week": 317,
+          "top": [
+            "ACMR",
+            "AEHR",
+            "COHU",
+            "LASR",
+            "VECO"
+          ],
+          "net": -0.026552,
+          "ic": -0.015385
+        },
+        {
+          "signal_week_end": "2024-12-06",
+          "hold_week_end": "2024-12-13",
+          "train_max_week": 317,
+          "week": 318,
+          "top": [
+            "ACMR",
+            "COHU",
+            "FORM",
+            "LASR",
+            "LPTH"
+          ],
+          "net": 0.077406,
+          "ic": 0.485714
+        },
+        {
+          "signal_week_end": "2024-12-13",
+          "hold_week_end": "2024-12-20",
+          "train_max_week": 318,
+          "week": 319,
+          "top": [
+            "ACMR",
+            "COHU",
+            "PLAB",
+            "UCTT",
+            "VECO"
+          ],
+          "net": -0.023504,
+          "ic": -0.345055
+        },
+        {
+          "signal_week_end": "2024-12-20",
+          "hold_week_end": "2024-12-27",
+          "train_max_week": 319,
+          "week": 320,
+          "top": [
+            "ACMR",
+            "AMBA",
+            "COHU",
+            "FORM",
+            "KLIC"
+          ],
+          "net": 0.029938,
+          "ic": -0.810989
+        },
+        {
+          "signal_week_end": "2024-12-27",
+          "hold_week_end": "2025-01-03",
+          "train_max_week": 320,
+          "week": 321,
+          "top": [
+            "ACMR",
+            "AMBA",
+            "AXTI",
+            "KLIC",
+            "UCTT"
+          ],
+          "net": 0.002711,
+          "ic": -0.063736
+        },
+        {
+          "signal_week_end": "2025-01-03",
+          "hold_week_end": "2025-01-10",
+          "train_max_week": 321,
+          "week": 322,
+          "top": [
+            "ACMR",
+            "AMBA",
+            "AXTI",
+            "ICHR",
+            "KLIC"
+          ],
+          "net": 0.005269,
+          "ic": 0.367033
+        },
+        {
+          "signal_week_end": "2025-01-10",
+          "hold_week_end": "2025-01-17",
+          "train_max_week": 322,
+          "week": 323,
+          "top": [
+            "AMBA",
+            "AXTI",
+            "COHU",
+            "ICHR",
+            "POET"
+          ],
+          "net": -0.038679,
+          "ic": 0.068132
+        },
+        {
+          "signal_week_end": "2025-01-17",
+          "hold_week_end": "2025-01-24",
+          "train_max_week": 323,
+          "week": 324,
+          "top": [
+            "AEHR",
+            "AMBA",
+            "FORM",
+            "KLIC",
+            "UCTT"
+          ],
+          "net": -0.05543,
+          "ic": -0.191209
+        },
+        {
+          "signal_week_end": "2025-01-24",
+          "hold_week_end": "2025-01-31",
+          "train_max_week": 324,
+          "week": 325,
+          "top": [
+            "AEHR",
+            "AMBA",
+            "AXTI",
+            "POET",
+            "UCTT"
+          ],
+          "net": -0.058782,
+          "ic": -0.213187
+        },
+        {
+          "signal_week_end": "2025-01-31",
+          "hold_week_end": "2025-02-07",
+          "train_max_week": 325,
+          "week": 326,
+          "top": [
+            "AEHR",
+            "LASR",
+            "LPTH",
+            "POET",
+            "UCTT"
+          ],
+          "net": -0.001139,
+          "ic": 0.006593
+        },
+        {
+          "signal_week_end": "2025-02-07",
+          "hold_week_end": "2025-02-14",
+          "train_max_week": 326,
+          "week": 327,
+          "top": [
+            "AEHR",
+            "COHU",
+            "KLIC",
+            "UCTT",
+            "VECO"
+          ],
+          "net": -0.017629,
+          "ic": -0.059341
+        },
+        {
+          "signal_week_end": "2025-02-14",
+          "hold_week_end": "2025-02-21",
+          "train_max_week": 327,
+          "week": 328,
+          "top": [
+            "AEHR",
+            "COHU",
+            "FORM",
+            "KLIC",
+            "LPTH"
+          ],
+          "net": 0.01761,
+          "ic": -0.138462
+        },
+        {
+          "signal_week_end": "2025-02-21",
+          "hold_week_end": "2025-02-28",
+          "train_max_week": 328,
+          "week": 329,
+          "top": [
+            "AMBA",
+            "AXTI",
+            "LASR",
+            "LPTH",
+            "POET"
+          ],
+          "net": -0.089068,
+          "ic": 0.006593
+        },
+        {
+          "signal_week_end": "2025-02-28",
+          "hold_week_end": "2025-03-07",
+          "train_max_week": 329,
+          "week": 330,
+          "top": [
+            "COHU",
+            "KLIC",
+            "LASR",
+            "LPTH",
+            "UCTT"
+          ],
+          "net": 0.005296,
+          "ic": -0.261538
+        },
+        {
+          "signal_week_end": "2025-03-07",
+          "hold_week_end": "2025-03-14",
+          "train_max_week": 330,
+          "week": 331,
+          "top": [
+            "AMBA",
+            "LPTH",
+            "PLAB",
+            "POET",
+            "VECO"
+          ],
+          "net": 0.017266,
+          "ic": -0.217582
+        },
+        {
+          "signal_week_end": "2025-03-14",
+          "hold_week_end": "2025-03-21",
+          "train_max_week": 331,
+          "week": 332,
+          "top": [
+            "ACMR",
+            "COHU",
+            "FORM",
+            "KLIC",
+            "VECO"
+          ],
+          "net": -0.052818,
+          "ic": -0.068132
+        },
+        {
+          "signal_week_end": "2025-03-21",
+          "hold_week_end": "2025-03-28",
+          "train_max_week": 332,
+          "week": 333,
+          "top": [
+            "ACMR",
+            "KLIC",
+            "PLAB",
+            "POET",
+            "VECO"
+          ],
+          "net": -0.04067,
+          "ic": 0.397802
+        },
+        {
+          "signal_week_end": "2025-03-28",
+          "hold_week_end": "2025-04-04",
+          "train_max_week": 333,
+          "week": 334,
+          "top": [
+            "FORM",
+            "ICHR",
+            "KLIC",
+            "PLAB",
+            "UCTT"
+          ],
+          "net": -0.079295,
+          "ic": -0.441758
+        },
+        {
+          "signal_week_end": "2025-04-04",
+          "hold_week_end": "2025-04-11",
+          "train_max_week": 334,
+          "week": 335,
+          "top": [
+            "ACMR",
+            "AMBA",
+            "FORM",
+            "ICHR",
+            "PLAB"
+          ],
+          "net": -0.001757,
+          "ic": -0.23956
+        },
+        {
+          "signal_week_end": "2025-04-11",
+          "hold_week_end": "2025-04-17",
+          "train_max_week": 335,
+          "week": 336,
+          "top": [
+            "ACMR",
+            "AXTI",
+            "COHU",
+            "PLAB",
+            "VECO"
+          ],
+          "net": -0.033924,
+          "ic": 0.432967
+        },
+        {
+          "signal_week_end": "2025-04-17",
+          "hold_week_end": "2025-04-25",
+          "train_max_week": 336,
+          "week": 337,
+          "top": [
+            "ACMR",
+            "AXTI",
+            "COHU",
+            "PLAB",
+            "POET"
+          ],
+          "net": 0.082897,
+          "ic": -0.006593
+        },
+        {
+          "signal_week_end": "2025-04-25",
+          "hold_week_end": "2025-05-02",
+          "train_max_week": 337,
+          "week": 338,
+          "top": [
+            "ACMR",
+            "AMBA",
+            "COHU",
+            "PLAB",
+            "VECO"
+          ],
+          "net": -0.032143,
+          "ic": 0.107692
+        },
+        {
+          "signal_week_end": "2025-05-02",
+          "hold_week_end": "2025-05-09",
+          "train_max_week": 338,
+          "week": 339,
+          "top": [
+            "ACMR",
+            "FORM",
+            "PLAB",
+            "POET",
+            "VECO"
+          ],
+          "net": 0.016165,
+          "ic": 0.586813
+        },
+        {
+          "signal_week_end": "2025-05-09",
+          "hold_week_end": "2025-05-16",
+          "train_max_week": 339,
+          "week": 340,
+          "top": [
+            "AXTI",
+            "COHU",
+            "ICHR",
+            "KLIC",
+            "VECO"
+          ],
+          "net": 0.040491,
+          "ic": 0.125275
+        },
+        {
+          "signal_week_end": "2025-05-16",
+          "hold_week_end": "2025-05-23",
+          "train_max_week": 340,
+          "week": 341,
+          "top": [
+            "AEHR",
+            "COHU",
+            "ICHR",
+            "KLIC",
+            "VECO"
+          ],
+          "net": -0.031996,
+          "ic": -0.336264
+        },
+        {
+          "signal_week_end": "2025-05-23",
+          "hold_week_end": "2025-05-30",
+          "train_max_week": 341,
+          "week": 342,
+          "top": [
+            "AEHR",
+            "COHU",
+            "ICHR",
+            "UCTT",
+            "VECO"
+          ],
+          "net": -0.010654,
+          "ic": -0.345055
+        },
+        {
+          "signal_week_end": "2025-05-30",
+          "hold_week_end": "2025-06-06",
+          "train_max_week": 342,
+          "week": 343,
+          "top": [
+            "ACMR",
+            "FORM",
+            "ICHR",
+            "PLAB",
+            "UCTT"
+          ],
+          "net": 0.051645,
+          "ic": 0.195604
+        },
+        {
+          "signal_week_end": "2025-06-06",
+          "hold_week_end": "2025-06-13",
+          "train_max_week": 343,
+          "week": 344,
+          "top": [
+            "ACMR",
+            "KLIC",
+            "PLAB",
+            "UCTT",
+            "VECO"
+          ],
+          "net": 0.00349,
+          "ic": -0.38022
+        },
+        {
+          "signal_week_end": "2025-06-13",
+          "hold_week_end": "2025-06-20",
+          "train_max_week": 344,
+          "week": 345,
+          "top": [
+            "AMBA",
+            "FORM",
+            "KLIC",
+            "PLAB",
+            "VECO"
+          ],
+          "net": -0.023426,
+          "ic": 0.349451
+        },
+        {
+          "signal_week_end": "2025-06-20",
+          "hold_week_end": "2025-06-27",
+          "train_max_week": 345,
+          "week": 346,
+          "top": [
+            "ACMR",
+            "AXTI",
+            "COHU",
+            "LASR",
+            "LPTH"
+          ],
+          "net": 0.022175,
+          "ic": -0.498901
+        },
+        {
+          "signal_week_end": "2025-06-27",
+          "hold_week_end": "2025-07-03",
+          "train_max_week": 346,
+          "week": 347,
+          "top": [
+            "ACMR",
+            "COHU",
+            "LASR",
+            "PLAB",
+            "VECO"
+          ],
+          "net": 0.012953,
+          "ic": 0.063736
+        },
+        {
+          "signal_week_end": "2025-07-03",
+          "hold_week_end": "2025-07-11",
+          "train_max_week": 347,
+          "week": 348,
+          "top": [
+            "ACMR",
+            "AXTI",
+            "FORM",
+            "PLAB",
+            "UCTT"
+          ],
+          "net": -0.003026,
+          "ic": 0.032967
+        },
+        {
+          "signal_week_end": "2025-07-11",
+          "hold_week_end": "2025-07-18",
+          "train_max_week": 348,
+          "week": 349,
+          "top": [
+            "ACMR",
+            "AXTI",
+            "FORM",
+            "ICHR",
+            "PLAB"
+          ],
+          "net": 0.011592,
+          "ic": 0.068132
+        },
+        {
+          "signal_week_end": "2025-07-18",
+          "hold_week_end": "2025-07-25",
+          "train_max_week": 349,
+          "week": 350,
+          "top": [
+            "COHU",
+            "FORM",
+            "ICHR",
+            "PLAB",
+            "POET"
+          ],
+          "net": -0.042522,
+          "ic": 0.072527
+        },
+        {
+          "signal_week_end": "2025-07-25",
+          "hold_week_end": "2025-08-01",
+          "train_max_week": 350,
+          "week": 351,
+          "top": [
+            "COHU",
+            "FORM",
+            "LPTH",
+            "PLAB",
+            "POET"
+          ],
+          "net": -0.022745,
+          "ic": 0.094505
+        },
+        {
+          "signal_week_end": "2025-08-01",
+          "hold_week_end": "2025-08-08",
+          "train_max_week": 351,
+          "week": 352,
+          "top": [
+            "AXTI",
+            "FORM",
+            "ICHR",
+            "KLIC",
+            "UCTT"
+          ],
+          "net": -0.009324,
+          "ic": -0.358242
+        },
+        {
+          "signal_week_end": "2025-08-08",
+          "hold_week_end": "2025-08-15",
+          "train_max_week": 352,
+          "week": 353,
+          "top": [
+            "ACMR",
+            "AMBA",
+            "FORM",
+            "ICHR",
+            "POET"
+          ],
+          "net": -0.033035,
+          "ic": 0.454945
+        },
+        {
+          "signal_week_end": "2025-08-15",
+          "hold_week_end": "2025-08-22",
+          "train_max_week": 353,
+          "week": 354,
+          "top": [
+            "FORM",
+            "ICHR",
+            "KLIC",
+            "PLAB",
+            "POET"
+          ],
+          "net": -0.000581,
+          "ic": -0.147253
+        },
+        {
+          "signal_week_end": "2025-08-22",
+          "hold_week_end": "2025-08-29",
+          "train_max_week": 354,
+          "week": 355,
+          "top": [
+            "COHU",
+            "FORM",
+            "ICHR",
+            "KLIC",
+            "PLAB"
+          ],
+          "net": -0.019889,
+          "ic": -0.538462
+        },
+        {
+          "signal_week_end": "2025-08-29",
+          "hold_week_end": "2025-09-05",
+          "train_max_week": 355,
+          "week": 356,
+          "top": [
+            "FORM",
+            "ICHR",
+            "KLIC",
+            "POET",
+            "UCTT"
+          ],
+          "net": -0.011738,
+          "ic": -0.494505
+        },
+        {
+          "signal_week_end": "2025-09-05",
+          "hold_week_end": "2025-09-12",
+          "train_max_week": 356,
+          "week": 357,
+          "top": [
+            "COHU",
+            "FORM",
+            "ICHR",
+            "POET",
+            "VECO"
+          ],
+          "net": 0.005106,
+          "ic": -0.120879
+        },
+        {
+          "signal_week_end": "2025-09-12",
+          "hold_week_end": "2025-09-19",
+          "train_max_week": 357,
+          "week": 358,
+          "top": [
+            "FORM",
+            "ICHR",
+            "KLIC",
+            "POET",
+            "UCTT"
+          ],
+          "net": 0.059012,
+          "ic": -0.314286
+        },
+        {
+          "signal_week_end": "2025-09-19",
+          "hold_week_end": "2025-09-26",
+          "train_max_week": 358,
+          "week": 359,
+          "top": [
+            "AMBA",
+            "COHU",
+            "ICHR",
+            "KLIC",
+            "POET"
+          ],
+          "net": -0.010094,
+          "ic": -0.204396
+        },
+        {
+          "signal_week_end": "2025-09-26",
+          "hold_week_end": "2025-10-03",
+          "train_max_week": 359,
+          "week": 360,
+          "top": [
+            "AEHR",
+            "AMBA",
+            "COHU",
+            "ICHR",
+            "POET"
+          ],
+          "net": 0.037639,
+          "ic": -0.015385
+        },
+        {
+          "signal_week_end": "2025-10-03",
+          "hold_week_end": "2025-10-10",
+          "train_max_week": 360,
+          "week": 361,
+          "top": [
+            "ACMR",
+            "AMBA",
+            "COHU",
+            "LPTH",
+            "POET"
+          ],
+          "net": 0.024089,
+          "ic": 0.441758
+        },
+        {
+          "signal_week_end": "2025-10-10",
+          "hold_week_end": "2025-10-17",
+          "train_max_week": 361,
+          "week": 362,
+          "top": [
+            "AEHR",
+            "AMBA",
+            "FORM",
+            "KLIC",
+            "PLAB"
+          ],
+          "net": 0.037776,
+          "ic": 0.367033
+        },
+        {
+          "signal_week_end": "2025-10-17",
+          "hold_week_end": "2025-10-24",
+          "train_max_week": 362,
+          "week": 363,
+          "top": [
+            "AEHR",
+            "COHU",
+            "FORM",
+            "KLIC",
+            "LPTH"
+          ],
+          "net": 0.023885,
+          "ic": -0.041758
+        },
+        {
+          "signal_week_end": "2025-10-24",
+          "hold_week_end": "2025-10-31",
+          "train_max_week": 363,
+          "week": 364,
+          "top": [
+            "AEHR",
+            "AMBA",
+            "COHU",
+            "LPTH",
+            "PLAB"
+          ],
+          "net": 0.02757,
+          "ic": 0.2
+        },
+        {
+          "signal_week_end": "2025-10-31",
+          "hold_week_end": "2025-11-07",
+          "train_max_week": 364,
+          "week": 365,
+          "top": [
+            "COHU",
+            "LPTH",
+            "POET",
+            "UCTT",
+            "VECO"
+          ],
+          "net": -0.042324,
+          "ic": -0.16044
+        },
+        {
+          "signal_week_end": "2025-11-07",
+          "hold_week_end": "2025-11-14",
+          "train_max_week": 365,
+          "week": 366,
+          "top": [
+            "ACMR",
+            "AMBA",
+            "ICHR",
+            "PLAB",
+            "POET"
+          ],
+          "net": -0.042928,
+          "ic": 0.178022
+        },
+        {
+          "signal_week_end": "2025-11-14",
+          "hold_week_end": "2025-11-21",
+          "train_max_week": 366,
+          "week": 367,
+          "top": [
+            "AEHR",
+            "LASR",
+            "PLAB",
+            "POET",
+            "UCTT"
+          ],
+          "net": -0.023004,
+          "ic": 0.072527
+        },
+        {
+          "signal_week_end": "2025-11-21",
+          "hold_week_end": "2025-11-28",
+          "train_max_week": 367,
+          "week": 368,
+          "top": [
+            "ACMR",
+            "COHU",
+            "KLIC",
+            "LPTH",
+            "UCTT"
+          ],
+          "net": 0.059647,
+          "ic": -0.098901
+        },
+        {
+          "signal_week_end": "2025-11-28",
+          "hold_week_end": "2025-12-05",
+          "train_max_week": 368,
+          "week": 369,
+          "top": [
+            "AMBA",
+            "KLIC",
+            "PLAB",
+            "POET",
+            "UCTT"
+          ],
+          "net": 0.059858,
+          "ic": -0.226374
+        },
+        {
+          "signal_week_end": "2025-12-05",
+          "hold_week_end": "2025-12-12",
+          "train_max_week": 369,
+          "week": 370,
+          "top": [
+            "AEHR",
+            "AMBA",
+            "AXTI",
+            "PLAB",
+            "UCTT"
+          ],
+          "net": 0.137843,
+          "ic": 0.27033
+        },
+        {
+          "signal_week_end": "2025-12-12",
+          "hold_week_end": "2025-12-19",
+          "train_max_week": 370,
+          "week": 371,
+          "top": [
+            "AEHR",
+            "AMBA",
+            "AXTI",
+            "FORM",
+            "UCTT"
+          ],
+          "net": -0.0235,
+          "ic": 0.142857
+        },
+        {
+          "signal_week_end": "2025-12-19",
+          "hold_week_end": "2025-12-26",
+          "train_max_week": 371,
+          "week": 372,
+          "top": [
+            "AEHR",
+            "AXTI",
+            "COHU",
+            "FORM",
+            "VECO"
+          ],
+          "net": 0.001678,
+          "ic": -0.283516
+        },
+        {
+          "signal_week_end": "2025-12-26",
+          "hold_week_end": "2026-01-02",
+          "train_max_week": 372,
+          "week": 373,
+          "top": [
+            "AEHR",
+            "AXTI",
+            "COHU",
+            "UCTT",
+            "VECO"
+          ],
+          "net": 0.060013,
+          "ic": -0.063736
+        },
+        {
+          "signal_week_end": "2026-01-02",
+          "hold_week_end": "2026-01-09",
+          "train_max_week": 373,
+          "week": 374,
+          "top": [
+            "AMBA",
+            "AXTI",
+            "COHU",
+            "FORM",
+            "KLIC"
+          ],
+          "net": 0.082764,
+          "ic": 0.120879
+        },
+        {
+          "signal_week_end": "2026-01-09",
+          "hold_week_end": "2026-01-16",
+          "train_max_week": 374,
+          "week": 375,
+          "top": [
+            "AEHR",
+            "AMBA",
+            "AXTI",
+            "COHU",
+            "VECO"
+          ],
+          "net": -0.008154,
+          "ic": -0.564835
+        },
+        {
+          "signal_week_end": "2026-01-16",
+          "hold_week_end": "2026-01-23",
+          "train_max_week": 375,
+          "week": 376,
+          "top": [
+            "AEHR",
+            "AMBA",
+            "AXTI",
+            "FORM",
+            "LASR"
+          ],
+          "net": -0.067813,
+          "ic": -0.362637
+        },
+        {
+          "signal_week_end": "2026-01-23",
+          "hold_week_end": "2026-01-30",
+          "train_max_week": 376,
+          "week": 377,
+          "top": [
+            "AXTI",
+            "FORM",
+            "KLIC",
+            "LASR",
+            "POET"
+          ],
+          "net": -0.006056,
+          "ic": 0.134066
+        },
+        {
+          "signal_week_end": "2026-01-30",
+          "hold_week_end": "2026-02-06",
+          "train_max_week": 377,
+          "week": 378,
+          "top": [
+            "AMBA",
+            "COHU",
+            "FORM",
+            "LPTH",
+            "POET"
+          ],
+          "net": 0.046535,
+          "ic": -0.336264
+        },
+        {
+          "signal_week_end": "2026-02-06",
+          "hold_week_end": "2026-02-13",
+          "train_max_week": 378,
+          "week": 379,
+          "top": [
+            "AMBA",
+            "ICHR",
+            "KLIC",
+            "POET",
+            "VECO"
+          ],
+          "net": 0.10892,
+          "ic": -0.147253
+        },
+        {
+          "signal_week_end": "2026-02-13",
+          "hold_week_end": "2026-02-20",
+          "train_max_week": 379,
+          "week": 380,
+          "top": [
+            "AEHR",
+            "AMBA",
+            "LPTH",
+            "PLAB",
+            "POET"
+          ],
+          "net": 0.031324,
+          "ic": -0.010989
+        },
+        {
+          "signal_week_end": "2026-02-20",
+          "hold_week_end": "2026-02-27",
+          "train_max_week": 380,
+          "week": 381,
+          "top": [
+            "AMBA",
+            "COHU",
+            "PLAB",
+            "POET",
+            "VECO"
+          ],
+          "net": -0.008728,
+          "ic": -0.09011
+        },
+        {
+          "signal_week_end": "2026-02-27",
+          "hold_week_end": "2026-03-06",
+          "train_max_week": 381,
+          "week": 382,
+          "top": [
+            "ACMR",
+            "AMBA",
+            "COHU",
+            "KLIC",
+            "LPTH"
+          ],
+          "net": -0.062002,
+          "ic": 0.30989
+        },
+        {
+          "signal_week_end": "2026-03-06",
+          "hold_week_end": "2026-03-13",
+          "train_max_week": 382,
+          "week": 383,
+          "top": [
+            "ACMR",
+            "AMBA",
+            "COHU",
+            "LPTH",
+            "PLAB"
+          ],
+          "net": 0.011787,
+          "ic": -0.591209
+        },
+        {
+          "signal_week_end": "2026-03-13",
+          "hold_week_end": "2026-03-20",
+          "train_max_week": 383,
+          "week": 384,
+          "top": [
+            "AMBA",
+            "COHU",
+            "FORM",
+            "LPTH",
+            "PLAB"
+          ],
+          "net": 0.058378,
+          "ic": -0.151648
+        },
+        {
+          "signal_week_end": "2026-03-20",
+          "hold_week_end": "2026-03-27",
+          "train_max_week": 384,
+          "week": 385,
+          "top": [
+            "ACMR",
+            "COHU",
+            "LASR",
+            "PLAB",
+            "POET"
+          ],
+          "net": -0.036891,
+          "ic": -0.248352
+        },
+        {
+          "signal_week_end": "2026-03-27",
+          "hold_week_end": "2026-04-02",
+          "train_max_week": 385,
+          "week": 386,
+          "top": [
+            "ACMR",
+            "AMBA",
+            "LPTH",
+            "PLAB",
+            "POET"
+          ],
+          "net": 0.036098,
+          "ic": 0.428571
+        },
+        {
+          "signal_week_end": "2026-04-02",
+          "hold_week_end": "2026-04-10",
+          "train_max_week": 386,
+          "week": 387,
+          "top": [
+            "ACMR",
+            "AMBA",
+            "AXTI",
+            "LASR",
+            "LPTH"
+          ],
+          "net": 0.094264,
+          "ic": -0.362637
+        },
+        {
+          "signal_week_end": "2026-04-10",
+          "hold_week_end": "2026-04-17",
+          "train_max_week": 387,
+          "week": 388,
+          "top": [
+            "ACMR",
+            "AMBA",
+            "AXTI",
+            "ICHR",
+            "PLAB"
+          ],
+          "net": 0.071278,
+          "ic": 0.081319
+        },
+        {
+          "signal_week_end": "2026-04-17",
+          "hold_week_end": "2026-04-24",
+          "train_max_week": 388,
+          "week": 389,
+          "top": [
+            "ACMR",
+            "KLIC",
+            "LASR",
+            "UCTT",
+            "VECO"
+          ],
+          "net": 0.085577,
+          "ic": -0.375824
+        },
+        {
+          "signal_week_end": "2026-04-24",
+          "hold_week_end": "2026-05-01",
+          "train_max_week": 389,
+          "week": 390,
+          "top": [
+            "ACMR",
+            "KLIC",
+            "LASR",
+            "PLAB",
+            "UCTT"
+          ],
+          "net": -0.07074,
+          "ic": 0.015385
         }
       ]
     },
@@ -44082,7 +50364,8 @@
       "vol_12w": 0.00197,
       "log_volume_ratio": -9e-05,
       "dist_from_12w_high": -0.00295,
-      "range_1w": 0.00115
+      "range_1w": 0.00115,
+      "fx_beta_x_trend": 0.0
     },
     "note": "Analitik sıralama — otomatik emir değildir, gelecek garantisi yoktur."
   },
@@ -44124,10 +50407,16 @@
         "mean_weekly_net": -0.002266,
         "tstat": -0.933,
         "eligible": false
+      },
+      {
+        "strategy": "boosting",
+        "mean_weekly_net": -0.002314,
+        "tstat": -0.98,
+        "eligible": false
       }
     ],
     "control_mean_weekly_net": -0.002261,
-    "significance_threshold": 2.394,
+    "significance_threshold": 2.45,
     "chosen": "low_vol_12w",
     "description_tr": "son 12 haftada en az dalgalananları al (düşük oynaklık)",
     "confidence": "ZAYIF",
@@ -44149,7 +50438,7 @@
       "cumulative_net": -0.243566,
       "hit_rate": 0.5
     },
-    "summary_tr": "Geçmişe göre en iyi strateji: son 12 haftada en az dalgalananları al (düşük oynaklık). Kıyasa (IWM) göre haftada ortalama +0.29% (maliyet sonrası), t=1.31 (anlamlılık eşiği 2.39). Seçimde kullanılmayan son 26 haftada haftalık -0.82%. Güven: ZAYIF — istatistiksel olarak şanstan ayırt edilemiyor; sinyal sayılmaz.",
+    "summary_tr": "Geçmişe göre en iyi strateji: son 12 haftada en az dalgalananları al (düşük oynaklık). Kıyasa (IWM) göre haftada ortalama +0.29% (maliyet sonrası), t=1.31 (anlamlılık eşiği 2.45). Seçimde kullanılmayan son 26 haftada haftalık -0.82%. Güven: ZAYIF — istatistiksel olarak şanstan ayırt edilemiyor; sinyal sayılmaz.",
     "next_week": {
       "as_of_week_end": "2026-10-26",
       "picks": [
