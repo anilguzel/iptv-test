@@ -150,6 +150,11 @@ def _run_outlook(job: ResearchJob, store: Path, reports_dir: Path, universe: str
     ranking = report["medium_term"].get("ranking") or []
     rlines = ["rank,symbol,pick"] + [f"{r['rank']},{r['symbol']},{'EVET' if r['pick'] else ''}" for r in ranking]
     (reports_dir / f"{job.name}_siralama.csv").write_text("\n".join(rlines) + "\n", encoding="utf-8")
+    odds = report.get("odds", {}).get("stocks", [])
+    if odds:
+        cols = [k for k in odds[0] if k != "symbol"]
+        olines = [",".join(["symbol", *cols])] + [",".join([o["symbol"], *(str(o.get(c, "")) for c in cols)]) for o in odds]
+        (reports_dir / f"{job.name}_olasilik.csv").write_text("\n".join(olines) + "\n", encoding="utf-8")
     return report
 
 
