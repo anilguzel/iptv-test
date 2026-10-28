@@ -8,13 +8,13 @@ Bu dal GitHub Actions tarafından otomatik yazılır; elle düzenlemeyin.
 Bu bir analizdir; buradaki hiçbir şey emir ya da yatırım tavsiyesi değildir.
 
 ## Durum
-Son çalışma: **Haftalık araştırma**, 2026-10-27 20:30 UTC
+Son çalışma: **Günlük veri toplama**, 2026-10-28 00:46 UTC
 
 ### Veri
 | Kaynak | Hisse | En güncel gün | En geride kalan |
 |---|---|---|---|
-| yahoo_bist | 30 | 2026-10-23 | hepsi güncel |
-| yahoo_us | 31 | 2026-10-23 | SKYT (2026-07-30) |
+| yahoo_bist | 44 | 2026-10-26 | hepsi güncel |
+| yahoo_us | 31 | 2026-10-26 | SKYT (2026-07-30) |
 
 ### Haftalık araştırma
 | Rapor | Tür | Tarih | Model | IC t | Toplam (model) | Seçilen strateji → gelecek hafta |
