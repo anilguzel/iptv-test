@@ -232,3 +232,19 @@ def test_research_job_runs_on_the_screened_universe(tmp_path):
     job.min_years = 50
     failed = run_research(job, tmp_path, tmp_path / "reports")
     assert "error" in failed and "Eleme: 0/" in summarize_report(failed)
+
+
+def test_outlook_job_writes_report_csvs_and_summary(tmp_path):
+    from bist_core.automation.status import render_status
+
+    daily, _ = synthetic_universe(n_stocks=12, n_weeks=160, momentum=0.5, seed=4)
+    for sym, bars in daily.items():
+        write_store(csv_path(tmp_path / "daily/x", sym), bars)
+    job = ResearchJob(name="gorunum", dir="daily/x", mode="outlook", top_n=3)
+    report = run_research(job, tmp_path, tmp_path / "reports")
+    assert report["mode"] == "outlook" and report["risk"]["stocks"]
+    assert (tmp_path / "reports/gorunum_risk.csv").read_text().count("\n") == 13
+    assert (tmp_path / "reports/gorunum_siralama.csv").exists()
+    text = summarize_report(report)
+    assert "sert oynayabilecekler" in text and "emir değildir" in text
+    assert "gelecek hafta risk" in render_status(tmp_path, event="x")

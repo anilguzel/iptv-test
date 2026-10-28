@@ -38,7 +38,29 @@ def strategy_lines(st: dict) -> list[str]:
     return lines
 
 
+def summarize_outlook(report: dict) -> str:
+    risk, mt = report.get("risk", {}), report.get("medium_term", {})
+    v = risk.get("validation", {})
+    lines = [f"🧭 {report.get('name', 'görünüm')}: risk ve 3-6 aylık sıralama ({risk.get('as_of_week_end', '-')} kapanışı)"]
+    if risk.get("stocks"):
+        top = ", ".join(f"{r['symbol']} ±{r['expected_move'] * 100:.1f}%" for r in risk["stocks"][:3])
+        calm = ", ".join(f"{r['symbol']} ±{r['expected_move'] * 100:.1f}%" for r in risk["stocks"][-3:])
+        lines.append(f"Gelecek hafta en sert oynayabilecekler: {top}; en sakinler: {calm}")
+        if v.get("band_coverage") is not None:
+            lines.append(f"Risk modeli geçmişte: {v['weeks']} haftanın %{v['ic_positive_share'] * 100:.0f}'inde doğru sıraladı "
+                         f"(t {_num(v.get('ic_tstat'))}); aralık hareketlerin %{v['band_coverage'] * 100:.0f}'ini kapsadı.")
+    lines.append(mt.get("summary_tr", "Sıralama yok."))
+    if mt.get("ranking"):
+        picks = ", ".join(r["symbol"] for r in mt["ranking"] if r["pick"])
+        label = "sinyal sayılmaz" if mt.get("confidence") in ("ZAYIF", "YOK") else "deneysel"
+        lines.append(f"{mt['chosen_horizon_weeks']} haftalık sıralamanın ilk hisseleri ({label}): {picks}")
+    lines.append("Analizdir, otomatik emir değildir.")
+    return "\n".join(lines)
+
+
 def summarize_report(report: dict) -> str:
+    if report.get("mode") == "outlook" and "error" not in report:
+        return summarize_outlook(report)
     if "error" in report:
         text = f"⚠️ {report['name']}: araştırma çalışmadı ({report['error']})."
         return text + ("\n" + screen_line(report["screen"]) if report.get("screen") else "")

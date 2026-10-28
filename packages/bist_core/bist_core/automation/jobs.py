@@ -45,6 +45,7 @@ class ResearchJob:
     min_median_value: float = 0.0
     max_zero_volume_share: float = 1.0
     max_stale_days: int | None = None
+    relative_to: str = "benchmark"  # or "universe": excess vs the stocks' own equal-weighted average
     fx: str | None = None        # store path of a USD/TRY CSV, e.g. "daily/evds/TP.DK.USD.A.csv"
     enabled: bool = True
 
@@ -125,19 +126,48 @@ async def run_collect(job: CollectJob, store: Path, provider=None) -> dict:
     return summary
 
 
+def _run_outlook(job: ResearchJob, store: Path, reports_dir: Path, universe: str | None, screen: dict | None) -> dict:
+    """Risk forecast and 3/6-month ranking (research/outlook.py) on stored CSVs."""
+    from ..research.outlook import run_outlook
+
+    folder = store / job.dir
+    symbols = resolve_universe(universe) if universe else sorted(p.stem for p in folder.glob("*.csv"))
+    daily = {s: bars for s in symbols if (bars := read_store(csv_path(folder, s), s))}
+    try:
+        report = run_outlook(daily, top_n=job.top_n, cost_bps=job.cost_bps)
+    except (ValueError, ZeroDivisionError) as exc:
+        return {"name": job.name, "mode": "outlook", "error": str(exc), "generated_at": datetime.now(UTC).isoformat()}
+    report["name"] = job.name
+    if screen is not None:
+        report["screen"] = screen
+    reports_dir.mkdir(parents=True, exist_ok=True)
+    (reports_dir / f"{job.name}.json").write_text(json.dumps(report, ensure_ascii=False, indent=2), encoding="utf-8")
+    risk = report["risk"].get("stocks", [])
+    lines = ["risk_rank,symbol,close,expected_move_pct,range_low_pct,range_high_pct,price_low,price_high"]
+    lines += [f"{r['risk_rank']},{r['symbol']},{r['close']},{r['expected_move'] * 100:.2f},{r['range_low'] * 100:.2f},"
+              f"{r['range_high'] * 100:.2f},{r['price_low']},{r['price_high']}" for r in risk]
+    (reports_dir / f"{job.name}_risk.csv").write_text("\n".join(lines) + "\n", encoding="utf-8")
+    ranking = report["medium_term"].get("ranking") or []
+    rlines = ["rank,symbol,pick"] + [f"{r['rank']},{r['symbol']},{'EVET' if r['pick'] else ''}" for r in ranking]
+    (reports_dir / f"{job.name}_siralama.csv").write_text("\n".join(rlines) + "\n", encoding="utf-8")
+    return report
+
+
 def run_research(job: ResearchJob, store: Path, reports_dir: Path) -> dict:
     """Run one research job on stored CSVs; returns the written report (or an error dict)."""
     from ..research.__main__ import main as research_main
 
     get_settings().research_reports_dir = str(reports_dir)
     universe, screen = job.universe, None
-    if job.mode == "cross_section" and job.universe and job.screen_rules.active:
+    if job.mode in ("cross_section", "outlook") and job.universe and job.screen_rules.active:
         candidates = [s for s in resolve_universe(job.universe) if s != (job.benchmark or "").upper()]
         screen = screen_symbols(store / job.dir, candidates, job.screen_rules)
         if not screen["kept"]:
             return {"name": job.name, "error": "eleme filtresini geçen hisse yok", "screen": screen,
                     "generated_at": datetime.now(UTC).isoformat()}
         universe = ",".join(screen["kept"])
+    if job.mode == "outlook":
+        return _run_outlook(job, store, reports_dir, universe, screen)
     args = ["--source", "csv", "--csv-dir", str(store / job.dir), "--mode", job.mode, "--name", job.name,
             "--cost-bps", str(job.cost_bps), "--years", str(job.years), "--top-n", str(job.top_n)]
     if universe:
@@ -146,6 +176,8 @@ def run_research(job: ResearchJob, store: Path, reports_dir: Path) -> dict:
         args += ["--symbol", job.symbol]
     if job.benchmark:
         args += ["--benchmark", job.benchmark]
+    if job.relative_to == "universe":
+        args += ["--relative-to", "universe"]
     if job.fx and job.mode == "cross_section":
         args += ["--fx-csv", str(store / job.fx)]
     try:

@@ -76,6 +76,36 @@ def _prob(v) -> str:
     return "-" if v is None else f"%{v * 100:.0f}"
 
 
+def outlook_tables(store: Path, limit: int = 10) -> list[str]:
+    out: list[str] = []
+    for f in sorted((store / "reports").glob("*.json")):
+        try:
+            r = json.loads(f.read_text(encoding="utf-8"))
+        except (OSError, json.JSONDecodeError):
+            continue
+        if r.get("mode") != "outlook" or "error" in r:
+            continue
+        risk, mt = r["risk"], r["medium_term"]
+        v = risk.get("validation", {})
+        out += [
+            f"#### {f.stem}: gelecek hafta risk ({risk.get('as_of_week_end')} kapanışı)",
+            f"Doğrulama: {v.get('weeks')} haftanın %{(v.get('ic_positive_share') or 0) * 100:.0f}'inde hareket büyüklüğünü "
+            f"doğru sıraladı (t {v.get('ic_tstat')}); %80'lik aralık gerçekte %{(v.get('band_coverage') or 0) * 100:.0f} kapsadı.",
+            "| Sıra | Hisse | Beklenen hareket | Olası aralık (%) | Olası aralık (fiyat) |",
+            "|---|---|---|---|---|",
+            *[f"| {x['risk_rank']} | {x['symbol']} | ±{x['expected_move'] * 100:.1f}% | {_pct(x['range_low'])} … "
+              f"{_pct(x['range_high'])} | {x['price_low']:.2f} – {x['price_high']:.2f} |" for x in risk.get("stocks", [])[:limit]],
+            "",
+            f"#### {f.stem}: 3-6 aylık sıralama",
+            mt.get("summary_tr", ""),
+            "",
+        ]
+        if mt.get("ranking"):
+            out += ["İlk hisseler: " + ", ".join(x["symbol"] for x in mt["ranking"] if x["pick"]) +
+                    f" (tüm liste `reports/{f.stem}_siralama.csv`, risk `reports/{f.stem}_risk.csv`).", ""]
+    return out
+
+
 def forecast_tables(store: Path, limit: int = 10) -> list[str]:
     out: list[str] = []
     for f in sorted((store / "reports").glob("*.json")):
@@ -115,6 +145,7 @@ def render_status(store: Path, *, event: str, now: datetime | None = None) -> st
         "### Haftalık araştırma",
         *research_table(store),
         "",
+        *outlook_tables(store),
         *forecast_tables(store),
     ])
 

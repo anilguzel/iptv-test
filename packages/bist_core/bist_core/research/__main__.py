@@ -63,6 +63,9 @@ def _parse(argv: list[str] | None) -> argparse.Namespace:
     p.add_argument("--symbol", default=None, help="timeseries mode: the stock (default: first in --universe)")
     p.add_argument("--benchmark", default=None,
                    help="benchmark symbol (default: XU100 for bist, IWM for stooq); falls back if unavailable")
+    p.add_argument("--relative-to", choices=["benchmark", "universe"], default="benchmark",
+                   help="universe: measure excess returns against the equal-weighted average of the stocks "
+                        "themselves (removes the hindsight tilt of picking today's large caps)")
     p.add_argument("--fx-csv", default=None,
                    help="cross_section: USD/TRY daily CSV (e.g. store/daily/evds/TP.DK.USD.A.csv) for the FX feature")
     p.add_argument("--years", type=float, default=3.0)
@@ -168,6 +171,8 @@ def _fmt(v, pct: bool = False) -> str:
 def main(argv: list[str] | None = None) -> int:
     args = _parse(argv)
     daily, bench, bench_name, meta = asyncio.run(_load(args))
+    if args.relative_to == "universe":
+        bench, bench_name = None, "universe"
     if not daily:
         print("No data loaded.", file=sys.stderr)
         for m in meta.get("missing", [])[:10]:
