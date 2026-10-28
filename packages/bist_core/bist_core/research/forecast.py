@@ -22,11 +22,40 @@ def _groups(scores: np.ndarray) -> np.ndarray:
     return np.minimum(ranks * N_GROUPS // max(len(scores), 1), N_GROUPS - 1)
 
 
+def _positions(scores: np.ndarray) -> np.ndarray:
+    """Place of each stock in its week's ranking: 0 = lowest score, 1 = highest."""
+    n = len(scores)
+    if n < 2:
+        return np.full(n, 0.5)
+    # Same order as the published ranking (highest score first, ties by row order).
+    order = np.argsort(-scores, kind="stable")
+    pos = np.empty(n)
+    pos[order] = 1 - np.arange(n) / (n - 1)
+    return pos
+
+
+def _fit_line(x: np.ndarray, y: np.ndarray):
+    """Least-squares line y = a + b*x over all past weeks; a function of x (None without data).
+
+    Gives each stock its own expected value from its place in the ranking,
+    instead of one value per fifth."""
+    if len(x) < 10 or np.ptp(x) == 0:
+        return lambda _x: None
+    b, a = np.polyfit(x, y, 1)
+    return lambda v: float(a + b * v)
+
+
+def _round(v, digits: int = 6):
+    return None if v is None else round(float(v), digits)
+
+
 def build_forecast(panel: Panel, strategy, weeks: list[int], top_n: int) -> dict:
     """Walk forward over ``weeks`` (training only on earlier weeks), then score the latest week."""
     has_target = np.isfinite(panel.y_rank)
     history: list[dict] = []
     group_returns: list[list[float]] = [[] for _ in range(N_GROUPS)]
+    pos_hist: list[float] = []   # each stock's place in its week's ranking (0 = worst, 1 = best)
+    out_hist: list[float] = []   # and its realised next-week excess return
     for t in weeks:
         if strategy.trains:
             strategy.fit(panel.X[(panel.week < t) & has_target], panel.y_rank[(panel.week < t) & has_target])
@@ -39,6 +68,8 @@ def build_forecast(panel: Panel, strategy, weeks: list[int], top_n: int) -> dict
         groups = _groups(scores)
         for g, r in zip(groups, outcome, strict=True):
             group_returns[int(g)].append(float(r))
+        pos_hist.extend(_positions(scores))
+        out_hist.extend(float(r) for r in outcome)
         top = np.argsort(-scores, kind="stable")[:top_n]
         hit = float((outcome[top] > 0).mean())
         history.append({
@@ -70,16 +101,19 @@ def build_forecast(panel: Panel, strategy, weeks: list[int], top_n: int) -> dict
     syms = panel.symbols[rows]
     groups = _groups(scores) if len(scores) >= N_GROUPS else np.full(len(scores), N_GROUPS // 2)
     order = np.argsort(-scores, kind="stable")
+    line = _fit_line(np.array(pos_hist), np.array(out_hist))
+    beat = _fit_line(np.array(pos_hist), (np.array(out_hist) > 0).astype(float))
+    positions = _positions(scores)
     stocks = []
     for rank, i in enumerate(order, start=1):
-        cal = calibration[int(groups[i])]
+        x = float(positions[i])
         stocks.append({
             "rank": rank,
             "symbol": str(syms[i]),
             "score": round(float(scores[i]), 5),
             "group": int(groups[i]) + 1,
-            "expected_excess": cal["mean_excess"],
-            "beat_benchmark_probability": cal["beat_benchmark_probability"],
+            "expected_excess": _round(line(x)),
+            "beat_benchmark_probability": _round(None if beat(x) is None else min(0.95, max(0.05, beat(x))), 4),
             "pick": rank <= top_n,
         })
 

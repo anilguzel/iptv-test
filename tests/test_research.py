@@ -168,6 +168,9 @@ def test_forecast_rows_calibration_and_track_record():
     # planted momentum: the top-scored fifth must do better than the bottom fifth
     assert cal[-1]["mean_excess"] > cal[0]["mean_excess"]
     assert cal[-1]["beat_benchmark_probability"] > 0.5
+    # each stock gets its own expectation, falling with its rank on a planted signal
+    exp = [s["expected_excess"] for s in fc["stocks"]]
+    assert len(set(exp)) == len(exp) and exp == sorted(exp, reverse=True)
     assert fc["track_record"]["weeks"] == len(fc["history"]) > 100
     assert all(h["signal_week_end"] < (h["hold_week_end"] or "9") for h in fc["history"])
     assert forecast_csv(fc).count("\n") == 21 and "EVET" in history_csv(fc)
