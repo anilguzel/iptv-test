@@ -60,6 +60,11 @@ def summarize_report(report: dict) -> str:
         lines.append(f"En iyi basit strateji: {best} {_pct(b.get('mean_weekly_net'))}/hafta, toplam {_pct(b.get('cumulative_net'))}")
     if report.get("strategy"):
         lines += strategy_lines(report["strategy"])
+    fc = report.get("forecast")
+    if fc and fc["track_record"]["weeks"]:
+        tr = fc["track_record"]
+        lines.append(f"Geçmiş tahmin karnesi: {tr['weeks']} haftanın %{tr['weeks_picks_beat_benchmark'] * 100:.0f}'inde "
+                     f"seçilen hisseler kıyası yendi (haftalık ort. {_pct(tr['mean_weekly_excess'])}, masraf öncesi)")
     nw = report["next_week"]
     label = "Model sıralaması" if passed else "Model sıralaması (model FAIL — sinyal sayılmaz)"
     if ts:

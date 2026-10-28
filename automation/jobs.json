@@ -5,6 +5,8 @@
      "source": "yahoo", "universe": "SMTK_PEERS", "benchmark": "IWM", "dir": "daily/yahoo_us"},
     {"_comment": "Borsa Istanbul via Yahoo's .IS listings (BIST30 + other long-listed large caps), BIST 100 index as benchmark.",
      "source": "yahoo", "universe": "BIST_WIDE", "benchmark": "XU100", "suffix": ".IS", "dir": "daily/yahoo_bist"},
+    {"_comment": "TCMB EVDS: USD/TRY and EUR/TRY reference rates (needs the EVDS_API_KEY secret).",
+     "source": "evds", "universe": "TP.DK.USD.A,TP.DK.EUR.A", "dir": "daily/evds"},
     {"_comment": "Stooq answered 404 from GitHub's runners in the probe of 2026-10-26; kept for later re-checks.",
      "source": "stooq", "universe": "SMTK_PEERS", "benchmark": "IWM", "enabled": false},
     {"_comment": "Alternative BIST source: needs a reachable bist-data-service (BIST_DATA_SERVICE_URL secret).",

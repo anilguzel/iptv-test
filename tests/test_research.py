@@ -155,3 +155,19 @@ def test_strategy_selection_without_eligible_candidate_says_hold_the_index():
     losing.steps = [type("S", (), {"net": -0.01, "hold_week_end": "2026-01-02"})() for _ in range(10)]
     st = select_strategy(type("P", (), {"benchmark": "XU100"})(), {"momentum_12w": losing}, {}, CFG)
     assert st["chosen"] is None and st["confidence"] == "YOK" and "endeksini tut" in st["summary_tr"]
+
+
+def test_forecast_rows_calibration_and_track_record():
+    from bist_core.research.forecast import forecast_csv, history_csv
+
+    daily, bench = synthetic_universe(n_stocks=20, n_weeks=200, momentum=0.5, seed=3)
+    fc = run_research(daily, bench, CFG)["forecast"]
+    assert len(fc["stocks"]) == 20 and sum(s["pick"] for s in fc["stocks"]) == CFG.top_n
+    assert [s["rank"] for s in fc["stocks"]] == list(range(1, 21))
+    cal = fc["calibration"]
+    # planted momentum: the top-scored fifth must do better than the bottom fifth
+    assert cal[-1]["mean_excess"] > cal[0]["mean_excess"]
+    assert cal[-1]["beat_benchmark_probability"] > 0.5
+    assert fc["track_record"]["weeks"] == len(fc["history"]) > 100
+    assert all(h["signal_week_end"] < (h["hold_week_end"] or "9") for h in fc["history"])
+    assert forecast_csv(fc).count("\n") == 21 and "EVET" in history_csv(fc)

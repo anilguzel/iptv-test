@@ -14,7 +14,7 @@ from .store import csv_path, merge_bars, read_store, write_store
 
 @dataclass
 class CollectJob:
-    source: str                  # "stooq", "yahoo" or "bist"
+    source: str                  # "stooq", "yahoo", "evds" (TCMB series) or "bist"
     universe: str                # named universe or comma list
     benchmark: str | None = None
     dir: str | None = None       # store sub-folder (default: daily/<source>)
@@ -77,6 +77,10 @@ def make_provider(source: str, suffix: str = ""):
         from ..providers.stooq import StooqProvider
 
         return StooqProvider(get_settings())
+    if source == "evds":
+        from ..providers.evds import EvdsHistoryProvider
+
+        return EvdsHistoryProvider(get_settings())
     if source == "bist":
         from ..providers.bist_data_service import BistDataServiceProvider
 
@@ -153,4 +157,9 @@ def run_research(job: ResearchJob, store: Path, reports_dir: Path) -> dict:
     if screen is not None:
         report["screen"] = screen
         path.write_text(json.dumps(report, ensure_ascii=False, indent=2), encoding="utf-8")
+    if report.get("forecast"):
+        from ..research.forecast import forecast_csv, history_csv
+
+        (reports_dir / f"{job.name}_tahmin.csv").write_text(forecast_csv(report["forecast"]), encoding="utf-8")
+        (reports_dir / f"{job.name}_gecmis.csv").write_text(history_csv(report["forecast"]), encoding="utf-8")
     return report

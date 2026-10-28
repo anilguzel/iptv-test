@@ -83,3 +83,38 @@ def test_factory_can_disable_macro():
 
 def test_series_name_fallback():
     assert series_name("TP.UNKNOWN.CODE") == "TP.UNKNOWN.CODE"
+
+
+def test_evds_history_falls_back_to_the_next_host_and_returns_daily_bars():
+    import asyncio
+
+    import httpx
+    from bist_core.config import Settings
+    from bist_core.providers.evds import EvdsHistoryProvider
+
+    seen = []
+
+    def handler(request: httpx.Request) -> httpx.Response:
+        seen.append(request.url.host)
+        if request.url.host == "evds3.tcmb.gov.tr":
+            return httpx.Response(404, text="not here")
+        assert request.headers["key"] == "k"
+        return httpx.Response(200, json={"items": [{"Tarih": "27-10-2026", "TP_DK_USD_A": "49.67"},
+                                                   {"Tarih": "25-10-2026", "TP_DK_USD_A": None}]})
+
+    settings = Settings(EVDS_API_KEY="k", EVDS_BASE_URL="https://evds3.tcmb.gov.tr/igmevdsms-dis")
+    provider = EvdsHistoryProvider(settings, client=httpx.AsyncClient(transport=httpx.MockTransport(handler)))
+    bars = asyncio.run(provider.get_history("TP.DK.USD.A", period="1mo"))
+    assert [b.close for b in bars] == [49.67] and bars[0].volume == 0
+    assert seen[:2] == ["evds3.tcmb.gov.tr", "evds2.tcmb.gov.tr"]
+
+
+def test_evds_history_without_key_fails_clearly():
+    import asyncio
+
+    import pytest
+    from bist_core.config import Settings
+    from bist_core.providers.evds import EvdsError, EvdsHistoryProvider
+
+    with pytest.raises(EvdsError, match="EVDS_API_KEY"):
+        asyncio.run(EvdsHistoryProvider(Settings(EVDS_API_KEY=None)).get_history("TP.DK.USD.A"))

@@ -72,6 +72,36 @@ def research_table(store: Path) -> list[str]:
     return rows if len(rows) > 2 else ["_Henüz rapor yok (ilk araştırma Cumartesi çalışır)._"]
 
 
+def _prob(v) -> str:
+    return "-" if v is None else f"%{v * 100:.0f}"
+
+
+def forecast_tables(store: Path, limit: int = 10) -> list[str]:
+    out: list[str] = []
+    for f in sorted((store / "reports").glob("*.json")):
+        try:
+            fc = json.loads(f.read_text(encoding="utf-8")).get("forecast")
+        except (OSError, json.JSONDecodeError):
+            continue
+        if not fc:
+            continue
+        tr = fc["track_record"]
+        out += [
+            f"#### {f.stem}: {fc['as_of_week_end']} kapanışına göre gelecek hafta (strateji: {fc['strategy']})",
+            "| Sıra | Hisse | Beklenen fazla getiri | Kıyası yenme olasılığı | Seçildi |",
+            "|---|---|---|---|---|",
+            *[f"| {x['rank']} | {x['symbol']} | {_pct(x['expected_excess'])} | "
+              f"{_prob(x['beat_benchmark_probability'])} | "
+              f"{'✅' if x['pick'] else ''} |" for x in fc["stocks"][:limit]],
+            "",
+            f"Geçmiş karne: {tr['weeks']} haftanın %{(tr['weeks_picks_beat_benchmark'] or 0) * 100:.0f}'inde seçilen "
+            f"hisseler kıyası ({fc['benchmark']}) yendi; haftalık ortalama {_pct(tr['mean_weekly_excess'])} (masraf öncesi). "
+            f"Tüm liste: `reports/{f.stem}_tahmin.csv`, hafta hafta geçmiş: `reports/{f.stem}_gecmis.csv`.",
+            "",
+        ]
+    return out
+
+
 def render_status(store: Path, *, event: str, now: datetime | None = None) -> str:
     now = now or datetime.now(UTC)
     return "\n".join([
@@ -85,6 +115,7 @@ def render_status(store: Path, *, event: str, now: datetime | None = None) -> st
         "### Haftalık araştırma",
         *research_table(store),
         "",
+        *forecast_tables(store),
     ])
 
 

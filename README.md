@@ -141,6 +141,14 @@ positive recently), **ZAYIF** (indistinguishable from luck) or **YOK** (nothing
 beat the index: hold the index). Checked on synthetic data: a planted signal
 gave GÜÇLÜ in 40/40 runs; pure noise gave GÜÇLÜ in 1/40 and ORTA in 4/40.
 
+**Forecast data.** With a chosen strategy, every report also carries a
+forecast for **every** stock: its rank, its score group (fifths), and, from how
+that group did in all past weeks, the expected excess return and the
+probability of beating the benchmark next week. It also carries the week-by-week
+record of past forecasts against what happened. The automation writes both as
+CSV next to the report (`reports/<name>_tahmin.csv`, `reports/<name>_gecmis.csv`)
+and shows the top 10 on the status page.
+
 ```bash
 pip install -e "packages/bist_core[research]"
 
@@ -248,6 +256,9 @@ others by more than 5 days. The thresholds are `min_years`,
 `automation/jobs.json`; every report, the status page and the Telegram summary
 list how many passed and why the others dropped. The walk-forward then uses
 the last 8 years of those stocks.
+
+**Macro data (EVDS).** With the `EVDS_API_KEY` repository secret, the daily
+job also stores the TCMB USD/TRY and EUR/TRY reference rates in `daily/evds`.
 
 The same commands run anywhere:
 `python -m bist_core.automation collect|research --config automation/jobs.json --store store`.

@@ -27,3 +27,5 @@ jobs:
           cache-dependency-path: packages/bist_core/pyproject.toml
       - run: pip install -e "packages/bist_core[research]"
       - run: python -m bist_core.automation probe --config automation/probe.json
+        env:
+          EVDS_API_KEY: ${{ secrets.EVDS_API_KEY }}
