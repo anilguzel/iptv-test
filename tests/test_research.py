@@ -213,3 +213,19 @@ def test_boosting_learns_a_planted_signal_and_retrains_for_the_forecast():
     b.reset()
     b.fit(X, y)  # after reset: always retrained
     assert b._model is not first
+
+
+def test_outlook_risk_and_medium_term_on_synthetic_data():
+    from bist_core.research.outlook import risk_forecast, run_outlook
+
+    daily, _ = synthetic_universe(n_stocks=16, n_weeks=200, momentum=0.5, seed=2)
+    rep = run_outlook(daily)
+    risk = rep["risk"]
+    assert len(risk["stocks"]) == 16 and risk["validation"]["weeks"] > 100
+    assert 0.65 < risk["validation"]["band_coverage"] < 0.95  # the 80% band roughly holds
+    for s in risk["stocks"]:
+        assert s["range_low"] < 0 < s["range_high"] and s["price_low"] < s["close"] < s["price_high"]
+    mt = rep["medium_term"]
+    assert mt["candidates"] and all(c["strategy"] != "random" for c in mt["candidates"])
+    assert mt["chosen"] is not None and len([r for r in mt["ranking"] if r["pick"]]) == 5
+    assert risk_forecast({})["error"]
