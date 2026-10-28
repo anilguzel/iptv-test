@@ -45,6 +45,7 @@ class ResearchJob:
     min_median_value: float = 0.0
     max_zero_volume_share: float = 1.0
     max_stale_days: int | None = None
+    fx: str | None = None        # store path of a USD/TRY CSV, e.g. "daily/evds/TP.DK.USD.A.csv"
     enabled: bool = True
 
     @property
@@ -145,6 +146,8 @@ def run_research(job: ResearchJob, store: Path, reports_dir: Path) -> dict:
         args += ["--symbol", job.symbol]
     if job.benchmark:
         args += ["--benchmark", job.benchmark]
+    if job.fx and job.mode == "cross_section":
+        args += ["--fx-csv", str(store / job.fx)]
     try:
         code = research_main(args)
     except SystemExit as exc:  # argparse / guard exits

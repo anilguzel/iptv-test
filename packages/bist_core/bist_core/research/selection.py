@@ -42,6 +42,7 @@ STRATEGY_TR = {
     "reversal_1w": "geçen hafta en çok düşenleri al (tepki alımı)",
     "low_vol_12w": "son 12 haftada en az dalgalananları al (düşük oynaklık)",
     "near_high_12w": "12 haftalık zirvesine en yakın olanları al",
+    "fx_tilt": "dolar/TL ile birlikte hareket eden hisseleri, kurun son 4 haftalık yönüne göre al",
 }
 
 

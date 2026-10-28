@@ -171,3 +171,20 @@ def test_forecast_rows_calibration_and_track_record():
     assert fc["track_record"]["weeks"] == len(fc["history"]) > 100
     assert all(h["signal_week_end"] < (h["hold_week_end"] or "9") for h in fc["history"])
     assert forecast_csv(fc).count("\n") == 21 and "EVET" in history_csv(fc)
+
+
+def test_fx_feature_and_rule_when_usdtry_is_given():
+    from bist_core.research.features import FEATURE_NAMES, build_panel
+
+    daily, bench = synthetic_universe(n_stocks=12, n_weeks=140, seed=5)
+    # A stand-in USD/TRY series (the benchmark path) is enough to exercise the plumbing.
+    fx = [b.model_copy(update={"symbol": "TP.DK.USD.A"}) for b in bench]
+    weekly = _weekly(daily)
+    with_fx = build_panel(weekly, to_weekly(bench), fx_weekly=to_weekly(fx))
+    without = build_panel(weekly, to_weekly(bench))
+    k = FEATURE_NAMES.index("fx_beta_x_trend")
+    assert np.any(with_fx.X_raw[:, k] != 0) and np.all(without.X_raw[:, k] == 0)
+
+    report = run_research(daily, bench, CFG, fx_daily=fx)
+    assert "fx_tilt" in report["strategies"]
+    assert "fx_tilt" not in run_research(daily, bench, CFG)["strategies"]

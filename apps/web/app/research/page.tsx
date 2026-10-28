@@ -56,7 +56,7 @@ const CONFIDENCE_COLOR: Record<Selection["confidence"], string> = {
 const COLORS: Record<string, string> = {
   ridge: "#7aa2f7", momentum_12w: "#1f9d55", momentum_4w: "#1f9d55",
   reversal_1w: "#d6a01f", always_long: "#d6a01f", random: "#8a8f98",
-  low_vol_12w: "#9d7cd8", near_high_12w: "#2ac3de",
+  low_vol_12w: "#9d7cd8", near_high_12w: "#2ac3de", fx_tilt: "#e0af68",
 };
 const pct = (v: number | null | undefined, d = 2) => (v == null ? "—" : `${(v * 100).toFixed(d)}%`);
 const num = (v: number | null | undefined, d = 2) => (v == null ? "—" : v.toFixed(d));

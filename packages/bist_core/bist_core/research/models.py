@@ -82,8 +82,11 @@ class RandomBaseline:
 MODEL_NAMES = {"ridge"}
 
 
-def default_strategies(lam: float = 10.0, seed: int = 7) -> list:
+def default_strategies(lam: float = 10.0, seed: int = 7, *, with_fx: bool = False) -> list:
+    """``with_fx`` adds the USD/TRY rule; only meaningful when FX data was given."""
+    fx = [FeatureBaseline("fx_tilt", "fx_beta_x_trend", +1.0)] if with_fx else []
     return [
+        *fx,
         RidgeRanker(lam=lam),
         FeatureBaseline("momentum_12w", "ex_ret_12w", +1.0),
         FeatureBaseline("momentum_4w", "ex_ret_4w", +1.0),

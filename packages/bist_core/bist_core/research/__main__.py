@@ -63,6 +63,8 @@ def _parse(argv: list[str] | None) -> argparse.Namespace:
     p.add_argument("--symbol", default=None, help="timeseries mode: the stock (default: first in --universe)")
     p.add_argument("--benchmark", default=None,
                    help="benchmark symbol (default: XU100 for bist, IWM for stooq); falls back if unavailable")
+    p.add_argument("--fx-csv", default=None,
+                   help="cross_section: USD/TRY daily CSV (e.g. store/daily/evds/TP.DK.USD.A.csv) for the FX feature")
     p.add_argument("--years", type=float, default=3.0)
     p.add_argument("--top-n", type=int, default=5)
     p.add_argument("--min-train-weeks", type=int, default=52)
@@ -145,6 +147,18 @@ async def _load(args: argparse.Namespace) -> tuple[dict, list | None, str, dict]
     }
 
 
+def _load_fx(path: str | None) -> list | None:
+    if not path:
+        return None
+    from ..automation.store import read_store
+
+    p = Path(path)
+    bars = read_store(p, p.stem) if p.exists() else []
+    if not bars:
+        print(f"warning: no FX data at {path}; running without the FX feature", file=sys.stderr)
+    return bars or None
+
+
 def _fmt(v, pct: bool = False) -> str:
     if v is None:
         return "-"
@@ -175,7 +189,9 @@ def main(argv: list[str] | None = None) -> int:
             (symbol, bars), = daily.items()
             report = run_timeseries_research(bars, symbol, bench, cfg, **common)
         else:
-            report = run_research(daily, bench, cfg, **common)
+            fx = _load_fx(args.fx_csv)
+            report = run_research(daily, bench, cfg, fx_daily=fx, **common)
+            report["meta"]["fx"] = Path(args.fx_csv).stem if fx else None
     except (ValueError, HoldoutLockedError) as exc:
         print(f"error: {exc}", file=sys.stderr)
         return 2
