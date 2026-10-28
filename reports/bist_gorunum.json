@@ -1,0 +1,1297 @@
+{
+  "mode": "outlook",
+  "generated_at": "2026-10-28T16:45:47.162342+00:00",
+  "meta": {
+    "symbols_used": [
+      "AEFES",
+      "AKBNK",
+      "AKSEN",
+      "ALARK",
+      "ASELS",
+      "BIMAS",
+      "EKGYO",
+      "ENKAI",
+      "EREGL",
+      "FROTO",
+      "GARAN",
+      "GUBRF",
+      "HALKB",
+      "HEKTS",
+      "ISCTR",
+      "KCHOL",
+      "KRDMD",
+      "MGROS",
+      "PETKM",
+      "PGSUS",
+      "SAHOL",
+      "SISE",
+      "TAVHL",
+      "TCELL",
+      "THYAO",
+      "TOASO",
+      "TTKOM",
+      "TUPRS",
+      "ULKER",
+      "VAKBN",
+      "YKBNK"
+    ],
+    "top_n": 5,
+    "cost_bps": 10
+  },
+  "risk": {
+    "as_of_week_end": "2026-10-26",
+    "method": "Geçen haftanın fiyat aralığı ile son 4 ve 12 haftanın dalgalanmasından, sadece önceki haftalarla 4 haftada bir yeniden kurulan doğrusal model; aralık geçmiş hareketlerin %10-%90 dilimi.",
+    "validation": {
+      "weeks": 458,
+      "mean_ic": 0.1227,
+      "ic_tstat": 12.11,
+      "ic_positive_share": 0.7031,
+      "baseline_vol12_mean_ic": 0.1111,
+      "band_coverage": 0.773,
+      "band_target": 0.8
+    },
+    "stocks": [
+      {
+        "risk_rank": 1,
+        "symbol": "GUBRF",
+        "close": 274.25,
+        "expected_move": 0.049391,
+        "range_low": -0.065403,
+        "range_high": 0.08843,
+        "price_low": 256.3131,
+        "price_high": 298.5018
+      },
+      {
+        "risk_rank": 2,
+        "symbol": "AKSEN",
+        "close": 64.3,
+        "expected_move": 0.049237,
+        "range_low": -0.0652,
+        "range_high": 0.088154,
+        "price_low": 60.1077,
+        "price_high": 69.9683
+      },
+      {
+        "risk_rank": 3,
+        "symbol": "HALKB",
+        "close": 42.94,
+        "expected_move": 0.047918,
+        "range_low": -0.063453,
+        "range_high": 0.085792,
+        "price_low": 40.2153,
+        "price_high": 46.6239
+      },
+      {
+        "risk_rank": 4,
+        "symbol": "PETKM",
+        "close": 17.72,
+        "expected_move": 0.047189,
+        "range_low": -0.062487,
+        "range_high": 0.084487,
+        "price_low": 16.6127,
+        "price_high": 19.2171
+      },
+      {
+        "risk_rank": 5,
+        "symbol": "FROTO",
+        "close": 67.95,
+        "expected_move": 0.044497,
+        "range_low": -0.058923,
+        "range_high": 0.079667,
+        "price_low": 63.9462,
+        "price_high": 73.3634
+      },
+      {
+        "risk_rank": 6,
+        "symbol": "HEKTS",
+        "close": 1.7,
+        "expected_move": 0.044036,
+        "range_low": -0.058312,
+        "range_high": 0.078842,
+        "price_low": 1.6009,
+        "price_high": 1.834
+      },
+      {
+        "risk_rank": 7,
+        "symbol": "KRDMD",
+        "close": 36.06,
+        "expected_move": 0.043595,
+        "range_low": -0.057728,
+        "range_high": 0.078052,
+        "price_low": 33.9783,
+        "price_high": 38.8746
+      },
+      {
+        "risk_rank": 8,
+        "symbol": "TTKOM",
+        "close": 46.8,
+        "expected_move": 0.04031,
+        "range_low": -0.053378,
+        "range_high": 0.07217,
+        "price_low": 44.3019,
+        "price_high": 50.1776
+      },
+      {
+        "risk_rank": 9,
+        "symbol": "VAKBN",
+        "close": 30.18,
+        "expected_move": 0.038881,
+        "range_low": -0.051486,
+        "range_high": 0.069612,
+        "price_low": 28.6262,
+        "price_high": 32.2809
+      },
+      {
+        "risk_rank": 10,
+        "symbol": "SISE",
+        "close": 34.4,
+        "expected_move": 0.038276,
+        "range_low": -0.050685,
+        "range_high": 0.06853,
+        "price_low": 32.6564,
+        "price_high": 36.7574
+      },
+      {
+        "risk_rank": 11,
+        "symbol": "EKGYO",
+        "close": 16.84,
+        "expected_move": 0.03801,
+        "range_low": -0.050333,
+        "range_high": 0.068053,
+        "price_low": 15.9924,
+        "price_high": 17.986
+      },
+      {
+        "risk_rank": 12,
+        "symbol": "EREGL",
+        "close": 30.86,
+        "expected_move": 0.037567,
+        "range_low": -0.049747,
+        "range_high": 0.067261,
+        "price_low": 29.3248,
+        "price_high": 32.9357
+      },
+      {
+        "risk_rank": 13,
+        "symbol": "TOASO",
+        "close": 219.3,
+        "expected_move": 0.037129,
+        "range_low": -0.049166,
+        "range_high": 0.066476,
+        "price_low": 208.5179,
+        "price_high": 233.8781
+      },
+      {
+        "risk_rank": 14,
+        "symbol": "AEFES",
+        "close": 15.81,
+        "expected_move": 0.036293,
+        "range_low": -0.048059,
+        "range_high": 0.064978,
+        "price_low": 15.0502,
+        "price_high": 16.8373
+      },
+      {
+        "risk_rank": 15,
+        "symbol": "ALARK",
+        "close": 98.65,
+        "expected_move": 0.035708,
+        "range_low": -0.047285,
+        "range_high": 0.063933,
+        "price_low": 93.9853,
+        "price_high": 104.9569
+      },
+      {
+        "risk_rank": 16,
+        "symbol": "TUPRS",
+        "close": 364.5,
+        "expected_move": 0.035509,
+        "range_low": -0.047021,
+        "range_high": 0.063575,
+        "price_low": 347.361,
+        "price_high": 387.673
+      },
+      {
+        "risk_rank": 17,
+        "symbol": "MGROS",
+        "close": 427.0,
+        "expected_move": 0.034716,
+        "range_low": -0.045971,
+        "range_high": 0.062155,
+        "price_low": 407.3705,
+        "price_high": 453.5404
+      },
+      {
+        "risk_rank": 18,
+        "symbol": "YKBNK",
+        "close": 35.84,
+        "expected_move": 0.034253,
+        "range_low": -0.045358,
+        "range_high": 0.061326,
+        "price_low": 34.2144,
+        "price_high": 38.0379
+      },
+      {
+        "risk_rank": 19,
+        "symbol": "ULKER",
+        "close": 75.9,
+        "expected_move": 0.033512,
+        "range_low": -0.044377,
+        "range_high": 0.060001,
+        "price_low": 72.5318,
+        "price_high": 80.4541
+      },
+      {
+        "risk_rank": 20,
+        "symbol": "AKBNK",
+        "close": 65.0,
+        "expected_move": 0.03328,
+        "range_low": -0.044069,
+        "range_high": 0.059584,
+        "price_low": 62.1355,
+        "price_high": 68.873
+      },
+      {
+        "risk_rank": 21,
+        "symbol": "ISCTR",
+        "close": 12.26,
+        "expected_move": 0.033121,
+        "range_low": -0.043859,
+        "range_high": 0.059301,
+        "price_low": 11.7223,
+        "price_high": 12.987
+      },
+      {
+        "risk_rank": 22,
+        "symbol": "ENKAI",
+        "close": 75.45,
+        "expected_move": 0.03277,
+        "range_low": -0.043394,
+        "range_high": 0.058672,
+        "price_low": 72.1759,
+        "price_high": 79.8768
+      },
+      {
+        "risk_rank": 23,
+        "symbol": "ASELS",
+        "close": 335.0,
+        "expected_move": 0.032243,
+        "range_low": -0.042696,
+        "range_high": 0.057728,
+        "price_low": 320.6967,
+        "price_high": 354.339
+      },
+      {
+        "risk_rank": 24,
+        "symbol": "KCHOL",
+        "close": 200.6,
+        "expected_move": 0.031618,
+        "range_low": -0.041869,
+        "range_high": 0.056609,
+        "price_low": 192.2012,
+        "price_high": 211.9558
+      },
+      {
+        "risk_rank": 25,
+        "symbol": "GARAN",
+        "close": 128.8,
+        "expected_move": 0.031434,
+        "range_low": -0.041625,
+        "range_high": 0.05628,
+        "price_low": 123.4387,
+        "price_high": 136.0489
+      },
+      {
+        "risk_rank": 26,
+        "symbol": "BIMAS",
+        "close": 374.5,
+        "expected_move": 0.030696,
+        "range_low": -0.040647,
+        "range_high": 0.054958,
+        "price_low": 359.2775,
+        "price_high": 395.0818
+      },
+      {
+        "risk_rank": 27,
+        "symbol": "TAVHL",
+        "close": 266.5,
+        "expected_move": 0.030383,
+        "range_low": -0.040233,
+        "range_high": 0.054398,
+        "price_low": 255.7778,
+        "price_high": 280.9971
+      },
+      {
+        "risk_rank": 28,
+        "symbol": "TCELL",
+        "close": 90.4,
+        "expected_move": 0.030377,
+        "range_low": -0.040225,
+        "range_high": 0.054387,
+        "price_low": 86.7637,
+        "price_high": 95.3165
+      },
+      {
+        "risk_rank": 29,
+        "symbol": "SAHOL",
+        "close": 87.5,
+        "expected_move": 0.029388,
+        "range_low": -0.038915,
+        "range_high": 0.052616,
+        "price_low": 84.0949,
+        "price_high": 92.1039
+      },
+      {
+        "risk_rank": 30,
+        "symbol": "THYAO",
+        "close": 258.25,
+        "expected_move": 0.028592,
+        "range_low": -0.037862,
+        "range_high": 0.051192,
+        "price_low": 248.4721,
+        "price_high": 271.4703
+      },
+      {
+        "risk_rank": 31,
+        "symbol": "PGSUS",
+        "close": 124.6,
+        "expected_move": 0.027051,
+        "range_low": -0.035821,
+        "range_high": 0.048432,
+        "price_low": 120.1368,
+        "price_high": 130.6346
+      }
+    ]
+  },
+  "medium_term": {
+    "significance_threshold": 2.638,
+    "candidates": [
+      {
+        "key": "ridge@26",
+        "strategy": "ridge",
+        "horizon_weeks": 26,
+        "periods": 17,
+        "mean": 0.079999,
+        "tstat": 2.09,
+        "hit_rate": 0.6471,
+        "annualised": 0.1664,
+        "recent_mean": 0.015712,
+        "eligible": true
+      },
+      {
+        "key": "boosting@13",
+        "strategy": "boosting",
+        "horizon_weeks": 13,
+        "periods": 35,
+        "mean": 0.027198,
+        "tstat": 1.927,
+        "hit_rate": 0.6,
+        "annualised": 0.1133,
+        "recent_mean": -0.007229,
+        "eligible": true
+      },
+      {
+        "key": "ridge@13",
+        "strategy": "ridge",
+        "horizon_weeks": 13,
+        "periods": 35,
+        "mean": 0.028975,
+        "tstat": 1.822,
+        "hit_rate": 0.6571,
+        "annualised": 0.121,
+        "recent_mean": -0.001272,
+        "eligible": true
+      },
+      {
+        "key": "momentum_12w@26",
+        "strategy": "momentum_12w",
+        "horizon_weeks": 26,
+        "periods": 17,
+        "mean": 0.068436,
+        "tstat": 1.588,
+        "hit_rate": 0.5294,
+        "annualised": 0.1416,
+        "recent_mean": 0.006205,
+        "eligible": true
+      },
+      {
+        "key": "near_high_12w@13",
+        "strategy": "near_high_12w",
+        "horizon_weeks": 13,
+        "periods": 35,
+        "mean": 0.019605,
+        "tstat": 1.417,
+        "hit_rate": 0.6571,
+        "annualised": 0.0808,
+        "recent_mean": -0.013218,
+        "eligible": true
+      },
+      {
+        "key": "near_high_12w@26",
+        "strategy": "near_high_12w",
+        "horizon_weeks": 26,
+        "periods": 17,
+        "mean": 0.046703,
+        "tstat": 1.266,
+        "hit_rate": 0.6471,
+        "annualised": 0.0956,
+        "recent_mean": 0.056669,
+        "eligible": true
+      },
+      {
+        "key": "momentum_12w@13",
+        "strategy": "momentum_12w",
+        "horizon_weeks": 13,
+        "periods": 35,
+        "mean": 0.018249,
+        "tstat": 1.204,
+        "hit_rate": 0.5429,
+        "annualised": 0.075,
+        "recent_mean": -0.005651,
+        "eligible": true
+      },
+      {
+        "key": "boosting@26",
+        "strategy": "boosting",
+        "horizon_weeks": 26,
+        "periods": 17,
+        "mean": 0.043747,
+        "tstat": 1.171,
+        "hit_rate": 0.5882,
+        "annualised": 0.0894,
+        "recent_mean": -0.018911,
+        "eligible": true
+      },
+      {
+        "key": "low_vol_12w@26",
+        "strategy": "low_vol_12w",
+        "horizon_weeks": 26,
+        "periods": 17,
+        "mean": -0.026398,
+        "tstat": -0.867,
+        "hit_rate": 0.4118,
+        "annualised": -0.0521,
+        "recent_mean": 0.049334,
+        "eligible": false
+      },
+      {
+        "key": "low_vol_12w@13",
+        "strategy": "low_vol_12w",
+        "horizon_weeks": 13,
+        "periods": 35,
+        "mean": -0.021131,
+        "tstat": -1.32,
+        "hit_rate": 0.3429,
+        "annualised": -0.0819,
+        "recent_mean": -0.000144,
+        "eligible": false
+      },
+      {
+        "key": "reversal_4w@13",
+        "strategy": "reversal_4w",
+        "horizon_weeks": 13,
+        "periods": 35,
+        "mean": -0.027075,
+        "tstat": -1.886,
+        "hit_rate": 0.3143,
+        "annualised": -0.104,
+        "recent_mean": 0.04272,
+        "eligible": false
+      },
+      {
+        "key": "reversal_4w@26",
+        "strategy": "reversal_4w",
+        "horizon_weeks": 26,
+        "periods": 17,
+        "mean": -0.073862,
+        "tstat": -3.893,
+        "hit_rate": 0.1765,
+        "annualised": -0.1423,
+        "recent_mean": -0.070106,
+        "eligible": false
+      }
+    ],
+    "measure": "aynı hisselerin eşit ağırlıklı ortalamasına göre, maliyet sonrası",
+    "chosen": "ridge",
+    "chosen_horizon_weeks": 26,
+    "description_tr": "göstergeleri birlikte tartan doğrusal model",
+    "confidence": "ORTA",
+    "past": {
+      "strategy": "ridge",
+      "horizon_weeks": 26,
+      "periods": 17,
+      "mean": 0.079999,
+      "tstat": 2.09,
+      "hit_rate": 0.6471,
+      "annualised": 0.1664,
+      "recent_mean": 0.015712,
+      "history": null
+    },
+    "history": [
+      {
+        "from": "2018-01-26",
+        "picks": [
+          "AKSEN",
+          "HALKB",
+          "KRDMD",
+          "PGSUS",
+          "THYAO"
+        ],
+        "excess": 0.132378
+      },
+      {
+        "from": "2018-07-27",
+        "picks": [
+          "ASELS",
+          "HEKTS",
+          "KRDMD",
+          "TAVHL",
+          "TTKOM"
+        ],
+        "excess": -0.175611
+      },
+      {
+        "from": "2019-01-25",
+        "picks": [
+          "ALARK",
+          "ISCTR",
+          "PGSUS",
+          "TTKOM",
+          "ULKER"
+        ],
+        "excess": 0.214029
+      },
+      {
+        "from": "2019-07-26",
+        "picks": [
+          "EKGYO",
+          "GUBRF",
+          "MGROS",
+          "PGSUS",
+          "VAKBN"
+        ],
+        "excess": 0.300024
+      },
+      {
+        "from": "2020-01-24",
+        "picks": [
+          "EKGYO",
+          "GUBRF",
+          "HEKTS",
+          "PGSUS",
+          "VAKBN"
+        ],
+        "excess": 0.435342
+      },
+      {
+        "from": "2020-07-24",
+        "picks": [
+          "AKSEN",
+          "EKGYO",
+          "GUBRF",
+          "SISE",
+          "TCELL"
+        ],
+        "excess": 0.048935
+      },
+      {
+        "from": "2021-01-22",
+        "picks": [
+          "FROTO",
+          "GUBRF",
+          "HEKTS",
+          "KRDMD",
+          "TAVHL"
+        ],
+        "excess": 0.150183
+      },
+      {
+        "from": "2021-07-19",
+        "picks": [
+          "AKSEN",
+          "GARAN",
+          "KRDMD",
+          "SAHOL",
+          "TAVHL"
+        ],
+        "excess": 0.063103
+      },
+      {
+        "from": "2022-01-21",
+        "picks": [
+          "ALARK",
+          "KRDMD",
+          "PETKM",
+          "SISE",
+          "THYAO"
+        ],
+        "excess": 0.176349
+      },
+      {
+        "from": "2022-07-22",
+        "picks": [
+          "AKSEN",
+          "ALARK",
+          "ENKAI",
+          "HEKTS",
+          "PGSUS"
+        ],
+        "excess": -0.002463
+      },
+      {
+        "from": "2023-01-20",
+        "picks": [
+          "ASELS",
+          "EKGYO",
+          "GUBRF",
+          "HALKB",
+          "TTKOM"
+        ],
+        "excess": -0.186299
+      },
+      {
+        "from": "2023-07-21",
+        "picks": [
+          "AKBNK",
+          "ALARK",
+          "ASELS",
+          "FROTO",
+          "KCHOL"
+        ],
+        "excess": -0.003079
+      },
+      {
+        "from": "2024-01-19",
+        "picks": [
+          "AKBNK",
+          "EKGYO",
+          "GARAN",
+          "TCELL",
+          "TTKOM"
+        ],
+        "excess": 0.144237
+      },
+      {
+        "from": "2024-07-19",
+        "picks": [
+          "AEFES",
+          "BIMAS",
+          "EKGYO",
+          "GARAN",
+          "ULKER"
+        ],
+        "excess": -0.062118
+      },
+      {
+        "from": "2025-01-17",
+        "picks": [
+          "AKBNK",
+          "EKGYO",
+          "GUBRF",
+          "VAKBN",
+          "YKBNK"
+        ],
+        "excess": 0.013724
+      },
+      {
+        "from": "2025-07-18",
+        "picks": [
+          "ASELS",
+          "EKGYO",
+          "GARAN",
+          "HALKB",
+          "YKBNK"
+        ],
+        "excess": 0.117897
+      },
+      {
+        "from": "2026-01-16",
+        "picks": [
+          "AKSEN",
+          "ASELS",
+          "HALKB",
+          "MGROS",
+          "ULKER"
+        ],
+        "excess": -0.006654
+      }
+    ],
+    "as_of_week_end": "2026-10-26",
+    "ranking": [
+      {
+        "rank": 1,
+        "symbol": "HALKB",
+        "pick": true
+      },
+      {
+        "rank": 2,
+        "symbol": "TUPRS",
+        "pick": true
+      },
+      {
+        "rank": 3,
+        "symbol": "PETKM",
+        "pick": true
+      },
+      {
+        "rank": 4,
+        "symbol": "KRDMD",
+        "pick": true
+      },
+      {
+        "rank": 5,
+        "symbol": "VAKBN",
+        "pick": true
+      },
+      {
+        "rank": 6,
+        "symbol": "YKBNK",
+        "pick": false
+      },
+      {
+        "rank": 7,
+        "symbol": "TTKOM",
+        "pick": false
+      },
+      {
+        "rank": 8,
+        "symbol": "KCHOL",
+        "pick": false
+      },
+      {
+        "rank": 9,
+        "symbol": "FROTO",
+        "pick": false
+      },
+      {
+        "rank": 10,
+        "symbol": "GARAN",
+        "pick": false
+      },
+      {
+        "rank": 11,
+        "symbol": "BIMAS",
+        "pick": false
+      },
+      {
+        "rank": 12,
+        "symbol": "ASELS",
+        "pick": false
+      },
+      {
+        "rank": 13,
+        "symbol": "ALARK",
+        "pick": false
+      },
+      {
+        "rank": 14,
+        "symbol": "EKGYO",
+        "pick": false
+      },
+      {
+        "rank": 15,
+        "symbol": "ISCTR",
+        "pick": false
+      },
+      {
+        "rank": 16,
+        "symbol": "AKBNK",
+        "pick": false
+      },
+      {
+        "rank": 17,
+        "symbol": "SAHOL",
+        "pick": false
+      },
+      {
+        "rank": 18,
+        "symbol": "TAVHL",
+        "pick": false
+      },
+      {
+        "rank": 19,
+        "symbol": "SISE",
+        "pick": false
+      },
+      {
+        "rank": 20,
+        "symbol": "AKSEN",
+        "pick": false
+      },
+      {
+        "rank": 21,
+        "symbol": "ENKAI",
+        "pick": false
+      },
+      {
+        "rank": 22,
+        "symbol": "TOASO",
+        "pick": false
+      },
+      {
+        "rank": 23,
+        "symbol": "TCELL",
+        "pick": false
+      },
+      {
+        "rank": 24,
+        "symbol": "EREGL",
+        "pick": false
+      },
+      {
+        "rank": 25,
+        "symbol": "ULKER",
+        "pick": false
+      },
+      {
+        "rank": 26,
+        "symbol": "THYAO",
+        "pick": false
+      },
+      {
+        "rank": 27,
+        "symbol": "PGSUS",
+        "pick": false
+      },
+      {
+        "rank": 28,
+        "symbol": "AEFES",
+        "pick": false
+      },
+      {
+        "rank": 29,
+        "symbol": "GUBRF",
+        "pick": false
+      },
+      {
+        "rank": 30,
+        "symbol": "HEKTS",
+        "pick": false
+      },
+      {
+        "rank": 31,
+        "symbol": "MGROS",
+        "pick": false
+      }
+    ],
+    "summary_tr": "En iyi sonuç: göstergeleri birlikte tartan doğrusal model, 26 hafta tutulduğunda. Grubun ortalamasına göre dönem başına +8.0% (yıllık +16.6%), 17 dönemin %65'inde önde; t=2.09 (eşik 2.64); son 2 yılda da tuttu. Güven: ORTA."
+  },
+  "note": "Analizdir, otomatik emir değildir.",
+  "name": "bist_gorunum",
+  "screen": {
+    "kept": [
+      "THYAO",
+      "ASELS",
+      "AKBNK",
+      "ISCTR",
+      "YKBNK",
+      "TUPRS",
+      "KCHOL",
+      "EREGL",
+      "GARAN",
+      "BIMAS",
+      "SAHOL",
+      "EKGYO",
+      "TCELL",
+      "PGSUS",
+      "SISE",
+      "HALKB",
+      "KRDMD",
+      "FROTO",
+      "MGROS",
+      "TTKOM",
+      "VAKBN",
+      "PETKM",
+      "GUBRF",
+      "TOASO",
+      "ENKAI",
+      "AEFES",
+      "TAVHL",
+      "ULKER",
+      "HEKTS",
+      "AKSEN",
+      "ALARK"
+    ],
+    "rows": [
+      {
+        "symbol": "THYAO",
+        "years": 10.0,
+        "median_value": 12450031482.62,
+        "zero_share": 0.0,
+        "last": "2026-10-26",
+        "reasons": []
+      },
+      {
+        "symbol": "ASELS",
+        "years": 10.0,
+        "median_value": 10820021443.28,
+        "zero_share": 0.0,
+        "last": "2026-10-26",
+        "reasons": []
+      },
+      {
+        "symbol": "AKBNK",
+        "years": 10.0,
+        "median_value": 8407044617.84,
+        "zero_share": 0.0,
+        "last": "2026-10-26",
+        "reasons": []
+      },
+      {
+        "symbol": "ISCTR",
+        "years": 10.0,
+        "median_value": 7066973331.28,
+        "zero_share": 0.0,
+        "last": "2026-10-26",
+        "reasons": []
+      },
+      {
+        "symbol": "YKBNK",
+        "years": 10.0,
+        "median_value": 6745046129.17,
+        "zero_share": 0.0,
+        "last": "2026-10-26",
+        "reasons": []
+      },
+      {
+        "symbol": "ASTOR",
+        "years": 3.77,
+        "median_value": 6685135684.43,
+        "zero_share": 0.0,
+        "last": "2026-10-26",
+        "reasons": [
+          "geçmiş 3.8 yıl < 8"
+        ]
+      },
+      {
+        "symbol": "TUPRS",
+        "years": 10.0,
+        "median_value": 6256994667.59,
+        "zero_share": 0.0,
+        "last": "2026-10-26",
+        "reasons": []
+      },
+      {
+        "symbol": "KCHOL",
+        "years": 10.0,
+        "median_value": 4929738921.25,
+        "zero_share": 0.0,
+        "last": "2026-10-26",
+        "reasons": []
+      },
+      {
+        "symbol": "EREGL",
+        "years": 10.0,
+        "median_value": 4738491494.48,
+        "zero_share": 0.0,
+        "last": "2026-10-26",
+        "reasons": []
+      },
+      {
+        "symbol": "GARAN",
+        "years": 10.0,
+        "median_value": 3785819666.95,
+        "zero_share": 0.0,
+        "last": "2026-10-26",
+        "reasons": []
+      },
+      {
+        "symbol": "BIMAS",
+        "years": 10.0,
+        "median_value": 3581638873.13,
+        "zero_share": 0.0,
+        "last": "2026-10-26",
+        "reasons": []
+      },
+      {
+        "symbol": "SAHOL",
+        "years": 10.0,
+        "median_value": 3123736696.25,
+        "zero_share": 0.0,
+        "last": "2026-10-26",
+        "reasons": []
+      },
+      {
+        "symbol": "EKGYO",
+        "years": 10.0,
+        "median_value": 2518365198.84,
+        "zero_share": 0.0,
+        "last": "2026-10-26",
+        "reasons": []
+      },
+      {
+        "symbol": "TCELL",
+        "years": 10.0,
+        "median_value": 2330143839.05,
+        "zero_share": 0.0,
+        "last": "2026-10-26",
+        "reasons": []
+      },
+      {
+        "symbol": "PGSUS",
+        "years": 10.0,
+        "median_value": 2268822845.15,
+        "zero_share": 0.0,
+        "last": "2026-10-26",
+        "reasons": []
+      },
+      {
+        "symbol": "SISE",
+        "years": 10.0,
+        "median_value": 1919648940.3,
+        "zero_share": 0.0,
+        "last": "2026-10-26",
+        "reasons": []
+      },
+      {
+        "symbol": "HALKB",
+        "years": 10.0,
+        "median_value": 1881354515.92,
+        "zero_share": 0.0,
+        "last": "2026-10-26",
+        "reasons": []
+      },
+      {
+        "symbol": "KRDMD",
+        "years": 10.0,
+        "median_value": 1765160925.74,
+        "zero_share": 0.0,
+        "last": "2026-10-26",
+        "reasons": []
+      },
+      {
+        "symbol": "FROTO",
+        "years": 10.0,
+        "median_value": 1651528252.5,
+        "zero_share": 0.0,
+        "last": "2026-10-26",
+        "reasons": []
+      },
+      {
+        "symbol": "MGROS",
+        "years": 10.0,
+        "median_value": 1473372301.83,
+        "zero_share": 0.0,
+        "last": "2026-10-26",
+        "reasons": []
+      },
+      {
+        "symbol": "TTKOM",
+        "years": 10.0,
+        "median_value": 1438766675.47,
+        "zero_share": 0.0,
+        "last": "2026-10-26",
+        "reasons": []
+      },
+      {
+        "symbol": "VAKBN",
+        "years": 10.0,
+        "median_value": 1362218008.13,
+        "zero_share": 0.0,
+        "last": "2026-10-26",
+        "reasons": []
+      },
+      {
+        "symbol": "PETKM",
+        "years": 10.0,
+        "median_value": 1351708479.35,
+        "zero_share": 0.0,
+        "last": "2026-10-26",
+        "reasons": []
+      },
+      {
+        "symbol": "GUBRF",
+        "years": 10.0,
+        "median_value": 1058502284.03,
+        "zero_share": 0.0,
+        "last": "2026-10-26",
+        "reasons": []
+      },
+      {
+        "symbol": "TOASO",
+        "years": 10.0,
+        "median_value": 966991144.25,
+        "zero_share": 0.0,
+        "last": "2026-10-26",
+        "reasons": []
+      },
+      {
+        "symbol": "ENKAI",
+        "years": 10.0,
+        "median_value": 915660283.6,
+        "zero_share": 0.0,
+        "last": "2026-10-26",
+        "reasons": []
+      },
+      {
+        "symbol": "AEFES",
+        "years": 10.0,
+        "median_value": 851431128.17,
+        "zero_share": 0.0,
+        "last": "2026-10-26",
+        "reasons": []
+      },
+      {
+        "symbol": "TAVHL",
+        "years": 10.0,
+        "median_value": 830963096.84,
+        "zero_share": 0.0,
+        "last": "2026-10-26",
+        "reasons": []
+      },
+      {
+        "symbol": "ULKER",
+        "years": 10.0,
+        "median_value": 579183284.95,
+        "zero_share": 0.0,
+        "last": "2026-10-26",
+        "reasons": []
+      },
+      {
+        "symbol": "HEKTS",
+        "years": 10.0,
+        "median_value": 555001540.67,
+        "zero_share": 0.0,
+        "last": "2026-10-26",
+        "reasons": []
+      },
+      {
+        "symbol": "AKSEN",
+        "years": 10.0,
+        "median_value": 549381094.6,
+        "zero_share": 0.0,
+        "last": "2026-10-26",
+        "reasons": []
+      },
+      {
+        "symbol": "ALARK",
+        "years": 10.0,
+        "median_value": 541457114.4,
+        "zero_share": 0.0,
+        "last": "2026-10-26",
+        "reasons": []
+      },
+      {
+        "symbol": "SKBNK",
+        "years": 10.0,
+        "median_value": 441996960.26,
+        "zero_share": 0.0,
+        "last": "2026-10-26",
+        "reasons": [
+          "medyan işlem hacmi 441,996,960 < 500,000,000"
+        ]
+      },
+      {
+        "symbol": "CCOLA",
+        "years": 10.0,
+        "median_value": 409584020.4,
+        "zero_share": 0.0,
+        "last": "2026-10-26",
+        "reasons": [
+          "medyan işlem hacmi 409,584,020 < 500,000,000"
+        ]
+      },
+      {
+        "symbol": "ISMEN",
+        "years": 10.0,
+        "median_value": 266004845.37,
+        "zero_share": 0.0,
+        "last": "2026-10-26",
+        "reasons": [
+          "medyan işlem hacmi 266,004,845 < 500,000,000"
+        ]
+      },
+      {
+        "symbol": "TSKB",
+        "years": 10.0,
+        "median_value": 255689083.95,
+        "zero_share": 0.0,
+        "last": "2026-10-26",
+        "reasons": [
+          "medyan işlem hacmi 255,689,084 < 500,000,000"
+        ]
+      },
+      {
+        "symbol": "DOHOL",
+        "years": 10.0,
+        "median_value": 239289855.82,
+        "zero_share": 0.0,
+        "last": "2026-10-26",
+        "reasons": [
+          "medyan işlem hacmi 239,289,856 < 500,000,000"
+        ]
+      },
+      {
+        "symbol": "OTKAR",
+        "years": 10.0,
+        "median_value": 223066180.62,
+        "zero_share": 0.0,
+        "last": "2026-10-26",
+        "reasons": [
+          "medyan işlem hacmi 223,066,181 < 500,000,000"
+        ]
+      },
+      {
+        "symbol": "ARCLK",
+        "years": 10.0,
+        "median_value": 217352347.3,
+        "zero_share": 0.0,
+        "last": "2026-10-26",
+        "reasons": [
+          "medyan işlem hacmi 217,352,347 < 500,000,000"
+        ]
+      },
+      {
+        "symbol": "VESTL",
+        "years": 10.0,
+        "median_value": 155190324.59,
+        "zero_share": 0.0,
+        "last": "2026-10-26",
+        "reasons": [
+          "medyan işlem hacmi 155,190,325 < 500,000,000"
+        ]
+      },
+      {
+        "symbol": "ZOREN",
+        "years": 10.0,
+        "median_value": 142831523.49,
+        "zero_share": 0.0,
+        "last": "2026-10-26",
+        "reasons": [
+          "medyan işlem hacmi 142,831,523 < 500,000,000"
+        ]
+      },
+      {
+        "symbol": "TTRAK",
+        "years": 10.0,
+        "median_value": 69205211.0,
+        "zero_share": 0.0,
+        "last": "2026-10-26",
+        "reasons": [
+          "medyan işlem hacmi 69,205,211 < 500,000,000"
+        ]
+      },
+      {
+        "symbol": "SASA",
+        "years": 10.0,
+        "median_value": 0.0,
+        "zero_share": 0.512,
+        "last": "2026-10-26",
+        "reasons": [
+          "medyan işlem hacmi 0 < 500,000,000",
+          "hacimsiz gün oranı %51"
+        ]
+      },
+      {
+        "symbol": "KOZAA",
+        "years": 0.0,
+        "median_value": 0.0,
+        "zero_share": 1.0,
+        "last": null,
+        "reasons": [
+          "veri yok"
+        ]
+      }
+    ]
+  }
+}
