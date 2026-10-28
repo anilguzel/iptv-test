@@ -1,10 +1,12 @@
 """Run the research pipelines and build JSON-serialisable reports."""
 from __future__ import annotations
 
+from dataclasses import replace
 from datetime import UTC, datetime
 
 from ..schemas import OhlcvBar
 from .features import FEATURE_NAMES, Panel, build_panel
+from .forecast import build_forecast
 from .models import RidgeRanker, default_strategies
 from .selection import select_strategy
 from .timeseries import TSRidge, default_ts_strategies, predict_next_week_ts, run_ts_strategy
@@ -110,6 +112,12 @@ def run_research(
     next_week["note"] = "Analitik sıralama — otomatik emir değildir, gelecek garantisi yoktur."
     fresh = {st.name: st for st in default_strategies(ridge_lambda, seed)}
     strategy = select_strategy(panel, results, fresh, cfg)
+    forecast = None
+    if strategy.get("chosen"):
+        all_weeks = eval_weeks(panel, replace(cfg, holdout_weeks=0, segment="validation"))
+        chosen = {st.name: st for st in default_strategies(ridge_lambda, seed)}[strategy["chosen"]]
+        forecast = build_forecast(panel, chosen, all_weeks, cfg.top_n)
+        forecast["strategy"] = strategy["chosen"]
 
     return {
         "mode": "cross_section",
@@ -122,6 +130,7 @@ def run_research(
         ),
         "next_week": next_week,
         "strategy": strategy,
+        "forecast": forecast,
     }
 
 

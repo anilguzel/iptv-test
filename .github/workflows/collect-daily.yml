@@ -21,6 +21,7 @@ jobs:
       TELEGRAM_ENABLED: ${{ secrets.TELEGRAM_BOT_TOKEN != '' }}
       TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
       TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+      EVDS_API_KEY: ${{ secrets.EVDS_API_KEY }}
       BIST_DATA_SERVICE_URL: ${{ secrets.BIST_DATA_SERVICE_URL }}
       BIST_DATA_SERVICE_API_KEY: ${{ secrets.BIST_DATA_SERVICE_API_KEY }}
     steps:

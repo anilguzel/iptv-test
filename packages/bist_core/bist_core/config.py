@@ -56,7 +56,7 @@ class Settings(BaseSettings):
     macro_provider: str = Field(default="demo", alias="MACRO_PROVIDER")
     evds_api_key: str | None = Field(default=None, alias="EVDS_API_KEY")
     evds_base_url: str = Field(
-        default="https://evds2.tcmb.gov.tr/service/evds", alias="EVDS_BASE_URL"
+        default="https://evds3.tcmb.gov.tr/igmevdsms-dis", alias="EVDS_BASE_URL"
     )
     # EVDS series codes to track for macro context (dot-separated codes, comma
     # list). Defaults: USD/TRY and EUR/TRY buying reference rates.
