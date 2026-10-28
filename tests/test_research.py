@@ -188,3 +188,25 @@ def test_fx_feature_and_rule_when_usdtry_is_given():
     report = run_research(daily, bench, CFG, fx_daily=fx)
     assert "fx_tilt" in report["strategies"]
     assert "fx_tilt" not in run_research(daily, bench, CFG)["strategies"]
+
+
+def test_boosting_learns_a_planted_signal_and_retrains_for_the_forecast():
+    from bist_core.research.models import BoostedRanker
+
+    daily, bench = synthetic_universe(n_stocks=20, n_weeks=200, momentum=0.5, seed=3)
+    report = run_research(daily, bench, CFG)
+    m = report["strategies"]["boosting"]["metrics"]
+    assert m["mean_ic"] > 0.1 and m["ic_tstat"] > 2
+    # never trained on its own test week
+    steps = report["strategies"]["boosting"]["steps"]
+    assert all(s["train_max_week"] < s["week"] for s in steps)
+
+    b = BoostedRanker(refit_every=4)
+    X, y = np.random.default_rng(0).standard_normal((400, 9)), np.random.default_rng(1).standard_normal(400)
+    b.fit(X, y)
+    first = b._model
+    b.fit(X, y)  # within the refit window: model kept
+    assert b._model is first
+    b.reset()
+    b.fit(X, y)  # after reset: always retrained
+    assert b._model is not first

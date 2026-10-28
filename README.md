@@ -117,7 +117,9 @@ winners better than simple baselines, consistently?**
    stocks, "hold" the top N for one week, record the realised net excess return
    and the rank IC, move forward one week, repeat. All stocks are pooled: every
    chart is training data for one shared model.
-5. A ridge model is compared with simple rules (12- and 4-week momentum,
+5. Two learning models, a ridge regression and gradient-boosted trees
+   (scikit-learn; it can learn non-linear rules and interactions and is
+   retrained every 4 weeks on all earlier weeks), are compared with simple rules (12- and 4-week momentum,
    short-term reversal, low volatility, nearness to the 12-week high) and a
    random ranking, after trading costs.
 6. The **last 26 weeks are a locked holdout**, opened only with
