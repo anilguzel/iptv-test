@@ -1,6 +1,6 @@
 {
   "mode": "cross_section",
-  "generated_at": "2026-10-28T10:56:02.266295+00:00",
+  "generated_at": "2026-10-28T13:59:47.552268+00:00",
   "meta": {
     "source": "csv",
     "universe": "THYAO,ASELS,AKBNK,ISCTR,YKBNK,TUPRS,KCHOL,EREGL,GARAN,BIMAS,SAHOL,EKGYO,TCELL,PGSUS,SISE,HALKB,KRDMD,FROTO,MGROS,TTKOM,VAKBN,PETKM,GUBRF,TOASO,ENKAI,AEFES,TAVHL,ULKER,HEKTS,AKSEN,ALARK",
@@ -113,16 +113,6 @@
   "verdict": {
     "best_baseline": "near_high_12w",
     "models": {
-      "ridge": {
-        "passed": false,
-        "checks": {
-          "positive_after_costs": true,
-          "beats_best_baseline": false,
-          "ic_significant": false,
-          "consistent": false
-        },
-        "summary_tr": "Tutarlı bir avantaj bulunamadı. Başarısız kriterler: beats_best_baseline, ic_significant, consistent."
-      },
       "boosting": {
         "passed": false,
         "checks": {
@@ -132,6 +122,16 @@
           "consistent": true
         },
         "summary_tr": "Tutarlı bir avantaj bulunamadı. Başarısız kriterler: ic_significant."
+      },
+      "ridge": {
+        "passed": false,
+        "checks": {
+          "positive_after_costs": true,
+          "beats_best_baseline": false,
+          "ic_significant": false,
+          "consistent": false
+        },
+        "summary_tr": "Tutarlı bir avantaj bulunamadı. Başarısız kriterler: beats_best_baseline, ic_significant, consistent."
       }
     }
   },
@@ -56833,8 +56833,8 @@
         "symbol": "TCELL",
         "score": 0.01287,
         "group": 5,
-        "expected_excess": 0.004432,
-        "beat_benchmark_probability": 0.4769,
+        "expected_excess": 0.002648,
+        "beat_benchmark_probability": 0.4725,
         "pick": true
       },
       {
@@ -56842,8 +56842,8 @@
         "symbol": "HALKB",
         "score": 0.00976,
         "group": 5,
-        "expected_excess": 0.004432,
-        "beat_benchmark_probability": 0.4769,
+        "expected_excess": 0.002604,
+        "beat_benchmark_probability": 0.4726,
         "pick": true
       },
       {
@@ -56851,8 +56851,8 @@
         "symbol": "SISE",
         "score": 0.00976,
         "group": 5,
-        "expected_excess": 0.004432,
-        "beat_benchmark_probability": 0.4769,
+        "expected_excess": 0.00256,
+        "beat_benchmark_probability": 0.4726,
         "pick": true
       },
       {
@@ -56860,8 +56860,8 @@
         "symbol": "VAKBN",
         "score": 0.00976,
         "group": 5,
-        "expected_excess": 0.004432,
-        "beat_benchmark_probability": 0.4769,
+        "expected_excess": 0.002516,
+        "beat_benchmark_probability": 0.4726,
         "pick": true
       },
       {
@@ -56869,8 +56869,8 @@
         "symbol": "TUPRS",
         "score": 0.0094,
         "group": 5,
-        "expected_excess": 0.004432,
-        "beat_benchmark_probability": 0.4769,
+        "expected_excess": 0.002472,
+        "beat_benchmark_probability": 0.4727,
         "pick": true
       },
       {
@@ -56878,8 +56878,8 @@
         "symbol": "ENKAI",
         "score": 0.0084,
         "group": 4,
-        "expected_excess": 5e-05,
-        "beat_benchmark_probability": 0.466,
+        "expected_excess": 0.002428,
+        "beat_benchmark_probability": 0.4727,
         "pick": false
       },
       {
@@ -56887,8 +56887,8 @@
         "symbol": "TTKOM",
         "score": 0.0084,
         "group": 4,
-        "expected_excess": 5e-05,
-        "beat_benchmark_probability": 0.466,
+        "expected_excess": 0.002384,
+        "beat_benchmark_probability": 0.4727,
         "pick": false
       },
       {
@@ -56896,8 +56896,8 @@
         "symbol": "ULKER",
         "score": 0.0084,
         "group": 5,
-        "expected_excess": 0.004432,
-        "beat_benchmark_probability": 0.4769,
+        "expected_excess": 0.002339,
+        "beat_benchmark_probability": 0.4728,
         "pick": false
       },
       {
@@ -56905,8 +56905,8 @@
         "symbol": "ASELS",
         "score": 0.00658,
         "group": 4,
-        "expected_excess": 5e-05,
-        "beat_benchmark_probability": 0.466,
+        "expected_excess": 0.002295,
+        "beat_benchmark_probability": 0.4728,
         "pick": false
       },
       {
@@ -56914,8 +56914,8 @@
         "symbol": "ALARK",
         "score": 0.0063,
         "group": 4,
-        "expected_excess": 5e-05,
-        "beat_benchmark_probability": 0.466,
+        "expected_excess": 0.002251,
+        "beat_benchmark_probability": 0.4729,
         "pick": false
       },
       {
@@ -56923,8 +56923,8 @@
         "symbol": "PGSUS",
         "score": 0.00442,
         "group": 4,
-        "expected_excess": 5e-05,
-        "beat_benchmark_probability": 0.466,
+        "expected_excess": 0.002207,
+        "beat_benchmark_probability": 0.4729,
         "pick": false
       },
       {
@@ -56932,8 +56932,8 @@
         "symbol": "GARAN",
         "score": 0.00327,
         "group": 4,
-        "expected_excess": 5e-05,
-        "beat_benchmark_probability": 0.466,
+        "expected_excess": 0.002163,
+        "beat_benchmark_probability": 0.4729,
         "pick": false
       },
       {
@@ -56941,8 +56941,8 @@
         "symbol": "KCHOL",
         "score": 0.00306,
         "group": 3,
-        "expected_excess": 0.001279,
-        "beat_benchmark_probability": 0.4669,
+        "expected_excess": 0.002119,
+        "beat_benchmark_probability": 0.473,
         "pick": false
       },
       {
@@ -56950,8 +56950,8 @@
         "symbol": "SAHOL",
         "score": 0.00306,
         "group": 3,
-        "expected_excess": 0.001279,
-        "beat_benchmark_probability": 0.4669,
+        "expected_excess": 0.002075,
+        "beat_benchmark_probability": 0.473,
         "pick": false
       },
       {
@@ -56959,8 +56959,8 @@
         "symbol": "YKBNK",
         "score": 0.00237,
         "group": 3,
-        "expected_excess": 0.001279,
-        "beat_benchmark_probability": 0.4669,
+        "expected_excess": 0.002031,
+        "beat_benchmark_probability": 0.4731,
         "pick": false
       },
       {
@@ -56968,8 +56968,8 @@
         "symbol": "AEFES",
         "score": 0.00206,
         "group": 2,
-        "expected_excess": 0.002303,
-        "beat_benchmark_probability": 0.4773,
+        "expected_excess": 0.001987,
+        "beat_benchmark_probability": 0.4731,
         "pick": false
       },
       {
@@ -56977,8 +56977,8 @@
         "symbol": "EKGYO",
         "score": 0.00206,
         "group": 3,
-        "expected_excess": 0.001279,
-        "beat_benchmark_probability": 0.4669,
+        "expected_excess": 0.001943,
+        "beat_benchmark_probability": 0.4731,
         "pick": false
       },
       {
@@ -56986,8 +56986,8 @@
         "symbol": "EREGL",
         "score": 0.00206,
         "group": 3,
-        "expected_excess": 0.001279,
-        "beat_benchmark_probability": 0.4669,
+        "expected_excess": 0.001899,
+        "beat_benchmark_probability": 0.4732,
         "pick": false
       },
       {
@@ -56995,8 +56995,8 @@
         "symbol": "TOASO",
         "score": 0.00206,
         "group": 3,
-        "expected_excess": 0.001279,
-        "beat_benchmark_probability": 0.4669,
+        "expected_excess": 0.001855,
+        "beat_benchmark_probability": 0.4732,
         "pick": false
       },
       {
@@ -57004,8 +57004,8 @@
         "symbol": "ISCTR",
         "score": 0.00181,
         "group": 2,
-        "expected_excess": 0.002303,
-        "beat_benchmark_probability": 0.4773,
+        "expected_excess": 0.001811,
+        "beat_benchmark_probability": 0.4732,
         "pick": false
       },
       {
@@ -57013,8 +57013,8 @@
         "symbol": "PETKM",
         "score": 0.00181,
         "group": 2,
-        "expected_excess": 0.002303,
-        "beat_benchmark_probability": 0.4773,
+        "expected_excess": 0.001767,
+        "beat_benchmark_probability": 0.4733,
         "pick": false
       },
       {
@@ -57022,8 +57022,8 @@
         "symbol": "BIMAS",
         "score": 0.0017,
         "group": 2,
-        "expected_excess": 0.002303,
-        "beat_benchmark_probability": 0.4773,
+        "expected_excess": 0.001723,
+        "beat_benchmark_probability": 0.4733,
         "pick": false
       },
       {
@@ -57031,8 +57031,8 @@
         "symbol": "TAVHL",
         "score": 0.00146,
         "group": 2,
-        "expected_excess": 0.002303,
-        "beat_benchmark_probability": 0.4773,
+        "expected_excess": 0.001679,
+        "beat_benchmark_probability": 0.4734,
         "pick": false
       },
       {
@@ -57040,8 +57040,8 @@
         "symbol": "AKBNK",
         "score": 0.00055,
         "group": 2,
-        "expected_excess": 0.002303,
-        "beat_benchmark_probability": 0.4773,
+        "expected_excess": 0.001635,
+        "beat_benchmark_probability": 0.4734,
         "pick": false
       },
       {
@@ -57049,8 +57049,8 @@
         "symbol": "THYAO",
         "score": -0.00192,
         "group": 1,
-        "expected_excess": 0.001888,
-        "beat_benchmark_probability": 0.4775,
+        "expected_excess": 0.001591,
+        "beat_benchmark_probability": 0.4734,
         "pick": false
       },
       {
@@ -57058,8 +57058,8 @@
         "symbol": "FROTO",
         "score": -0.00319,
         "group": 1,
-        "expected_excess": 0.001888,
-        "beat_benchmark_probability": 0.4775,
+        "expected_excess": 0.001547,
+        "beat_benchmark_probability": 0.4735,
         "pick": false
       },
       {
@@ -57067,8 +57067,8 @@
         "symbol": "MGROS",
         "score": -0.00438,
         "group": 1,
-        "expected_excess": 0.001888,
-        "beat_benchmark_probability": 0.4775,
+        "expected_excess": 0.001503,
+        "beat_benchmark_probability": 0.4735,
         "pick": false
       },
       {
@@ -57076,8 +57076,8 @@
         "symbol": "AKSEN",
         "score": -0.00634,
         "group": 1,
-        "expected_excess": 0.001888,
-        "beat_benchmark_probability": 0.4775,
+        "expected_excess": 0.001459,
+        "beat_benchmark_probability": 0.4735,
         "pick": false
       },
       {
@@ -57085,8 +57085,8 @@
         "symbol": "KRDMD",
         "score": -0.02459,
         "group": 1,
-        "expected_excess": 0.001888,
-        "beat_benchmark_probability": 0.4775,
+        "expected_excess": 0.001415,
+        "beat_benchmark_probability": 0.4736,
         "pick": false
       },
       {
@@ -57094,8 +57094,8 @@
         "symbol": "HEKTS",
         "score": -0.03388,
         "group": 1,
-        "expected_excess": 0.001888,
-        "beat_benchmark_probability": 0.4775,
+        "expected_excess": 0.001371,
+        "beat_benchmark_probability": 0.4736,
         "pick": false
       },
       {
@@ -57103,8 +57103,8 @@
         "symbol": "GUBRF",
         "score": -0.0396,
         "group": 1,
-        "expected_excess": 0.001888,
-        "beat_benchmark_probability": 0.4775,
+        "expected_excess": 0.001327,
+        "beat_benchmark_probability": 0.4737,
         "pick": false
       }
     ],

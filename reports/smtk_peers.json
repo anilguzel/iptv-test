@@ -1,6 +1,6 @@
 {
   "mode": "cross_section",
-  "generated_at": "2026-10-28T10:55:51.522899+00:00",
+  "generated_at": "2026-10-28T13:59:36.557686+00:00",
   "meta": {
     "source": "csv",
     "universe": "AXTI,AEHR,FORM,AMBA,POET,UCTT,ACMR,LASR,KLIC,ICHR,COHU,VECO,PLAB,LPTH",
@@ -89,7 +89,7 @@
   "verdict": {
     "best_baseline": "momentum_12w",
     "models": {
-      "ridge": {
+      "boosting": {
         "passed": false,
         "checks": {
           "positive_after_costs": false,
@@ -99,7 +99,7 @@
         },
         "summary_tr": "Tutarlı bir avantaj bulunamadı. Başarısız kriterler: positive_after_costs, beats_best_baseline, ic_significant, consistent."
       },
-      "boosting": {
+      "ridge": {
         "passed": false,
         "checks": {
           "positive_after_costs": false,
@@ -50465,8 +50465,8 @@
         "symbol": "PLAB",
         "score": 1.62134,
         "group": 5,
-        "expected_excess": -0.000251,
-        "beat_benchmark_probability": 0.4788,
+        "expected_excess": 0.002858,
+        "beat_benchmark_probability": 0.4958,
         "pick": true
       },
       {
@@ -50474,8 +50474,8 @@
         "symbol": "LASR",
         "score": 1.35702,
         "group": 5,
-        "expected_excess": -0.000251,
-        "beat_benchmark_probability": 0.4788,
+        "expected_excess": 0.003331,
+        "beat_benchmark_probability": 0.4957,
         "pick": true
       },
       {
@@ -50483,8 +50483,8 @@
         "symbol": "AMBA",
         "score": 0.97679,
         "group": 4,
-        "expected_excess": 0.006825,
-        "beat_benchmark_probability": 0.5071,
+        "expected_excess": 0.003803,
+        "beat_benchmark_probability": 0.4956,
         "pick": true
       },
       {
@@ -50492,8 +50492,8 @@
         "symbol": "POET",
         "score": 0.52313,
         "group": 4,
-        "expected_excess": 0.006825,
-        "beat_benchmark_probability": 0.5071,
+        "expected_excess": 0.004276,
+        "beat_benchmark_probability": 0.4956,
         "pick": true
       },
       {
@@ -50501,8 +50501,8 @@
         "symbol": "KLIC",
         "score": 0.44458,
         "group": 4,
-        "expected_excess": 0.006825,
-        "beat_benchmark_probability": 0.5071,
+        "expected_excess": 0.004748,
+        "beat_benchmark_probability": 0.4955,
         "pick": true
       },
       {
@@ -50510,8 +50510,8 @@
         "symbol": "UCTT",
         "score": 0.28899,
         "group": 3,
-        "expected_excess": 0.00647,
-        "beat_benchmark_probability": 0.5014,
+        "expected_excess": 0.005221,
+        "beat_benchmark_probability": 0.4954,
         "pick": false
       },
       {
@@ -50519,8 +50519,8 @@
         "symbol": "ACMR",
         "score": 0.11582,
         "group": 3,
-        "expected_excess": 0.00647,
-        "beat_benchmark_probability": 0.5014,
+        "expected_excess": 0.005693,
+        "beat_benchmark_probability": 0.4954,
         "pick": false
       },
       {
@@ -50528,8 +50528,8 @@
         "symbol": "VECO",
         "score": 0.11234,
         "group": 3,
-        "expected_excess": 0.00647,
-        "beat_benchmark_probability": 0.5014,
+        "expected_excess": 0.006166,
+        "beat_benchmark_probability": 0.4953,
         "pick": false
       },
       {
@@ -50537,8 +50537,8 @@
         "symbol": "ICHR",
         "score": -0.15836,
         "group": 2,
-        "expected_excess": 0.00724,
-        "beat_benchmark_probability": 0.4891,
+        "expected_excess": 0.006638,
+        "beat_benchmark_probability": 0.4953,
         "pick": false
       },
       {
@@ -50546,8 +50546,8 @@
         "symbol": "FORM",
         "score": -0.60719,
         "group": 2,
-        "expected_excess": 0.00724,
-        "beat_benchmark_probability": 0.4891,
+        "expected_excess": 0.007111,
+        "beat_benchmark_probability": 0.4952,
         "pick": false
       },
       {
@@ -50555,8 +50555,8 @@
         "symbol": "LPTH",
         "score": -0.62921,
         "group": 2,
-        "expected_excess": 0.00724,
-        "beat_benchmark_probability": 0.4891,
+        "expected_excess": 0.007583,
+        "beat_benchmark_probability": 0.4951,
         "pick": false
       },
       {
@@ -50564,8 +50564,8 @@
         "symbol": "COHU",
         "score": -0.66655,
         "group": 1,
-        "expected_excess": 0.007303,
-        "beat_benchmark_probability": 0.4948,
+        "expected_excess": 0.008056,
+        "beat_benchmark_probability": 0.4951,
         "pick": false
       },
       {
@@ -50573,8 +50573,8 @@
         "symbol": "AXTI",
         "score": -0.96375,
         "group": 1,
-        "expected_excess": 0.007303,
-        "beat_benchmark_probability": 0.4948,
+        "expected_excess": 0.008528,
+        "beat_benchmark_probability": 0.495,
         "pick": false
       },
       {
@@ -50582,8 +50582,8 @@
         "symbol": "AEHR",
         "score": -2.41496,
         "group": 1,
-        "expected_excess": 0.007303,
-        "beat_benchmark_probability": 0.4948,
+        "expected_excess": 0.009001,
+        "beat_benchmark_probability": 0.4949,
         "pick": false
       }
     ],
