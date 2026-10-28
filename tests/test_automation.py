@@ -245,6 +245,9 @@ def test_outlook_job_writes_report_csvs_and_summary(tmp_path):
     assert report["mode"] == "outlook" and report["risk"]["stocks"]
     assert (tmp_path / "reports/gorunum_risk.csv").read_text().count("\n") == 13
     assert (tmp_path / "reports/gorunum_siralama.csv").exists()
+    odds = report["odds"]["stocks"]
+    assert len(odds) == 12 and 0 <= odds[0]["up10_1m"] <= odds[0]["up5_1m"] <= 1
+    assert odds[0]["up20_3m"] <= odds[0]["up10_3m"] and "up5_1m" in (tmp_path / "reports/gorunum_olasilik.csv").read_text()
     text = summarize_report(report)
     assert "sert oynayabilecekler" in text and "emir değildir" in text
     assert "gelecek hafta risk" in render_status(tmp_path, event="x")

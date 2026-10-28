@@ -311,6 +311,41 @@ def medium_term(panel, *, top_n: int = 5, cost_bps: float = 10.0, seed: int = 7,
 
 
 # --------------------------------------------------------------------------- #
+# Move odds: how often a stock moved this much in one or three months
+# --------------------------------------------------------------------------- #
+ODDS_LOOKBACK_DAYS = 756  # about three years of trading days
+ODDS = {21: (0.05, 0.10, 0.15), 63: (0.10, 0.20, 0.30)}  # horizon in trading days -> thresholds
+
+
+def move_odds(daily_by_symbol: dict[str, list[OhlcvBar]]) -> dict:
+    """Base rates from each stock's own last three years: in what share of all
+    21- and 63-trading-day windows it rose or fell at least a given amount.
+    History, not a prediction: the windows overlap and the period had high
+    inflation, so TL prices drifted up."""
+    stocks = []
+    for sym, bars in sorted(daily_by_symbol.items()):
+        closes = np.array([b.close for b in sorted(bars, key=lambda b: b.timestamp)][-ODDS_LOOKBACK_DAYS:])
+        row: dict = {"symbol": sym}
+        for h, levels in ODDS.items():
+            if len(closes) <= h + 20:
+                continue
+            r = closes[h:] / closes[:-h] - 1
+            tag = "1m" if h == 21 else "3m"
+            row[f"median_{tag}"] = round(float(np.median(r)), 4)
+            for lv in levels:
+                row[f"up{int(lv * 100)}_{tag}"] = round(float((r >= lv).mean()), 4)
+                row[f"down{int(lv * 100)}_{tag}"] = round(float((r <= -lv).mean()), 4)
+            row[f"windows_{tag}"] = len(r)
+        stocks.append(row)
+    return {
+        "lookback_trading_days": ODDS_LOOKBACK_DAYS,
+        "thresholds": {"1m": list(ODDS[21]), "3m": list(ODDS[63])},
+        "note": "Geçmiş 3 yılın istatistiği, tahmin değildir; o dönemde yüksek enflasyon TL fiyatlarını yukarı itti.",
+        "stocks": stocks,
+    }
+
+
+# --------------------------------------------------------------------------- #
 def run_outlook(daily_by_symbol: dict[str, list[OhlcvBar]], *, top_n: int = 5, cost_bps: float = 10.0,
                 seed: int = 7, meta: dict | None = None) -> dict:
     weekly = {s: to_weekly(b) for s, b in daily_by_symbol.items()}
@@ -322,5 +357,6 @@ def run_outlook(daily_by_symbol: dict[str, list[OhlcvBar]], *, top_n: int = 5, c
         "meta": {"symbols_used": sorted(weekly), "top_n": top_n, "cost_bps": cost_bps, **(meta or {})},
         "risk": risk_forecast(weekly),
         "medium_term": medium_term(panel, top_n=top_n, cost_bps=cost_bps, seed=seed),
+        "odds": move_odds({s: b for s, b in daily_by_symbol.items() if s in weekly}),
         "note": "Analizdir, otomatik emir değildir.",
     }
