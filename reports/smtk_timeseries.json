@@ -1,6 +1,6 @@
 {
   "mode": "timeseries",
-  "generated_at": "2026-10-28T16:45:32.589716+00:00",
+  "generated_at": "2026-10-31T12:45:29.417915+00:00",
   "meta": {
     "source": "csv",
     "universe": "SMTK",
@@ -30,7 +30,7 @@
         "change": -0.5393
       }
     ],
-    "data_warning": "Local CSV files from /tmp/claude-0/md/daily/yahoo_us; check that prices are split-adjusted.",
+    "data_warning": "Local CSV files from store/daily/yahoo_us; check that prices are split-adjusted.",
     "years": 3.0,
     "symbol": "SMTK",
     "benchmark_used": "IWM",
@@ -40,7 +40,7 @@
     "symbols_skipped_short_history": [],
     "calendar_weeks": 127,
     "first_week_end": "2024-05-31",
-    "last_week_end": "2026-10-26",
+    "last_week_end": "2026-10-29",
     "rows": 115,
     "evaluated_weeks": 36,
     "segment": "validation",
@@ -2231,20 +2231,20 @@
     }
   },
   "next_week": {
-    "as_of_week_end": "2026-10-26",
+    "as_of_week_end": "2026-10-29",
     "model": "ridge",
     "symbol": "SMTK",
-    "predicted_excess": 0.032978,
-    "position": "LONG",
+    "predicted_excess": -0.072964,
+    "position": "FLAT",
     "coefficients": {
-      "ex_ret_1w": 0.02431,
-      "ex_ret_4w": -0.01857,
-      "ex_ret_12w": -0.01421,
-      "vol_4w": 0.02616,
-      "vol_12w": -0.01612,
-      "log_volume_ratio": -0.05746,
-      "dist_from_12w_high": 0.03677,
-      "range_1w": 0.02537,
+      "ex_ret_1w": 0.02318,
+      "ex_ret_4w": -0.0164,
+      "ex_ret_12w": -0.01027,
+      "vol_4w": 0.0245,
+      "vol_12w": -0.01784,
+      "log_volume_ratio": -0.05646,
+      "dist_from_12w_high": 0.036,
+      "range_1w": 0.02611,
       "fx_beta_x_trend": 0.0
     },
     "note": "Analitik tahmin — otomatik emir değildir, gelecek garantisi yoktur."

@@ -1,6 +1,6 @@
 {
   "mode": "outlook",
-  "generated_at": "2026-10-28T17:29:34.866013+00:00",
+  "generated_at": "2026-10-31T12:45:41.287516+00:00",
   "meta": {
     "symbols_used": [
       "AEFES",
@@ -39,327 +39,327 @@
     "cost_bps": 10
   },
   "risk": {
-    "as_of_week_end": "2026-10-26",
+    "as_of_week_end": "2026-10-28",
     "method": "Geçen haftanın fiyat aralığı ile son 4 ve 12 haftanın dalgalanmasından, sadece önceki haftalarla 4 haftada bir yeniden kurulan doğrusal model; aralık geçmiş hareketlerin %10-%90 dilimi.",
     "validation": {
       "weeks": 458,
-      "mean_ic": 0.1227,
-      "ic_tstat": 12.11,
+      "mean_ic": 0.1221,
+      "ic_tstat": 12.07,
       "ic_positive_share": 0.7031,
-      "baseline_vol12_mean_ic": 0.1111,
-      "band_coverage": 0.773,
+      "baseline_vol12_mean_ic": 0.1107,
+      "band_coverage": 0.7729,
       "band_target": 0.8
     },
     "stocks": [
       {
         "risk_rank": 1,
-        "symbol": "GUBRF",
-        "close": 274.25,
-        "expected_move": 0.049391,
-        "range_low": -0.065403,
-        "range_high": 0.08843,
-        "price_low": 256.3131,
-        "price_high": 298.5018
+        "symbol": "AKSEN",
+        "close": 67.3,
+        "expected_move": 0.058207,
+        "range_low": -0.077172,
+        "range_high": 0.104175,
+        "price_low": 62.1063,
+        "price_high": 74.3109
       },
       {
         "risk_rank": 2,
-        "symbol": "AKSEN",
-        "close": 64.3,
-        "expected_move": 0.049237,
-        "range_low": -0.0652,
-        "range_high": 0.088154,
-        "price_low": 60.1077,
-        "price_high": 69.9683
+        "symbol": "HEKTS",
+        "close": 1.58,
+        "expected_move": 0.054549,
+        "range_low": -0.072322,
+        "range_high": 0.097627,
+        "price_low": 1.4657,
+        "price_high": 1.7343
       },
       {
         "risk_rank": 3,
         "symbol": "HALKB",
-        "close": 42.94,
-        "expected_move": 0.047918,
-        "range_low": -0.063453,
-        "range_high": 0.085792,
-        "price_low": 40.2153,
-        "price_high": 46.6239
+        "close": 43.14,
+        "expected_move": 0.050878,
+        "range_low": -0.067456,
+        "range_high": 0.091058,
+        "price_low": 40.23,
+        "price_high": 47.0682
       },
       {
         "risk_rank": 4,
-        "symbol": "PETKM",
-        "close": 17.72,
-        "expected_move": 0.047189,
-        "range_low": -0.062487,
-        "range_high": 0.084487,
-        "price_low": 16.6127,
-        "price_high": 19.2171
+        "symbol": "GUBRF",
+        "close": 278.0,
+        "expected_move": 0.049177,
+        "range_low": -0.0652,
+        "range_high": 0.088013,
+        "price_low": 259.8744,
+        "price_high": 302.4676
       },
       {
         "risk_rank": 5,
-        "symbol": "FROTO",
-        "close": 67.95,
-        "expected_move": 0.044497,
-        "range_low": -0.058923,
-        "range_high": 0.079667,
-        "price_low": 63.9462,
-        "price_high": 73.3634
+        "symbol": "PETKM",
+        "close": 17.5,
+        "expected_move": 0.047949,
+        "range_low": -0.063572,
+        "range_high": 0.085815,
+        "price_low": 16.3875,
+        "price_high": 19.0018
       },
       {
         "risk_rank": 6,
-        "symbol": "HEKTS",
-        "close": 1.7,
-        "expected_move": 0.044036,
-        "range_low": -0.058312,
-        "range_high": 0.078842,
-        "price_low": 1.6009,
-        "price_high": 1.834
+        "symbol": "FROTO",
+        "close": 69.2,
+        "expected_move": 0.044994,
+        "range_low": -0.059654,
+        "range_high": 0.080527,
+        "price_low": 65.0719,
+        "price_high": 74.7724
       },
       {
         "risk_rank": 7,
-        "symbol": "KRDMD",
-        "close": 36.06,
-        "expected_move": 0.043595,
-        "range_low": -0.057728,
-        "range_high": 0.078052,
-        "price_low": 33.9783,
-        "price_high": 38.8746
+        "symbol": "ALARK",
+        "close": 94.3,
+        "expected_move": 0.043228,
+        "range_low": -0.057312,
+        "range_high": 0.077365,
+        "price_low": 88.8955,
+        "price_high": 101.5955
       },
       {
         "risk_rank": 8,
-        "symbol": "TTKOM",
-        "close": 46.8,
-        "expected_move": 0.04031,
-        "range_low": -0.053378,
-        "range_high": 0.07217,
-        "price_low": 44.3019,
-        "price_high": 50.1776
+        "symbol": "TOASO",
+        "close": 230.0,
+        "expected_move": 0.043222,
+        "range_low": -0.057305,
+        "range_high": 0.077356,
+        "price_low": 216.8198,
+        "price_high": 247.7918
       },
       {
         "risk_rank": 9,
         "symbol": "VAKBN",
-        "close": 30.18,
-        "expected_move": 0.038881,
-        "range_low": -0.051486,
-        "range_high": 0.069612,
-        "price_low": 28.6262,
-        "price_high": 32.2809
+        "close": 30.62,
+        "expected_move": 0.043072,
+        "range_low": -0.057106,
+        "range_high": 0.077087,
+        "price_low": 28.8714,
+        "price_high": 32.9804
       },
       {
         "risk_rank": 10,
-        "symbol": "SISE",
-        "close": 34.4,
-        "expected_move": 0.038276,
-        "range_low": -0.050685,
-        "range_high": 0.06853,
-        "price_low": 32.6564,
-        "price_high": 36.7574
+        "symbol": "KRDMD",
+        "close": 37.56,
+        "expected_move": 0.042537,
+        "range_low": -0.056396,
+        "range_high": 0.076129,
+        "price_low": 35.4418,
+        "price_high": 40.4194
       },
       {
         "risk_rank": 11,
-        "symbol": "EKGYO",
-        "close": 16.84,
-        "expected_move": 0.03801,
-        "range_low": -0.050333,
-        "range_high": 0.068053,
-        "price_low": 15.9924,
-        "price_high": 17.986
+        "symbol": "TTKOM",
+        "close": 47.3,
+        "expected_move": 0.042224,
+        "range_low": -0.055981,
+        "range_high": 0.075568,
+        "price_low": 44.6521,
+        "price_high": 50.8744
       },
       {
         "risk_rank": 12,
-        "symbol": "EREGL",
-        "close": 30.86,
-        "expected_move": 0.037567,
-        "range_low": -0.049747,
-        "range_high": 0.067261,
-        "price_low": 29.3248,
-        "price_high": 32.9357
+        "symbol": "ASELS",
+        "close": 358.5,
+        "expected_move": 0.040815,
+        "range_low": -0.054113,
+        "range_high": 0.073047,
+        "price_low": 339.1003,
+        "price_high": 384.6875
       },
       {
         "risk_rank": 13,
-        "symbol": "TOASO",
-        "close": 219.3,
-        "expected_move": 0.037129,
-        "range_low": -0.049166,
-        "range_high": 0.066476,
-        "price_low": 208.5179,
-        "price_high": 233.8781
+        "symbol": "ENKAI",
+        "close": 78.45,
+        "expected_move": 0.040277,
+        "range_low": -0.0534,
+        "range_high": 0.072084,
+        "price_low": 74.2608,
+        "price_high": 84.105
       },
       {
         "risk_rank": 14,
-        "symbol": "AEFES",
-        "close": 15.81,
-        "expected_move": 0.036293,
-        "range_low": -0.048059,
-        "range_high": 0.064978,
-        "price_low": 15.0502,
-        "price_high": 16.8373
+        "symbol": "EKGYO",
+        "close": 17.08,
+        "expected_move": 0.039915,
+        "range_low": -0.05292,
+        "range_high": 0.071437,
+        "price_low": 16.1761,
+        "price_high": 18.3001
       },
       {
         "risk_rank": 15,
-        "symbol": "ALARK",
-        "close": 98.65,
-        "expected_move": 0.035708,
-        "range_low": -0.047285,
-        "range_high": 0.063933,
-        "price_low": 93.9853,
-        "price_high": 104.9569
+        "symbol": "AEFES",
+        "close": 15.9,
+        "expected_move": 0.039853,
+        "range_low": -0.052838,
+        "range_high": 0.071325,
+        "price_low": 15.0599,
+        "price_high": 17.0341
       },
       {
         "risk_rank": 16,
-        "symbol": "TUPRS",
-        "close": 364.5,
-        "expected_move": 0.035509,
-        "range_low": -0.047021,
-        "range_high": 0.063575,
-        "price_low": 347.361,
-        "price_high": 387.673
+        "symbol": "EREGL",
+        "close": 31.22,
+        "expected_move": 0.039748,
+        "range_low": -0.052699,
+        "range_high": 0.071138,
+        "price_low": 29.5747,
+        "price_high": 33.4409
       },
       {
         "risk_rank": 17,
-        "symbol": "MGROS",
-        "close": 427.0,
-        "expected_move": 0.034716,
-        "range_low": -0.045971,
-        "range_high": 0.062155,
-        "price_low": 407.3705,
-        "price_high": 453.5404
+        "symbol": "SISE",
+        "close": 33.9,
+        "expected_move": 0.038138,
+        "range_low": -0.050564,
+        "range_high": 0.068256,
+        "price_low": 32.1859,
+        "price_high": 36.2139
       },
       {
         "risk_rank": 18,
-        "symbol": "YKBNK",
-        "close": 35.84,
-        "expected_move": 0.034253,
-        "range_low": -0.045358,
-        "range_high": 0.061326,
-        "price_low": 34.2144,
-        "price_high": 38.0379
+        "symbol": "TUPRS",
+        "close": 355.0,
+        "expected_move": 0.037537,
+        "range_low": -0.049767,
+        "range_high": 0.067181,
+        "price_low": 337.3326,
+        "price_high": 378.8491
       },
       {
         "risk_rank": 19,
-        "symbol": "ULKER",
-        "close": 75.9,
-        "expected_move": 0.033512,
-        "range_low": -0.044377,
-        "range_high": 0.060001,
-        "price_low": 72.5318,
-        "price_high": 80.4541
+        "symbol": "SAHOL",
+        "close": 83.25,
+        "expected_move": 0.035454,
+        "range_low": -0.047005,
+        "range_high": 0.063452,
+        "price_low": 79.3368,
+        "price_high": 88.5324
       },
       {
         "risk_rank": 20,
-        "symbol": "AKBNK",
-        "close": 65.0,
-        "expected_move": 0.03328,
-        "range_low": -0.044069,
-        "range_high": 0.059584,
-        "price_low": 62.1355,
-        "price_high": 68.873
+        "symbol": "MGROS",
+        "close": 427.25,
+        "expected_move": 0.034804,
+        "range_low": -0.046143,
+        "range_high": 0.062288,
+        "price_low": 407.5353,
+        "price_high": 453.8627
       },
       {
         "risk_rank": 21,
-        "symbol": "ISCTR",
-        "close": 12.26,
-        "expected_move": 0.033121,
-        "range_low": -0.043859,
-        "range_high": 0.059301,
-        "price_low": 11.7223,
-        "price_high": 12.987
+        "symbol": "BIMAS",
+        "close": 364.75,
+        "expected_move": 0.034741,
+        "range_low": -0.04606,
+        "range_high": 0.062176,
+        "price_low": 347.9496,
+        "price_high": 387.4288
       },
       {
         "risk_rank": 22,
-        "symbol": "ENKAI",
-        "close": 75.45,
-        "expected_move": 0.03277,
-        "range_low": -0.043394,
-        "range_high": 0.058672,
-        "price_low": 72.1759,
-        "price_high": 79.8768
+        "symbol": "YKBNK",
+        "close": 34.48,
+        "expected_move": 0.034116,
+        "range_low": -0.045232,
+        "range_high": 0.061058,
+        "price_low": 32.9204,
+        "price_high": 36.5853
       },
       {
         "risk_rank": 23,
-        "symbol": "ASELS",
-        "close": 335.0,
-        "expected_move": 0.032243,
-        "range_low": -0.042696,
-        "range_high": 0.057728,
-        "price_low": 320.6967,
-        "price_high": 354.339
+        "symbol": "ULKER",
+        "close": 75.65,
+        "expected_move": 0.033994,
+        "range_low": -0.04507,
+        "range_high": 0.06084,
+        "price_low": 72.2404,
+        "price_high": 80.2525
       },
       {
         "risk_rank": 24,
-        "symbol": "KCHOL",
-        "close": 200.6,
-        "expected_move": 0.031618,
-        "range_low": -0.041869,
-        "range_high": 0.056609,
-        "price_low": 192.2012,
-        "price_high": 211.9558
+        "symbol": "TAVHL",
+        "close": 254.5,
+        "expected_move": 0.03359,
+        "range_low": -0.044534,
+        "range_high": 0.060117,
+        "price_low": 243.166,
+        "price_high": 269.7997
       },
       {
         "risk_rank": 25,
-        "symbol": "GARAN",
-        "close": 128.8,
-        "expected_move": 0.031434,
-        "range_low": -0.041625,
-        "range_high": 0.05628,
-        "price_low": 123.4387,
-        "price_high": 136.0489
+        "symbol": "ISCTR",
+        "close": 12.12,
+        "expected_move": 0.033407,
+        "range_low": -0.044291,
+        "range_high": 0.059788,
+        "price_low": 11.5832,
+        "price_high": 12.8446
       },
       {
         "risk_rank": 26,
-        "symbol": "BIMAS",
-        "close": 374.5,
-        "expected_move": 0.030696,
-        "range_low": -0.040647,
-        "range_high": 0.054958,
-        "price_low": 359.2775,
-        "price_high": 395.0818
+        "symbol": "AKBNK",
+        "close": 63.0,
+        "expected_move": 0.032994,
+        "range_low": -0.043744,
+        "range_high": 0.059049,
+        "price_low": 60.2442,
+        "price_high": 66.7201
       },
       {
         "risk_rank": 27,
-        "symbol": "TAVHL",
-        "close": 266.5,
-        "expected_move": 0.030383,
-        "range_low": -0.040233,
-        "range_high": 0.054398,
-        "price_low": 255.7778,
-        "price_high": 280.9971
+        "symbol": "KCHOL",
+        "close": 199.8,
+        "expected_move": 0.032697,
+        "range_low": -0.04335,
+        "range_high": 0.058517,
+        "price_low": 191.1387,
+        "price_high": 211.4918
       },
       {
         "risk_rank": 28,
-        "symbol": "TCELL",
-        "close": 90.4,
-        "expected_move": 0.030377,
-        "range_low": -0.040225,
-        "range_high": 0.054387,
-        "price_low": 86.7637,
-        "price_high": 95.3165
+        "symbol": "THYAO",
+        "close": 252.5,
+        "expected_move": 0.031466,
+        "range_low": -0.041719,
+        "range_high": 0.056316,
+        "price_low": 241.966,
+        "price_high": 266.7198
       },
       {
         "risk_rank": 29,
-        "symbol": "SAHOL",
-        "close": 87.5,
-        "expected_move": 0.029388,
-        "range_low": -0.038915,
-        "range_high": 0.052616,
-        "price_low": 84.0949,
-        "price_high": 92.1039
+        "symbol": "GARAN",
+        "close": 126.7,
+        "expected_move": 0.031417,
+        "range_low": -0.041653,
+        "range_high": 0.056227,
+        "price_low": 121.4225,
+        "price_high": 133.824
       },
       {
         "risk_rank": 30,
-        "symbol": "THYAO",
-        "close": 258.25,
-        "expected_move": 0.028592,
-        "range_low": -0.037862,
-        "range_high": 0.051192,
-        "price_low": 248.4721,
-        "price_high": 271.4703
+        "symbol": "TCELL",
+        "close": 91.15,
+        "expected_move": 0.031232,
+        "range_low": -0.041407,
+        "range_high": 0.055895,
+        "price_low": 87.3757,
+        "price_high": 96.2449
       },
       {
         "risk_rank": 31,
         "symbol": "PGSUS",
-        "close": 124.6,
-        "expected_move": 0.027051,
-        "range_low": -0.035821,
-        "range_high": 0.048432,
-        "price_low": 120.1368,
-        "price_high": 130.6346
+        "close": 121.5,
+        "expected_move": 0.030153,
+        "range_low": -0.039978,
+        "range_high": 0.053966,
+        "price_low": 116.6427,
+        "price_high": 128.0569
       }
     ]
   },
@@ -716,7 +716,7 @@
         "excess": -0.006654
       }
     ],
-    "as_of_week_end": "2026-10-26",
+    "as_of_week_end": "2026-10-28",
     "ranking": [
       {
         "rank": 1,
@@ -735,17 +735,17 @@
       },
       {
         "rank": 4,
-        "symbol": "KRDMD",
-        "pick": true
-      },
-      {
-        "rank": 5,
         "symbol": "VAKBN",
         "pick": true
       },
       {
+        "rank": 5,
+        "symbol": "KRDMD",
+        "pick": true
+      },
+      {
         "rank": 6,
-        "symbol": "YKBNK",
+        "symbol": "ASELS",
         "pick": false
       },
       {
@@ -755,77 +755,77 @@
       },
       {
         "rank": 8,
-        "symbol": "KCHOL",
+        "symbol": "YKBNK",
         "pick": false
       },
       {
         "rank": 9,
-        "symbol": "FROTO",
+        "symbol": "KCHOL",
         "pick": false
       },
       {
         "rank": 10,
-        "symbol": "GARAN",
-        "pick": false
-      },
-      {
-        "rank": 11,
         "symbol": "BIMAS",
         "pick": false
       },
       {
-        "rank": 12,
-        "symbol": "ASELS",
-        "pick": false
-      },
-      {
-        "rank": 13,
+        "rank": 11,
         "symbol": "ALARK",
         "pick": false
       },
       {
-        "rank": 14,
-        "symbol": "EKGYO",
-        "pick": false
-      },
-      {
-        "rank": 15,
-        "symbol": "ISCTR",
-        "pick": false
-      },
-      {
-        "rank": 16,
-        "symbol": "AKBNK",
-        "pick": false
-      },
-      {
-        "rank": 17,
-        "symbol": "SAHOL",
-        "pick": false
-      },
-      {
-        "rank": 18,
-        "symbol": "TAVHL",
-        "pick": false
-      },
-      {
-        "rank": 19,
-        "symbol": "SISE",
-        "pick": false
-      },
-      {
-        "rank": 20,
+        "rank": 12,
         "symbol": "AKSEN",
         "pick": false
       },
       {
-        "rank": 21,
+        "rank": 13,
+        "symbol": "EKGYO",
+        "pick": false
+      },
+      {
+        "rank": 14,
         "symbol": "ENKAI",
         "pick": false
       },
       {
-        "rank": 22,
+        "rank": 15,
+        "symbol": "FROTO",
+        "pick": false
+      },
+      {
+        "rank": 16,
+        "symbol": "GARAN",
+        "pick": false
+      },
+      {
+        "rank": 17,
         "symbol": "TOASO",
+        "pick": false
+      },
+      {
+        "rank": 18,
+        "symbol": "SAHOL",
+        "pick": false
+      },
+      {
+        "rank": 19,
+        "symbol": "ISCTR",
+        "pick": false
+      },
+      {
+        "rank": 20,
+        "symbol": "SISE",
+        "pick": false
+      },
+      {
+        "rank": 21,
+        "symbol": "AKBNK",
+        "pick": false
+      },
+      {
+        "rank": 22,
+        "symbol": "TAVHL",
         "pick": false
       },
       {
@@ -840,32 +840,32 @@
       },
       {
         "rank": 25,
-        "symbol": "ULKER",
-        "pick": false
-      },
-      {
-        "rank": 26,
         "symbol": "THYAO",
         "pick": false
       },
       {
-        "rank": 27,
-        "symbol": "PGSUS",
+        "rank": 26,
+        "symbol": "ULKER",
         "pick": false
       },
       {
-        "rank": 28,
+        "rank": 27,
         "symbol": "AEFES",
         "pick": false
       },
       {
+        "rank": 28,
+        "symbol": "PGSUS",
+        "pick": false
+      },
+      {
         "rank": 29,
-        "symbol": "GUBRF",
+        "symbol": "HEKTS",
         "pick": false
       },
       {
         "rank": 30,
-        "symbol": "HEKTS",
+        "symbol": "GUBRF",
         "pick": false
       },
       {
@@ -894,20 +894,20 @@
     "stocks": [
       {
         "symbol": "AEFES",
-        "median_1m": 0.029,
-        "up5_1m": 0.4354,
-        "down5_1m": 0.3007,
-        "up10_1m": 0.298,
-        "down10_1m": 0.2,
-        "up15_1m": 0.1497,
+        "median_1m": 0.0274,
+        "up5_1m": 0.4327,
+        "down5_1m": 0.3034,
+        "up10_1m": 0.2952,
+        "down10_1m": 0.2014,
+        "up15_1m": 0.1483,
         "down15_1m": 0.0857,
         "windows_1m": 735,
-        "median_3m": 0.0404,
-        "up10_3m": 0.4012,
-        "down10_3m": 0.2482,
-        "up20_3m": 0.2597,
-        "down20_3m": 0.0909,
-        "up30_3m": 0.1616,
+        "median_3m": 0.0362,
+        "up10_3m": 0.3983,
+        "down10_3m": 0.2511,
+        "up20_3m": 0.2569,
+        "down20_3m": 0.0938,
+        "up30_3m": 0.1587,
         "down30_3m": 0.0216,
         "windows_3m": 693
       },
@@ -915,26 +915,26 @@
         "symbol": "AKBNK",
         "median_1m": 0.0308,
         "up5_1m": 0.4449,
-        "down5_1m": 0.2517,
+        "down5_1m": 0.2544,
         "up10_1m": 0.2939,
         "down10_1m": 0.1524,
         "up15_1m": 0.1823,
         "down15_1m": 0.0898,
         "windows_1m": 735,
-        "median_3m": 0.0722,
-        "up10_3m": 0.4401,
+        "median_3m": 0.0721,
+        "up10_3m": 0.4372,
         "down10_3m": 0.2496,
-        "up20_3m": 0.3175,
+        "up20_3m": 0.3146,
         "down20_3m": 0.075,
-        "up30_3m": 0.254,
+        "up30_3m": 0.2511,
         "down30_3m": 0.0014,
         "windows_3m": 693
       },
       {
         "symbol": "AKSEN",
-        "median_1m": 0.0182,
+        "median_1m": 0.0176,
         "up5_1m": 0.415,
-        "down5_1m": 0.298,
+        "down5_1m": 0.3007,
         "up10_1m": 0.2789,
         "down10_1m": 0.1551,
         "up15_1m": 0.1769,
@@ -942,11 +942,11 @@
         "windows_1m": 735,
         "median_3m": 0.1175,
         "up10_3m": 0.544,
-        "down10_3m": 0.1934,
+        "down10_3m": 0.1962,
         "up20_3m": 0.2958,
-        "down20_3m": 0.0548,
+        "down20_3m": 0.0577,
         "up30_3m": 0.1299,
-        "down30_3m": 0.013,
+        "down30_3m": 0.0144,
         "windows_3m": 693
       },
       {
@@ -961,7 +961,7 @@
         "windows_1m": 735,
         "median_3m": 0.0115,
         "up10_3m": 0.2799,
-        "down10_3m": 0.2684,
+        "down10_3m": 0.2655,
         "up20_3m": 0.1443,
         "down20_3m": 0.0361,
         "up30_3m": 0.0808,
@@ -972,16 +972,16 @@
         "symbol": "ASELS",
         "median_1m": 0.0513,
         "up5_1m": 0.502,
-        "down5_1m": 0.181,
-        "up10_1m": 0.3755,
+        "down5_1m": 0.1823,
+        "up10_1m": 0.3741,
         "down10_1m": 0.0721,
         "up15_1m": 0.2313,
         "down15_1m": 0.0082,
         "windows_1m": 735,
         "median_3m": 0.2164,
-        "up10_3m": 0.6739,
+        "up10_3m": 0.671,
         "down10_3m": 0.039,
-        "up20_3m": 0.5281,
+        "up20_3m": 0.5267,
         "down20_3m": 0.0,
         "up30_3m": 0.3506,
         "down30_3m": 0.0,
@@ -989,16 +989,16 @@
       },
       {
         "symbol": "BIMAS",
-        "median_1m": 0.0291,
-        "up5_1m": 0.4136,
-        "down5_1m": 0.1374,
+        "median_1m": 0.0283,
+        "up5_1m": 0.4109,
+        "down5_1m": 0.1401,
         "up10_1m": 0.2122,
-        "down10_1m": 0.0694,
+        "down10_1m": 0.0721,
         "up15_1m": 0.1007,
         "down15_1m": 0.0272,
         "windows_1m": 735,
-        "median_3m": 0.1078,
-        "up10_3m": 0.5238,
+        "median_3m": 0.1072,
+        "up10_3m": 0.5209,
         "down10_3m": 0.1227,
         "up20_3m": 0.254,
         "down20_3m": 0.0173,
@@ -1008,18 +1008,18 @@
       },
       {
         "symbol": "EKGYO",
-        "median_1m": 0.0346,
-        "up5_1m": 0.4422,
-        "down5_1m": 0.2558,
-        "up10_1m": 0.298,
-        "down10_1m": 0.151,
+        "median_1m": 0.0337,
+        "up5_1m": 0.4408,
+        "down5_1m": 0.2585,
+        "up10_1m": 0.2966,
+        "down10_1m": 0.1524,
         "up15_1m": 0.1891,
         "down15_1m": 0.0762,
         "windows_1m": 735,
-        "median_3m": 0.0566,
-        "up10_3m": 0.4416,
+        "median_3m": 0.055,
+        "up10_3m": 0.4387,
         "down10_3m": 0.1602,
-        "up20_3m": 0.3218,
+        "up20_3m": 0.3189,
         "down20_3m": 0.0346,
         "up30_3m": 0.2294,
         "down30_3m": 0.0,
@@ -1027,17 +1027,17 @@
       },
       {
         "symbol": "ENKAI",
-        "median_1m": 0.0321,
-        "up5_1m": 0.4054,
-        "down5_1m": 0.1823,
+        "median_1m": 0.0319,
+        "up5_1m": 0.4041,
+        "down5_1m": 0.185,
         "up10_1m": 0.2245,
         "down10_1m": 0.0354,
         "up15_1m": 0.0993,
         "down15_1m": 0.0095,
         "windows_1m": 735,
         "median_3m": 0.1049,
-        "up10_3m": 0.518,
-        "down10_3m": 0.0664,
+        "up10_3m": 0.5166,
+        "down10_3m": 0.0678,
         "up20_3m": 0.2424,
         "down20_3m": 0.0072,
         "up30_3m": 0.0707,
@@ -1046,28 +1046,28 @@
       },
       {
         "symbol": "EREGL",
-        "median_1m": 0.0254,
-        "up5_1m": 0.385,
-        "down5_1m": 0.2327,
+        "median_1m": 0.0246,
+        "up5_1m": 0.3837,
+        "down5_1m": 0.2354,
         "up10_1m": 0.1932,
-        "down10_1m": 0.1143,
+        "down10_1m": 0.117,
         "up15_1m": 0.0966,
-        "down15_1m": 0.0231,
+        "down15_1m": 0.0259,
         "windows_1m": 735,
-        "median_3m": 0.0398,
-        "up10_3m": 0.3795,
-        "down10_3m": 0.1284,
+        "median_3m": 0.0386,
+        "up10_3m": 0.3781,
+        "down10_3m": 0.1313,
         "up20_3m": 0.2453,
-        "down20_3m": 0.0115,
+        "down20_3m": 0.0144,
         "up30_3m": 0.114,
         "down30_3m": 0.0,
         "windows_3m": 693
       },
       {
         "symbol": "FROTO",
-        "median_1m": -0.0105,
+        "median_1m": -0.0112,
         "up5_1m": 0.2925,
-        "down5_1m": 0.3075,
+        "down5_1m": 0.3102,
         "up10_1m": 0.1741,
         "down10_1m": 0.1388,
         "up15_1m": 0.1034,
@@ -1075,7 +1075,7 @@
         "windows_1m": 735,
         "median_3m": 0.0005,
         "up10_3m": 0.2973,
-        "down10_3m": 0.2814,
+        "down10_3m": 0.2828,
         "up20_3m": 0.1746,
         "down20_3m": 0.0736,
         "up30_3m": 0.0924,
@@ -1084,32 +1084,32 @@
       },
       {
         "symbol": "GARAN",
-        "median_1m": 0.0391,
-        "up5_1m": 0.4449,
+        "median_1m": 0.0388,
+        "up5_1m": 0.4435,
         "down5_1m": 0.2095,
         "up10_1m": 0.2667,
         "down10_1m": 0.1197,
         "up15_1m": 0.1483,
         "down15_1m": 0.0449,
         "windows_1m": 735,
-        "median_3m": 0.0662,
-        "up10_3m": 0.4329,
+        "median_3m": 0.065,
+        "up10_3m": 0.43,
         "down10_3m": 0.1616,
-        "up20_3m": 0.2771,
+        "up20_3m": 0.2742,
         "down20_3m": 0.0159,
-        "up30_3m": 0.1876,
+        "up30_3m": 0.1847,
         "down30_3m": 0.0,
         "windows_3m": 693
       },
       {
         "symbol": "GUBRF",
-        "median_1m": 0.0239,
-        "up5_1m": 0.4367,
-        "down5_1m": 0.3156,
-        "up10_1m": 0.3102,
-        "down10_1m": 0.2,
+        "median_1m": 0.0226,
+        "up5_1m": 0.434,
+        "down5_1m": 0.3184,
+        "up10_1m": 0.3075,
+        "down10_1m": 0.2027,
         "up15_1m": 0.1891,
-        "down15_1m": 0.1143,
+        "down15_1m": 0.117,
         "windows_1m": 735,
         "median_3m": 0.0703,
         "up10_3m": 0.4574,
@@ -1117,23 +1117,23 @@
         "up20_3m": 0.3045,
         "down20_3m": 0.1183,
         "up30_3m": 0.2208,
-        "down30_3m": 0.0707,
+        "down30_3m": 0.0678,
         "windows_3m": 693
       },
       {
         "symbol": "HALKB",
         "median_1m": 0.0327,
         "up5_1m": 0.4327,
-        "down5_1m": 0.249,
+        "down5_1m": 0.2476,
         "up10_1m": 0.3075,
         "down10_1m": 0.1333,
         "up15_1m": 0.1796,
         "down15_1m": 0.0612,
         "windows_1m": 735,
-        "median_3m": 0.1,
-        "up10_3m": 0.5007,
+        "median_3m": 0.1003,
+        "up10_3m": 0.5036,
         "down10_3m": 0.1169,
-        "up20_3m": 0.3348,
+        "up20_3m": 0.3362,
         "down20_3m": 0.0029,
         "up30_3m": 0.1991,
         "down30_3m": 0.0,
@@ -1145,9 +1145,9 @@
         "up5_1m": 0.2068,
         "down5_1m": 0.5306,
         "up10_1m": 0.151,
-        "down10_1m": 0.3605,
+        "down10_1m": 0.3633,
         "up15_1m": 0.1156,
-        "down15_1m": 0.1891,
+        "down15_1m": 0.1918,
         "windows_1m": 735,
         "median_3m": -0.13,
         "up10_3m": 0.1414,
@@ -1155,21 +1155,21 @@
         "up20_3m": 0.1039,
         "down20_3m": 0.3304,
         "up30_3m": 0.0765,
-        "down30_3m": 0.1631,
+        "down30_3m": 0.1659,
         "windows_3m": 693
       },
       {
         "symbol": "ISCTR",
         "median_1m": 0.0264,
         "up5_1m": 0.4122,
-        "down5_1m": 0.2531,
+        "down5_1m": 0.2544,
         "up10_1m": 0.268,
-        "down10_1m": 0.1687,
+        "down10_1m": 0.1673,
         "up15_1m": 0.1442,
         "down15_1m": 0.1007,
         "windows_1m": 735,
-        "median_3m": 0.0331,
-        "up10_3m": 0.4214,
+        "median_3m": 0.0299,
+        "up10_3m": 0.4185,
         "down10_3m": 0.2857,
         "up20_3m": 0.2915,
         "down20_3m": 0.1097,
@@ -1181,14 +1181,14 @@
         "symbol": "KCHOL",
         "median_1m": 0.0136,
         "up5_1m": 0.3619,
-        "down5_1m": 0.2694,
+        "down5_1m": 0.2721,
         "up10_1m": 0.2204,
         "down10_1m": 0.1116,
         "up15_1m": 0.1007,
         "down15_1m": 0.0354,
         "windows_1m": 735,
-        "median_3m": 0.0447,
-        "up10_3m": 0.3867,
+        "median_3m": 0.0423,
+        "up10_3m": 0.3853,
         "down10_3m": 0.189,
         "up20_3m": 0.2136,
         "down20_3m": 0.0649,
@@ -1200,11 +1200,11 @@
         "symbol": "KRDMD",
         "median_1m": 0.0225,
         "up5_1m": 0.4245,
-        "down5_1m": 0.2449,
+        "down5_1m": 0.2463,
         "up10_1m": 0.2558,
-        "down10_1m": 0.1279,
+        "down10_1m": 0.1293,
         "up15_1m": 0.1102,
-        "down15_1m": 0.0789,
+        "down15_1m": 0.0816,
         "windows_1m": 735,
         "median_3m": 0.0771,
         "up10_3m": 0.4242,
@@ -1217,30 +1217,30 @@
       },
       {
         "symbol": "MGROS",
-        "median_1m": 0.0181,
+        "median_1m": 0.0179,
         "up5_1m": 0.3959,
-        "down5_1m": 0.3088,
+        "down5_1m": 0.3116,
         "up10_1m": 0.2381,
-        "down10_1m": 0.1565,
+        "down10_1m": 0.1592,
         "up15_1m": 0.1034,
-        "down15_1m": 0.0476,
+        "down15_1m": 0.0503,
         "windows_1m": 735,
-        "median_3m": 0.0451,
+        "median_3m": 0.044,
         "up10_3m": 0.3795,
-        "down10_3m": 0.2251,
+        "down10_3m": 0.228,
         "up20_3m": 0.2237,
-        "down20_3m": 0.0808,
+        "down20_3m": 0.0837,
         "up30_3m": 0.1111,
-        "down30_3m": 0.0043,
+        "down30_3m": 0.0072,
         "windows_3m": 693
       },
       {
         "symbol": "PETKM",
-        "median_1m": 0.001,
-        "up5_1m": 0.3211,
-        "down5_1m": 0.2844,
+        "median_1m": 0.0,
+        "up5_1m": 0.3184,
+        "down5_1m": 0.2871,
         "up10_1m": 0.1633,
-        "down10_1m": 0.1524,
+        "down10_1m": 0.1537,
         "up15_1m": 0.0884,
         "down15_1m": 0.0939,
         "windows_1m": 735,
@@ -1255,55 +1255,55 @@
       },
       {
         "symbol": "PGSUS",
-        "median_1m": -0.0103,
-        "up5_1m": 0.2558,
-        "down5_1m": 0.2776,
+        "median_1m": -0.0114,
+        "up5_1m": 0.2531,
+        "down5_1m": 0.2803,
         "up10_1m": 0.1306,
-        "down10_1m": 0.1252,
+        "down10_1m": 0.1279,
         "up15_1m": 0.0721,
-        "down15_1m": 0.019,
+        "down15_1m": 0.0204,
         "windows_1m": 735,
-        "median_3m": -0.0084,
+        "median_3m": -0.0094,
         "up10_3m": 0.2439,
-        "down10_3m": 0.2727,
+        "down10_3m": 0.2756,
         "up20_3m": 0.1356,
-        "down20_3m": 0.0491,
+        "down20_3m": 0.0505,
         "up30_3m": 0.0563,
         "down30_3m": 0.0,
         "windows_3m": 693
       },
       {
         "symbol": "SAHOL",
-        "median_1m": 0.025,
-        "up5_1m": 0.4204,
+        "median_1m": 0.0245,
+        "up5_1m": 0.4177,
         "down5_1m": 0.2667,
-        "up10_1m": 0.2395,
+        "up10_1m": 0.2381,
         "down10_1m": 0.1429,
         "up15_1m": 0.1088,
         "down15_1m": 0.0544,
         "windows_1m": 735,
-        "median_3m": 0.0547,
-        "up10_3m": 0.404,
+        "median_3m": 0.0522,
+        "up10_3m": 0.4012,
         "down10_3m": 0.241,
-        "up20_3m": 0.2742,
+        "up20_3m": 0.2713,
         "down20_3m": 0.0548,
-        "up30_3m": 0.1183,
+        "up30_3m": 0.1169,
         "down30_3m": 0.0,
         "windows_3m": 693
       },
       {
         "symbol": "SISE",
-        "median_1m": -0.0113,
+        "median_1m": -0.0114,
         "up5_1m": 0.2639,
-        "down5_1m": 0.3347,
+        "down5_1m": 0.3374,
         "up10_1m": 0.1116,
-        "down10_1m": 0.1088,
+        "down10_1m": 0.1116,
         "up15_1m": 0.0463,
         "down15_1m": 0.0177,
         "windows_1m": 735,
         "median_3m": -0.0151,
         "up10_3m": 0.1746,
-        "down10_3m": 0.2511,
+        "down10_3m": 0.254,
         "up20_3m": 0.0635,
         "down20_3m": 0.0303,
         "up30_3m": 0.013,
@@ -1320,7 +1320,7 @@
         "up15_1m": 0.1429,
         "down15_1m": 0.0463,
         "windows_1m": 735,
-        "median_3m": 0.0584,
+        "median_3m": 0.0583,
         "up10_3m": 0.4098,
         "down10_3m": 0.2035,
         "up20_3m": 0.2799,
@@ -1331,37 +1331,37 @@
       },
       {
         "symbol": "TCELL",
-        "median_1m": 0.0143,
-        "up5_1m": 0.3701,
-        "down5_1m": 0.234,
-        "up10_1m": 0.2068,
+        "median_1m": 0.0139,
+        "up5_1m": 0.3673,
+        "down5_1m": 0.2367,
+        "up10_1m": 0.2041,
         "down10_1m": 0.0653,
-        "up15_1m": 0.1224,
+        "up15_1m": 0.1197,
         "down15_1m": 0.0136,
         "windows_1m": 735,
-        "median_3m": 0.0439,
-        "up10_3m": 0.3896,
-        "down10_3m": 0.1313,
-        "up20_3m": 0.2107,
+        "median_3m": 0.0431,
+        "up10_3m": 0.3867,
+        "down10_3m": 0.1328,
+        "up20_3m": 0.2078,
         "down20_3m": 0.0188,
-        "up30_3m": 0.114,
+        "up30_3m": 0.1111,
         "down30_3m": 0.0,
         "windows_3m": 693
       },
       {
         "symbol": "THYAO",
-        "median_1m": -0.0024,
-        "up5_1m": 0.3129,
-        "down5_1m": 0.2476,
-        "up10_1m": 0.166,
-        "down10_1m": 0.0721,
-        "up15_1m": 0.0585,
+        "median_1m": -0.0026,
+        "up5_1m": 0.3102,
+        "down5_1m": 0.2503,
+        "up10_1m": 0.1633,
+        "down10_1m": 0.0748,
+        "up15_1m": 0.0558,
         "down15_1m": 0.0054,
         "windows_1m": 735,
-        "median_3m": 0.0317,
-        "up10_3m": 0.2814,
-        "down10_3m": 0.1631,
-        "up20_3m": 0.0851,
+        "median_3m": 0.0303,
+        "up10_3m": 0.2785,
+        "down10_3m": 0.1659,
+        "up20_3m": 0.0837,
         "down20_3m": 0.0115,
         "up30_3m": 0.0043,
         "down30_3m": 0.0,
@@ -1371,11 +1371,11 @@
         "symbol": "TOASO",
         "median_1m": 0.0203,
         "up5_1m": 0.3932,
-        "down5_1m": 0.3293,
+        "down5_1m": 0.3306,
         "up10_1m": 0.2245,
-        "down10_1m": 0.2095,
+        "down10_1m": 0.2122,
         "up15_1m": 0.1293,
-        "down15_1m": 0.0789,
+        "down15_1m": 0.0816,
         "windows_1m": 735,
         "median_3m": 0.0434,
         "up10_3m": 0.4026,
@@ -1388,37 +1388,37 @@
       },
       {
         "symbol": "TTKOM",
-        "median_1m": 0.0171,
-        "up5_1m": 0.3714,
-        "down5_1m": 0.2082,
-        "up10_1m": 0.2381,
-        "down10_1m": 0.083,
+        "median_1m": 0.0158,
+        "up5_1m": 0.3687,
+        "down5_1m": 0.2109,
+        "up10_1m": 0.2367,
+        "down10_1m": 0.0857,
         "up15_1m": 0.132,
         "down15_1m": 0.019,
         "windows_1m": 735,
-        "median_3m": 0.0584,
-        "up10_3m": 0.3925,
+        "median_3m": 0.0575,
+        "up10_3m": 0.3896,
         "down10_3m": 0.1587,
-        "up20_3m": 0.2684,
+        "up20_3m": 0.2655,
         "down20_3m": 0.0101,
-        "up30_3m": 0.1299,
+        "up30_3m": 0.127,
         "down30_3m": 0.0,
         "windows_3m": 693
       },
       {
         "symbol": "TUPRS",
-        "median_1m": 0.0195,
-        "up5_1m": 0.385,
-        "down5_1m": 0.2,
-        "up10_1m": 0.2721,
+        "median_1m": 0.0194,
+        "up5_1m": 0.3823,
+        "down5_1m": 0.2027,
+        "up10_1m": 0.2694,
         "down10_1m": 0.0639,
-        "up15_1m": 0.1687,
+        "up15_1m": 0.166,
         "down15_1m": 0.0068,
         "windows_1m": 735,
-        "median_3m": 0.0907,
-        "up10_3m": 0.482,
+        "median_3m": 0.0922,
+        "up10_3m": 0.4848,
         "down10_3m": 0.075,
-        "up20_3m": 0.3391,
+        "up20_3m": 0.342,
         "down20_3m": 0.0029,
         "up30_3m": 0.1876,
         "down30_3m": 0.0,
@@ -1426,17 +1426,17 @@
       },
       {
         "symbol": "ULKER",
-        "median_1m": 0.0,
-        "up5_1m": 0.3265,
-        "down5_1m": 0.3224,
-        "up10_1m": 0.1959,
-        "down10_1m": 0.1769,
+        "median_1m": -0.0008,
+        "up5_1m": 0.3238,
+        "down5_1m": 0.3252,
+        "up10_1m": 0.1946,
+        "down10_1m": 0.1796,
         "up15_1m": 0.1184,
         "down15_1m": 0.0449,
         "windows_1m": 735,
         "median_3m": -0.0041,
         "up10_3m": 0.3218,
-        "down10_3m": 0.2554,
+        "down10_3m": 0.2583,
         "up20_3m": 0.2092,
         "down20_3m": 0.1227,
         "up30_3m": 0.127,
@@ -1453,9 +1453,9 @@
         "up15_1m": 0.1619,
         "down15_1m": 0.0735,
         "windows_1m": 735,
-        "median_3m": 0.047,
+        "median_3m": 0.0492,
         "up10_3m": 0.3824,
-        "down10_3m": 0.176,
+        "down10_3m": 0.1732,
         "up20_3m": 0.2496,
         "down20_3m": 0.0346,
         "up30_3m": 0.1804,
@@ -1466,16 +1466,16 @@
         "symbol": "YKBNK",
         "median_1m": 0.0316,
         "up5_1m": 0.4272,
-        "down5_1m": 0.2476,
+        "down5_1m": 0.2463,
         "up10_1m": 0.2748,
         "down10_1m": 0.151,
         "up15_1m": 0.1565,
         "down15_1m": 0.0816,
         "windows_1m": 735,
         "median_3m": 0.0382,
-        "up10_3m": 0.3997,
+        "up10_3m": 0.3983,
         "down10_3m": 0.2078,
-        "up20_3m": 0.2958,
+        "up20_3m": 0.2944,
         "down20_3m": 0.0649,
         "up30_3m": 0.1861,
         "down30_3m": 0.0043,
@@ -1525,7 +1525,7 @@
         "years": 10.0,
         "median_value": 12450031482.62,
         "zero_share": 0.0,
-        "last": "2026-10-26",
+        "last": "2026-10-28",
         "reasons": []
       },
       {
@@ -1533,7 +1533,7 @@
         "years": 10.0,
         "median_value": 10820021443.28,
         "zero_share": 0.0,
-        "last": "2026-10-26",
+        "last": "2026-10-28",
         "reasons": []
       },
       {
@@ -1541,7 +1541,7 @@
         "years": 10.0,
         "median_value": 8407044617.84,
         "zero_share": 0.0,
-        "last": "2026-10-26",
+        "last": "2026-10-28",
         "reasons": []
       },
       {
@@ -1549,7 +1549,7 @@
         "years": 10.0,
         "median_value": 7066973331.28,
         "zero_share": 0.0,
-        "last": "2026-10-26",
+        "last": "2026-10-28",
         "reasons": []
       },
       {
@@ -1557,15 +1557,15 @@
         "years": 10.0,
         "median_value": 6745046129.17,
         "zero_share": 0.0,
-        "last": "2026-10-26",
+        "last": "2026-10-28",
         "reasons": []
       },
       {
         "symbol": "ASTOR",
-        "years": 3.77,
-        "median_value": 6685135684.43,
+        "years": 3.78,
+        "median_value": 6717177943.71,
         "zero_share": 0.0,
-        "last": "2026-10-26",
+        "last": "2026-10-28",
         "reasons": [
           "geçmiş 3.8 yıl < 8"
         ]
@@ -1575,7 +1575,7 @@
         "years": 10.0,
         "median_value": 6256994667.59,
         "zero_share": 0.0,
-        "last": "2026-10-26",
+        "last": "2026-10-28",
         "reasons": []
       },
       {
@@ -1583,7 +1583,7 @@
         "years": 10.0,
         "median_value": 4929738921.25,
         "zero_share": 0.0,
-        "last": "2026-10-26",
+        "last": "2026-10-28",
         "reasons": []
       },
       {
@@ -1591,15 +1591,15 @@
         "years": 10.0,
         "median_value": 4738491494.48,
         "zero_share": 0.0,
-        "last": "2026-10-26",
+        "last": "2026-10-28",
         "reasons": []
       },
       {
         "symbol": "GARAN",
         "years": 10.0,
-        "median_value": 3785819666.95,
+        "median_value": 3781888694.9,
         "zero_share": 0.0,
-        "last": "2026-10-26",
+        "last": "2026-10-28",
         "reasons": []
       },
       {
@@ -1607,7 +1607,7 @@
         "years": 10.0,
         "median_value": 3581638873.13,
         "zero_share": 0.0,
-        "last": "2026-10-26",
+        "last": "2026-10-28",
         "reasons": []
       },
       {
@@ -1615,31 +1615,31 @@
         "years": 10.0,
         "median_value": 3123736696.25,
         "zero_share": 0.0,
-        "last": "2026-10-26",
+        "last": "2026-10-28",
         "reasons": []
       },
       {
         "symbol": "EKGYO",
         "years": 10.0,
-        "median_value": 2518365198.84,
+        "median_value": 2511754908.93,
         "zero_share": 0.0,
-        "last": "2026-10-26",
+        "last": "2026-10-28",
         "reasons": []
       },
       {
         "symbol": "TCELL",
         "years": 10.0,
-        "median_value": 2330143839.05,
+        "median_value": 2328948328.0,
         "zero_share": 0.0,
-        "last": "2026-10-26",
+        "last": "2026-10-28",
         "reasons": []
       },
       {
         "symbol": "PGSUS",
         "years": 10.0,
-        "median_value": 2268822845.15,
+        "median_value": 2248394607.3,
         "zero_share": 0.0,
-        "last": "2026-10-26",
+        "last": "2026-10-28",
         "reasons": []
       },
       {
@@ -1647,7 +1647,7 @@
         "years": 10.0,
         "median_value": 1919648940.3,
         "zero_share": 0.0,
-        "last": "2026-10-26",
+        "last": "2026-10-28",
         "reasons": []
       },
       {
@@ -1655,7 +1655,7 @@
         "years": 10.0,
         "median_value": 1881354515.92,
         "zero_share": 0.0,
-        "last": "2026-10-26",
+        "last": "2026-10-28",
         "reasons": []
       },
       {
@@ -1663,7 +1663,7 @@
         "years": 10.0,
         "median_value": 1765160925.74,
         "zero_share": 0.0,
-        "last": "2026-10-26",
+        "last": "2026-10-28",
         "reasons": []
       },
       {
@@ -1671,7 +1671,7 @@
         "years": 10.0,
         "median_value": 1651528252.5,
         "zero_share": 0.0,
-        "last": "2026-10-26",
+        "last": "2026-10-28",
         "reasons": []
       },
       {
@@ -1679,7 +1679,7 @@
         "years": 10.0,
         "median_value": 1473372301.83,
         "zero_share": 0.0,
-        "last": "2026-10-26",
+        "last": "2026-10-28",
         "reasons": []
       },
       {
@@ -1687,7 +1687,7 @@
         "years": 10.0,
         "median_value": 1438766675.47,
         "zero_share": 0.0,
-        "last": "2026-10-26",
+        "last": "2026-10-28",
         "reasons": []
       },
       {
@@ -1695,7 +1695,7 @@
         "years": 10.0,
         "median_value": 1362218008.13,
         "zero_share": 0.0,
-        "last": "2026-10-26",
+        "last": "2026-10-28",
         "reasons": []
       },
       {
@@ -1703,31 +1703,31 @@
         "years": 10.0,
         "median_value": 1351708479.35,
         "zero_share": 0.0,
-        "last": "2026-10-26",
+        "last": "2026-10-28",
         "reasons": []
       },
       {
         "symbol": "GUBRF",
         "years": 10.0,
-        "median_value": 1058502284.03,
+        "median_value": 1066386143.66,
         "zero_share": 0.0,
-        "last": "2026-10-26",
+        "last": "2026-10-28",
         "reasons": []
       },
       {
         "symbol": "TOASO",
         "years": 10.0,
-        "median_value": 966991144.25,
+        "median_value": 962679962.16,
         "zero_share": 0.0,
-        "last": "2026-10-26",
+        "last": "2026-10-28",
         "reasons": []
       },
       {
         "symbol": "ENKAI",
         "years": 10.0,
-        "median_value": 915660283.6,
+        "median_value": 910967907.6,
         "zero_share": 0.0,
-        "last": "2026-10-26",
+        "last": "2026-10-28",
         "reasons": []
       },
       {
@@ -1735,15 +1735,15 @@
         "years": 10.0,
         "median_value": 851431128.17,
         "zero_share": 0.0,
-        "last": "2026-10-26",
+        "last": "2026-10-28",
         "reasons": []
       },
       {
         "symbol": "TAVHL",
         "years": 10.0,
-        "median_value": 830963096.84,
+        "median_value": 833243820.13,
         "zero_share": 0.0,
-        "last": "2026-10-26",
+        "last": "2026-10-28",
         "reasons": []
       },
       {
@@ -1751,7 +1751,7 @@
         "years": 10.0,
         "median_value": 579183284.95,
         "zero_share": 0.0,
-        "last": "2026-10-26",
+        "last": "2026-10-28",
         "reasons": []
       },
       {
@@ -1759,15 +1759,15 @@
         "years": 10.0,
         "median_value": 555001540.67,
         "zero_share": 0.0,
-        "last": "2026-10-26",
+        "last": "2026-10-28",
         "reasons": []
       },
       {
         "symbol": "AKSEN",
         "years": 10.0,
-        "median_value": 549381094.6,
+        "median_value": 548164144.62,
         "zero_share": 0.0,
-        "last": "2026-10-26",
+        "last": "2026-10-28",
         "reasons": []
       },
       {
@@ -1775,7 +1775,7 @@
         "years": 10.0,
         "median_value": 541457114.4,
         "zero_share": 0.0,
-        "last": "2026-10-26",
+        "last": "2026-10-28",
         "reasons": []
       },
       {
@@ -1783,7 +1783,7 @@
         "years": 10.0,
         "median_value": 441996960.26,
         "zero_share": 0.0,
-        "last": "2026-10-26",
+        "last": "2026-10-28",
         "reasons": [
           "medyan işlem hacmi 441,996,960 < 500,000,000"
         ]
@@ -1793,7 +1793,7 @@
         "years": 10.0,
         "median_value": 409584020.4,
         "zero_share": 0.0,
-        "last": "2026-10-26",
+        "last": "2026-10-28",
         "reasons": [
           "medyan işlem hacmi 409,584,020 < 500,000,000"
         ]
@@ -1803,7 +1803,7 @@
         "years": 10.0,
         "median_value": 266004845.37,
         "zero_share": 0.0,
-        "last": "2026-10-26",
+        "last": "2026-10-28",
         "reasons": [
           "medyan işlem hacmi 266,004,845 < 500,000,000"
         ]
@@ -1811,21 +1811,21 @@
       {
         "symbol": "TSKB",
         "years": 10.0,
-        "median_value": 255689083.95,
+        "median_value": 254208859.04,
         "zero_share": 0.0,
-        "last": "2026-10-26",
+        "last": "2026-10-28",
         "reasons": [
-          "medyan işlem hacmi 255,689,084 < 500,000,000"
+          "medyan işlem hacmi 254,208,859 < 500,000,000"
         ]
       },
       {
         "symbol": "DOHOL",
         "years": 10.0,
-        "median_value": 239289855.82,
+        "median_value": 237782546.0,
         "zero_share": 0.0,
-        "last": "2026-10-26",
+        "last": "2026-10-28",
         "reasons": [
-          "medyan işlem hacmi 239,289,856 < 500,000,000"
+          "medyan işlem hacmi 237,782,546 < 500,000,000"
         ]
       },
       {
@@ -1833,7 +1833,7 @@
         "years": 10.0,
         "median_value": 223066180.62,
         "zero_share": 0.0,
-        "last": "2026-10-26",
+        "last": "2026-10-28",
         "reasons": [
           "medyan işlem hacmi 223,066,181 < 500,000,000"
         ]
@@ -1841,41 +1841,41 @@
       {
         "symbol": "ARCLK",
         "years": 10.0,
-        "median_value": 217352347.3,
+        "median_value": 215927162.95,
         "zero_share": 0.0,
-        "last": "2026-10-26",
+        "last": "2026-10-28",
         "reasons": [
-          "medyan işlem hacmi 217,352,347 < 500,000,000"
+          "medyan işlem hacmi 215,927,163 < 500,000,000"
         ]
       },
       {
         "symbol": "VESTL",
         "years": 10.0,
-        "median_value": 155190324.59,
+        "median_value": 154430272.12,
         "zero_share": 0.0,
-        "last": "2026-10-26",
+        "last": "2026-10-28",
         "reasons": [
-          "medyan işlem hacmi 155,190,325 < 500,000,000"
+          "medyan işlem hacmi 154,430,272 < 500,000,000"
         ]
       },
       {
         "symbol": "ZOREN",
         "years": 10.0,
-        "median_value": 142831523.49,
+        "median_value": 142520572.05,
         "zero_share": 0.0,
-        "last": "2026-10-26",
+        "last": "2026-10-28",
         "reasons": [
-          "medyan işlem hacmi 142,831,523 < 500,000,000"
+          "medyan işlem hacmi 142,520,572 < 500,000,000"
         ]
       },
       {
         "symbol": "TTRAK",
         "years": 10.0,
-        "median_value": 69205211.0,
+        "median_value": 69027877.25,
         "zero_share": 0.0,
-        "last": "2026-10-26",
+        "last": "2026-10-28",
         "reasons": [
-          "medyan işlem hacmi 69,205,211 < 500,000,000"
+          "medyan işlem hacmi 69,027,877 < 500,000,000"
         ]
       },
       {
@@ -1883,7 +1883,7 @@
         "years": 10.0,
         "median_value": 0.0,
         "zero_share": 0.512,
-        "last": "2026-10-26",
+        "last": "2026-10-28",
         "reasons": [
           "medyan işlem hacmi 0 < 500,000,000",
           "hacimsiz gün oranı %51"

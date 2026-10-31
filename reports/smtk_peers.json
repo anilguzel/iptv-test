@@ -1,6 +1,6 @@
 {
   "mode": "cross_section",
-  "generated_at": "2026-10-28T16:45:32.453846+00:00",
+  "generated_at": "2026-10-31T12:45:29.232387+00:00",
   "meta": {
     "source": "csv",
     "universe": "AXTI,AEHR,FORM,AMBA,POET,UCTT,ACMR,LASR,KLIC,ICHR,COHU,VECO,PLAB,LPTH",
@@ -38,7 +38,7 @@
         "change": -0.4735
       }
     ],
-    "data_warning": "Local CSV files from /tmp/claude-0/md/daily/yahoo_us; check that prices are split-adjusted.",
+    "data_warning": "Local CSV files from store/daily/yahoo_us; check that prices are split-adjusted.",
     "years": 8.0,
     "benchmark_used": "universe_ew",
     "symbols_used": [
@@ -60,7 +60,7 @@
     "symbols_skipped_short_history": [],
     "calendar_weeks": 418,
     "first_week_end": "2018-11-02",
-    "last_week_end": "2026-10-26",
+    "last_week_end": "2026-10-29",
     "rows": 5684,
     "evaluated_weeks": 327,
     "segment": "validation",
@@ -89,7 +89,7 @@
   "verdict": {
     "best_baseline": "momentum_12w",
     "models": {
-      "ridge": {
+      "boosting": {
         "passed": false,
         "checks": {
           "positive_after_costs": false,
@@ -99,7 +99,7 @@
         },
         "summary_tr": "Tutarlı bir avantaj bulunamadı. Başarısız kriterler: positive_after_costs, beats_best_baseline, ic_significant, consistent."
       },
-      "boosting": {
+      "ridge": {
         "passed": false,
         "checks": {
           "positive_after_costs": false,
@@ -6077,7 +6077,7 @@
             "FORM",
             "ICHR"
           ],
-          "net": -0.04875,
+          "net": -0.048751,
           "ic": 0.01978
         },
         {
@@ -6385,16 +6385,16 @@
     "boosting": {
       "metrics": {
         "weeks": 327,
-        "mean_weekly_net": -0.009172,
-        "sharpe_annualised": -2.372,
-        "cumulative_net": -0.956808,
-        "max_drawdown": -0.955548,
-        "consistency_13w": 0.1048,
+        "mean_weekly_net": -0.009538,
+        "sharpe_annualised": -2.467,
+        "cumulative_net": -0.961729,
+        "max_drawdown": -0.960613,
+        "consistency_13w": 0.0889,
         "per_year": {
           "2020": {
             "weeks": 49,
-            "mean_net": -0.014995,
-            "cum_net": -0.533208
+            "mean_net": -0.015479,
+            "cum_net": -0.544054
           },
           "2021": {
             "weeks": 52,
@@ -6403,23 +6403,23 @@
           },
           "2022": {
             "weeks": 52,
-            "mean_net": -0.002328,
-            "cum_net": -0.129358
+            "mean_net": -0.002453,
+            "cum_net": -0.134755
           },
           "2023": {
             "weeks": 52,
-            "mean_net": -0.009661,
-            "cum_net": -0.40402
+            "mean_net": -0.009607,
+            "cum_net": -0.402184
           },
           "2024": {
             "weeks": 52,
-            "mean_net": -0.00638,
-            "cum_net": -0.303474
+            "mean_net": -0.007146,
+            "cum_net": -0.331101
           },
           "2025": {
             "weeks": 52,
-            "mean_net": -0.010252,
-            "cum_net": -0.425076
+            "mean_net": -0.011263,
+            "cum_net": -0.455207
           },
           "2026": {
             "weeks": 18,
@@ -6427,11 +6427,11 @@
             "cum_net": -0.293889
           }
         },
-        "hit_rate": 0.3394,
-        "mean_ic": -0.0019,
-        "ic_tstat": -0.11,
-        "ic_hit_rate": 0.4924,
-        "mean_long_short": -0.002973,
+        "hit_rate": 0.3333,
+        "mean_ic": -0.0017,
+        "ic_tstat": -0.099,
+        "ic_hit_rate": 0.4893,
+        "mean_long_short": -0.003583,
         "mean_turnover": 0.5021
       },
       "equity": [
@@ -6597,1151 +6597,1151 @@
         },
         {
           "week_end": "2020-11-06",
-          "cum_net": -0.548303
+          "cum_net": -0.559262
         },
         {
           "week_end": "2020-11-13",
-          "cum_net": -0.541988
+          "cum_net": -0.553317
         },
         {
           "week_end": "2020-11-20",
-          "cum_net": -0.566872
+          "cum_net": -0.577051
         },
         {
           "week_end": "2020-11-27",
-          "cum_net": -0.54322
+          "cum_net": -0.561768
         },
         {
           "week_end": "2020-12-04",
-          "cum_net": -0.558139
+          "cum_net": -0.573452
         },
         {
           "week_end": "2020-12-11",
-          "cum_net": -0.545364
+          "cum_net": -0.555397
         },
         {
           "week_end": "2020-12-18",
-          "cum_net": -0.54468
+          "cum_net": -0.553966
         },
         {
           "week_end": "2020-12-24",
-          "cum_net": -0.529285
+          "cum_net": -0.540223
         },
         {
           "week_end": "2020-12-31",
-          "cum_net": -0.533208
+          "cum_net": -0.544054
         },
         {
           "week_end": "2021-01-08",
-          "cum_net": -0.559851
+          "cum_net": -0.570079
         },
         {
           "week_end": "2021-01-15",
-          "cum_net": -0.568664
+          "cum_net": -0.578687
         },
         {
           "week_end": "2021-01-22",
-          "cum_net": -0.577485
+          "cum_net": -0.587303
         },
         {
           "week_end": "2021-01-29",
-          "cum_net": -0.593531
+          "cum_net": -0.602976
         },
         {
           "week_end": "2021-02-05",
-          "cum_net": -0.605863
+          "cum_net": -0.615022
         },
         {
           "week_end": "2021-02-12",
-          "cum_net": -0.606683
+          "cum_net": -0.615822
         },
         {
           "week_end": "2021-02-19",
-          "cum_net": -0.591734
+          "cum_net": -0.601221
         },
         {
           "week_end": "2021-02-26",
-          "cum_net": -0.584724
+          "cum_net": -0.594374
         },
         {
           "week_end": "2021-03-05",
-          "cum_net": -0.563604
+          "cum_net": -0.573744
         },
         {
           "week_end": "2021-03-12",
-          "cum_net": -0.569167
+          "cum_net": -0.579178
         },
         {
           "week_end": "2021-03-19",
-          "cum_net": -0.583291
+          "cum_net": -0.592974
         },
         {
           "week_end": "2021-03-26",
-          "cum_net": -0.603796
+          "cum_net": -0.613002
         },
         {
           "week_end": "2021-04-01",
-          "cum_net": -0.610113
+          "cum_net": -0.619173
         },
         {
           "week_end": "2021-04-09",
-          "cum_net": -0.609231
+          "cum_net": -0.618311
         },
         {
           "week_end": "2021-04-16",
-          "cum_net": -0.618609
+          "cum_net": -0.627471
         },
         {
           "week_end": "2021-04-23",
-          "cum_net": -0.620805
+          "cum_net": -0.629616
         },
         {
           "week_end": "2021-04-30",
-          "cum_net": -0.627875
+          "cum_net": -0.636522
         },
         {
           "week_end": "2021-05-07",
-          "cum_net": -0.618996
+          "cum_net": -0.62785
         },
         {
           "week_end": "2021-05-14",
-          "cum_net": -0.629936
+          "cum_net": -0.638535
         },
         {
           "week_end": "2021-05-21",
-          "cum_net": -0.629066
+          "cum_net": -0.637686
         },
         {
           "week_end": "2021-05-28",
-          "cum_net": -0.635984
+          "cum_net": -0.644443
         },
         {
           "week_end": "2021-06-04",
-          "cum_net": -0.636093
+          "cum_net": -0.644549
         },
         {
           "week_end": "2021-06-11",
-          "cum_net": -0.642944
+          "cum_net": -0.651241
         },
         {
           "week_end": "2021-06-18",
-          "cum_net": -0.640344
+          "cum_net": -0.648701
         },
         {
           "week_end": "2021-06-25",
-          "cum_net": -0.650378
+          "cum_net": -0.658502
         },
         {
           "week_end": "2021-07-02",
-          "cum_net": -0.647306
+          "cum_net": -0.655502
         },
         {
           "week_end": "2021-07-09",
-          "cum_net": -0.642888
+          "cum_net": -0.651186
         },
         {
           "week_end": "2021-07-16",
-          "cum_net": -0.66361
+          "cum_net": -0.671427
         },
         {
           "week_end": "2021-07-23",
-          "cum_net": -0.679197
+          "cum_net": -0.686652
         },
         {
           "week_end": "2021-07-30",
-          "cum_net": -0.680568
+          "cum_net": -0.687991
         },
         {
           "week_end": "2021-08-06",
-          "cum_net": -0.664276
+          "cum_net": -0.672078
         },
         {
           "week_end": "2021-08-13",
-          "cum_net": -0.670179
+          "cum_net": -0.677843
         },
         {
           "week_end": "2021-08-20",
-          "cum_net": -0.679307
+          "cum_net": -0.686759
         },
         {
           "week_end": "2021-08-27",
-          "cum_net": -0.687304
+          "cum_net": -0.69457
         },
         {
           "week_end": "2021-09-03",
-          "cum_net": -0.678101
+          "cum_net": -0.685581
         },
         {
           "week_end": "2021-09-10",
-          "cum_net": -0.680375
+          "cum_net": -0.687802
         },
         {
           "week_end": "2021-09-17",
-          "cum_net": -0.694567
+          "cum_net": -0.701665
         },
         {
           "week_end": "2021-09-24",
-          "cum_net": -0.706899
+          "cum_net": -0.71371
         },
         {
           "week_end": "2021-10-01",
-          "cum_net": -0.695051
+          "cum_net": -0.702137
         },
         {
           "week_end": "2021-10-08",
-          "cum_net": -0.698992
+          "cum_net": -0.705987
         },
         {
           "week_end": "2021-10-15",
-          "cum_net": -0.707234
+          "cum_net": -0.714037
         },
         {
           "week_end": "2021-10-22",
-          "cum_net": -0.71023
+          "cum_net": -0.716963
         },
         {
           "week_end": "2021-10-29",
-          "cum_net": -0.712307
+          "cum_net": -0.718992
         },
         {
           "week_end": "2021-11-05",
-          "cum_net": -0.718329
+          "cum_net": -0.724874
         },
         {
           "week_end": "2021-11-12",
-          "cum_net": -0.719028
+          "cum_net": -0.725557
         },
         {
           "week_end": "2021-11-19",
-          "cum_net": -0.727435
+          "cum_net": -0.733769
         },
         {
           "week_end": "2021-11-26",
-          "cum_net": -0.725787
+          "cum_net": -0.732159
         },
         {
           "week_end": "2021-12-03",
-          "cum_net": -0.71812
+          "cum_net": -0.72467
         },
         {
           "week_end": "2021-12-10",
-          "cum_net": -0.715004
+          "cum_net": -0.721626
         },
         {
           "week_end": "2021-12-17",
-          "cum_net": -0.705297
+          "cum_net": -0.712145
         },
         {
           "week_end": "2021-12-23",
-          "cum_net": -0.703368
+          "cum_net": -0.710261
         },
         {
           "week_end": "2021-12-31",
-          "cum_net": -0.705618
+          "cum_net": -0.712459
         },
         {
           "week_end": "2022-01-07",
-          "cum_net": -0.699786
+          "cum_net": -0.706762
         },
         {
           "week_end": "2022-01-14",
-          "cum_net": -0.716777
+          "cum_net": -0.723358
         },
         {
           "week_end": "2022-01-21",
-          "cum_net": -0.71151
+          "cum_net": -0.718213
         },
         {
           "week_end": "2022-01-28",
-          "cum_net": -0.712253
+          "cum_net": -0.718939
         },
         {
           "week_end": "2022-02-04",
-          "cum_net": -0.720801
+          "cum_net": -0.727289
         },
         {
           "week_end": "2022-02-11",
-          "cum_net": -0.726462
+          "cum_net": -0.732819
         },
         {
           "week_end": "2022-02-18",
-          "cum_net": -0.730936
+          "cum_net": -0.737188
         },
         {
           "week_end": "2022-02-25",
-          "cum_net": -0.729462
+          "cum_net": -0.735748
         },
         {
           "week_end": "2022-03-04",
-          "cum_net": -0.720428
+          "cum_net": -0.726924
         },
         {
           "week_end": "2022-03-11",
-          "cum_net": -0.726474
+          "cum_net": -0.73283
         },
         {
           "week_end": "2022-03-18",
-          "cum_net": -0.730262
+          "cum_net": -0.73653
         },
         {
           "week_end": "2022-03-25",
-          "cum_net": -0.73144
+          "cum_net": -0.73768
         },
         {
           "week_end": "2022-04-01",
-          "cum_net": -0.728189
+          "cum_net": -0.734505
         },
         {
           "week_end": "2022-04-08",
-          "cum_net": -0.731254
+          "cum_net": -0.737499
         },
         {
           "week_end": "2022-04-14",
-          "cum_net": -0.74128
+          "cum_net": -0.747292
         },
         {
           "week_end": "2022-04-22",
-          "cum_net": -0.738186
+          "cum_net": -0.74427
         },
         {
           "week_end": "2022-04-29",
-          "cum_net": -0.736319
+          "cum_net": -0.742446
         },
         {
           "week_end": "2022-05-06",
-          "cum_net": -0.740542
+          "cum_net": -0.746571
         },
         {
           "week_end": "2022-05-13",
-          "cum_net": -0.737633
+          "cum_net": -0.74373
         },
         {
           "week_end": "2022-05-20",
-          "cum_net": -0.736671
+          "cum_net": -0.74279
         },
         {
           "week_end": "2022-05-27",
-          "cum_net": -0.730294
+          "cum_net": -0.736561
         },
         {
           "week_end": "2022-06-03",
-          "cum_net": -0.740397
+          "cum_net": -0.746429
         },
         {
           "week_end": "2022-06-10",
-          "cum_net": -0.741625
+          "cum_net": -0.747629
         },
         {
           "week_end": "2022-06-17",
-          "cum_net": -0.738074
+          "cum_net": -0.74416
         },
         {
           "week_end": "2022-06-24",
-          "cum_net": -0.731454
+          "cum_net": -0.737694
         },
         {
           "week_end": "2022-07-01",
-          "cum_net": -0.721488
+          "cum_net": -0.727959
         },
         {
           "week_end": "2022-07-08",
-          "cum_net": -0.718165
+          "cum_net": -0.724714
         },
         {
           "week_end": "2022-07-15",
-          "cum_net": -0.718156
+          "cum_net": -0.724705
         },
         {
           "week_end": "2022-07-22",
-          "cum_net": -0.714645
+          "cum_net": -0.721276
         },
         {
           "week_end": "2022-07-29",
-          "cum_net": -0.73376
+          "cum_net": -0.737972
         },
         {
           "week_end": "2022-08-05",
-          "cum_net": -0.735098
+          "cum_net": -0.742063
         },
         {
           "week_end": "2022-08-12",
-          "cum_net": -0.741932
+          "cum_net": -0.749491
         },
         {
           "week_end": "2022-08-19",
-          "cum_net": -0.744822
+          "cum_net": -0.752297
         },
         {
           "week_end": "2022-08-26",
-          "cum_net": -0.75456
+          "cum_net": -0.76175
         },
         {
           "week_end": "2022-09-02",
-          "cum_net": -0.754882
+          "cum_net": -0.762062
         },
         {
           "week_end": "2022-09-09",
-          "cum_net": -0.759468
+          "cum_net": -0.766514
         },
         {
           "week_end": "2022-09-16",
-          "cum_net": -0.754138
+          "cum_net": -0.76134
         },
         {
           "week_end": "2022-09-23",
-          "cum_net": -0.748776
+          "cum_net": -0.756135
         },
         {
           "week_end": "2022-09-30",
-          "cum_net": -0.753582
+          "cum_net": -0.7608
         },
         {
           "week_end": "2022-10-07",
-          "cum_net": -0.751866
+          "cum_net": -0.759134
         },
         {
           "week_end": "2022-10-14",
-          "cum_net": -0.742187
+          "cum_net": -0.749739
         },
         {
           "week_end": "2022-10-21",
-          "cum_net": -0.725971
+          "cum_net": -0.733997
         },
         {
           "week_end": "2022-10-28",
-          "cum_net": -0.742525
+          "cum_net": -0.750067
         },
         {
           "week_end": "2022-11-04",
-          "cum_net": -0.735559
+          "cum_net": -0.743305
         },
         {
           "week_end": "2022-11-11",
-          "cum_net": -0.733067
+          "cum_net": -0.740886
         },
         {
           "week_end": "2022-11-18",
-          "cum_net": -0.730873
+          "cum_net": -0.738756
         },
         {
           "week_end": "2022-11-25",
-          "cum_net": -0.73606
+          "cum_net": -0.743792
         },
         {
           "week_end": "2022-12-02",
-          "cum_net": -0.736522
+          "cum_net": -0.74424
         },
         {
           "week_end": "2022-12-09",
-          "cum_net": -0.745361
+          "cum_net": -0.75282
         },
         {
           "week_end": "2022-12-16",
-          "cum_net": -0.742968
+          "cum_net": -0.750497
         },
         {
           "week_end": "2022-12-23",
-          "cum_net": -0.739918
+          "cum_net": -0.747536
         },
         {
           "week_end": "2022-12-30",
-          "cum_net": -0.743699
+          "cum_net": -0.751206
         },
         {
           "week_end": "2023-01-06",
-          "cum_net": -0.751136
+          "cum_net": -0.758426
         },
         {
           "week_end": "2023-01-13",
-          "cum_net": -0.745463
+          "cum_net": -0.752919
         },
         {
           "week_end": "2023-01-20",
-          "cum_net": -0.757013
+          "cum_net": -0.764131
         },
         {
           "week_end": "2023-01-27",
-          "cum_net": -0.760785
+          "cum_net": -0.767793
         },
         {
           "week_end": "2023-02-03",
-          "cum_net": -0.75839
+          "cum_net": -0.765467
         },
         {
           "week_end": "2023-02-10",
-          "cum_net": -0.76416
+          "cum_net": -0.771068
         },
         {
           "week_end": "2023-02-17",
-          "cum_net": -0.768187
+          "cum_net": -0.774977
         },
         {
           "week_end": "2023-02-24",
-          "cum_net": -0.762966
+          "cum_net": -0.770671
         },
         {
           "week_end": "2023-03-03",
-          "cum_net": -0.769031
+          "cum_net": -0.776539
         },
         {
           "week_end": "2023-03-10",
-          "cum_net": -0.773138
+          "cum_net": -0.780902
         },
         {
           "week_end": "2023-03-17",
-          "cum_net": -0.780762
+          "cum_net": -0.788265
         },
         {
           "week_end": "2023-03-24",
-          "cum_net": -0.784642
+          "cum_net": -0.792012
         },
         {
           "week_end": "2023-03-31",
-          "cum_net": -0.782246
+          "cum_net": -0.789698
         },
         {
           "week_end": "2023-04-06",
-          "cum_net": -0.787325
+          "cum_net": -0.792424
         },
         {
           "week_end": "2023-04-14",
-          "cum_net": -0.786576
+          "cum_net": -0.79304
         },
         {
           "week_end": "2023-04-21",
-          "cum_net": -0.790859
+          "cum_net": -0.797194
         },
         {
           "week_end": "2023-04-28",
-          "cum_net": -0.793128
+          "cum_net": -0.799394
         },
         {
           "week_end": "2023-05-05",
-          "cum_net": -0.800843
+          "cum_net": -0.806875
         },
         {
           "week_end": "2023-05-12",
-          "cum_net": -0.800513
+          "cum_net": -0.806555
         },
         {
           "week_end": "2023-05-19",
-          "cum_net": -0.809249
+          "cum_net": -0.815026
         },
         {
           "week_end": "2023-05-26",
-          "cum_net": -0.804398
+          "cum_net": -0.810323
         },
         {
           "week_end": "2023-06-02",
-          "cum_net": -0.796043
+          "cum_net": -0.80222
         },
         {
           "week_end": "2023-06-09",
-          "cum_net": -0.794704
+          "cum_net": -0.800923
         },
         {
           "week_end": "2023-06-16",
-          "cum_net": -0.801078
+          "cum_net": -0.807103
         },
         {
           "week_end": "2023-06-23",
-          "cum_net": -0.803583
+          "cum_net": -0.809532
         },
         {
           "week_end": "2023-06-30",
-          "cum_net": -0.801923
+          "cum_net": -0.807714
         },
         {
           "week_end": "2023-07-07",
-          "cum_net": -0.803113
+          "cum_net": -0.808292
         },
         {
           "week_end": "2023-07-14",
-          "cum_net": -0.808737
+          "cum_net": -0.813767
         },
         {
           "week_end": "2023-07-21",
-          "cum_net": -0.812393
+          "cum_net": -0.817328
         },
         {
           "week_end": "2023-07-28",
-          "cum_net": -0.809474
+          "cum_net": -0.814485
         },
         {
           "week_end": "2023-08-04",
-          "cum_net": -0.815328
+          "cum_net": -0.820185
         },
         {
           "week_end": "2023-08-11",
-          "cum_net": -0.815232
+          "cum_net": -0.820092
         },
         {
           "week_end": "2023-08-18",
-          "cum_net": -0.815965
+          "cum_net": -0.820805
         },
         {
           "week_end": "2023-08-25",
-          "cum_net": -0.821213
+          "cum_net": -0.825916
         },
         {
           "week_end": "2023-09-01",
-          "cum_net": -0.823204
+          "cum_net": -0.827854
         },
         {
           "week_end": "2023-09-08",
-          "cum_net": -0.821902
+          "cum_net": -0.826586
         },
         {
           "week_end": "2023-09-15",
-          "cum_net": -0.82059
+          "cum_net": -0.825309
         },
         {
           "week_end": "2023-09-22",
-          "cum_net": -0.825009
+          "cum_net": -0.829611
         },
         {
           "week_end": "2023-09-29",
-          "cum_net": -0.827937
+          "cum_net": -0.832463
         },
         {
           "week_end": "2023-10-06",
-          "cum_net": -0.829071
+          "cum_net": -0.833567
         },
         {
           "week_end": "2023-10-13",
-          "cum_net": -0.832629
+          "cum_net": -0.837032
         },
         {
           "week_end": "2023-10-20",
-          "cum_net": -0.83416
+          "cum_net": -0.838522
         },
         {
           "week_end": "2023-10-27",
-          "cum_net": -0.832387
+          "cum_net": -0.836795
         },
         {
           "week_end": "2023-11-03",
-          "cum_net": -0.823071
+          "cum_net": -0.827725
         },
         {
           "week_end": "2023-11-10",
-          "cum_net": -0.824152
+          "cum_net": -0.828777
         },
         {
           "week_end": "2023-11-17",
-          "cum_net": -0.828258
+          "cum_net": -0.832775
         },
         {
           "week_end": "2023-11-24",
-          "cum_net": -0.829355
+          "cum_net": -0.833844
         },
         {
           "week_end": "2023-12-01",
-          "cum_net": -0.830317
+          "cum_net": -0.83478
         },
         {
           "week_end": "2023-12-08",
-          "cum_net": -0.833151
+          "cum_net": -0.837539
         },
         {
           "week_end": "2023-12-15",
-          "cum_net": -0.844603
+          "cum_net": -0.848691
         },
         {
           "week_end": "2023-12-22",
-          "cum_net": -0.844207
+          "cum_net": -0.848304
         },
         {
           "week_end": "2023-12-29",
-          "cum_net": -0.84725
+          "cum_net": -0.851267
         },
         {
           "week_end": "2024-01-05",
-          "cum_net": -0.846931
+          "cum_net": -0.850957
         },
         {
           "week_end": "2024-01-12",
-          "cum_net": -0.850773
+          "cum_net": -0.854698
         },
         {
           "week_end": "2024-01-19",
-          "cum_net": -0.848292
+          "cum_net": -0.852282
         },
         {
           "week_end": "2024-01-26",
-          "cum_net": -0.842273
+          "cum_net": -0.847294
         },
         {
           "week_end": "2024-02-02",
-          "cum_net": -0.837992
+          "cum_net": -0.843607
         },
         {
           "week_end": "2024-02-09",
-          "cum_net": -0.834165
+          "cum_net": -0.839913
         },
         {
           "week_end": "2024-02-16",
-          "cum_net": -0.834253
+          "cum_net": -0.841819
         },
         {
           "week_end": "2024-02-23",
-          "cum_net": -0.839538
+          "cum_net": -0.850423
         },
         {
           "week_end": "2024-03-01",
-          "cum_net": -0.845984
+          "cum_net": -0.855983
         },
         {
           "week_end": "2024-03-08",
-          "cum_net": -0.848748
+          "cum_net": -0.858568
         },
         {
           "week_end": "2024-03-15",
-          "cum_net": -0.85057
+          "cum_net": -0.860271
         },
         {
           "week_end": "2024-03-22",
-          "cum_net": -0.852322
+          "cum_net": -0.861909
         },
         {
           "week_end": "2024-03-28",
-          "cum_net": -0.852217
+          "cum_net": -0.861811
         },
         {
           "week_end": "2024-04-05",
-          "cum_net": -0.850223
+          "cum_net": -0.859947
         },
         {
           "week_end": "2024-04-12",
-          "cum_net": -0.847283
+          "cum_net": -0.857197
         },
         {
           "week_end": "2024-04-19",
-          "cum_net": -0.84764
+          "cum_net": -0.857531
         },
         {
           "week_end": "2024-04-26",
-          "cum_net": -0.861272
+          "cum_net": -0.870279
         },
         {
           "week_end": "2024-05-03",
-          "cum_net": -0.85574
+          "cum_net": -0.865106
         },
         {
           "week_end": "2024-05-10",
-          "cum_net": -0.860632
+          "cum_net": -0.86968
         },
         {
           "week_end": "2024-05-17",
-          "cum_net": -0.859735
+          "cum_net": -0.868841
         },
         {
           "week_end": "2024-05-24",
-          "cum_net": -0.864011
+          "cum_net": -0.87284
         },
         {
           "week_end": "2024-05-31",
-          "cum_net": -0.86705
+          "cum_net": -0.875681
         },
         {
           "week_end": "2024-06-07",
-          "cum_net": -0.868202
+          "cum_net": -0.876758
         },
         {
           "week_end": "2024-06-14",
-          "cum_net": -0.872301
+          "cum_net": -0.880592
         },
         {
           "week_end": "2024-06-21",
-          "cum_net": -0.876512
+          "cum_net": -0.884529
         },
         {
           "week_end": "2024-06-28",
-          "cum_net": -0.879638
+          "cum_net": -0.887452
         },
         {
           "week_end": "2024-07-05",
-          "cum_net": -0.887183
+          "cum_net": -0.894508
         },
         {
           "week_end": "2024-07-12",
-          "cum_net": -0.879638
+          "cum_net": -0.887452
         },
         {
           "week_end": "2024-07-19",
-          "cum_net": -0.87666
+          "cum_net": -0.884667
         },
         {
           "week_end": "2024-07-26",
-          "cum_net": -0.879961
+          "cum_net": -0.887754
         },
         {
           "week_end": "2024-08-02",
-          "cum_net": -0.880618
+          "cum_net": -0.888369
         },
         {
           "week_end": "2024-08-09",
-          "cum_net": -0.874023
+          "cum_net": -0.882201
         },
         {
           "week_end": "2024-08-16",
-          "cum_net": -0.875003
+          "cum_net": -0.883118
         },
         {
           "week_end": "2024-08-23",
-          "cum_net": -0.877117
+          "cum_net": -0.885095
         },
         {
           "week_end": "2024-08-30",
-          "cum_net": -0.880715
+          "cum_net": -0.888459
         },
         {
           "week_end": "2024-09-06",
-          "cum_net": -0.882572
+          "cum_net": -0.890196
         },
         {
           "week_end": "2024-09-13",
-          "cum_net": -0.882111
+          "cum_net": -0.889765
         },
         {
           "week_end": "2024-09-20",
-          "cum_net": -0.885032
+          "cum_net": -0.892496
         },
         {
           "week_end": "2024-09-27",
-          "cum_net": -0.885812
+          "cum_net": -0.893225
         },
         {
           "week_end": "2024-10-04",
-          "cum_net": -0.88903
+          "cum_net": -0.896234
         },
         {
           "week_end": "2024-10-11",
-          "cum_net": -0.884735
+          "cum_net": -0.892218
         },
         {
           "week_end": "2024-10-18",
-          "cum_net": -0.882355
+          "cum_net": -0.889993
         },
         {
           "week_end": "2024-10-25",
-          "cum_net": -0.884107
+          "cum_net": -0.891631
         },
         {
           "week_end": "2024-11-01",
-          "cum_net": -0.878385
+          "cum_net": -0.886281
         },
         {
           "week_end": "2024-11-08",
-          "cum_net": -0.881615
+          "cum_net": -0.8893
         },
         {
           "week_end": "2024-11-15",
-          "cum_net": -0.882892
+          "cum_net": -0.890495
         },
         {
           "week_end": "2024-11-22",
-          "cum_net": -0.884792
+          "cum_net": -0.892271
         },
         {
           "week_end": "2024-11-29",
-          "cum_net": -0.87797
+          "cum_net": -0.885893
         },
         {
           "week_end": "2024-12-06",
-          "cum_net": -0.882831
+          "cum_net": -0.890438
         },
         {
           "week_end": "2024-12-13",
-          "cum_net": -0.878277
+          "cum_net": -0.886179
         },
         {
           "week_end": "2024-12-20",
-          "cum_net": -0.886493
+          "cum_net": -0.893862
         },
         {
           "week_end": "2024-12-27",
-          "cum_net": -0.893605
+          "cum_net": -0.900513
         },
         {
           "week_end": "2025-01-03",
-          "cum_net": -0.894837
+          "cum_net": -0.901664
         },
         {
           "week_end": "2025-01-10",
-          "cum_net": -0.892188
+          "cum_net": -0.899187
         },
         {
           "week_end": "2025-01-17",
-          "cum_net": -0.892965
+          "cum_net": -0.899914
         },
         {
           "week_end": "2025-01-24",
-          "cum_net": -0.896129
+          "cum_net": -0.902873
         },
         {
           "week_end": "2025-01-31",
-          "cum_net": -0.899287
+          "cum_net": -0.905826
         },
         {
           "week_end": "2025-02-07",
-          "cum_net": -0.899708
+          "cum_net": -0.906219
         },
         {
           "week_end": "2025-02-14",
-          "cum_net": -0.900665
+          "cum_net": -0.907114
         },
         {
           "week_end": "2025-02-21",
-          "cum_net": -0.900364
+          "cum_net": -0.906832
         },
         {
           "week_end": "2025-02-28",
-          "cum_net": -0.900469
+          "cum_net": -0.906931
         },
         {
           "week_end": "2025-03-07",
-          "cum_net": -0.901135
+          "cum_net": -0.907553
         },
         {
           "week_end": "2025-03-14",
-          "cum_net": -0.90173
+          "cum_net": -0.90811
         },
         {
           "week_end": "2025-03-21",
-          "cum_net": -0.904434
+          "cum_net": -0.910639
         },
         {
           "week_end": "2025-03-28",
-          "cum_net": -0.902174
+          "cum_net": -0.908525
         },
         {
           "week_end": "2025-04-04",
-          "cum_net": -0.905104
+          "cum_net": -0.911265
         },
         {
           "week_end": "2025-04-11",
-          "cum_net": -0.907712
+          "cum_net": -0.913704
         },
         {
           "week_end": "2025-04-17",
-          "cum_net": -0.908978
+          "cum_net": -0.914887
         },
         {
           "week_end": "2025-04-25",
-          "cum_net": -0.908985
+          "cum_net": -0.914894
         },
         {
           "week_end": "2025-05-02",
-          "cum_net": -0.910661
+          "cum_net": -0.916461
         },
         {
           "week_end": "2025-05-09",
-          "cum_net": -0.910059
+          "cum_net": -0.915898
         },
         {
           "week_end": "2025-05-16",
-          "cum_net": -0.910405
+          "cum_net": -0.916222
         },
         {
           "week_end": "2025-05-23",
-          "cum_net": -0.912449
+          "cum_net": -0.918133
         },
         {
           "week_end": "2025-05-30",
-          "cum_net": -0.912154
+          "cum_net": -0.917857
         },
         {
           "week_end": "2025-06-06",
-          "cum_net": -0.912337
+          "cum_net": -0.918029
         },
         {
           "week_end": "2025-06-13",
-          "cum_net": -0.914472
+          "cum_net": -0.920926
         },
         {
           "week_end": "2025-06-20",
-          "cum_net": -0.914267
+          "cum_net": -0.9205
         },
         {
           "week_end": "2025-06-27",
-          "cum_net": -0.91902
+          "cum_net": -0.924907
         },
         {
           "week_end": "2025-07-03",
-          "cum_net": -0.921227
+          "cum_net": -0.926954
         },
         {
           "week_end": "2025-07-11",
-          "cum_net": -0.922699
-        },
-        {
-          "week_end": "2025-07-18",
-          "cum_net": -0.922561
-        },
-        {
-          "week_end": "2025-07-25",
-          "cum_net": -0.925083
-        },
-        {
-          "week_end": "2025-08-01",
-          "cum_net": -0.924871
-        },
-        {
-          "week_end": "2025-08-08",
-          "cum_net": -0.927859
-        },
-        {
-          "week_end": "2025-08-15",
           "cum_net": -0.928318
         },
         {
+          "week_end": "2025-07-18",
+          "cum_net": -0.928191
+        },
+        {
+          "week_end": "2025-07-25",
+          "cum_net": -0.930529
+        },
+        {
+          "week_end": "2025-08-01",
+          "cum_net": -0.930333
+        },
+        {
+          "week_end": "2025-08-08",
+          "cum_net": -0.933103
+        },
+        {
+          "week_end": "2025-08-15",
+          "cum_net": -0.93353
+        },
+        {
           "week_end": "2025-08-22",
-          "cum_net": -0.931915
+          "cum_net": -0.936864
         },
         {
           "week_end": "2025-08-29",
-          "cum_net": -0.936776
+          "cum_net": -0.941372
         },
         {
           "week_end": "2025-09-05",
-          "cum_net": -0.93764
+          "cum_net": -0.942173
         },
         {
           "week_end": "2025-09-12",
-          "cum_net": -0.938693
+          "cum_net": -0.94315
         },
         {
           "week_end": "2025-09-19",
-          "cum_net": -0.94123
+          "cum_net": -0.945502
         },
         {
           "week_end": "2025-09-26",
-          "cum_net": -0.942419
+          "cum_net": -0.946605
         },
         {
           "week_end": "2025-10-03",
-          "cum_net": -0.942664
+          "cum_net": -0.946832
         },
         {
           "week_end": "2025-10-10",
-          "cum_net": -0.93859
+          "cum_net": -0.943054
         },
         {
           "week_end": "2025-10-17",
-          "cum_net": -0.938857
+          "cum_net": -0.943302
         },
         {
           "week_end": "2025-10-24",
-          "cum_net": -0.940726
+          "cum_net": -0.945036
         },
         {
           "week_end": "2025-10-31",
-          "cum_net": -0.941377
+          "cum_net": -0.945639
         },
         {
           "week_end": "2025-11-07",
-          "cum_net": -0.941567
+          "cum_net": -0.945815
         },
         {
           "week_end": "2025-11-14",
-          "cum_net": -0.941663
+          "cum_net": -0.945904
         },
         {
           "week_end": "2025-11-21",
-          "cum_net": -0.941993
+          "cum_net": -0.94621
         },
         {
           "week_end": "2025-11-28",
-          "cum_net": -0.941721
+          "cum_net": -0.948516
         },
         {
           "week_end": "2025-12-05",
-          "cum_net": -0.942098
+          "cum_net": -0.948695
         },
         {
           "week_end": "2025-12-12",
-          "cum_net": -0.936519
+          "cum_net": -0.943751
         },
         {
           "week_end": "2025-12-19",
-          "cum_net": -0.937223
+          "cum_net": -0.944375
         },
         {
           "week_end": "2025-12-26",
-          "cum_net": -0.938831
+          "cum_net": -0.9458
         },
         {
           "week_end": "2026-01-02",
-          "cum_net": -0.939608
+          "cum_net": -0.946488
         },
         {
           "week_end": "2026-01-09",
-          "cum_net": -0.939116
+          "cum_net": -0.946053
         },
         {
           "week_end": "2026-01-16",
-          "cum_net": -0.943064
+          "cum_net": -0.94955
         },
         {
           "week_end": "2026-01-23",
-          "cum_net": -0.944932
+          "cum_net": -0.951206
         },
         {
           "week_end": "2026-01-30",
-          "cum_net": -0.945219
+          "cum_net": -0.95146
         },
         {
           "week_end": "2026-02-06",
-          "cum_net": -0.946883
+          "cum_net": -0.952934
         },
         {
           "week_end": "2026-02-13",
-          "cum_net": -0.945511
+          "cum_net": -0.951719
         },
         {
           "week_end": "2026-02-20",
-          "cum_net": -0.945684
+          "cum_net": -0.951872
         },
         {
           "week_end": "2026-02-27",
-          "cum_net": -0.946913
+          "cum_net": -0.952961
         },
         {
           "week_end": "2026-03-06",
-          "cum_net": -0.947911
+          "cum_net": -0.953846
         },
         {
           "week_end": "2026-03-13",
-          "cum_net": -0.951551
+          "cum_net": -0.957071
         },
         {
           "week_end": "2026-03-20",
-          "cum_net": -0.950632
+          "cum_net": -0.956256
         },
         {
           "week_end": "2026-03-27",
-          "cum_net": -0.952223
+          "cum_net": -0.957667
         },
         {
           "week_end": "2026-04-02",
-          "cum_net": -0.951534
+          "cum_net": -0.957056
         },
         {
           "week_end": "2026-04-10",
-          "cum_net": -0.954286
+          "cum_net": -0.959494
         },
         {
           "week_end": "2026-04-17",
-          "cum_net": -0.953258
+          "cum_net": -0.958583
         },
         {
           "week_end": "2026-04-24",
-          "cum_net": -0.956994
+          "cum_net": -0.961893
         },
         {
           "week_end": "2026-05-01",
-          "cum_net": -0.956808
+          "cum_net": -0.961729
         }
       ],
       "steps": [
@@ -7983,7 +7983,7 @@
             "PLAB"
           ],
           "net": -0.031527,
-          "ic": -0.054945
+          "ic": -0.032967
         },
         {
           "signal_week_end": "2020-05-15",
@@ -8353,12 +8353,12 @@
           "top": [
             "ACMR",
             "AMBA",
+            "KLIC",
             "POET",
-            "UCTT",
             "VECO"
           ],
-          "net": -0.008121,
-          "ic": 0.125275
+          "net": -0.032185,
+          "ic": 0.059341
         },
         {
           "signal_week_end": "2020-11-06",
@@ -8368,12 +8368,12 @@
           "top": [
             "AEHR",
             "AMBA",
+            "KLIC",
             "LPTH",
-            "POET",
             "VECO"
           ],
-          "net": 0.013981,
-          "ic": 0.345055
+          "net": 0.013489,
+          "ic": 0.252747
         },
         {
           "signal_week_end": "2020-11-13",
@@ -8382,13 +8382,13 @@
           "week": 106,
           "top": [
             "ACMR",
-            "LASR",
+            "AMBA",
             "LPTH",
             "POET",
             "VECO"
           ],
-          "net": -0.05433,
-          "ic": -0.305495
+          "net": -0.053134,
+          "ic": -0.358242
         },
         {
           "signal_week_end": "2020-11-20",
@@ -8396,14 +8396,14 @@
           "train_max_week": 106,
           "week": 107,
           "top": [
-            "ACMR",
             "AEHR",
-            "AMBA",
+            "ICHR",
             "LPTH",
-            "POET"
+            "POET",
+            "VECO"
           ],
-          "net": 0.054607,
-          "ic": 0.81978
+          "net": 0.036135,
+          "ic": 0.771429
         },
         {
           "signal_week_end": "2020-11-27",
@@ -8417,8 +8417,8 @@
             "UCTT",
             "VECO"
           ],
-          "net": -0.032662,
-          "ic": 0.292308
+          "net": -0.026662,
+          "ic": 0.248352
         },
         {
           "signal_week_end": "2020-12-04",
@@ -8427,13 +8427,13 @@
           "week": 109,
           "top": [
             "ACMR",
+            "FORM",
             "KLIC",
             "LPTH",
-            "PLAB",
             "POET"
           ],
-          "net": 0.028912,
-          "ic": 0.27033
+          "net": 0.042328,
+          "ic": 0.23956
         },
         {
           "signal_week_end": "2020-12-11",
@@ -8441,14 +8441,14 @@
           "train_max_week": 109,
           "week": 110,
           "top": [
-            "ACMR",
+            "AEHR",
             "ICHR",
             "LPTH",
             "PLAB",
             "POET"
           ],
-          "net": 0.001504,
-          "ic": 0.024176
+          "net": 0.00322,
+          "ic": -0.006593
         },
         {
           "signal_week_end": "2020-12-18",
@@ -8462,8 +8462,8 @@
             "POET",
             "UCTT"
           ],
-          "net": 0.033812,
-          "ic": 0.063736
+          "net": 0.030812,
+          "ic": 0.024176
         },
         {
           "signal_week_end": "2020-12-24",
@@ -9678,7 +9678,7 @@
             "UCTT"
           ],
           "net": 3.2e-05,
-          "ic": -0.16044
+          "ic": -0.182418
         },
         {
           "signal_week_end": "2022-07-15",
@@ -9693,7 +9693,7 @@
             "UCTT"
           ],
           "net": 0.012458,
-          "ic": -0.006593
+          "ic": -0.024176
         },
         {
           "signal_week_end": "2022-07-22",
@@ -9701,14 +9701,14 @@
           "train_max_week": 193,
           "week": 194,
           "top": [
-            "COHU",
             "FORM",
             "KLIC",
             "LASR",
-            "POET"
+            "POET",
+            "VECO"
           ],
-          "net": -0.066986,
-          "ic": -0.305495
+          "net": -0.059904,
+          "ic": -0.432967
         },
         {
           "signal_week_end": "2022-07-29",
@@ -9720,10 +9720,10 @@
             "COHU",
             "FORM",
             "PLAB",
-            "VECO"
+            "POET"
           ],
-          "net": -0.005026,
-          "ic": -0.050549
+          "net": -0.015612,
+          "ic": -0.147253
         },
         {
           "signal_week_end": "2022-08-05",
@@ -9737,7 +9737,7 @@
             "UCTT",
             "VECO"
           ],
-          "net": -0.025798,
+          "net": -0.028798,
           "ic": -0.542857
         },
         {
@@ -9873,7 +9873,7 @@
             "UCTT"
           ],
           "net": 0.039008,
-          "ic": 0.362637
+          "ic": 0.367033
         },
         {
           "signal_week_end": "2022-10-14",
@@ -9888,7 +9888,7 @@
             "LASR"
           ],
           "net": 0.062899,
-          "ic": 0.393407
+          "ic": 0.446154
         },
         {
           "signal_week_end": "2022-10-21",
@@ -9903,7 +9903,7 @@
             "VECO"
           ],
           "net": -0.060411,
-          "ic": -0.173626
+          "ic": -0.085714
         },
         {
           "signal_week_end": "2022-10-28",
@@ -10098,7 +10098,7 @@
             "VECO"
           ],
           "net": -0.015525,
-          "ic": -0.257143
+          "ic": -0.235165
         },
         {
           "signal_week_end": "2023-01-27",
@@ -10113,7 +10113,7 @@
             "VECO"
           ],
           "net": 0.010013,
-          "ic": 0.49011
+          "ic": 0.507692
         },
         {
           "signal_week_end": "2023-02-03",
@@ -10143,7 +10143,7 @@
             "VECO"
           ],
           "net": -0.017075,
-          "ic": -0.221978
+          "ic": -0.279121
         },
         {
           "signal_week_end": "2023-02-17",
@@ -10152,13 +10152,13 @@
           "week": 224,
           "top": [
             "COHU",
-            "KLIC",
+            "FORM",
             "PLAB",
             "POET",
             "UCTT"
           ],
-          "net": 0.022525,
-          "ic": 0.503297
+          "net": 0.019139,
+          "ic": 0.507692
         },
         {
           "signal_week_end": "2023-02-24",
@@ -10173,7 +10173,7 @@
             "VECO"
           ],
           "net": -0.025588,
-          "ic": 0.336264
+          "ic": 0.389011
         },
         {
           "signal_week_end": "2023-03-03",
@@ -10183,12 +10183,12 @@
           "top": [
             "AMBA",
             "AXTI",
-            "COHU",
+            "PLAB",
             "UCTT",
             "VECO"
           ],
-          "net": -0.017782,
-          "ic": -0.081319
+          "net": -0.019526,
+          "ic": -0.085714
         },
         {
           "signal_week_end": "2023-03-10",
@@ -10203,7 +10203,7 @@
             "VECO"
           ],
           "net": -0.033607,
-          "ic": -0.178022
+          "ic": -0.243956
         },
         {
           "signal_week_end": "2023-03-17",
@@ -10218,7 +10218,7 @@
             "UCTT"
           ],
           "net": -0.017696,
-          "ic": 0.191209
+          "ic": 0.252747
         },
         {
           "signal_week_end": "2023-03-24",
@@ -10233,7 +10233,7 @@
             "UCTT"
           ],
           "net": 0.011126,
-          "ic": 0.30989
+          "ic": 0.301099
         },
         {
           "signal_week_end": "2023-03-31",
@@ -10242,13 +10242,13 @@
           "week": 230,
           "top": [
             "AMBA",
-            "COHU",
-            "ICHR",
+            "AXTI",
+            "FORM",
             "PLAB",
             "VECO"
           ],
-          "net": -0.023323,
-          "ic": -0.582418
+          "net": -0.012962,
+          "ic": -0.327473
         },
         {
           "signal_week_end": "2023-04-06",
@@ -10256,14 +10256,14 @@
           "train_max_week": 230,
           "week": 231,
           "top": [
+            "ACMR",
             "FORM",
             "KLIC",
             "PLAB",
-            "UCTT",
             "VECO"
           ],
-          "net": 0.003523,
-          "ic": 0.098901
+          "net": -0.002967,
+          "ic": 0.261538
         },
         {
           "signal_week_end": "2023-04-14",
@@ -10422,13 +10422,13 @@
           "week": 242,
           "top": [
             "AMBA",
+            "COHU",
             "FORM",
             "ICHR",
-            "UCTT",
             "VECO"
           ],
-          "net": 0.00845,
-          "ic": 0.397802
+          "net": 0.009549,
+          "ic": 0.375824
         },
         {
           "signal_week_end": "2023-06-30",
@@ -10442,7 +10442,7 @@
             "LPTH",
             "VECO"
           ],
-          "net": -0.006006,
+          "net": -0.003006,
           "ic": -0.30989
         },
         {
@@ -10871,14 +10871,14 @@
           "train_max_week": 271,
           "week": 272,
           "top": [
+            "FORM",
             "ICHR",
             "LPTH",
             "PLAB",
-            "POET",
-            "UCTT"
+            "POET"
           ],
-          "net": 0.03967,
-          "ic": 0.525275
+          "net": 0.033768,
+          "ic": 0.569231
         },
         {
           "signal_week_end": "2024-01-26",
@@ -10892,8 +10892,8 @@
             "LPTH",
             "UCTT"
           ],
-          "net": 0.027146,
-          "ic": 0.331868
+          "net": 0.024146,
+          "ic": 0.336264
         },
         {
           "signal_week_end": "2024-02-02",
@@ -10916,14 +10916,14 @@
           "train_max_week": 274,
           "week": 275,
           "top": [
+            "FORM",
             "ICHR",
             "KLIC",
             "LASR",
-            "LPTH",
-            "UCTT"
+            "LPTH"
           ],
-          "net": -0.000529,
-          "ic": -0.248352
+          "net": -0.011908,
+          "ic": -0.164835
         },
         {
           "signal_week_end": "2024-02-16",
@@ -10934,10 +10934,10 @@
             "AMBA",
             "COHU",
             "FORM",
-            "LPTH",
-            "VECO"
+            "LASR",
+            "LPTH"
           ],
-          "net": -0.031883,
+          "net": -0.054392,
           "ic": 0.024176
         },
         {
@@ -10952,7 +10952,7 @@
             "LASR",
             "LPTH"
           ],
-          "net": -0.040172,
+          "net": -0.037172,
           "ic": 0.252747
         },
         {
@@ -10968,7 +10968,7 @@
             "LPTH"
           ],
           "net": -0.017949,
-          "ic": 0.032967
+          "ic": 0.006593
         },
         {
           "signal_week_end": "2024-03-08",
@@ -10983,7 +10983,7 @@
             "UCTT"
           ],
           "net": -0.012046,
-          "ic": -0.063736
+          "ic": -0.054945
         },
         {
           "signal_week_end": "2024-03-15",
@@ -11951,14 +11951,14 @@
           "train_max_week": 343,
           "week": 344,
           "top": [
-            "ACMR",
+            "AMBA",
             "KLIC",
             "PLAB",
             "UCTT",
             "VECO"
           ],
-          "net": -0.024349,
-          "ic": -0.38022
+          "net": -0.03535,
+          "ic": -0.397802
         },
         {
           "signal_week_end": "2025-06-13",
@@ -11972,8 +11972,8 @@
             "PLAB",
             "VECO"
           ],
-          "net": 0.002398,
-          "ic": 0.349451
+          "net": 0.005398,
+          "ic": 0.358242
         },
         {
           "signal_week_end": "2025-06-20",
@@ -12312,13 +12312,13 @@
           "week": 368,
           "top": [
             "ACMR",
-            "COHU",
+            "AMBA",
             "KLIC",
             "LPTH",
             "UCTT"
           ],
-          "net": 0.004698,
-          "ic": -0.098901
+          "net": -0.042863,
+          "ic": -0.327473
         },
         {
           "signal_week_end": "2025-11-28",
@@ -12332,8 +12332,8 @@
             "POET",
             "UCTT"
           ],
-          "net": -0.006478,
-          "ic": -0.226374
+          "net": -0.003478,
+          "ic": -0.050549
         },
         {
           "signal_week_end": "2025-12-05",
@@ -12348,7 +12348,7 @@
             "UCTT"
           ],
           "net": 0.096355,
-          "ic": 0.27033
+          "ic": 0.331868
         },
         {
           "signal_week_end": "2025-12-12",
@@ -12363,7 +12363,7 @@
             "UCTT"
           ],
           "net": -0.011087,
-          "ic": 0.142857
+          "ic": 0.173626
         },
         {
           "signal_week_end": "2025-12-19",
@@ -18617,7 +18617,7 @@
             "LPTH",
             "POET"
           ],
-          "net": -0.01077,
+          "net": -0.010771,
           "ic": -0.173626
         },
         {
@@ -26495,7 +26495,7 @@
         },
         {
           "week_end": "2026-01-23",
-          "cum_net": -0.899712
+          "cum_net": -0.899713
         },
         {
           "week_end": "2026-01-30",
@@ -26535,7 +26535,7 @@
         },
         {
           "week_end": "2026-04-02",
-          "cum_net": -0.897207
+          "cum_net": -0.897208
         },
         {
           "week_end": "2026-04-10",
@@ -31157,7 +31157,7 @@
             "LASR",
             "UCTT"
           ],
-          "net": -0.078593,
+          "net": -0.078594,
           "ic": 0.01978
         },
         {
@@ -32737,7 +32737,7 @@
         },
         {
           "week_end": "2025-12-05",
-          "cum_net": -0.648727
+          "cum_net": -0.648728
         },
         {
           "week_end": "2025-12-12",
@@ -37427,7 +37427,7 @@
             "PLAB",
             "VECO"
           ],
-          "net": 0.030697,
+          "net": 0.030698,
           "ic": -0.257143
         },
         {
@@ -43697,7 +43697,7 @@
             "LASR",
             "PLAB"
           ],
-          "net": 0.024682,
+          "net": 0.024683,
           "ic": -0.213187
         },
         {
@@ -50274,97 +50274,97 @@
     }
   },
   "next_week": {
-    "as_of_week_end": "2026-10-26",
+    "as_of_week_end": "2026-10-29",
     "model": "ridge",
     "picks": [
       {
-        "symbol": "PLAB",
-        "score": 0.01811
-      },
-      {
         "symbol": "AMBA",
-        "score": 0.00845
+        "score": 0.0137
       },
       {
-        "symbol": "POET",
-        "score": 0.00787
+        "symbol": "FORM",
+        "score": 0.0117
       },
       {
-        "symbol": "LPTH",
-        "score": 0.00543
+        "symbol": "ACMR",
+        "score": 0.01089
       },
       {
-        "symbol": "KLIC",
-        "score": 0.00422
+        "symbol": "PLAB",
+        "score": 0.01013
+      },
+      {
+        "symbol": "VECO",
+        "score": 0.00825
       }
     ],
     "ranked": [
       {
-        "symbol": "PLAB",
-        "score": 0.01811
-      },
-      {
         "symbol": "AMBA",
-        "score": 0.00845
-      },
-      {
-        "symbol": "POET",
-        "score": 0.00787
-      },
-      {
-        "symbol": "LPTH",
-        "score": 0.00543
-      },
-      {
-        "symbol": "KLIC",
-        "score": 0.00422
-      },
-      {
-        "symbol": "VECO",
-        "score": 0.00379
-      },
-      {
-        "symbol": "LASR",
-        "score": 0.00184
-      },
-      {
-        "symbol": "AEHR",
-        "score": 0.00012
-      },
-      {
-        "symbol": "COHU",
-        "score": -0.00254
-      },
-      {
-        "symbol": "ACMR",
-        "score": -0.00271
-      },
-      {
-        "symbol": "ICHR",
-        "score": -0.00451
+        "score": 0.0137
       },
       {
         "symbol": "FORM",
-        "score": -0.00513
+        "score": 0.0117
       },
       {
-        "symbol": "UCTT",
-        "score": -0.00747
+        "symbol": "ACMR",
+        "score": 0.01089
+      },
+      {
+        "symbol": "PLAB",
+        "score": 0.01013
+      },
+      {
+        "symbol": "VECO",
+        "score": 0.00825
+      },
+      {
+        "symbol": "POET",
+        "score": 0.00384
+      },
+      {
+        "symbol": "LASR",
+        "score": 0.00087
+      },
+      {
+        "symbol": "KLIC",
+        "score": 0.00061
+      },
+      {
+        "symbol": "AEHR",
+        "score": -0.00048
+      },
+      {
+        "symbol": "LPTH",
+        "score": -0.00471
+      },
+      {
+        "symbol": "COHU",
+        "score": -0.00639
+      },
+      {
+        "symbol": "ICHR",
+        "score": -0.01106
       },
       {
         "symbol": "AXTI",
-        "score": -0.02748
+        "score": -0.01766
+      },
+      {
+        "symbol": "UCTT",
+        "score": -0.01968
       }
     ],
     "coefficients": {
-      "ex_ret_1w": -0.00506,
-      "ex_ret_4w": 0.0005,
-      "ex_ret_12w": 0.00106,
-      "vol_4w": -0.00911,
-      "vol_12w": 0.00197,
-      "log_volume_ratio": -9e-05,
-      "dist_from_12w_high": -0.00295,
-      "range_1w": 0.00115,
+      "ex_ret_1w": -0.00501,
+      "ex_ret_4w": 0.0007,
+      "ex_ret_12w": 0.00087,
+      "vol_4w": -0.00934,
+      "vol_12w": 0.00215,
+      "log_volume_ratio": 0.00027,
+      "dist_from_12w_high": -0.00341,
+      "range_1w": 0.00079,
       "fx_beta_x_trend": 0.0
     },
     "note": "Analitik sıralama — otomatik emir değildir, gelecek garantisi yoktur."
@@ -50403,15 +50403,15 @@
         "eligible": false
       },
       {
-        "strategy": "boosting",
-        "mean_weekly_net": -0.009172,
-        "tstat": -5.949,
-        "eligible": false
-      },
-      {
         "strategy": "ridge",
         "mean_weekly_net": -0.009124,
         "tstat": -6.052,
+        "eligible": false
+      },
+      {
+        "strategy": "boosting",
+        "mean_weekly_net": -0.009538,
+        "tstat": -6.186,
         "eligible": false
       }
     ],
@@ -50444,253 +50444,253 @@
     "rows": [
       {
         "symbol": "AXTI",
-        "years": 10.0,
-        "median_value": 497305435.0,
+        "years": 10.01,
+        "median_value": 515668305.5,
         "zero_share": 0.0,
-        "last": "2026-10-26",
+        "last": "2026-10-29",
         "reasons": []
       },
       {
-        "symbol": "NVTS",
-        "years": 5.02,
-        "median_value": 191943378.0,
-        "zero_share": 0.0,
-        "last": "2026-10-26",
-        "reasons": [
-          "geçmiş 5.0 yıl < 8"
-        ]
-      },
-      {
         "symbol": "SITM",
-        "years": 6.93,
-        "median_value": 188235290.0,
+        "years": 6.94,
+        "median_value": 188886724.0,
         "zero_share": 0.0,
-        "last": "2026-10-26",
+        "last": "2026-10-29",
         "reasons": [
           "geçmiş 6.9 yıl < 8"
         ]
       },
       {
-        "symbol": "AEHR",
-        "years": 10.0,
-        "median_value": 152587335.0,
+        "symbol": "NVTS",
+        "years": 5.02,
+        "median_value": 186154067.0,
         "zero_share": 0.0,
-        "last": "2026-10-26",
+        "last": "2026-10-29",
+        "reasons": [
+          "geçmiş 5.0 yıl < 8"
+        ]
+      },
+      {
+        "symbol": "AEHR",
+        "years": 10.01,
+        "median_value": 152873183.0,
+        "zero_share": 0.0,
+        "last": "2026-10-29",
         "reasons": []
       },
       {
         "symbol": "FORM",
-        "years": 10.0,
+        "years": 10.01,
         "median_value": 135701184.0,
         "zero_share": 0.0,
-        "last": "2026-10-26",
+        "last": "2026-10-29",
         "reasons": []
       },
       {
         "symbol": "AMBA",
-        "years": 10.0,
-        "median_value": 68999940.0,
+        "years": 10.01,
+        "median_value": 69575615.0,
         "zero_share": 0.0,
-        "last": "2026-10-26",
+        "last": "2026-10-29",
         "reasons": []
       },
       {
         "symbol": "POET",
-        "years": 10.0,
-        "median_value": 68821263.0,
+        "years": 10.01,
+        "median_value": 68221540.0,
         "zero_share": 0.0,
-        "last": "2026-10-26",
+        "last": "2026-10-29",
         "reasons": []
       },
       {
         "symbol": "UCTT",
-        "years": 10.0,
-        "median_value": 66420805.5,
+        "years": 10.01,
+        "median_value": 67075112.5,
         "zero_share": 0.0,
-        "last": "2026-10-26",
+        "last": "2026-10-29",
         "reasons": []
       },
       {
         "symbol": "ACMR",
-        "years": 8.98,
-        "median_value": 65580198.5,
+        "years": 8.99,
+        "median_value": 65766430.5,
         "zero_share": 0.0,
-        "last": "2026-10-26",
+        "last": "2026-10-29",
         "reasons": []
       },
       {
         "symbol": "LASR",
-        "years": 8.5,
+        "years": 8.51,
         "median_value": 55714732.0,
         "zero_share": 0.0,
-        "last": "2026-10-26",
+        "last": "2026-10-29",
         "reasons": []
       },
       {
         "symbol": "KLIC",
-        "years": 10.0,
-        "median_value": 52020680.42,
+        "years": 10.01,
+        "median_value": 52191211.67,
         "zero_share": 0.0,
-        "last": "2026-10-26",
+        "last": "2026-10-29",
         "reasons": []
       },
       {
         "symbol": "ICHR",
-        "years": 9.88,
-        "median_value": 39350242.0,
+        "years": 9.89,
+        "median_value": 40061295.0,
         "zero_share": 0.0,
-        "last": "2026-10-26",
+        "last": "2026-10-29",
         "reasons": []
       },
       {
         "symbol": "COHU",
-        "years": 10.0,
-        "median_value": 37170687.5,
+        "years": 10.01,
+        "median_value": 37331337.5,
         "zero_share": 0.0,
-        "last": "2026-10-26",
+        "last": "2026-10-29",
         "reasons": []
       },
       {
         "symbol": "VECO",
-        "years": 10.0,
-        "median_value": 34074080.0,
+        "years": 10.01,
+        "median_value": 34640311.5,
         "zero_share": 0.0,
-        "last": "2026-10-26",
+        "last": "2026-10-29",
         "reasons": []
       },
       {
         "symbol": "PLAB",
-        "years": 10.0,
+        "years": 10.01,
         "median_value": 32215629.0,
         "zero_share": 0.0,
-        "last": "2026-10-26",
+        "last": "2026-10-29",
         "reasons": []
       },
       {
         "symbol": "LPTH",
-        "years": 10.0,
+        "years": 10.01,
         "median_value": 28441331.0,
         "zero_share": 0.0,
-        "last": "2026-10-26",
+        "last": "2026-10-29",
         "reasons": []
       },
       {
         "symbol": "PDFS",
-        "years": 10.0,
-        "median_value": 17168433.5,
+        "years": 10.01,
+        "median_value": 17735176.5,
         "zero_share": 0.0,
-        "last": "2026-10-26",
+        "last": "2026-10-29",
         "reasons": [
-          "medyan işlem hacmi 17,168,434 < 20,000,000"
+          "medyan işlem hacmi 17,735,176 < 20,000,000"
         ]
       },
       {
         "symbol": "INDI",
-        "years": 7.06,
-        "median_value": 15032946.0,
+        "years": 7.07,
+        "median_value": 14954476.0,
         "zero_share": 0.0,
-        "last": "2026-10-26",
+        "last": "2026-10-29",
         "reasons": [
           "geçmiş 7.1 yıl < 8",
-          "medyan işlem hacmi 15,032,946 < 20,000,000"
+          "medyan işlem hacmi 14,954,476 < 20,000,000"
         ]
       },
       {
         "symbol": "CEVA",
-        "years": 10.0,
-        "median_value": 14070525.0,
+        "years": 10.01,
+        "median_value": 14279961.0,
         "zero_share": 0.0,
-        "last": "2026-10-26",
+        "last": "2026-10-29",
         "reasons": [
-          "medyan işlem hacmi 14,070,525 < 20,000,000"
-        ]
-      },
-      {
-        "symbol": "KOPN",
-        "years": 10.0,
-        "median_value": 12357058.5,
-        "zero_share": 0.0,
-        "last": "2026-10-26",
-        "reasons": [
-          "medyan işlem hacmi 12,357,058 < 20,000,000"
+          "medyan işlem hacmi 14,279,961 < 20,000,000"
         ]
       },
       {
         "symbol": "AOSL",
-        "years": 10.0,
-        "median_value": 11960980.5,
+        "years": 10.01,
+        "median_value": 12410598.0,
         "zero_share": 0.0,
-        "last": "2026-10-26",
+        "last": "2026-10-29",
         "reasons": [
-          "medyan işlem hacmi 11,960,980 < 20,000,000"
+          "medyan işlem hacmi 12,410,598 < 20,000,000"
+        ]
+      },
+      {
+        "symbol": "KOPN",
+        "years": 10.01,
+        "median_value": 12405183.5,
+        "zero_share": 0.0,
+        "last": "2026-10-29",
+        "reasons": [
+          "medyan işlem hacmi 12,405,184 < 20,000,000"
         ]
       },
       {
         "symbol": "GSIT",
-        "years": 10.0,
-        "median_value": 5481870.0,
+        "years": 10.01,
+        "median_value": 5323726.5,
         "zero_share": 0.0,
-        "last": "2026-10-26",
+        "last": "2026-10-29",
         "reasons": [
-          "medyan işlem hacmi 5,481,870 < 20,000,000"
+          "medyan işlem hacmi 5,323,726 < 20,000,000"
         ]
       },
       {
         "symbol": "VUZI",
-        "years": 10.0,
-        "median_value": 3078297.0,
+        "years": 10.01,
+        "median_value": 3023474.0,
         "zero_share": 0.0,
-        "last": "2026-10-26",
+        "last": "2026-10-29",
         "reasons": [
-          "medyan işlem hacmi 3,078,297 < 20,000,000"
+          "medyan işlem hacmi 3,023,474 < 20,000,000"
         ]
       },
       {
         "symbol": "MVIS",
-        "years": 10.0,
-        "median_value": 2864043.98,
+        "years": 10.01,
+        "median_value": 2826058.5,
         "zero_share": 0.0,
-        "last": "2026-10-26",
+        "last": "2026-10-29",
         "reasons": [
-          "medyan işlem hacmi 2,864,044 < 20,000,000"
+          "medyan işlem hacmi 2,826,058 < 20,000,000"
         ]
       },
       {
         "symbol": "ATOM",
-        "years": 10.0,
+        "years": 10.01,
         "median_value": 2622501.0,
         "zero_share": 0.0,
-        "last": "2026-10-26",
+        "last": "2026-10-29",
         "reasons": [
           "medyan işlem hacmi 2,622,501 < 20,000,000"
         ]
       },
       {
         "symbol": "QUIK",
-        "years": 10.0,
-        "median_value": 2282695.0,
+        "years": 10.01,
+        "median_value": 2253942.5,
         "zero_share": 0.0,
-        "last": "2026-10-26",
+        "last": "2026-10-29",
         "reasons": [
-          "medyan işlem hacmi 2,282,695 < 20,000,000"
+          "medyan işlem hacmi 2,253,942 < 20,000,000"
         ]
       },
       {
         "symbol": "PXLW",
-        "years": 10.0,
-        "median_value": 256784.5,
+        "years": 10.01,
+        "median_value": 249453.0,
         "zero_share": 0.0,
-        "last": "2026-10-26",
+        "last": "2026-10-29",
         "reasons": [
-          "medyan işlem hacmi 256,784 < 20,000,000"
+          "medyan işlem hacmi 249,453 < 20,000,000"
         ]
       },
       {
         "symbol": "SMTK",
-        "years": 2.4,
+        "years": 2.41,
         "median_value": 114800.0,
         "zero_share": 0.0,
-        "last": "2026-10-26",
+        "last": "2026-10-29",
         "reasons": [
           "geçmiş 2.4 yıl < 8",
           "medyan işlem hacmi 114,800 < 20,000,000"
@@ -50698,12 +50698,12 @@
       },
       {
         "symbol": "DAIO",
-        "years": 10.0,
-        "median_value": 77026.0,
+        "years": 10.01,
+        "median_value": 75200.0,
         "zero_share": 0.0,
-        "last": "2026-10-26",
+        "last": "2026-10-29",
         "reasons": [
-          "medyan işlem hacmi 77,026 < 20,000,000"
+          "medyan işlem hacmi 75,200 < 20,000,000"
         ]
       },
       {
@@ -50716,7 +50716,7 @@
           "geçmiş 0.0 yıl < 8",
           "medyan işlem hacmi 0 < 20,000,000",
           "hacimsiz gün oranı %100",
-          "son veri 2026-07-30 (88 gün geride)"
+          "son veri 2026-07-30 (91 gün geride)"
         ]
       }
     ]

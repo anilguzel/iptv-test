@@ -8,7 +8,7 @@ Bu dal GitHub Actions tarafından otomatik yazılır; elle düzenlemeyin.
 Bu bir analizdir; buradaki hiçbir şey emir ya da yatırım tavsiyesi değildir.
 
 ## Durum
-Son çalışma: **Günlük veri toplama**, 2026-10-31 01:05 UTC
+Son çalışma: **Haftalık araştırma**, 2026-10-31 12:45 UTC
 
 ### Veri
 | Kaynak | Hisse | En güncel gün | En geride kalan |
@@ -20,42 +20,26 @@ Son çalışma: **Günlük veri toplama**, 2026-10-31 01:05 UTC
 ### Haftalık araştırma
 | Rapor | Tür | Tarih | Model | IC t | Toplam (model) | Seçilen strateji → gelecek hafta |
 |---|---|---|---|---|---|---|
-| bist_likit | sıralama (31/44 elemeden geçti) | 2026-10-28 | FAIL ❌ | 0.23 | -33.7% | **boosting** [ZAYIF]: TCELL, HALKB, SISE, VAKBN, TUPRS |
-| smtk_peers | sıralama (14/30 elemeden geçti) | 2026-10-28 | FAIL ❌ | -0.73 | -95.6% | **yok** [YOK]: hisse seçme, endeksi tut |
-| smtk_timeseries | tek hisse | 2026-10-28 | FAIL ❌ | -0.33 | -54.2% | SMTK LONG _(model FAIL: sinyal değil)_ |
+| bist_likit | sıralama (31/44 elemeden geçti) | 2026-10-31 | FAIL ❌ | 0.24 | -33.6% | **yok** [YOK]: hisse seçme, endeksi tut |
+| smtk_peers | sıralama (14/30 elemeden geçti) | 2026-10-31 | FAIL ❌ | -0.73 | -95.6% | **yok** [YOK]: hisse seçme, endeksi tut |
+| smtk_timeseries | tek hisse | 2026-10-31 | FAIL ❌ | -0.33 | -54.2% | SMTK FLAT _(model FAIL: sinyal değil)_ |
 
-#### bist_gorunum: gelecek hafta risk (2026-10-26 kapanışı)
-Doğrulama: 458 haftanın %70'inde hareket büyüklüğünü doğru sıraladı (t 12.11); %80'lik aralık gerçekte %77 kapsadı.
+#### bist_gorunum: gelecek hafta risk (2026-10-28 kapanışı)
+Doğrulama: 458 haftanın %70'inde hareket büyüklüğünü doğru sıraladı (t 12.07); %80'lik aralık gerçekte %77 kapsadı.
 | Sıra | Hisse | Beklenen hareket | Olası aralık (%) | Olası aralık (fiyat) |
 |---|---|---|---|---|
-| 1 | GUBRF | ±4.9% | -6.5% … +8.8% | 256.31 – 298.50 |
-| 2 | AKSEN | ±4.9% | -6.5% … +8.8% | 60.11 – 69.97 |
-| 3 | HALKB | ±4.8% | -6.3% … +8.6% | 40.22 – 46.62 |
-| 4 | PETKM | ±4.7% | -6.2% … +8.4% | 16.61 – 19.22 |
-| 5 | FROTO | ±4.4% | -5.9% … +8.0% | 63.95 – 73.36 |
-| 6 | HEKTS | ±4.4% | -5.8% … +7.9% | 1.60 – 1.83 |
-| 7 | KRDMD | ±4.4% | -5.8% … +7.8% | 33.98 – 38.87 |
-| 8 | TTKOM | ±4.0% | -5.3% … +7.2% | 44.30 – 50.18 |
-| 9 | VAKBN | ±3.9% | -5.1% … +7.0% | 28.63 – 32.28 |
-| 10 | SISE | ±3.8% | -5.1% … +6.9% | 32.66 – 36.76 |
+| 1 | AKSEN | ±5.8% | -7.7% … +10.4% | 62.11 – 74.31 |
+| 2 | HEKTS | ±5.5% | -7.2% … +9.8% | 1.47 – 1.73 |
+| 3 | HALKB | ±5.1% | -6.7% … +9.1% | 40.23 – 47.07 |
+| 4 | GUBRF | ±4.9% | -6.5% … +8.8% | 259.87 – 302.47 |
+| 5 | PETKM | ±4.8% | -6.4% … +8.6% | 16.39 – 19.00 |
+| 6 | FROTO | ±4.5% | -6.0% … +8.1% | 65.07 – 74.77 |
+| 7 | ALARK | ±4.3% | -5.7% … +7.7% | 88.90 – 101.60 |
+| 8 | TOASO | ±4.3% | -5.7% … +7.7% | 216.82 – 247.79 |
+| 9 | VAKBN | ±4.3% | -5.7% … +7.7% | 28.87 – 32.98 |
+| 10 | KRDMD | ±4.3% | -5.6% … +7.6% | 35.44 – 40.42 |
 
 #### bist_gorunum: 3-6 aylık sıralama
 En iyi sonuç: göstergeleri birlikte tartan doğrusal model, 26 hafta tutulduğunda. Grubun ortalamasına göre dönem başına +8.0% (yıllık +16.6%), 17 dönemin %65'inde önde; t=2.09 (eşik 2.64); son 2 yılda da tuttu. Güven: ORTA.
 
-İlk hisseler: HALKB, TUPRS, PETKM, KRDMD, VAKBN (tüm liste `reports/bist_gorunum_siralama.csv`, risk `reports/bist_gorunum_risk.csv`).
-
-#### bist_likit: 2026-10-26 kapanışına göre gelecek hafta (strateji: boosting)
-| Sıra | Hisse | Beklenen fazla getiri | Kıyası yenme olasılığı | Seçildi |
-|---|---|---|---|---|
-| 1 | TCELL | +0.1% | %45 | ✅ |
-| 2 | HALKB | +0.1% | %45 | ✅ |
-| 3 | SISE | +0.1% | %45 | ✅ |
-| 4 | VAKBN | +0.1% | %45 | ✅ |
-| 5 | TUPRS | +0.0% | %45 | ✅ |
-| 6 | ENKAI | +0.0% | %45 |  |
-| 7 | TTKOM | +0.0% | %45 |  |
-| 8 | ULKER | +0.0% | %45 |  |
-| 9 | ASELS | +0.0% | %45 |  |
-| 10 | ALARK | +0.0% | %45 |  |
-
-Geçmiş karne: 353 haftanın %53'inde seçilen hisseler kıyası (universe_ew) yendi; haftalık ortalama +0.2% (masraf öncesi). Tüm liste: `reports/bist_likit_tahmin.csv`, hafta hafta geçmiş: `reports/bist_likit_gecmis.csv`.
+İlk hisseler: HALKB, TUPRS, PETKM, VAKBN, KRDMD (tüm liste `reports/bist_gorunum_siralama.csv`, risk `reports/bist_gorunum_risk.csv`).
