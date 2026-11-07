@@ -1,6 +1,6 @@
 {
   "mode": "timeseries",
-  "generated_at": "2026-10-31T12:45:29.417915+00:00",
+  "generated_at": "2026-11-07T13:15:20.154387+00:00",
   "meta": {
     "source": "csv",
     "universe": "SMTK",
@@ -38,11 +38,11 @@
       "SMTK"
     ],
     "symbols_skipped_short_history": [],
-    "calendar_weeks": 127,
+    "calendar_weeks": 128,
     "first_week_end": "2024-05-31",
-    "last_week_end": "2026-10-29",
-    "rows": 115,
-    "evaluated_weeks": 36,
+    "last_week_end": "2026-11-05",
+    "rows": 116,
+    "evaluated_weeks": 37,
     "segment": "validation",
     "holdout_locked": true,
     "config": {
@@ -66,29 +66,29 @@
   },
   "tactic_tr": "Her hafta kapanışında model SMTK hissesinin yalnızca kendi geçmişiyle yeniden eğitilir; tahmin pozitifse hisse 1 hafta tutulur (LONG), değilse nakitte beklenir (FLAT). Başarı ölçüsü: kıyasa (IWM) göre maliyet sonrası fazla getiri. Bu bir analizdir, otomatik emir değildir.",
   "verdict": {
-    "best_baseline": "random",
+    "best_baseline": "always_long",
     "models": {
       "ridge": {
         "passed": false,
         "checks": {
-          "positive_after_costs": true,
-          "beats_best_baseline": true,
+          "positive_after_costs": false,
+          "beats_best_baseline": false,
           "ic_significant": false,
           "consistent": false
         },
-        "summary_tr": "Tutarlı bir avantaj bulunamadı. Başarısız kriterler: ic_significant, consistent."
+        "summary_tr": "Tutarlı bir avantaj bulunamadı. Başarısız kriterler: positive_after_costs, beats_best_baseline, ic_significant, consistent."
       }
     }
   },
   "strategies": {
     "ridge": {
       "metrics": {
-        "weeks": 36,
-        "mean_weekly_net": 0.000109,
-        "sharpe_annualised": 0.004,
-        "cumulative_net": -0.542333,
+        "weeks": 37,
+        "mean_weekly_net": -9.6e-05,
+        "sharpe_annualised": -0.003,
+        "cumulative_net": -0.545765,
         "max_drawdown": -0.836797,
-        "consistency_13w": 0.0833,
+        "consistency_13w": 0.08,
         "per_year": {
           "2025": {
             "weeks": 18,
@@ -96,18 +96,18 @@
             "cum_net": 1.007123
           },
           "2026": {
-            "weeks": 18,
-            "mean_net": -0.058376,
-            "cum_net": -0.771979
+            "weeks": 19,
+            "mean_net": -0.055699,
+            "cum_net": -0.773689
           }
         },
-        "hit_rate": 0.4722,
-        "accuracy_pvalue": 0.6911,
-        "mean_ic": -0.0584,
-        "ic_tstat": -0.333,
-        "ic_effective_n": 34.3,
-        "exposure": 0.7222,
-        "mean_turnover": 0.3611
+        "hit_rate": 0.4595,
+        "accuracy_pvalue": 0.7443,
+        "mean_ic": -0.0955,
+        "ic_tstat": -0.554,
+        "ic_effective_n": 35.3,
+        "exposure": 0.7027,
+        "mean_turnover": 0.3784
       },
       "equity": [
         {
@@ -253,6 +253,10 @@
         {
           "week_end": "2026-05-01",
           "cum_net": -0.542333
+        },
+        {
+          "week_end": "2026-05-08",
+          "cum_net": -0.545765
         }
       ],
       "steps": [
@@ -615,17 +619,27 @@
           "position": 1.0,
           "outcome": -0.142348,
           "net": -0.149848
+        },
+        {
+          "signal_week_end": "2026-05-01",
+          "hold_week_end": "2026-05-08",
+          "train_max_week": 99,
+          "week": 100,
+          "score": -0.00992,
+          "position": 0.0,
+          "outcome": 0.352706,
+          "net": -0.0075
         }
       ]
     },
     "always_long": {
       "metrics": {
-        "weeks": 36,
-        "mean_weekly_net": -0.006771,
-        "sharpe_annualised": -0.201,
-        "cumulative_net": -0.70054,
+        "weeks": 37,
+        "mean_weekly_net": 0.002945,
+        "sharpe_annualised": 0.086,
+        "cumulative_net": -0.594919,
         "max_drawdown": -0.910184,
-        "consistency_13w": 0.1667,
+        "consistency_13w": 0.16,
         "per_year": {
           "2025": {
             "weeks": 18,
@@ -633,18 +647,18 @@
             "cum_net": 1.345193
           },
           "2026": {
-            "weeks": 18,
-            "mean_net": -0.085468,
-            "cum_net": -0.872309
+            "weeks": 19,
+            "mean_net": -0.062407,
+            "cum_net": -0.827272
           }
         },
-        "hit_rate": 0.4167,
-        "accuracy_pvalue": 0.8785,
-        "mean_ic": -0.2911,
-        "ic_tstat": -1.774,
-        "ic_effective_n": 36.0,
+        "hit_rate": 0.4324,
+        "accuracy_pvalue": 0.838,
+        "mean_ic": -0.1984,
+        "ic_tstat": -1.198,
+        "ic_effective_n": 37.0,
         "exposure": 1.0,
-        "mean_turnover": 0.0278
+        "mean_turnover": 0.027
       },
       "equity": [
         {
@@ -790,6 +804,10 @@
         {
           "week_end": "2026-05-01",
           "cum_net": -0.70054
+        },
+        {
+          "week_end": "2026-05-08",
+          "cum_net": -0.594919
         }
       ],
       "steps": [
@@ -1152,17 +1170,27 @@
           "position": 1.0,
           "outcome": -0.142348,
           "net": -0.142348
+        },
+        {
+          "signal_week_end": "2026-05-01",
+          "hold_week_end": "2026-05-08",
+          "train_max_week": 99,
+          "week": 100,
+          "score": 1.0,
+          "position": 1.0,
+          "outcome": 0.352706,
+          "net": 0.352706
         }
       ]
     },
     "momentum_4w": {
       "metrics": {
-        "weeks": 36,
-        "mean_weekly_net": -0.010612,
-        "sharpe_annualised": -0.846,
-        "cumulative_net": -0.411447,
+        "weeks": 37,
+        "mean_weekly_net": -0.000792,
+        "sharpe_annualised": -0.053,
+        "cumulative_net": -0.203861,
         "max_drawdown": -0.554117,
-        "consistency_13w": 0.25,
+        "consistency_13w": 0.24,
         "per_year": {
           "2025": {
             "weeks": 18,
@@ -1170,18 +1198,18 @@
             "cum_net": 0.294092
           },
           "2026": {
-            "weeks": 18,
-            "mean_net": -0.039444,
-            "cum_net": -0.5452
+            "weeks": 19,
+            "mean_net": -0.018804,
+            "cum_net": -0.384789
           }
         },
-        "hit_rate": 0.4167,
-        "accuracy_pvalue": 0.8785,
-        "mean_ic": -0.0471,
-        "ic_tstat": -0.275,
-        "ic_effective_n": 36.0,
-        "exposure": 0.3889,
-        "mean_turnover": 0.1944
+        "hit_rate": 0.4324,
+        "accuracy_pvalue": 0.838,
+        "mean_ic": -0.0308,
+        "ic_tstat": -0.182,
+        "ic_effective_n": 37.0,
+        "exposure": 0.4054,
+        "mean_turnover": 0.1892
       },
       "equity": [
         {
@@ -1327,6 +1355,10 @@
         {
           "week_end": "2026-05-01",
           "cum_net": -0.411447
+        },
+        {
+          "week_end": "2026-05-08",
+          "cum_net": -0.203861
         }
       ],
       "steps": [
@@ -1689,17 +1721,27 @@
           "position": 1.0,
           "outcome": -0.142348,
           "net": -0.142348
+        },
+        {
+          "signal_week_end": "2026-05-01",
+          "hold_week_end": "2026-05-08",
+          "train_max_week": 99,
+          "week": 100,
+          "score": 0.007746,
+          "position": 1.0,
+          "outcome": 0.352706,
+          "net": 0.352706
         }
       ]
     },
     "random": {
       "metrics": {
-        "weeks": 36,
-        "mean_weekly_net": -0.006741,
-        "sharpe_annualised": -0.236,
+        "weeks": 37,
+        "mean_weekly_net": -0.006558,
+        "sharpe_annualised": -0.233,
         "cumulative_net": -0.60056,
         "max_drawdown": -0.840652,
-        "consistency_13w": 0.0833,
+        "consistency_13w": 0.08,
         "per_year": {
           "2025": {
             "weeks": 18,
@@ -1707,18 +1749,18 @@
             "cum_net": 0.617034
           },
           "2026": {
-            "weeks": 18,
-            "mean_net": -0.060558,
+            "weeks": 19,
+            "mean_net": -0.057371,
             "cum_net": -0.75298
           }
         },
-        "hit_rate": 0.4722,
-        "accuracy_pvalue": 0.6911,
-        "mean_ic": -0.0126,
-        "ic_tstat": -0.073,
-        "ic_effective_n": 35.5,
-        "exposure": 0.3333,
-        "mean_turnover": 0.3889
+        "hit_rate": 0.4595,
+        "accuracy_pvalue": 0.7443,
+        "mean_ic": 0.004,
+        "ic_tstat": 0.023,
+        "ic_effective_n": 35.9,
+        "exposure": 0.3243,
+        "mean_turnover": 0.3784
       },
       "equity": [
         {
@@ -1863,6 +1905,10 @@
         },
         {
           "week_end": "2026-05-01",
+          "cum_net": -0.60056
+        },
+        {
+          "week_end": "2026-05-08",
           "cum_net": -0.60056
         }
       ],
@@ -2226,25 +2272,35 @@
           "position": 0.0,
           "outcome": -0.142348,
           "net": -0.0075
+        },
+        {
+          "signal_week_end": "2026-05-01",
+          "hold_week_end": "2026-05-08",
+          "train_max_week": 99,
+          "week": 100,
+          "score": -0.032522,
+          "position": 0.0,
+          "outcome": 0.352706,
+          "net": 0.0
         }
       ]
     }
   },
   "next_week": {
-    "as_of_week_end": "2026-10-29",
+    "as_of_week_end": "2026-11-05",
     "model": "ridge",
     "symbol": "SMTK",
-    "predicted_excess": -0.072964,
+    "predicted_excess": -0.021809,
     "position": "FLAT",
     "coefficients": {
-      "ex_ret_1w": 0.02318,
-      "ex_ret_4w": -0.0164,
-      "ex_ret_12w": -0.01027,
-      "vol_4w": 0.0245,
-      "vol_12w": -0.01784,
-      "log_volume_ratio": -0.05646,
-      "dist_from_12w_high": 0.036,
-      "range_1w": 0.02611,
+      "ex_ret_1w": 0.02053,
+      "ex_ret_4w": -0.01778,
+      "ex_ret_12w": -0.01209,
+      "vol_4w": 0.02216,
+      "vol_12w": -0.01669,
+      "log_volume_ratio": -0.05701,
+      "dist_from_12w_high": 0.03971,
+      "range_1w": 0.0335,
       "fx_beta_x_trend": 0.0
     },
     "note": "Analitik tahmin — otomatik emir değildir, gelecek garantisi yoktur."
