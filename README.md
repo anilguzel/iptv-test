@@ -8,13 +8,13 @@ Bu dal GitHub Actions tarafından otomatik yazılır; elle düzenlemeyin.
 Bu bir analizdir; buradaki hiçbir şey emir ya da yatırım tavsiyesi değildir.
 
 ## Durum
-Son çalışma: **Günlük veri toplama**, 2026-11-10 03:49 UTC
+Son çalışma: **Günlük veri toplama**, 2026-11-11 01:30 UTC
 
 ### Veri
 | Kaynak | Hisse | En güncel gün | En geride kalan |
 |---|---|---|---|
-| evds | 2 | 2026-11-10 | hepsi güncel |
-| yahoo_bist | 44 | 2026-11-09 | ZOREN (2026-11-06) |
+| evds | 2 | 2026-11-11 | hepsi güncel |
+| yahoo_bist | 44 | 2026-11-09 | hepsi güncel |
 | yahoo_us | 31 | 2026-11-09 | SKYT (2026-07-30) |
 
 ### Haftalık araştırma
