@@ -8,14 +8,14 @@ Bu dal GitHub Actions tarafından otomatik yazılır; elle düzenlemeyin.
 Bu bir analizdir; buradaki hiçbir şey emir ya da yatırım tavsiyesi değildir.
 
 ## Durum
-Son çalışma: **Haftalık araştırma**, 2026-11-21 14:47 UTC
+Son çalışma: **Günlük veri toplama**, 2026-11-24 05:35 UTC
 
 ### Veri
 | Kaynak | Hisse | En güncel gün | En geride kalan |
 |---|---|---|---|
-| evds | 2 | 2026-11-20 | hepsi güncel |
-| yahoo_bist | 44 | 2026-11-20 | THYAO (2026-11-19) |
-| yahoo_us | 31 | 2026-11-20 | SKYT (2026-07-30) |
+| evds | 2 | 2026-11-24 | hepsi güncel |
+| yahoo_bist | 44 | 2026-11-23 | THYAO (2026-11-20) |
+| yahoo_us | 31 | 2026-11-23 | SKYT (2026-07-30) |
 
 ### Haftalık araştırma
 | Rapor | Tür | Tarih | Model | IC t | Toplam (model) | Seçilen strateji → gelecek hafta |
